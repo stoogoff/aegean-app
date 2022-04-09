@@ -1,5 +1,5 @@
 
-import { user, character } from '~/state'
+import { user/*, character*/ } from '~/state'
 import { auth } from '~/plugins/firebase'
 
 export default async function () {
@@ -11,8 +11,8 @@ export default async function () {
 				isAnonymous: authUser.isAnonymous
 			})
 
-			character.reset()
-			await character.fetch()
+			//character.reset()
+			//await character.fetch()
 		}
 		else {
 			user.anonymous()

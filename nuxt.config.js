@@ -1,7 +1,7 @@
 export default {
 	// Target: https://go.nuxtjs.dev/config-target
 	target: 'static',
-
+	ssr: false,
   env: {
 		apiKey: process.env.FIREBASE_API_KEY,
 		authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -27,10 +27,13 @@ export default {
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: [
+		'~/assets/styles.css'
 	],
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [
+    { src: '~/plugins/firebase.js', mode: 'client' },
+    { src: '~/plugins/auth-check.js', mode: 'client' }
 	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components

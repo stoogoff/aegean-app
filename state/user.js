@@ -1,7 +1,7 @@
 
 import Vue from 'vue'
 import { AuthProvider, auth } from '~/plugins/firebase'
-import { character, image } from '~/state'
+//import { character, image } from '~/state'
 
 const state = Vue.observable({
 	user: null,
@@ -22,8 +22,8 @@ export default {
 
 		this.anonymous()
 
-		character.reset()
-		image.reset()
+		//character.reset()
+		//image.reset()
 	},
 
 	async anonymous() {
