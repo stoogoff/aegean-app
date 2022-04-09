@@ -1,0 +1,226 @@
+[
+	{
+		"title": "Axe",
+		"skill": "Melee",
+		"reach": "2",
+		"damage": 5,
+		"properties": ["property:Pommel Strike", "property:Savage"],
+		"thrown": {
+			"skill": "Accuracy",
+			"range": "Short",
+			"damage": 4,
+			"properties": ["-1D"]
+		}
+	},
+	{
+		"title": "Club",
+		"skill": "Melee",
+		"reach": "2",
+		"damage": 4,
+		"properties": ["property:Pommel Strike", "property:Stun"]
+	},
+	{
+		"title": "Dori",
+		"subtitle": "Spear",
+		"skill": "Melee",
+		"reach": "4",
+		"damage": 5,
+		"properties": ["property:Pierce"],
+		"thrown": {
+			"skill": "Accuracy",
+			"range": "Medium",
+			"damage": 5,
+			"properties": ["property:Pierce"]
+		}
+	},
+	{
+		"title": "Falx",
+		"subtitle": "Two-handed Sword",
+		"skill": "Melee",
+		"reach": "3",
+		"damage": 6,
+		"properties": ["property:Cumbersome 1", "property:Parry 2", "property:Heavy"]
+	},
+	{
+		"title": "Harpe",
+		"subtitle": "Sickle",
+		"skill": "Melee",
+		"reach": "2",
+		"damage": 5,
+		"properties": ["property:Disarm", "property:Parry 3", "property:Pommel Strike"]
+	},
+	{
+		"title": "Javelin",
+		"skill": "Melee",
+		"reach": "3",
+		"damage": 4,
+		"properties": ["property:Reflexes", "property:Pierce"],
+		"thrown": {
+			"skill": "Accuracy",
+			"range": "Medium",
+			"damage": 4,
+			"properties": ["property:Pierce"]
+		}
+	},
+	{
+		"title": "Kopis",
+		"subtitle": "Machete",
+		"skill": "Melee",
+		"reach": "2",
+		"damage": 5,
+		"properties": ["property:Parry 2", "property:Pommel Strike", "property:Savage"]
+	},
+	{
+		"title": "Labrys",
+		"subtitle": "Two-handed Axe",
+		"skill": "Melee",
+		"reach": "3",
+		"damage": 6,
+		"properties": ["property:Cumbersome 1", "property:Heavy", "property:Savage"]
+	},
+	{
+		"title": "Makhaira",
+		"subtitle": "Dagger",
+		"skill": "Melee",
+		"reach": "1",
+		"damage": 3,
+		"properties": ["property:Parry 1", "property:Cunning", "property:Pommel Strike"],
+		"thrown": {
+			"skill": "Accuracy",
+			"range": "Short",
+			"damage": 3,
+			"properties": []
+		}
+	},
+	{
+		"title": "Mattock",
+		"skill": "Melee",
+		"reach": "3",
+		"damage": 6,
+		"properties": ["property:Cumbersome 1", "property:Heavy", "property:Stagger"]
+	},
+	{
+		"title": "Net",
+		"skill": "Melee",
+		"reach": "1",
+		"damage": null,
+		"properties": ["property:Entangle"],
+		"thrown": {
+			"skill": "Accuracy",
+			"range": "Short",
+			"damage": null,
+			"properties": ["property:Entangle"]
+		}
+	},
+	{
+		"title": "Pommel Strike",
+		"skill": "Brawl",
+		"reach": "0–1",
+		"damage": 3,
+		"properties": ["property:Stun"]
+	},
+	{
+		"title": "Rock",
+		"skill": "Brawl",
+		"reach": "1",
+		"damage": 3,
+		"properties": ["property:Stun"],
+		"thrown": {
+			"skill": "Accuracy",
+			"range": "Short",
+			"damage": 2,
+			"properties": []
+		}
+	},
+	{
+		"title": "Staff",
+		"skill": "Melee",
+		"reach": "2–3",
+		"damage": 4,
+		"properties": ["property:Parry 3"]
+	},
+	{
+		"title": "Trident",
+		"skill": "Melee",
+		"reach": "3",
+		"damage": 4,
+		"properties": ["property:Disarm"],
+		"thrown": {
+			"skill": "Accuracy",
+			"range": "Medium",
+			"damage": 4,
+			"properties": []
+		}
+	},
+	{
+		"title": "Unarmed Strike",
+		"skill": "Brawl",
+		"reach": "0–1",
+		"damage": 2,
+		"properties": []
+	},
+	{
+		"title": "Xiphos",
+		"subtitle": "Sword",
+		"skill": "Melee",
+		"reach": "2",
+		"damage": 5,
+		"properties": ["property:Reflexes", "property:Pommel Strike", "property:Parry 2", "property:Pierce"]
+	},
+	{
+		"title": "Composite Bow",
+		"skill": "Accuracy",
+		"range": "Long",
+		"damage": 5,
+		"properties": ["property:Insight", "property:Pierce"]
+	},
+	{
+		"title": "Recurve Bow",
+		"skill": "Accuracy",
+		"range": "Long",
+		"damage": 6,
+		"properties": ["property:Accurate", "property:Insight", "property:Pierce"]
+	},
+	{
+		"title": "Self Bow",
+		"skill": "Accuracy",
+		"range": "Medium",
+		"damage": 4,
+		"properties": ["property:Insight"]
+	},
+	{
+		"title": "Sling",
+		"skill": "Accuracy",
+		"range": "Long",
+		"damage": 6,
+		"properties": ["property:Reflexes", "property:Clumsy", "property:Stun"]
+	},
+	{
+		"title": "Dipylon",
+		"skill": "Melee",
+		"reach": 2,
+		"damage": 4,
+		"properties": ["property:Cumbersome 1", "property:Shield 4", "property:Stagger"]
+	},
+	{
+		"title": "Hoplon",
+		"skill": "Melee",
+		"reach": 1,
+		"damage": 3,
+		"properties": ["property:Shield 3", "property:Stagger"]
+	},
+	{
+		"title": "Klipeus",
+		"skill": "Melee",
+		"reach": 1,
+		"damage": 3,
+		"properties": ["property:Shield 1", "property:Parry 3", "property:Stun"]
+	},
+	{
+		"title": "Pelte",
+		"skill": "Melee",
+		"reach": 1,
+		"damage": 4,
+		"properties": ["property:Shield 2", "property:Stagger"]
+	}
+]

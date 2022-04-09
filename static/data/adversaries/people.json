@@ -1,0 +1,40 @@
+[
+	{
+		"id": "amazon",
+		"title": "Amazon",
+		"type": "Minion",
+		"description": "There are many nomadic Amazon tribes that roam the lands surrounding the Aegean Sea. Their all-female warriors are exceptional riders and archers and use both to great effect when raiding.",
+		"tactics": "Mounted Amazons fight in groups of four and will keep their distance and whittle away their enemy with arrows. On foot they will attempt to do the same if they can and will only flee from melee combat when three-quarters of their number are defeated.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 3,
+			"Cool": 3,
+			"Insight": 3,
+			"Cunning": 3
+		},
+		"skills": {
+			"Accuracy": 3,
+			"Athletics": 3,
+			"Awareness": 2,
+			"Diplomacy": 1,
+			"Melee": 3,
+			"Ride": 3,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Armour": 3,
+			"Shield": 2,
+			"Parry": 0,
+			"Endurance": 5,
+			"Standing": 2
+		},
+		"equipment": "Spolas, cap, greaves, 3 javelins, 2 ammo loads, riding horse.",
+		"abilities": [
+			{
+				"title": "Volley",
+				"description": "The character may spend an ammo load or a point of Hubris to gain +2D and +2 damage on their next attack with a missile weapon."
+			}
+		],
+		"attacks": ["weapon:Axe", "weapon:Composite Bow", "weapon:Javelin", "weapon:Pelte"]
+	}	
+]
