@@ -1,0 +1,69 @@
+[
+	{
+		"id": "drakon",
+		"title": "Drakon",
+		"type": "Legend",
+		"description": "Drakons are *giant* serpents, ferocious and terrifying, rarely found in the wild except at the behest of some god, usually to protect a sacred grove or artefact. Drakons take many forms, from serpents of the land or sea, to creatures with two or four legs. Some are winged and many spit acid or breathe fire.\n\nDefeating a drakon is worth 2 Glory.",
+		"tactics": "The drakon will use its fiery breath to hit as many foes as possible at the start of a conflict. Once they engage it will attempt to destroy one enemy at a time with its bite attack. It will always choose itself to go next at the start of a new round.",
+		"characteristics": {
+			"Might": 7,
+			"Reflexes": 6,
+			"Cool": 1,
+			"Insight": 2,
+			"Cunning": 4
+		},
+		"skills": {
+			"Accuracy": 2,
+			"Athletics": 2,
+			"Awareness": 3,
+			"Brawl": 4,
+			"Survival": 3,
+			"Vigour": 4
+		},
+		"attributes": {
+			"Armour": 10,
+			"Dodge": 0,
+			"Endurance": 20
+		},
+		"abilities": [
+			"ability:Burning",
+			{
+				"title": "Fearsome",
+				"description": "Anyone facing a drakon for the first time must make a Cool(Vigour) Resistance roll with a Difficulty of 2 or suffer a -3D penalty to all skill checks while facing the drakon. A failed roll can be repeated on the start of the character’s next turn."
+			},
+			{
+				"title": "Ferocious",
+				"description": "The drakon may take two turns each round. It can’t choose itself to go next in the same round unless all other characters in the conflict have acted."
+			},
+			"ability:Flyer",
+			"ability:Venomous",
+			{
+				"title": "Weak Underbelly",
+				"description": "When a drakon is pinned, treat its Armour as 5."
+			}
+		],
+		"attacks": [
+			{
+				"title": "Bite",
+				"skill": "Brawl",
+				"reach": "5",
+				"damage": 6,
+				"properties": ["property:Pierce", 
+					{
+						"title": "Notes",
+						"active": false,
+						"description": "Prone or Pinned targets only."
+					}
+				]
+			},
+			{
+				"title": "Flaming Breath / Acid Spit",
+				"skill": "Accuracy",
+				"range": "Short",
+				"damage": 4,
+				"properties": []
+			}
+		],
+		"arcane_lore": "With the right incantation, the teeth of a drakon can be thrown on the ground to grow an army of spartoi. Anyone with the Arcane Lore talent can gather enough teeth to raise a minion group of spartoi. It takes an Action to throw the teeth and a successful **Cool(Craft)** skill check is required. A number of spartoi equal to the number of successes on the roll begin to grow and are fully formed at the beginning of the next round. They respond to simple commands from the sower and last until destroyed."
+	}
+]

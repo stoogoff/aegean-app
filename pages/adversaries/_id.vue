@@ -1,15 +1,13 @@
 <template>
 	<div>
 		<loading-spinner v-if="$fetchState.pending" />
+		<div v-else-if="adversary === null">
+			Adversary not found.
+		</div>
 		<div v-else>
 			<h2>{{ adversary.title }} <small>({{ adversary.type }})</small></h2>
-
-			<!-- need to add markdown for this -->
-			{{ adversary.description }}
-
-			<div>
-				<p><strong>Tactics:</strong> {{ adversary.tactics }}</p>
-			</div>
+			<markdown-content :content="adversary.description" />
+			<markdown-content :content="`**Tactics:** ${adversary.tactics}`" />
 			<div>
 				<h3>Characteristics</h3>
 				<div v-for="(value, key) in adversary.characteristics" :key="key">
@@ -30,9 +28,11 @@
 			</div>
 			<div>
 				<h3>Abilities</h3>
-				<div v-for="(ability, index) in adversary.abilities" :key="`ability_${index}`">
-						<strong>{{ ability.title }}:</strong> {{ ability.description }}
-				</div>
+				<markdown-content
+					v-for="(ability, index) in adversary.abilities"
+					:key="`ability_${index}`"
+					:content="`**${ability.title}:** ${ability.description}`"
+				/>
 			</div>
 			<div v-if="hasAttacks">
 				<h3>Attacks</h3>
@@ -62,14 +62,19 @@
 					</tbody>
 				</table>
 			</div>
+			<div v-if="adversary.arcane_lore">
+				<h3>Arcane Lore</h3>
+				<markdown-content :content="adversary.arcane_lore" />
+			</div>
 		</div>
 	</div>
 </template>
 <script>
-import Vue from 'vue'
 import adversaries from '~/state/adversaries'
 
-export default Vue.component('AdversaryView', {
+export default {
+	name: 'AdversaryViewPage',
+
 	async fetch() {
 		const { params } = this.$nuxt.context
 
@@ -106,5 +111,5 @@ export default Vue.component('AdversaryView', {
 			return this.adversary.characteristics[attack.characteristic] + this.adversary.skills[attack.skill]
 		}
 	},
-})
+}
 </script>

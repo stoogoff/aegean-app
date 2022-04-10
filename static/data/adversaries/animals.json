@@ -1,0 +1,52 @@
+[
+	{
+		"id": "bear",
+		"title": "Bear",
+		"type": "Champion",
+		"description": "Bears are solitary creatures inhabiting the mountains and forests. They are shy, avoiding humans if possible, but can turn aggressive if threatened. Their pelts are prized by many but, to most hunters, the risk is deemed too great.\n\nAnyone slaying a bear single-handedly gains 1 Glory.",
+		"tactics": "Bears will attack if cornered or threatened and flee when they can. They will make use of their double claw attack to Pin an opponent before biting. They will flee if they take a Wound unless their young are threatened.",
+		"characteristics": {
+			"Might": 6,
+			"Reflexes": 2,
+			"Cool": 2,
+			"Insight": 1,
+			"Cunning": 3
+		},
+		"skills": {
+			"Athletics": 2,
+			"Awareness": 1,
+			"Brawl": 4,
+			"Survival": 3,
+			"Vigour": 4
+		},
+		"attributes": {
+			"Endurance": 10,
+			"Armour": 4,
+			"Dodge": 0
+		},
+		"abilities": ["ability:Claws", "ability:Maul"],
+		"attacks": [
+			{
+				"title": "Bite",
+				"skill": "Brawl",
+				"reach": "1",
+				"damage": 6,
+				"properties": ["property:Pierce", 
+					{
+						"title": "Notes",
+						"active": false,
+						"description": "Prone or Pinned targets only."
+					}
+				]
+			},
+			{
+				"title": "Claws",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 5,
+				"properties": ["property:Stagger", "Maul"]
+			}
+		],
+		"arcane_lore": "The hardy nature of a bear can be gained by drinking a concoction made from its liver. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the liver. This requires a successful **Cool(Craft)** skill check. Anyone who spends a Maneuver drinking the potion reduces the next Wound roll they are forced to make by -2."
+	}
+]
