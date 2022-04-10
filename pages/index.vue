@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<main>
 		<h1>AEGEAN</h1>
 		<ul>
 			<li>
@@ -13,6 +13,7 @@
 			<li>
 				<h2>Adversaries</h2>
 				<p>Find adversaries to fight.</p>
+				<link-action to="/adversaries/" block>Adversaries</link-action>
 			</li>
 			<li>
 				<h2>Factions</h2>
@@ -23,7 +24,7 @@
 				<p>View GM reference material.</p>
 			</li>
 		</ul>
-	</div>
+	</main>
 </template>
 
 <script>

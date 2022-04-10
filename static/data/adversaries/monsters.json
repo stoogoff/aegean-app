@@ -3,7 +3,7 @@
 		"id": "drakon",
 		"title": "Drakon",
 		"type": "Legend",
-		"description": "Drakons are *giant* serpents, ferocious and terrifying, rarely found in the wild except at the behest of some god, usually to protect a sacred grove or artefact. Drakons take many forms, from serpents of the land or sea, to creatures with two or four legs. Some are winged and many spit acid or breathe fire.\n\nDefeating a drakon is worth 2 Glory.",
+		"description": "Drakons are giant serpents, ferocious and terrifying, rarely found in the wild except at the behest of some god, usually to protect a sacred grove or artefact. Drakons take many forms, from serpents of the land or sea, to creatures with two or four legs. Some are winged and many spit acid or breathe fire.\n\nDefeating a drakon is worth 2 Glory.",
 		"tactics": "The drakon will use its fiery breath to hit as many foes as possible at the start of a conflict. Once they engage it will attempt to destroy one enemy at a time with its bite attack. It will always choose itself to go next at the start of a new round.",
 		"characteristics": {
 			"Might": 7,

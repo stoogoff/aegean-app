@@ -1,6 +1,6 @@
 
 import Vue from 'vue'
-import { sortByProperty } from '~/utils/list'
+import { unique, sortByProperty } from '~/utils/list'
 import {
 	STAT_MIGHT,
 	STAT_REFLEXES,
@@ -22,9 +22,9 @@ const KEY_WEAPON   = 'weapon:'
 
 // merge all adversaries
 const ADVERSARIES = [
-	...people.map(adv => ({ category: 'People', ...adv})),
-	...animals.map(adv => ({ category: 'Animals', ...adv})),
-	...monsters.map(adv => ({ category: 'Monsters', ...adv})),
+	...people.map(adv => ({ category: 'Human', ...adv})),
+	...animals.map(adv => ({ category: 'Animal', ...adv})),
+	...monsters.map(adv => ({ category: 'Monster', ...adv})),
 ].sort(sortByProperty('title'))
 
 
@@ -69,8 +69,12 @@ export default {
 		return adversary
 	},
 
-	byCategory(category) {
+	forCategory(category) {
 		return ADVERSARIES.filter(adv => adv.category === category)
+	},
+
+	categories() {
+		return unique(ADVERSARIES.map(adv => adv.category))
 	},
 
 	all() {

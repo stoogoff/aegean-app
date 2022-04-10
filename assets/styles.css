@@ -6,7 +6,7 @@
 
 /* basic  tag overrides */
 body {
-	@apply text-gray-800 bg-gray-300;
+	@apply text-gray-800;
 }
 
 main {
@@ -14,18 +14,30 @@ main {
 }
 
 h1 {
-	@apply text-3xl uppercase text-center mb-4 font-semibold leading-normal;
+	@apply text-3xl text-center mb-4 font-semibold leading-normal;
 }
 
 h2 {
-	@apply text-2xl uppercase text-gray-500 text-center;
+	@apply text-2xl text-center;
 }
 h3 {
-	@apply text-xl uppercase text-gray-400 mt-2 mb-1;
+	@apply text-xl mt-2 mb-1;
 }
 
 p {
 	@apply mb-3;
+}
+
+a, .link {
+	@apply text-blue-500 underline hover:no-underline;
+}
+a.no-link {
+	@apply no-underline;
+	color:  inherit !important;
+}
+
+small {
+	@apply uppercase text-xs;
 }
 
 ul.list, ol.list, .content ul, .content ol {

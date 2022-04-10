@@ -9,7 +9,12 @@
 			"skill": "Accuracy",
 			"range": "Short",
 			"damage": 4,
-			"properties": ["-1D"]
+			"properties": [
+				{
+					"title": "Notes",
+					"description": "-1D"
+				}
+			]
 		}
 	},
 	{

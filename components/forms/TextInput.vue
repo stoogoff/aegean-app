@@ -11,6 +11,7 @@
 				:class="inputClass"
 				:disabled="disabled"
 				:placeholder="placeholder"
+				autocomplete="off"
 				@input="$emit('input', $event.target.value)"
 			/>
 			<span v-if="hasAppendSlot" class="h-full leading-snug font-normal absolute text-center text-gray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3">
