@@ -12,6 +12,7 @@
 </template>
 <script>
 import adversaries from '~/state/adversaries'
+import { meta, title, url } from '~/utils/meta'
 
 export default {
 	name: 'AdversaryPage',
@@ -25,6 +26,24 @@ export default {
 	data() {
 		return {
 			adversary: null,
+		}
+	},
+
+	head() {
+		if(!this.adversary) return {}
+
+		const metadata = {
+			type: 'article',
+			title: this.adversary.title,
+			url: `/adversaries/${this.$route.params.id}/`,
+		}
+
+		return {
+			title: title(metadata),
+			meta: meta(metadata),
+			link: [
+				{ hid: 'canonical', rel: 'canonical', href: url(metadata) },
+			]
 		}
 	},
 }
