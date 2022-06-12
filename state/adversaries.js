@@ -1,6 +1,7 @@
 
 import Vue from 'vue'
 import { unique, sortByProperty } from '~/utils/list'
+import { id } from '~/utils/string'
 import {
 	STAT_MIGHT,
 	STAT_REFLEXES,
@@ -22,9 +23,9 @@ const KEY_WEAPON   = 'weapon:'
 
 // merge all adversaries
 const ADVERSARIES = [
-	...people.map(adv => ({ category: 'Human', ...adv})),
-	...animals.map(adv => ({ category: 'Animal', ...adv})),
-	...monsters.map(adv => ({ category: 'Monster', ...adv})),
+	...people.map(adv => ({ id: id(adv.title), category: 'Human', ...adv})),
+	...animals.map(adv => ({ id: id(adv.title), category: 'Animal', ...adv})),
+	...monsters.map(adv => ({ id: id(adv.title), category: 'Monster', ...adv})),
 ].sort(sortByProperty('title'))
 
 
@@ -38,6 +39,7 @@ const getStats = (container, key, item) => {
 const getWeaponProperties = property => getStats(properties, KEY_PROPERTY, property)
 const getAbilityStats = ability => getStats(abilities, KEY_ABILITY, ability)
 const getAttackStats = attack => {
+
 	const stats = getStats(weapons, KEY_WEAPON, attack)
 
 	stats.properties = stats.properties.map(property => getWeaponProperties(property)).filter(weapon => !!weapon)
@@ -46,7 +48,7 @@ const getAttackStats = attack => {
 	const charProps = [STAT_CUNNING, STAT_INSIGHT, STAT_REFLEXES]
 	const characteristics = stats.properties.filter(prop => charProps.indexOf(prop.title) !== -1)
 
-	stats.characteristic = characteristics.length > 0 ? characteristics[0] : STAT_MIGHT
+	stats.characteristic = characteristics.length > 0 ? characteristics[0].title : STAT_MIGHT
 
 	if(stats.thrown) {
 		// all thrown weapons use Might
@@ -64,7 +66,7 @@ export default {
 		if(!adversary) return null
 
 		adversary.attacks = adversary.attacks.map(attack => getAttackStats(attack)).filter(attack => !!attack)
-		adversary.abilities = adversary.abilities.map(ability => getAbilityStats(ability)).filter(ability => !!ability)
+		adversary.abilities = (adversary.abilities || []).map(ability => getAbilityStats(ability)).filter(ability => !!ability)
 
 		return adversary
 	},

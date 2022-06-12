@@ -5,11 +5,12 @@
 			<small>{{ adversary.type }}, {{ adversary.category }}</small>
 		</div>
 		<markdown-content :content="adversary.description" />
-		<markdown-content :content="`**Tactics:** ${adversary.tactics}`" />
+		<markdown-content v-if="hasTactics" :content="`**Tactics:** ${adversary.tactics}`" />
 		<stat-block title="Characteristics" :stats="adversary.characteristics" />
  		<stat-block title="Skills" :stats="adversary.skills" />
 		<stat-block title="Attributes" :stats="adversary.attributes" />
-		<section>
+		<p v-if="hasEquipment"><strong>Equipment:</strong> {{ adversary.equipment }}</p>
+		<section v-if="hasAbilities">
 			<h3>Abilities</h3>
 			<markdown-content
 				v-for="(ability, index) in adversary.abilities"
@@ -42,11 +43,12 @@
 						<td v-if="attack.reach" class="text-center">{{ attack.reach }}</td>
 						<td v-if="attack.range" class="text-center">{{ attack.range }}</td>
 						<td class="text-center">{{ attack.damage }}</td>
-						<td>
+						<td v-if="attack.properties.length > 0">
 							<div v-for="(prop, pIndex) in attack.properties" :key="`property_${aIndex}_${pIndex}`">
 								<span class="link">{{ prop.title }}</span>
 							</div>
 						</td>
+						<td v-else>—</td>
 					</tr>
 				</tbody>
 			</table>
@@ -60,6 +62,7 @@
 <script>
 import Vue from 'vue'
 import adversaries from '~/state/adversaries'
+import { STAT_MIGHT } from '~/utils/config'
 
 export default Vue.component('AdversaryView', {
 	props: {
@@ -70,8 +73,20 @@ export default Vue.component('AdversaryView', {
 	},
 
 	computed: {
+		hasAbilities() {
+			return this.adversary && this.adversary.abilities && this.adversary.abilities.length > 0
+		},
+
 		hasAttacks() {
 			return this.adversary && this.adversary.attacks && this.adversary.attacks.length > 0
+		},
+
+		hasEquipment() {
+			return this.adversary && 'equipment' in this.adversary
+		},
+
+		hasTactics() {
+			return this.adversary && 'tactics' in this.adversary
 		},
 
 		// merge weapons and thrown weapons and add dice pools
@@ -90,7 +105,12 @@ export default Vue.component('AdversaryView', {
 
 	methods: {
 		getDiceTotal(attack) {
-			return this.adversary.characteristics[attack.characteristic] + this.adversary.skills[attack.skill]
+			const characteristic = Math.max(
+				this.adversary.characteristics[attack.characteristic],
+				this.adversary.characteristics[STAT_MIGHT]
+			)
+
+			return characteristic + (this.adversary.skills[attack.skill] || 0)
 		}
 	},
 })

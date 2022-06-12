@@ -15,9 +15,9 @@
 		"description": "This item is especially heavy or awkward to use. A character’s Endurance is reduced by the Cumbersome rating of each item they are carrying."
 	},
 	{
-		"title": "Cunning, Insight, Reflexes",
+		"title": "Cunning",
 		"active": false,
-		"description": "This weapon doesn’t rely on brute strength. A character using this weapon may use the listed characteristic in place of Might when making an attack Action if they wish."
+		"description": "This weapon doesn’t rely on brute strength. A character using this weapon may use Cunning in place of Might when making an attack Action if they wish."
 	},
 	{
 		"title": "Entangle",
@@ -35,6 +35,11 @@
 		"description": "This weapon is large and heavy. It requires two hands to wield effectively and is difficult to use with one. Any character trying to use a Heavy weapon with only one hand, or while mounted on a horse or chariot, takes a -2D penalty for all Actions using the weapon. A warrior wielding a Heavy weapon can’t use a shield unless they use the weapon one-handed. A Heavy weapon easily knocks aside parrying weapons and light shields. It ignores 1 point of Parry or Shield defence."
 	},
 	{
+		"title": "Insight",
+		"active": false,
+		"description": "This weapon doesn’t rely on brute strength. A character using this weapon may use Insight in place of Might when making an attack Action if they wish."
+	},
+	{
 		"title": "Parry",
 		"active": false,
 		"description": "This item is good at warding off attacks and gives you a Parry Defence equal to its rating. Parry can be used as a Reaction."
@@ -49,6 +54,12 @@
 		"active": false,
 		"description": "This weapon can be used to make a pommel strike as a Harm Action instead of its standard attack profile. A pommel strike has the following profile:"
 	},
+	{
+		"title": "Reflexes",
+		"active": false,
+		"description": "This weapon doesn’t rely on brute strength. A character using this weapon may use Reflexes in place of Might when making an attack Action if they wish."
+	},
+
 	{
 		"title": "Rich",
 		"active": false,

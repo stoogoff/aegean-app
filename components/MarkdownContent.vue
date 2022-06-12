@@ -2,7 +2,7 @@
 	<div v-html="parsedContent" />
 </template>
 <script>
-import {unified} from 'unified'
+import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeSanitize from 'rehype-sanitize'

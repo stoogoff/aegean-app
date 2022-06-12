@@ -1,6 +1,5 @@
 [
 	{
-		"id": "amazon",
 		"title": "Amazon",
 		"type": "Minion",
 		"description": "There are many nomadic Amazon tribes that roam the lands surrounding the Aegean Sea. Their all-female warriors are exceptional riders and archers and use both to great effect when raiding.",
@@ -29,12 +28,829 @@
 			"Standing": 2
 		},
 		"equipment": "Spolas, cap, greaves, 3 javelins, 2 ammo loads, riding horse.",
+		"abilities": ["ability:Volley"],
+		"attacks": ["weapon:Axe", "weapon:Composite Bow", "weapon:Javelin", "weapon:Pelte"]
+	},
+	{
+		"title": "Amazon Champion",
+		"type": "Champion",
+		"description": "Amazon champions are the best warriors of their tribe and excel at melee and ranged combat. Many of them are favoured by Artemis or Ares and some are the children of Ares.",
+		"tactics": "Amazon Champions will keep their opponents at bay and whittle them down if they can. In melee they will fight to the death unless mercy is offered.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 4,
+			"Cool": 3,
+			"Insight": 4,
+			"Cunning": 3
+		},
+		"skills": {
+			"Accuracy": 4,
+			"Athletics": 3,
+			"Awareness": 2,
+			"Diplomacy": 2,
+			"Melee": 4,
+			"Ride": 4,
+			"Vigour": 3
+		},
+		"attributes": {
+			"Armour": 3,
+			"Shield": 2,
+			"Parry": 2,
+			"Endurance": 7,
+			"Standing": 4
+		},
+		"equipment": "Spolas, cap, greaves, 3 javelins, 2 ammo loads, rich clothing, war horse.",
 		"abilities": [
 			{
-				"title": "Volley",
-				"description": "The character may spend an ammo load or a point of Hubris to gain +2D and +2 damage on their next attack with a missile weapon."
+				"title": "Full Draw",
+				"description": "Before firing the character may spend an ammo load or a point of Hubris to gain +4 damage on their next attack."
+			},
+			"ability:Riposte",
+			"ability:Volley"
+		],
+		"attacks": ["weapon:Kopis", "weapon:Recurve Bow", "weapon:Javelin", "weapon:Pelte"]
+	},
+	{
+		"title": "Archer",
+		"type": "Minion",
+		"description": "Archers are skirmishers conscripted from the common folk of the cities and villages and armed and armoured as best they can afford. Archers are no match for trained soldiers, so avoid melee, preferring to keep a distance and pepper their enemies with arrows.",
+		"tactics": "Archers will fight in groups of four to six and will fight until half their number are defeated. They avoid melee and will attempt to disengage and use their Volley ability to wear down their opponents.",
+		"characteristics": {
+			"Might": 2,
+			"Reflexes": 2,
+			"Cool": 1,
+			"Insight": 3,
+			"Cunning": 2
+		},
+		"skills": {
+			"Accuracy": 3,
+			"Athletics": 2,
+			"Awareness": 2,
+			"Vigour": 1
+		},
+		"attributes": {
+			"Armour": 3,
+			"Shield": 0,
+			"Parry": 1,
+			"Endurance": 4,
+			"Standing": 2
+		},
+		"equipment": "Cap, spolas, greaves, 2 ammo loads.",
+		"abilities": [
+			"ability:Retreat",
+			"ability:Volley"
+		],
+		"attacks": ["weapon:Makhaira", "weapon:Self Bow"]
+	},
+	{
+		"title": "Athlete",
+		"type": "Champion",
+		"description": "Athletes are some of the most honoured people in all of Hellas. Local games are held as part of many religious festivals, including funerary rites, and some athletes travel far and wide to compete. To compete in the four great panhellenic games—Olympian, Pythian, Delian, and Nemean—is the dream of many and, while the games only award laurels, the victors are showered with gifts when they return home.",
+		"tactics": "Athletes are expecting to compete, not to fight, though many of them are capable soldiers. They will retreat at the first opportunity and save themselves for the games.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 4,
+			"Cool": 2,
+			"Insight": 2,
+			"Cunning": 2
+		},
+		"skills": {
+			"Accuracy": 3,
+			"Athletics": 3,
+			"Awareness": 1,
+			"Brawl": 1,
+			"Perform": 1,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Armour": 0,
+			"Shield": 0,
+			"Parry": 0,
+			"Endurance": 7,
+			"Standing": 2
+		},
+		"equipment": "Javelins.",
+		"attacks": ["weapon:Javelin", "weapon:Unarmed Strike"]
+	},
+	{
+		"title": "Bandit",
+		"type": "Minion",
+		"description": "Bandits are a problem in the wilds outside the cities and often prey on unarmed (or unwise) travellers. They are lightly armed and rarely armoured and often have a handful of coins from their previous victims.",
+		"tactics": "Bandits are a cowardly bunch and will fight in groups of four or more. They make extensive use of the Misdirect Action to attack from concealment and gang up on the weakest opponent if they can. They will flee if their leader or more than half their number is killed.",
+		"characteristics": {
+			"Might": 2,
+			"Reflexes": 3,
+			"Cool": 1,
+			"Insight": 2,
+			"Cunning": 3
+		},
+		"skills": {
+			"Accuracy": 2,
+			"Awareness": 2,
+			"Melee": 1,
+			"Survival": 2
+		},
+		"attributes": {
+			"Armour": 1,
+			"Shield": 2,
+			"Parry": 0,
+			"Endurance": 5,
+			"Standing": 1
+		},
+		"equipment": "A cap or spolas, 2 ammo loads, 1D obols.",
+		"attacks": ["weapon:Club", "weapon:Pelte", "weapon:Sling"]
+	},
+	{
+		"title": "Bandit Leader",
+		"type": "Champion",
+		"description": "Bandit leaders are the toughest of their gang and rule through a mix of fear and deadly competence. Few bandit leaders maintain their position if they can’t bring in the coin.",
+		"tactics": "A bandit leader will attempt to hide and attack the weakest looking target from surprise. They make extensive use of the Misdirect Action combined with their Camouflage ability. They will flee if more than half of their bandits are killed.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 3,
+			"Cool": 2,
+			"Insight": 2,
+			"Cunning": 3
+		},
+		"skills": {
+			"Accuracy": 3,
+			"Athletics": 1,
+			"Awareness": 2,
+			"Manipulation": 2,
+			"Melee": 3,
+			"Survival": 3
+		},
+		"attributes": {
+			"Armour": 2,
+			"Shield": 2,
+			"Parry": 2,
+			"Endurance": 6,
+			"Standing": 1
+		},
+		"equipment": "Cap, spolas, 2 ammo loads, 1D drakhmae.",
+		"abilities": [
+			"ability:Ambush",
+			{
+				"title": "Camouflage",
+				"description": "When performing a Misdirect Action the character may hide one ally or minion group of allies who is within Short range."
 			}
 		],
-		"attacks": ["weapon:Axe", "weapon:Composite Bow", "weapon:Javelin", "weapon:Pelte"]
-	}	
+		"attacks": ["weapon:Kopis", "weapon:Pelte", "weapon:Sling"]
+	},
+	{
+		"title": "Bodyguard",
+		"type": "Minion",
+		"description": "Many nobles or wealthy merchants employ bodyguards to protect them, either at home or when travelling abroad. Bodyguards usually carry some token of their employer to show their patronage, but are often poorly armoured.",
+		"tactics": "Bodyguards will split into groups, one to protect their employer and as many as needed to engage their opponents. Their main concern is getting their employer to safety; they’re not out to kill and few are prepared to die for the job.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 2,
+			"Cool": 2,
+			"Insight": 3,
+			"Cunning": 2
+		},
+		"skills": {
+			"Awareness": 2,
+			"Brawl": 1,
+			"Melee": 2,
+			"Manipulation": 1,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Armour": 2,
+			"Shield": 0,
+			"Parry": 0,
+			"Endurance": 5,
+			"Standing": 1
+		},
+		"equipment": "Greaves, spolas, 1D obols.",
+		"abilities": [
+			{
+				"title": "Bodyguard",
+				"description": "As a Reaction this character may gain up to 2 Risk to grant an allied character at Melee range a Shield rating equal to the Risk gained."
+			},
+			{
+				"title": "Loom",
+				"description": "When an allied character at Short range successfully intimidates a target using the Manipulation skill, the target gains 1 Risk per bodyguard present up to a maximum of 5."
+			}
+		],
+		"attacks": ["weapon:Club", "weapon:Unarmed Strike"]
+	},
+	{
+		"title": "City Folk",
+		"type": "Minion",
+		"description": "The majority of the people of a polis are adept crafts people, working with pottery, wood, cloth, and metal who trade their wares at the agora. They expect their voices to be heard in the running of the city and are knowledgeable of local political and religious matters, as well as gossip.",
+		"tactics": "City folk are not expecting to fight on the streets of the agora but will defend their polis if they must. Unless they have a strong leader to command them, they will flee or surrender in the face of greater numbers or if more than a third of their number are defeated.",
+		"characteristics": {
+			"Might": 2,
+			"Reflexes": 2,
+			"Cool": 2,
+			"Insight": 3,
+			"Cunning": 2
+		},
+		"skills": {
+			"Craft": 1,
+			"Diplomacy": 3,
+			"Knowledge": 2,
+			"Lore": 1,
+			"Melee": 1,
+			"Perform": 2
+		},
+		"attributes": {
+			"Armour": 0,
+			"Shield": 0,
+			"Parry": 0,
+			"Endurance": 4,
+			"Standing": 2
+		},
+		"equipment": "Khiton, 1D obols.",
+		"attacks": ["weapon:Makhaira"]
+	},
+	{
+		"title": "Councillor",
+		"type": "Champion",
+		"description": "Whether a democracy, theocracy or a monarchy, every city has a body of councillor’s, either ruling or as advisers to the ruler. In many places the councillors are the most powerful people in the city.",
+		"tactics": "Councillors are not expecting to fight; they have other people to do that for them. They will use their Scathing Tirade ability to harm an attacker if there are other soldiers or bodyguards available to defend them. Otherwise they will flee.",
+		"characteristics": {
+			"Might": 2,
+			"Reflexes": 2,
+			"Cool": 3,
+			"Insight": 4,
+			"Cunning": 3
+		},
+		"skills": {
+			"Awareness": 2,
+			"Diplomacy": 3,
+			"Knowledge": 3,
+			"Lore": 2,
+			"Manipulation": 4,
+			"Perform": 2,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Armour": 0,
+			"Shield": 0,
+			"Parry": 0,
+			"Endurance": 6,
+			"Standing": 4
+		},
+		"equipment": "Rich khiton, symbol of office, 1D drakhmae.",
+		"abilities": ["ability:Scathing Tirade"],
+		"attacks": ["weapon:Scathing Tirade"]
+	},
+	{
+		"title": "Hoplitis",
+		"type": "Minion",
+		"description": "Hoplites are the heavy infantry of Hellas. They are well armed and well trained and usually come from the nobility or the richer merchant classes. They take their name from the hoplon, the large bronze-faced shield they carry, and meet their enemies with solid ranks of impenetrable bronze.",
+		"tactics": "Hoplites will fight in groups of two to four and will fight until three quarters of their number are defeated. They prefer to use their spears in close combat, only throwing them if they have to.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 2,
+			"Cool": 3,
+			"Insight": 2,
+			"Cunning": 2
+		},
+		"skills": {
+			"Accuracy": 2,
+			"Athletics": 1,
+			"Awareness": 2,
+			"Melee": 3,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Armour": 5,
+			"Shield": 3,
+			"Parry": 2,
+			"Endurance": 5,
+			"Standing": 3
+		},
+		"equipment": "Linothorax armour, helm, greaves.",
+		"abilities": [
+			"ability:Helm",
+			{
+				"title": "Shield Wall",
+				"description": "A minion group of two or more hoplites gains +1 to their Shield rating for each hoplitis after the first."
+			}
+		],
+		"attacks": ["weapon:Dori", "weapon:Kopis", "weapon:Hoplon"]
+	},
+	{
+		"title": "Hoplitis Captain",
+		"type": "Champion",
+		"description": "It’s not just strength which promotes through the ranks—cunning, political insight, and no small amount of wealth is required as well. Any hoplitis rising to the ranks of captain has shown themselves to be a resourceful and fearless leader who inspires dedication in their troops.",
+		"tactics": "Hoplitis captains lead from the front. They rely on their superior armour and training both to protect themselves and to strike back. They will use their Tactical Direction ability to cluster their allies around the toughest looking opponent and whittle them down first. They prefer to use their spears in close combat, only throwing them if they have to.",
+		"characteristics": {
+			"Might": 4,
+			"Reflexes": 2,
+			"Cool": 4,
+			"Insight": 3,
+			"Cunning": 3
+		},
+		"skills": {
+			"Accuracy": 3,
+			"Athletics": 1,
+			"Awareness": 3,
+			"Diplomacy": 2,
+			"Melee": 4,
+			"Vigour": 3
+		},
+		"attributes": {
+			"Armour": 6,
+			"Shield": 4,
+			"Parry": 2,
+			"Endurance": 7,
+			"Standing": 4
+		},
+		"equipment": "Bronze breastplate, helm, greaves.",
+		"abilities": [
+			"ability:Breastplate",
+			"ability:Helm",
+			"ability:Riposte",
+			"ability:Tactical Direction"
+		],
+		"attacks": ["weapon:Dori", "weapon:Kopis", "weapon:Hoplon"]
+	},
+	{
+		"title": "Hunter",
+		"type": "Champion",
+		"description": "Hunters are found throughout the wilderness and are often devotees of Artemis. They hunt wild game, both for their own survival and to sell in the agoras of the cities. Some seek a glorious hunt and track down ever larger and more outlandish beasts, while a small few act as bounty hunters to bring back criminals.",
+		"tactics": "Hunters make extensive use of the Misdirect Action to keep away from their foes and to make the greatest use of their ranged weapon skills. Whenever they can they will attack using their Ambush ability. Most aren’t prepared to die for the hunt and will flee when Wounded.",
+		"characteristics": {
+			"Might": 2,
+			"Reflexes": 3,
+			"Cool": 2,
+			"Insight": 3,
+			"Cunning": 4
+		},
+		"skills": {
+			"Accuracy": 2,
+			"Athletics": 2,
+			"Awareness": 3,
+			"Melee": 1,
+			"Survival": 4,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Armour": 2,
+			"Shield": 0,
+			"Parry": 0,
+			"Endurance": 6,
+			"Standing": 1
+		},
+		"equipment": "Greaves, spolas, 2 ammo loads.",
+		"abilities": ["ability:Ambush"],
+		"attacks": ["weapon:Javelin", "weapon:Kopis", "weapon:Sling"]
+	},
+	{
+		"title": "Merchant",
+		"type": "Champion",
+		"description": "Merchants operate as a mediator between the crafters of the city and those who wish to buy their wares. Many people frown upon this activity and merchants—despite many of them becoming wealthy—aren’t afforded the same honour as athletes, philosophers or priests are. Some merchants belong to the kapeloi, a loose-knit guild of traders supporting each other throughout the Aegean Sea.",
+		"tactics": "Merchants aren’t expecting to fight and will flee or hide at the first opportunity. They often employ bodyguards to do any dirty (or bloody) work for them.",
+		"characteristics": {
+			"Might": 2,
+			"Reflexes": 2,
+			"Cool": 3,
+			"Insight": 3,
+			"Cunning": 3
+		},
+		"skills": {
+			"Awareness": 1,
+			"Diplomacy": 2,
+			"Knowledge": 2,
+			"Lore": 1,
+			"Manipulation": 3,
+			"Perform": 2
+		},
+		"attributes": {
+			"Armour": 0,
+			"Shield": 0,
+			"Parry": 0,
+			"Endurance": 6,
+			"Standing": 2
+		},
+		"equipment": "Khiton, 2D drakhmae.",
+		"abilities": [
+			{
+				"title": "Hard Bargain",
+				"description": "Anyone attempting to negotiate with this character to gain a better price on a deal immediately gains 1 Risk."
+			}
+		],
+		"attacks": ["weapon:Makhaira"]
+	},
+	{
+		"title": "Orator",
+		"type": "Champion",
+		"description": "Public speaking and debate are valued skills in Hellenic society, both in the council chamber and the agora. Orators, whether actors, poets, philosophers, or teachers are highly regarded by many, while others are suspicious of their rhetoric and the ease with which they twist their words. Their skill is invoking an impassioned response from their audience.",
+		"tactics": "An orator will attempt to flee if attacked.",
+		"characteristics": {
+			"Might": 2,
+			"Reflexes": 2,
+			"Cool": 3,
+			"Insight": 4,
+			"Cunning": 3
+		},
+		"skills": {
+			"Diplomacy": 2,
+			"Knowledge": 1,
+			"Manipulation": 2,
+			"Perform": 4,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Armour": 0,
+			"Shield": 0,
+			"Parry": 0,
+			"Endurance": 6,
+			"Standing": 3
+		},
+		"equipment": "Khiton, mask, pen, sheaf of papers.",
+		"abilities": [
+			{
+				"title": "Lampoon",
+				"description": "As an Action the character may make a **Might(Perform)** skill check. If successful, a number of enemies equal to the successes rolled within Medium range increase their Risk by 2."
+			},
+			"ability:Motivate",
+			"ability:Scathing Tirade"
+		],
+		"attacks": ["weapon:Scathing Tirade"]
+	},
+	{
+		"title": "Peltast",
+		"type": "Minion",
+		"description": "Peltasts are the light infantry and are armed with javelins and a pelte, from which they get their name. They spend their time on the battlefield harrying the more heavily armed hoplites.",
+		"tactics": "Peltasts will fight in groups of two to four and will fight until half their number are defeated. They prefer to keep their distance and use their javelins and will only engage in melee if they have to.",
+		"characteristics": {
+			"Might": 2,
+			"Reflexes": 3,
+			"Cool": 2,
+			"Insight": 2,
+			"Cunning": 3
+		},
+		"skills": {
+			"Accuracy": 3,
+			"Athletics": 2,
+			"Awareness": 2,
+			"Melee": 2,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Armour": 3,
+			"Shield": 2,
+			"Parry": 2,
+			"Endurance": 5,
+			"Standing": 3
+		},
+		"equipment": "Spolas, cap, greaves, 3 javelins.",
+		"abilities": ["ability:Retreat"],
+		"attacks": ["weapon:Javelin", "weapon:Pelte", "weapon:Xiphos"]
+	},
+	{
+		"title": "Peltast Captain",
+		"type": "Champion",
+		"description": "While hoplitis captains are usually promoted through political savvy more than combat ability, it’s not so for the peltast. As the less prestigious of the infantry, captains are promoted purely for their leadership and experience on the field.",
+		"tactics": "Peltast captains will attempt to whittle away their opponents one at a time. They will focus their attacks to bring down a single opponent before moving on to the next one. Disciplined but not suicidal, peltast captains will attempt to retreat or surrender when half their peltasts are defeated.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 4,
+			"Cool": 3,
+			"Insight": 2,
+			"Cunning": 3
+		},
+		"skills": {
+			"Accuracy": 4,
+			"Athletics": 2,
+			"Awareness": 3,
+			"Diplomacy": 2,
+			"Melee": 3,
+			"Vigour": 3
+		},
+		"attributes": {
+			"Armour": 5,
+			"Shield": 2,
+			"Parry": 2,
+			"Endurance": 7,
+			"Standing": 3
+		},
+		"equipment": "Linothorax armour, helm, greaves, 3 javelins.",
+		"abilities": [
+			{
+				"title": "Coordinated Assault",
+				"description": "As a Maneuver the character may gain a point of Risk to gain assistance from any allied peltasts within Short range. Up to +3D can be gained for assistance as usual."
+			},
+			"ability:Helm",
+			"ability:Retreat"
+		],
+		"attacks": ["weapon:Javelin", "weapon:Pelte", "weapon:Xiphos"]
+	},
+	{
+		"title": "Physician",
+		"type": "Champion",
+		"description": "Most villages will have a physician or lay healer, available to cure disease and see to the injured. However, the most sought after physicians are the Therapeutae of Asklepios. They are devoted to the god of healing and are trained at one of his sanctuaries, the largest of which can be found at Epidaurus.",
+		"tactics": "Physicians are not expecting to fight and will surrender or flee at the suggestion of violence.",
+		"characteristics": {
+			"Might": 2,
+			"Reflexes": 2,
+			"Cool": 3,
+			"Insight": 4,
+			"Cunning": 2
+		},
+		"skills": {
+			"Awareness": 2,
+			"Craft": 2,
+			"Diplomacy": 2,
+			"Knowledge": 4,
+			"Lore": 3,
+			"Manipulation": 2,
+			"Medicine": 4,
+			"Survival": 1,
+			"Vigour": 1
+		},
+		"attributes": {
+			"Armour": 0,
+			"Shield": 0,
+			"Parry": 0,
+			"Endurance": 6,
+			"Standing": 3
+		},
+		"equipment": "Khiton, herbalists bag with 2 doses.",
+		"abilities": [
+			{
+				"title": "First Aid",
+				"description": "The character may gain a success on a Medicine skill check by forcing their patient to gain 1 Risk."
+			},
+			{
+				"title": "Pharmakon",
+				"description": "The character may spend a dose from their herbalist’s bag to gain an automatic success on one Medicine skill check."
+			}
+		],
+		"attacks": ["weapon:Makhaira"]
+	},
+	{
+		"title": "Pirate",
+		"type": "Minion",
+		"description": "Pirates are a problem throughout the Aegean, whether they’re slavers or opportunists looking for wealth. Most sail in pentekonter, a single decked ship with a single mast and space for 30–50 rowers, but conditions are cramped and they spend their nights beached on one of the countless natural harbours.",
+		"tactics": "Pirates are looking for a quick fight so will gang up in groups of two to three and focus on injuring as many of their opponents as quickly as they can. They will flee if their leader or more than half their number are killed.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 2,
+			"Cool": 3,
+			"Insight": 2,
+			"Cunning": 2
+		},
+		"skills": {
+			"Accuracy": 1,
+			"Athletics": 1,
+			"Awareness": 2,
+			"Melee": 2,
+			"Survival": 2,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Armour": 3,
+			"Shield": 2,
+			"Parry": 2,
+			"Endurance": 5,
+			"Standing": 1
+		},
+		"equipment": "Cap, spolas, greaves, 2 ammo loads, 1D obols.",
+		"abilities": ["ability:Sure Footed"],
+		"attacks": ["weapon:Kopis", "weapon:Pelte", "weapon:Sling"]
+	},
+	{
+		"title": "Pirate Captain",
+		"type": "Champion",
+		"description": "The main quality which sets a pirate captain apart from their crew is tenacity—toughness and a brutal will to survive. Many deceive themselves into thinking they’ll retire one day but few give up their life of raiding the Aegean Sea. There’s always just a little bit more wealth to steal.",
+		"tactics": "A pirate captain’s goal is to hit hard and fast and retreat with the greatest amount of wealth. They will use their Back to the Ship talent to retreat when they deem the odds of wealth are against them. How many crew they’re prepared to lose will depend on the apparent wealth available.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 3,
+			"Cool": 3,
+			"Insight": 2,
+			"Cunning": 3
+		},
+		"skills": {
+			"Accuracy": 3,
+			"Athletics": 1,
+			"Awareness": 3,
+			"Melee": 3,
+			"Survival": 3,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Armour": 4,
+			"Shield": 2,
+			"Parry": 2,
+			"Endurance": 6,
+			"Standing": 1
+		},
+		"equipment": "Linothorax armour, cap, greaves, 2 ammo loads, plunder worth 2D drakhmae back on the ship.",
+		"abilities": [
+			{
+				"title": "Back to the Ship",
+				"description": "As an Action the GM may spend a point of Hubris to have the Pirate Captain and all allies within Medium range immediately disengage from their opponents and move to Short range of them without gaining Risk."
+			}
+		],
+		"attacks": ["weapon:Kopis", "weapon:Pelte", "weapon:Sling"]
+	},
+	{
+		"title": "Priest",
+		"type": "Champion",
+		"description": "Priests are a common sight with every small shrine having at least one, while the larger temples and sanctuaries have many more.\n\nA priest may have the favour of the god they are dedicated to in which case add the relevant Favour ability to their profile. Priests who are dedicated enough to have the favour of their god are more likely to defend the shrine with their life.\n\nAttacking a priest or group of priests gains the attacker 1 Hubris. Killing them gains the attacker 2 Hubris. If the dead priest had the favour of their god the murderer gains a disfavour with that deity.",
+		"tactics": "Priests are not expecting to fight but will attempt to defend themselves and their temple if they must. On their first turn they will call for reinforcements and use their Scathing Tirade ability to harm their attacker. Once their reinforcements arrive they will fall back to a support role. Most won’t die to protect their shrine or temple but the more devout will.",
+		"characteristics": {
+			"Might": 2,
+			"Reflexes": 2,
+			"Cool": 4,
+			"Insight": 3,
+			"Cunning": 3
+		},
+		"skills": {
+			"Awareness": 2,
+			"Craft": 1,
+			"Diplomacy": 2,
+			"Knowledge": 3,
+			"Lore": 4,
+			"Manipulation": 2,
+			"Medicine": 2
+		},
+		"attributes": {
+			"Armour": 0,
+			"Shield": 0,
+			"Parry": 2,
+			"Endurance": 6,
+			"Standing": 3
+		},
+		"equipment": "Ornate staff, robes.",
+		"abilities": [
+			"ability:Motivate",
+			"ability:Scathing Tirade",
+			"ability:Temple Reinforcements"
+		],
+		"attacks": ["weapon:Scathing Tirade", "weapon:Staff"]
+	},
+	{
+		"title": "Sailor",
+		"type": "Minion",
+		"description": "Sailors are found in the many ports and fishing villages across the Aegean Sea. They tend to be a superstitious lot and honour Poseidon with sacrifices before any voyage.",
+		"tactics": "Sailors are not looking for a fight against armed opponents but often get into brawls in local taverns. They will fight in groups of four to six and will flee when half their number are defeated.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 2,
+			"Cool": 1,
+			"Insight": 2,
+			"Cunning": 2
+		},
+		"skills": {
+			"Awareness": 2,
+			"Brawl": 1,
+			"Craft": 1,
+			"Survival": 2,
+			"Vigour": 1
+		},
+		"attributes": {
+			"Armour": 0,
+			"Shield": 0,
+			"Parry": 0,
+			"Endurance": 4,
+			"Standing": 1
+		},
+		"equipment": "Khiton, 1D obols.",
+		"abilities": ["ability:Sure Footed"],
+		"attacks": ["weapon:Club", "weapon:Unarmed Strike"]
+	},
+	{
+		"title": "Slinger",
+		"type": "Minion",
+		"description": "Slingers act as skirmishers in the armies of Hellas. They are conscripted from the common folk of the cities and villages and armed and armoured as best they can afford. Slingers are no match for trained soldiers so avoid melee, preferring to keep a distance and torment their enemies with sling stones.",
+		"tactics": "Slingers will fight in groups of four to six and will fight until half their number are defeated. They avoid melee and will attempt to disengage and use their Harry ability to keep opponents at bay until other soldiers can engage with them.",
+		"characteristics": {
+			"Might": 2,
+			"Reflexes": 3,
+			"Cool": 1,
+			"Insight": 2,
+			"Cunning": 2
+		},
+		"skills": {
+			"Accuracy": 3,
+			"Athletics": 3,
+			"Awareness": 1,
+			"Vigour": 1
+		},
+		"attributes": {
+			"Armour": 1,
+			"Shield": 2,
+			"Parry": 1,
+			"Endurance": 5,
+			"Standing": 2
+		},
+		"equipment": "Cap or greaves, 2 ammo loads.",
+		"abilities": [
+			{
+				"title": "Harry",
+				"description": "The character may spend an ammo load or a point of Hubris to gain +2D on a Pin attack Action with a missile weapon."
+			},
+			"ability:Retreat"
+		],
+		"attacks": ["weapon:Makhaira", "weapon:Pelte", "weapon:Sling"]
+	},
+	{
+		"title": "Temple Captain",
+		"type": "Champion",
+		"description": "Temple captains are the best fighters and leaders of the temple guard. As with the rest of the guard they are as richly equipped as the temple can accommodate and employ, the labrys as their weapon of choice.",
+		"tactics": "Temple Captains will fight to the death to protect their temple. They will avoid killing citizens if they can but are not adverse to doing so if they must. The Captain will make good use of their abilities to bolster their allies and bring in reinforcements if needed.",
+		"characteristics": {
+			"Might": 4,
+			"Reflexes": 3,
+			"Cool": 3,
+			"Insight": 3,
+			"Cunning": 2
+		},
+		"skills": {
+			"Athletics": 2,
+			"Awareness": 2,
+			"Brawl": 2,
+			"Diplomacy": 2,
+			"Lore": 3,
+			"Melee": 3,
+			"Vigour": 3
+		},
+		"attributes": {
+			"Armour": 6,
+			"Shield": 0,
+			"Parry": 0,
+			"Endurance": 6,
+			"Standing": 3
+		},
+		"equipment": "Breastplate, helm, greaves, ornate labrys, rich clothing.",
+		"abilities": [
+			"ability:Breastplate",
+			"ability:Helm",
+			"ability:Tactical Direction",
+			"ability:Temple Reinforcements"
+		],
+		"attacks": ["weapon:Labrys"]
+	},
+	{
+		"title": "Temple Guard",
+		"type": "Minion",
+		"description": "All of the larger temples, shrines and holy sites employ guards to keep order amongst the congregation. Temple guards are as richly equipped as the temple can accommodate and employ the labrys as their weapon of choice. This is a tradition started on Kreta which has become popular throughout Hellas.",
+		"tactics": "Temple guards will fight in groups of two to four and will fight to the death to protect their temple. They will avoid killing citizens if they can but are not adverse to doing so if they must. They are not out to kill so will try and deal with all opponents equally rather than ganging up on one individual.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 3,
+			"Cool": 3,
+			"Insight": 2,
+			"Cunning": 2
+		},
+		"skills": {
+			"Athletics": 2,
+			"Awareness": 2,
+			"Brawl": 2,
+			"Diplomacy": 1,
+			"Lore": 2,
+			"Melee": 3,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Armour": 6,
+			"Shield": 0,
+			"Parry": 0,
+			"Endurance": 6,
+			"Standing": 3
+		},
+		"equipment": "Breastplate, helm, greaves, ornate labrys, rich clothing.",
+		"abilities": [
+			"ability:Breastplate",
+			"ability:Helm"
+		],
+		"attacks": ["weapon:Labrys"]
+	},
+	{
+		"title": "Wrestler",
+		"type": "Champion",
+		"description": "While most athletes train for many events in the games, wrestlers focus on one: the pankration. Pankration is a brutal form of unarmed combat with few rules. Many contestants die in the ring and only the toughest survive. As with other forms of athletics, the awards for winning are few, but the adoration of the crowds back home make it worth it for many.",
+		"tactics": "Wrestlers will strike repeatedly to wear down their opponent before attempting to pin them and force a submission. Most won’t fight to the death of themselves or their opponent, but accidents happen.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 3,
+			"Cool": 2,
+			"Insight": 2,
+			"Cunning": 3
+		},
+		"skills": {
+			"Athletics": 1,
+			"Brawl": 3,
+			"Medicine": 1,
+			"Perform": 1,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Armour": 0,
+			"Shield": 0,
+			"Parry": 0,
+			"Endurance": 6,
+			"Standing": 2
+		},
+		"attacks": ["weapon:Unarmed Strike"]
+	}
 ]

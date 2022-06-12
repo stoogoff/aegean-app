@@ -227,5 +227,12 @@
 		"reach": 1,
 		"damage": 4,
 		"properties": ["property:Shield 2", "property:Stagger"]
+	},
+	{
+		"title": "Scathing Tirade",
+		"skill": "Diplomacy",
+		"range": "Short",
+		"damage": 0,
+		"properties": ["property:Cunning"]
 	}
 ]

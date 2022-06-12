@@ -1,6 +1,5 @@
 [
 	{
-		"id": "bear",
 		"title": "Bear",
 		"type": "Champion",
 		"description": "Bears are solitary creatures inhabiting the mountains and forests. They are shy, avoiding humans if possible, but can turn aggressive if threatened. Their pelts are prized by many but, to most hunters, the risk is deemed too great.\n\nAnyone slaying a bear single-handedly gains 1 Glory.",
@@ -44,9 +43,601 @@
 				"skill": "Brawl",
 				"reach": "2",
 				"damage": 5,
-				"properties": ["property:Stagger", "Maul"]
+				"properties": ["property:Stagger", "property:Maul"]
 			}
 		],
 		"arcane_lore": "The hardy nature of a bear can be gained by drinking a concoction made from its liver. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the liver. This requires a successful **Cool(Craft)** skill check. Anyone who spends a Maneuver drinking the potion reduces the next Wound roll they are forced to make by -2."
+	},
+	{
+		"title": "Boar",
+		"type": "Champion",
+		"description": "Boars are reclusive creatures which are at home scavenging in the forests. They are cunning and elusive, but savage when cornered and both prized and respected by hunters.\n\nIn ancient times, boars tusks were used to make helmets for the most prestigious warriors. They were difficult and time consuming to make, requiring forty or more tusks, and handed down as prized heirlooms. Their use has fallen out of favour in recent times to the more sturdy bronze helm.",
+		"tactics": "Boars are tough and relentless. They will avoid a fight if they can but if cornered they will fight until the bitter end.",
+		"characteristics": {
+			"Might": 4,
+			"Reflexes": 3,
+			"Cool": 1,
+			"Insight": 1,
+			"Cunning": 3
+		},
+		"skills": {
+			"Athletics": 2,
+			"Awareness": 2,
+			"Brawl": 3,
+			"Survival": 3,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Endurance": 6,
+			"Armour": 2,
+			"Dodge": 1
+		},
+		"abilities": [
+			"ability:Charge",
+			{
+				"title": "Frenzy",
+				"description": "Once this creature takes a Wound it enters into a frenzied state, fighting until the bitter end. It gains an additional attack per round and does +2 damage on all attacks."
+			}
+		],
+		"attacks": [
+			{
+				"title": "Gore",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 4,
+				"properties": ["property:Stagger"]
+			},
+			{
+				"title": "Trample",
+				"skill": "Athletics",
+				"reach": "0",
+				"damage": 5,
+				"properties": [
+					{
+						"title": "Notes",
+						"active": false,
+						"description": "Prone targets only."
+					}
+				]
+			}
+		],
+		"arcane_lore": "The ferocity of a boar can be gained by drinking a concoction made from its horns. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the ground up horn. This requires a successful **Cool(Craft)** skill check. Anyone who spends a Maneuver drinking the potion enters a frenzy. They do +2 damage on all Melee and Brawling attacks and must attack something—friend or foe—on their turn or gain 2 Risk. This effect lasts for a number of rounds equal to the successes rolled on the Craft skill check."
+	},
+	{
+		"title": "Cattle",
+		"type": "Minion",
+		"description": "Cattle are a common site across farmland and can be found roaming wild. They can be extremely fierce, especially when defending their herd, and are used as part of the bull dancing rituals performed on Kreta. Cattle are sacred to Poseidon and are used in the most important sacrifices.",
+		"tactics": "Unless cornered or the herd is in danger, cattle will flee. Cattle in the arena are goaded to anger before they enter to make the dance more difficult.",
+		"characteristics": {
+			"Might": 5,
+			"Reflexes": 2,
+			"Cool": 2,
+			"Insight": 1,
+			"Cunning": 1
+		},
+		"skills": {
+			"Athletics": 1,
+			"Awareness": 1,
+			"Brawl": 3,
+			"Survival": 1,
+			"Vigour": 4
+		},
+		"attributes": {
+			"Endurance": 8,
+			"Armour": 2,
+			"Dodge": 0
+		},
+		"abilities": ["ability:Charge"],
+		"attacks": [
+			{
+				"title": "Gore",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 4,
+				"properties": ["property:Stagger"]
+			}
+		],
+		"arcane_lore": "The blood of cattle can be made into a powerful ingestible poison. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the blood. This requires a successful **Cool(Craft)** skill check. Anyone who drinks the potion is immediately poisoned with a Poison 3 effect."
+	},
+	{
+		"title": "Donkey / Mule",
+		"type": "Minion",
+		"description": "Donkeys and mules are found as pack animals or riding animals. They’re known for being stubborn.",
+		"characteristics": {
+			"Might": 4,
+			"Reflexes": 2,
+			"Cool": 1,
+			"Insight": 1,
+			"Cunning": 2
+		},
+		"skills": {
+			"Athletics": 2,
+			"Vigour": 5
+		},
+		"attributes": {
+			"Endurance": 5,
+			"Armour": 1,
+			"Dodge": 0,
+			"Handling": -4
+		},
+		"abilities": ["ability:Trample"],
+		"attacks": [
+			{
+				"title": "Kick",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 4,
+				"properties": ["property:Stagger"]
+			},
+			{
+				"title": "Trample",
+				"skill": "Athletics",
+				"reach": "1",
+				"damage": 6,
+				"properties": ["property:Stun"]
+			}
+		]
+	},
+	{
+		"title": "Deer",
+		"type": "Minion",
+		"description": "Deer herds roam the hills and forests and are prime targets for hunters. They are sacred to Artemis.",
+		"tactics": "Deer are swift and elusive creatures who will flee at the first sign of danger. They will only fight if cornered.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 3,
+			"Cool": 1,
+			"Insight": 1,
+			"Cunning": 2
+		},
+		"skills": {
+			"Athletics": 2,
+			"Awareness": 3,
+			"Brawl": 1,
+			"Survival": 3,
+			"Vigour": 2
+		},
+		"attributes": {
+			"Endurance": 4,
+			"Armour": 1,
+			"Dodge": 2
+		},
+		"abilities": ["ability:Swift"],
+		"attacks": [
+			{
+				"title": "Antlers",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 4,
+				"properties": ["property:Pierce"]
+			}
+		]
+	},
+	{
+		"title": "Dog",
+		"type": "Minion",
+		"description": "Most families will include a dog of some kind, to bark at strangers and as companions. Breeds and training vary, with most being trained as sentries or hunting companions. Some—notably the molossus mastiff—are trained for warfare.",
+		"tactics": "Well trained dogs will do as their master tells them.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 3,
+			"Cool": 2,
+			"Insight": 1,
+			"Cunning": 2
+		},
+		"skills": {
+			"Athletics": 2,
+			"Awareness": 4,
+			"Brawl": 1,
+			"Survival": 1,
+			"Vigour": 3
+		},
+		"attributes": {
+			"Endurance": 4,
+			"Armour": 1,
+			"Dodge": 2
+		},
+		"abilities": ["ability:Keen Senses"],
+		"attacks": [
+			{
+				"title": "Bite and Claws",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 3,
+				"properties": ["property:Pierce"]
+			}
+		]
+	},
+	{
+		"title": "Dog, War",
+		"type": "Minion",
+		"description": "Dogs trained for war make great bodyguards and sentries.",
+		"tactics": "Well trained dogs will do as their master tells them.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 3,
+			"Cool": 3,
+			"Insight": 1,
+			"Cunning": 2
+		},
+		"skills": {
+			"Athletics": 2,
+			"Awareness": 4,
+			"Brawl": 3,
+			"Survival": 1,
+			"Vigour": 4
+		},
+		"attributes": {
+			"Endurance": 6,
+			"Armour": 2,
+			"Dodge": 2
+		},
+		"abilities": ["ability:Keen Senses"],
+		"attacks": [
+			{
+				"title": "Bite and Claws",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 3,
+				"properties": ["property:Pierce"]
+			}
+		]
+	},
+	{
+		"title": "Horse, Draft",
+		"type": "Minion",
+		"description": "A standard draft horse, used as part of a chariot team. Draft horses are poorly trained and easily startled.",
+		"characteristics": {
+			"Might": 4,
+			"Reflexes": 3,
+			"Cool": 1,
+			"Insight": 1,
+			"Cunning": 2
+		},
+		"skills": {
+			"Athletics": 2,
+			"Vigour": 4
+		},
+		"attributes": {
+			"Endurance": 5,
+			"Armour": 1,
+			"Dodge": 0,
+			"Handling": -2
+		},
+		"abilities": ["ability:Swift", "ability:Trample"],
+		"attacks": [
+			{
+				"title": "Kick",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 4,
+				"properties": ["property:Stagger"]
+			},
+			{
+				"title": "Trample",
+				"skill": "Athletics",
+				"reach": "1",
+				"damage": 8,
+				"properties": ["property:Stun"]
+			}
+		]
+	},
+	{
+		"title": "Horse, Riding",
+		"type": "Minion",
+		"description": "A prized riding horse, possibly used as part of a chariot team or as a suitable mount for a nomad. Better trained (and more expensive) riding horses may be available with a better Handling attribute.",
+		"characteristics": {
+			"Might": 4,
+			"Reflexes": 4,
+			"Cool": 2,
+			"Insight": 1,
+			"Cunning": 2
+		},
+		"skills": {
+			"Athletics": 3,
+			"Brawl": 1,
+			"Vigour": 4
+		},
+		"attributes": {
+			"Endurance": 5,
+			"Armour": 1,
+			"Dodge": 0,
+			"Handling": -2
+		},
+		"abilities": ["ability:Swift", "ability:Trample"],
+		"attacks": [
+			{
+				"title": "Kick",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 4,
+				"properties": ["property:Stagger"]
+			},
+			{
+				"title": "Trample",
+				"skill": "Athletics",
+				"reach": "1",
+				"damage": 8,
+				"properties": ["property:Stun"]
+			}
+		]
+	},
+	{
+		"title": "Horse, War",
+		"type": "Minion",
+		"description": "A well-trained war horse is a rarity and can only be found with the champions of Amazon or other nomadic tribes. Supremely trained war horses, or those gifted by the gods, may have an increased Handling attribute.",
+		"characteristics": {
+			"Might": 4,
+			"Reflexes": 4,
+			"Cool": 3,
+			"Insight": 1,
+			"Cunning": 2
+		},
+		"skills": {
+			"Athletics": 4,
+			"Brawl": 2,
+			"Vigour": 4
+		},
+		"attributes": {
+			"Endurance": 5,
+			"Armour": 1,
+			"Dodge": 0,
+			"Handling": 1
+		},
+		"abilities": [
+			{
+				"title": "Battle Trained",
+				"description": "A war horse can make a kick Harm Action on the rider’s turn in addition to any Action the rider takes."
+			},
+			"ability:Swift",
+			"ability:Trample"
+		],
+		"attacks": [
+			{
+				"title": "Kick",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 4,
+				"properties": ["property:Stagger"]
+			},
+			{
+				"title": "Trample",
+				"skill": "Athletics",
+				"reach": "1",
+				"damage": 8,
+				"properties": ["property:Stun"]
+			}
+		]
+	},
+	{
+		"title": "Leopard",
+		"type": "Champion",
+		"description": "Leopards are lone predators who roam the wild grasslands and forests where they can hunt freely, using their natural camouflage to their advantage. They are dangerous and only the most cautious—or foolhardy—hunt them. Dionysos, the god of wine and revelry, is said to ride a leopard or a chariot pulled by leopards.",
+		"tactics": "Leopards prefer to attack with surprise, using their Ambush Predator ability to their advantage. They prefer a quick kill and will flee if they take a Wound.",
+		"characteristics": {
+			"Might": 4,
+			"Reflexes": 4,
+			"Cool": 1,
+			"Insight": 1,
+			"Cunning": 4
+		},
+		"skills": {
+			"Athletics": 3,
+			"Awareness": 3,
+			"Brawl": 3,
+			"Survival": 3,
+			"Vigour": 3
+		},
+		"attributes": {
+			"Endurance": 8,
+			"Armour": 3,
+			"Dodge": 3
+		},
+		"abilities": [
+			{
+				"title": "Ambush Predator",
+				"description": "The creature may use Cunning instead of Might when performing a Harm attack Action if their target is unaware of them. The target is automatically aware of the creature after the attack."
+			},
+			"ability:Claws",
+			"ability:Keen Senses"
+		],
+		"attacks": [
+			{
+				"title": "Bite",
+				"skill": "Brawl",
+				"reach": "1",
+				"damage": 5,
+				"properties": ["property:Pierce"]
+			},
+			{
+				"title": "Claws",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 4,
+				"properties": ["property:Stagger"]
+			}
+		]
+	},
+	{
+		"title": "Lion",
+		"type": "Champion",
+		"description": "Lions on their own are fearsome predators and dangerous opponents who hunt in the grasslands and forests. However, they rarely hunt alone and live in prides of four to twelve. Most hunters wisely avoid them.\n\nAnyone slaying a lion single-handedly gains 1 Glory.",
+		"tactics": "Lions aren’t afraid of humans but will avoid a fight against greater numbers. They will attempt to summon their pride, if they can, otherwise they will flee. When cornered they will fight until Wounded.",
+		"characteristics": {
+			"Might": 5,
+			"Reflexes": 4,
+			"Cool": 1,
+			"Insight": 1,
+			"Cunning": 3
+		},
+		"skills": {
+			"Athletics": 3,
+			"Awareness": 3,
+			"Brawl": 4,
+			"Survival": 2,
+			"Vigour": 3
+		},
+		"attributes": {
+			"Endurance": 10,
+			"Armour": 3,
+			"Dodge": 2
+		},
+		"abilities": [
+			"ability:Claws",
+			"ability:Keen Senses",
+			{
+				"title": "Mighty Roar",
+				"description": "This creature may spend a point of Hubris to use **Might(Vigour)** to make a Harm attack Action against all opponents within Medium range. Each success causes the target to gain 1 point of Risk and the attack has the Stun property."
+			},
+			{
+				"title": "Pride",
+				"description": "As a Maneuver the GM may spend a point of Hubris to call in two additional lions. The pride arrives at the start of the next round."
+			}
+		],
+		"attacks": [
+			{
+				"title": "Bite",
+				"skill": "Brawl",
+				"reach": "1",
+				"damage": 5,
+				"properties": ["property:Pierce"]
+			},
+			{
+				"title": "Claws",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 4,
+				"properties": ["property:Stagger", "property:Savage"]
+			},
+			{
+				"title": "Mighty Roar",
+				"skill": "Vigour",
+				"range": "Medium",
+				"damage": 0,
+				"properties": ["property:Stun"]
+			}
+		],
+		"arcane_lore": "The strength of a lion is said to reside in its heart. Anyone with the Arcane Lore talent can spend a downtime Action preparing a concoction from the heart. This requires a successful **Cool(Craft)** skill check. Anyone who spends a Maneuver eating the heart gains +1 Might and 1 Risk per success on the Craft skill check. The bonus to Might lasts until the end of the encounter."
+	},
+	{
+		"title": "Raptor",
+		"type": "Minion",
+		"description": "Raptor includes all kinds of eagles, hawks, falcons and other birds of prey. Falconry is a common sport in Thrakia and amongst the nomadic Amazon tribes where hunters use trained eagles to hunt small game.",
+		"tactics": "Raptors won’t usually attack anything as large as a human and will flee instead. Well trained raptors will do as their master commands.",
+		"characteristics": {
+			"Might": 1,
+			"Reflexes": 5,
+			"Cool": 2,
+			"Insight": 2,
+			"Cunning": 4
+		},
+		"skills": {
+			"Athletics": 4,
+			"Awareness": 5,
+			"Brawl": 2,
+			"Survival": 2
+		},
+		"attributes": {
+			"Endurance": 3,
+			"Armour": 0,
+			"Dodge": 4
+		},
+		"abilities": [
+			"ability:Agile",
+			"ability:Flyer",
+			"ability:Talons"
+		],
+		"attacks": [
+			{
+				"title": "Talons",
+				"skill": "Brawl",
+				"reach": "3",
+				"damage": 2,
+				"properties": ["property:Pierce", "property:Reflexes"]
+			}			
+		]
+	},
+	{
+		"title": "Snake",
+		"type": "Minion",
+		"description": "Snakes are a common sight throughout Hellas and many people keep them as pets to kill rats and mice. Some are venomous and dangerous to humans but many are not. They are sacred to Athena and Asklepios and are symbols for many gods and heroes. They are said to teach wisdom, prophecy and knowledge of healing.",
+		"tactics": "Snakes prey on small animals, such as mice and rats; they only attack humans if they are attacked or feel threatened. After striking, a snake will attempt to flee.",
+		"characteristics": {
+			"Might": 1,
+			"Reflexes": 5,
+			"Cool": 1,
+			"Insight": 2,
+			"Cunning": 3
+		},
+		"skills": {
+			"Athletics": 2,
+			"Awareness": 1,
+			"Brawl": 2,
+			"Survival": 3
+		},
+		"attributes": {
+			"Endurance": 3,
+			"Armour": 0,
+			"Dodge": 3
+		},
+		"abilities": [
+			"ability:Agile",
+			{
+				"title": "Venomous",
+				"active": true,
+				"description": "Any character who suffers a successful Harm Action when this property is activated, whether or not they gain Risk or suffer a Wound, gains Poison 1."
+			}
+		],
+		"attacks": [
+			{
+				"title": "Bite",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 1,
+				"properties": ["property:Reflexes", "property:Venomous"]
+			}
+		]
+	},
+	{
+		"title": "Wolf",
+		"type": "Minion",
+		"description": "Wolves hunt and travel in packs. They can be a menace to livestock but have a sensible fear of people and rarely attack unless provoked.",
+		"tactics": "Wolves rely on their Pack Instincts ability to assist each other and work together. Unless cornered, they will attempt to flee using the Misdirect Action. They will flee if faced with greater numbers or are wounded.",
+		"characteristics": {
+			"Might": 3,
+			"Reflexes": 3,
+			"Cool": 1,
+			"Insight": 1,
+			"Cunning": 3
+		},
+		"skills": {
+			"Athletics": 2,
+			"Awareness": 3,
+			"Brawl": 2,
+			"Survival": 2,
+			"Vigour": 3
+		},
+		"attributes": {
+			"Endurance": 5,
+			"Armour": 2,
+			"Dodge": 1
+		},
+		"abilities": [
+			"ability:Keen Senses",
+			{
+				"title": "Pack Instincts",
+				"description": "When working together as a minion group, each wolf grants +2D assistance up to a maximum of +6D."
+			}
+		],
+		"attacks": [
+			{
+				"title": "Bite and Claws",
+				"skill": "Brawl",
+				"reach": "2",
+				"damage": 3,
+				"properties": ["property:Pierce"]
+			}
+		],
+		"arcane_lore": "The cunning of a wolf is said to reside in its tongue. Anyone with the Arcane Lore talent can spend a downtime Action preparing a concoction from the tongue. This requires a successful **Cool(Craft)** skill check. Anyone who spends a Maneuver eating the tongue gains +1 Cunning and 1 Risk per success on the Craft skill check. The bonus to Cunning lasts until the end of the encounter."
 	}
 ]

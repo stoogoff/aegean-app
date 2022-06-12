@@ -1,8 +1,28 @@
 [
 	{
+		"title": "Agile",
+		"active": false,
+		"description": "This creature can make two Dodge Reactions per round."
+	},
+	{
+		"title": "Ambush",
+		"active": false,
+		"description": "The character may use Cunning instead of Might when performing a Harm attack Action if their target is unaware of them. The target is automatically aware of the character after the attack."
+	},
+	{
+		"title": "Breastplate",
+		"active": false,
+		"description": "Ignore the effect of Savage."
+	},
+	{
 		"title": "Burning",
 		"active": true,
 		"description": "The target character and any character within Melee range of the target when this property is activated, gains the Burning 3 effect for 3 rounds."
+	},
+	{
+		"title": "Charge",
+		"active": false,
+		"description": "This creature gains +2 damage on any Brawl or Melee Harm attack Action if it makes a Move Maneuver immediately before the attack."
 	},
 	{
 		"title": "Claws",
@@ -15,13 +35,78 @@
 		"description": "This creature can fly. It ignores all penalties for rough terrain and gets a free Move Maneuver per turn. It must make a Move Maneuver every turn or stall. It ignores up to 2 Risk when disengaging from a non-flying opponent."
 	},
 	{
+		"title": "Helm",
+		"active": false,
+		"description": "Treat characteristics as 1 rather than 0 when Stunned."
+	},
+	{
+		"title": "Keen Senses",
+		"active": true,
+		"description": "Gain +2D when tracking prey using the Survival skill or on Awareness rolls which involve hearing or smell."
+	},
+	{
 		"title": "Maul",
 		"active": true,
 		"description": "After a successful claw attack the GM may invoke the Fates to Pin the target character in addition to inflicting the attack damage. Successes on the attack roll are used as both additional damage for the Harm Action and for the Pin penalty applied to the target."
 	},
 	{
+		"title": "Motivate",
+		"active": false,
+		"description": "As an Action the character may make a **Cool(Manipulation)** skill check. If successful, a number of allies or allied minion groups equal to the successes rolled within Medium range may reduce their Risk by 2."
+	},
+	{
+		"title": "Retreat",
+		"active": false,
+		"description": "The character may ignore 1 point of Risk gained when disengaging from an opponent."
+	},
+	{
+		"title": "Riposte",
+		"active": false,
+		"description": "Whenever the character uses a weapon Parry against an attack Action and doesn’t gain Risk or take a Wound the attacker gains 2 Risk."
+	},
+	{
+		"title": "Scathing Tirade",
+		"active": false,
+		"description": "The character may use **Cunning(Diplomacy)** to make a Harm attack Action against a target within Short range. Each success causes the target to gain 1 point of Risk. The target’s Standing attribute can be used as Defence to reduce the attack dice pool."
+	},
+	{
+		"title": "Sure Footed",
+		"active": false,
+		"description": "The character may ignore any penalties related to difficult terrain."
+	},
+	{
+		"title": "Swift",
+		"active": false,
+		"description": "This creature is especially fleet of foot and may make a free Move Maneuver during its turn."
+	},
+	{
+		"title": "Tactical Direction",
+		"active": false,
+		"description": "As a Maneuver the character may grant an allied minion group within Medium range a free Move Maneuver or +2D on their next Action."
+	},
+	{
+		"title": "Talons",
+		"active": false,
+		"description": "This creature may make two talon attacks per turn against one or more opponents at Melee range."
+	},
+	{
+		"title": "Temple Reinforcements",
+		"active": false,
+		"description": "As a Maneuver the GM may spend a point of Hubris to call in two minion groups of four Temple Guards or a single Temple Captain. The reinforcements arrive at the start of the next round."
+	},
+	{
+		"title": "Trample",
+		"active": false,
+		"description": "A trample attack can be made against a prone target as long as the creature makes a Move Maneuver before the attack."
+	},
+	{
 		"title": "Venomous",
 		"active": true,
 		"description": "Any character who suffers a successful Bite Action when this property is activated, whether or not they gain Risk or suffer a Wound, gains Poison 2."
+	},
+	{
+		"title": "Volley",
+		"active": false,
+		"description": "The character may spend an ammo load or a point of Hubris to gain +2D and +2 damage on their next attack with a missile weapon."
 	}
 ]
