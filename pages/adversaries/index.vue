@@ -1,14 +1,11 @@
 <template>
 	<main>
 		<h1>Adversaries</h1>
-		<text-input label="Filter" v-model="filter" />
-		<!-- div v-if="filtered.length > 0">
-			<adversary-link v-for="adv in filtered" :key="adv.id" :adversary="adv" />
-		</div -->
+		<list-filter :list="adversaries" property="title" @filter="update" />
 		<div class="grid grid-cols-3">
 			<div>
 				<h2>All</h2>
-				<adversary-link v-for="adv in adversaries" :key="adv.id" :adversary="adv" />
+				<adversary-link v-for="adv in filtered" :key="adv.id" :adversary="adv" />
 			</div>
 			<div>
 				<h2>Category</h2>
@@ -35,32 +32,13 @@ export default {
 	name: 'AdversaryIndexPage',
 
 	async fetch() {
-		this.adversaries = await adversaries.all()
+		this.filtered = this.adversaries = await adversaries.all()
 	},
 
 	data() {
 		return {
 			adversaries: [],
 			filtered: [],
-			filter: '',
-		}
-	},
-
-	watch: {
-		filter(text) {
-			/*if(text === '') {
-				this.adversaries = []
-				return
-			}*/
-
-			text = text.toLowerCase()
-
-			this.adversaries = adversaries.all().filter(a =>
-				a.title
-					.normalize('NFD')
-					.replace(/[\u0300-\u036f]/g, '')
-					.toLowerCase()
-					.indexOf(text) != -1)
 		}
 	},
 
@@ -75,12 +53,16 @@ export default {
 	},
 
 	methods: {
+		update(adversaries) {
+			this.filtered = adversaries
+		},
+
 		group(group) {
-			const groups = unique(this.adversaries.map(adv => adv[group])).sort()
+			const groups = unique(this.filtered.map(adv => adv[group])).sort()
 			let byGroup = {}
 
 			groups.forEach(g => {
-				byGroup[g] = this.adversaries.filter(adv => adv[group] === g)
+				byGroup[g] = this.filtered.filter(adv => adv[group] === g)
 			})
 
 			return byGroup

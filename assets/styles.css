@@ -10,7 +10,7 @@ body {
 }
 
 main {
-	@apply px-6;
+	@apply relative flex flex-col px-6 py-8 w-full mb-6;
 }
 
 h1 {
