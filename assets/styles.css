@@ -67,6 +67,16 @@ ol.list, .content ol {
 	@apply mt-4;
 }
 
+.two-column {
+	@apply grid grid-cols-4 gap-4;
+}
+.two-column > aside {
+	@apply px-6 py-8;
+}
+.two-column > article {
+	@apply col-span-3 px-6 py-8;
+}
+
 /* form inputs */
 .input {
 	@apply font-sans text-gray-600 text-sm relative bg-white rounded border border-gray-300 shadow outline-none w-full focus:outline-none focus:ring focus:ring-blue-600 px-3 py-3 placeholder-gray-300;

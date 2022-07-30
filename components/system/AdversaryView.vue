@@ -4,15 +4,15 @@
 		<div>
 			<small>{{ adversary.type }}, {{ adversary.category }}</small>
 		</div>
-		<markdown-content :content="adversary.description" />
-		<markdown-content v-if="hasTactics" :content="`**Tactics:** ${adversary.tactics}`" />
+		<render-markdown :content="adversary.description" />
+		<render-markdown v-if="hasTactics" :content="`**Tactics:** ${adversary.tactics}`" />
 		<stat-block title="Characteristics" :stats="adversary.characteristics" />
  		<stat-block title="Skills" :stats="adversary.skills" />
 		<stat-block title="Attributes" :stats="adversary.attributes" />
 		<p v-if="hasEquipment"><strong>Equipment:</strong> {{ adversary.equipment }}</p>
 		<section v-if="hasAbilities">
 			<h3>Abilities</h3>
-			<markdown-content
+			<render-markdown
 				v-for="(ability, index) in adversary.abilities"
 				:key="`ability_${index}`"
 				:content="`**${ability.title}:** ${ability.description}`"
@@ -55,7 +55,7 @@
 		</section>
 		<section v-if="adversary.arcane_lore">
 			<h3>Arcane Lore</h3>
-			<markdown-content :content="adversary.arcane_lore" />
+			<render-markdown :content="adversary.arcane_lore" />
 		</section>
 	</div>
 </template>

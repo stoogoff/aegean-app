@@ -1,32 +1,30 @@
 <template>
-	<div v-html="parsedContent" />
+	<div class="content mb-8">
+		<loading-spinner v-if="$fetchState.pending" />
+		<nuxt-content :document="text" v-else />
+	</div>
 </template>
 <script>
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeSanitize from 'rehype-sanitize'
-import rehypeStringify from 'rehype-stringify'
-
-export default {
-	name: 'MarkdownContent',
-
+import Vue from 'vue'
+export default Vue.component('MarkdownContent', {
 	props: {
 		content: {
 			type: String,
 			required: true,
 		},
 	},
-
-	computed: {
-		parsedContent() {
-			return unified()
-				.use(remarkParse)
-				.use(remarkRehype)
-				.use(rehypeSanitize)
-				.use(rehypeStringify)
-				.processSync(this.content).toString()
-		},
+	async fetch() {
+		try {
+			this.text = await this.$content(this.content).fetch()
+		}
+		catch(error) {
+			this.text = await this.$content('404').fetch()
+		}
 	},
-}
+	data() {
+		return {
+			text: '',
+		}
+	},
+})
 </script>

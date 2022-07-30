@@ -5,6 +5,7 @@
 			<li>
 				<h2>Characters</h2>
 				<p>Create a new character and view existing ones.</p>
+				<link-action to="/characters/" block>Characters</link-action>
 			</li>
 			<li>
 				<h2>Cities</h2>

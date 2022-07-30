@@ -1,10 +1,11 @@
 <template>
-	<div class="grid grid-cols-4 gap-4">
-		<aside class="px-6 py-8">
+	<div class="two-column">
+		<aside>
 			<list-filter :list="adversaries" property="title" @filter="update" />
+			<small>Showing {{ filtered.length }} of {{ adversaries.length }}</small>
 			<adversary-link v-for="adv in filtered" :key="adv.id" :adversary="adv" />
 		</aside>
-		<article class="col-span-3 px-6 py-8">
+		<article>
 			<loading-spinner v-if="$fetchState.pending" />
 			<div v-else-if="adversary === null">
 				Adversary not found.
