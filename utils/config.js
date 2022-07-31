@@ -14,9 +14,12 @@ export const CHARACTERISTIC_MAX = 5
 export const SKILL_MIN = 0
 export const SKILL_MAX = 5
 
+export const STARTING_CREATION_POINTS = 15
 
 
 export const DEFAULT_CHARACTER = {
+	cp: STARTING_CREATION_POINTS,
+	heritage: null,
 	attributes: {
 		[STAT_MIGHT]: CHARACTERISTIC_MIN,
 		[STAT_REFLEXES]: CHARACTERISTIC_MIN,

@@ -1,5 +1,4 @@
 
-import Vue from 'vue'
 import { unique, sortByProperty } from '~/utils/list'
 import { id } from '~/utils/string'
 import {

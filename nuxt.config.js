@@ -39,6 +39,7 @@ export default {
 	plugins: [
     //{ src: '~/plugins/firebase.js', mode: 'client' },
     //{ src: '~/plugins/auth-check.js', mode: 'client' },
+    '~/plugins/filters.js'
 	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components

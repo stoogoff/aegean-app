@@ -1,4 +1,4 @@
 
 import Vue from 'vue'
 
-// Vue.filter('markdown', value => value)
+Vue.filter('lower', value => (value || '').toLowerCase())

@@ -18,15 +18,40 @@
 		<article>
 			<markdown-content content="characters/creation" />
 			<div class="flex">
-				<link-action to="/" block>Walkthrough</link-action>
-				<link-action to="/" block>Add</link-action>
+				<button-action block @click="walkthrough">Walkthrough</button-action>
+				<button-action block @click="add">Add</button-action>
 			</div>
 		</article>
 	</div>
 </template>
 <script>
+
+import { character } from '~/state'
+
 export default {
 	name: 'CharacterNewPage',
 	layout: 'full-width',
+
+	methods: {
+		async create(suffix) {
+			const { redirect } = this.$nuxt.context
+
+			this.loading = true
+
+			const newCharacter = await character.create()
+
+			redirect(`/characters/${newCharacter.id}/${suffix}`)
+
+			this.loading = false
+		},
+
+		async walkthrough() {
+			this.create('heritage')
+		},
+
+		async add() {
+			this.create('add')
+		},
+	},
 }
 </script>
