@@ -6,6 +6,13 @@
 		</section>
 		<section v-if="character.heritage">
 			<div><strong>Heritage:</strong> {{ character.heritage.title }}</div>
+			<div v-if="character.parent"><strong>Parent:</strong> {{ character.parent.title }}</div>
+			<div>
+				<link-action
+					small
+					:to="`/characters/${character.id}/heritage`"
+				>Edit</link-action>
+			</div>
 		</section>
 	</aside>
 </template>

@@ -62,7 +62,7 @@ export default {
 		return character
 	},
 
-	async save(data) {
+	/*async*/ save(data) {
 		//await save(STORAGE_CHARACTERS, data)
 
 		state.characters = [ ...state.characters.filter(character => character.id !== data.id), data ]

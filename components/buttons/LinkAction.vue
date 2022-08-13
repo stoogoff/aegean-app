@@ -28,6 +28,10 @@ export default Vue.component('LinkAction', {
 			type: Boolean,
 			default: false,
 		},
+		small: {
+			type: Boolean,
+			default: false,
+		},
 	},
 
 	computed: {
@@ -40,6 +44,10 @@ export default Vue.component('LinkAction', {
 
 			if(this.outlined) {
 				classList.push('outlined')
+			}
+
+			if(this.small) {
+				classList.push('small')
 			}
 
 			if(this.disabled === true) {

@@ -18,6 +18,10 @@ export default Vue.component('StepButtons', {
 			type: String,
 			default: '',
 		},
+		exit: {
+			type: String,
+			default: '',
+		},
 		disabled: {
 			type: Boolean,
 			default: false,
@@ -25,12 +29,6 @@ export default Vue.component('StepButtons', {
 		label: {
 			type: String,
 			default: 'Next',
-		},
-	},
-
-	computed: {
-		exit() {
-			return this.next.substring(0, this.next.lastIndexOf('/'))
 		},
 	},
 

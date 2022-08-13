@@ -3,30 +3,32 @@
 		<character-progress :character="character" v-if="character" />
 		<article>
 			<markdown-content content="characters/heritage" />
-			<div
-				class="mb-4"
-				v-for="(heritage, idx) in heritages"
-				:key="`heritage_${idx}`"
-			>
-				<h2>{{ heritage.title }}</h2>
-				<small>Cost: {{ heritage.cost }}CP</small>
-				<p>{{ heritage.description }} A {{ heritage.title | lower }} character starts with the following:</p>
-				<ul>
-					<li><strong>Endurance:</strong> {{ heritage.endurance }}</li>
-					<li><strong>Glory:</strong> {{ heritage.glory }}</li>
-				</ul>
-				<button-action
-					block
-					:outlined="hasSelected"
-					:type="getButtonType(heritage)"
-					@click="toggleSelected(heritage)"
-				>{{ heritage.title }} Heritage ({{ heritage.cost }})</button-action>
+			<div class="grid grid-cols-2 gap-4">
+				<div
+					class="mb-4"
+					v-for="(heritage, idx) in heritages"
+					:key="`heritage_${idx}`"
+				>
+					<h2>{{ heritage.title }}</h2>
+					<small>Cost: {{ heritage.cost }}CP</small>
+					<p>{{ heritage.description }} A {{ heritage.title | lower }} character starts with the following:</p>
+					<ul>
+						<li><strong>Endurance:</strong> {{ heritage.endurance }}</li>
+						<li><strong>Glory:</strong> {{ heritage.glory }}</li>
+					</ul>
+					<button-action
+						block
+						:outlined="hasSelected"
+						:type="getButtonType(heritage)"
+						@click="toggleSelected(heritage)"
+					>{{ heritage.title }} Heritage ({{ heritage.cost }})</button-action>
+				</div>
 			</div>
 			<step-buttons
 				v-if="character"
-				:next="`/characters/${character.id}/finish`"
-				:previous="`/characters/${character.id}/abilities`"
-				:disabled="!canContinue"
+				:next="nextPage"
+				exit="/characters"
+				:disabled="!hasSelected"
 				@click="save"
 			/>
 		</article>
@@ -67,8 +69,12 @@ export default {
 	},
 
 	computed: {
-		canContinue() {
-			return this.hasSelected
+		nextPage() {
+			if(!this.hasSelected) return ''
+
+			const suffix = this.character.heritage.title === 'Mortal' ? 'background' : 'divine'
+
+			return `/characters/${this.character.id}/${suffix}`
 		},
 
 		hasSelected() {
@@ -99,8 +105,9 @@ export default {
 			}
 		},
 
-		save() {
-
+		save(done) {
+			/*await*/ character.save(this.character)
+			done()
 		},
 	}
 }
