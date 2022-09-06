@@ -1,5 +1,9 @@
 <template>
-	<text-input :label="label" v-model="filter" />
+	<text-input :label="label" v-model="filter" @append="clear" >
+		<template #append>
+			<icon-view icon="close" />
+		</template>
+	</text-input>
 </template>
 <script>
 import Vue from 'vue'
@@ -38,6 +42,12 @@ export default Vue.component('ListFilter', {
 					.indexOf(text) != -1)
 
 			this.$emit('filter', list)
+		}
+	},
+
+	methods: {
+		clear() {
+			this.filter = ''
 		}
 	},
 })

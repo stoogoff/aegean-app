@@ -1,5 +1,5 @@
 <template>
-	<div class="two-column">
+	<div class="secondary-navigation">
 		<aside>
 			<h1>Steps</h1>
 			<ol class="list">

@@ -38,7 +38,6 @@ const getStats = (container, key, item) => {
 const getWeaponProperties = property => getStats(properties, KEY_PROPERTY, property)
 const getAbilityStats = ability => getStats(abilities, KEY_ABILITY, ability)
 const getAttackStats = attack => {
-
 	const stats = getStats(weapons, KEY_WEAPON, attack)
 
 	stats.properties = stats.properties.map(property => getWeaponProperties(property)).filter(weapon => !!weapon)

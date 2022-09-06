@@ -1,6 +1,6 @@
 <template>
-	<div class="two-column">
-		<aside>
+	<div class="secondary-navigation">
+		<aside class="hidden md:block">
 			<list-filter :list="adversaries" property="title" @filter="update" />
 			<small>Showing {{ filtered.length }} of {{ adversaries.length }}</small>
 			<adversary-link v-for="adv in filtered" :key="adv.id" :adversary="adv" />

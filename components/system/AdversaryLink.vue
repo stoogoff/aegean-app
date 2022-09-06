@@ -1,7 +1,10 @@
 <template>
-	<p>
-		<nuxt-link :to="`/adversaries/${adversary.id}`">{{ adversary.title }} <small>({{ adversary.type }})</small></nuxt-link>
-	</p>
+	<div class="py-1">
+		<nuxt-link :to="`/adversaries/${adversary.id}`">
+			{{ adversary.title }}
+			<small>({{ adversary.type }})</small>
+		</nuxt-link>
+	</div>
 </template>
 <script>
 import Vue from 'vue'

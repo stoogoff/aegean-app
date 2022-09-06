@@ -1,13 +1,17 @@
 <template>
 	<section>
-		<h3>{{ title }}</h3>
-		<div
+		<div class="grid grid-cols-2">
+			<h3>{{ title }}</h3>
+			<span class="place-self-end">
+				<slot name="header" />
+			</span>
+		</div>
+		<definition-term
 			v-for="(value, key) in stats"
 			:key="key"
-			class="grid grid-cols-2 p-1"
-		>
-			<strong>{{ key }}</strong><span class="text-right inline-block">{{ value }}</span>
-		</div>
+			:definition="key"
+			:term="value"
+		/>
 	</section>
 </template>
 <script>
@@ -28,7 +32,7 @@ export default Vue.component('StatBlock', {
 </script>
 <style scoped>
 h3 {
-	@apply uppercase text-center;
+	@apply uppercase my-0;
 }
 div:nth-child(even) {
 	@apply bg-gray-200;

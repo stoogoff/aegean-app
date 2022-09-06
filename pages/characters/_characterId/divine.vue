@@ -1,5 +1,5 @@
 <template>
-	<div class="two-column">
+	<div class="secondary-navigation">
 		<character-progress :character="character" v-if="character" />
 		<article>
 			<div class="grid grid-cols-2 gap-4">

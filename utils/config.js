@@ -14,6 +14,24 @@ export const CHARACTERISTIC_MAX = 5
 export const SKILL_MIN = 0
 export const SKILL_MAX = 5
 
+export const SKILLS = [
+	'Accuracy',
+	'Athletics',
+	'Awareness',
+	'Brawl',
+	'Craft',
+	'Diplomacy',
+	'Knowledge',
+	'Lore',
+	'Manipulation',
+	'Medicine',
+	'Melee',
+	'Perform',
+	'Ride',
+	'Survival',
+	'Vigour',
+]
+
 export const STARTING_CREATION_POINTS = 15
 
 

@@ -7,9 +7,15 @@
 		<render-markdown :content="adversary.description" />
 		<render-markdown v-if="hasTactics" :content="`**Tactics:** ${adversary.tactics}`" />
 		<stat-block title="Characteristics" :stats="adversary.characteristics" />
- 		<stat-block title="Skills" :stats="adversary.skills" />
+		<stat-block title="Skills" :stats="skills">
+			<template #header>
+				<button-action small :outlined="!showAllSkills" @click="toggleAllSkills">
+					Show all
+				</button-action>
+			</template>
+		</stat-block>
 		<stat-block title="Attributes" :stats="adversary.attributes" />
-		<p v-if="hasEquipment"><strong>Equipment:</strong> {{ adversary.equipment }}</p>
+		<definition-term v-if="hasEquipment" definition="Equipment" :term="adversary.equipment" />
 		<section v-if="hasAbilities">
 			<h3>Abilities</h3>
 			<render-markdown
@@ -45,7 +51,15 @@
 						<td class="text-center">{{ attack.damage }}</td>
 						<td v-if="attack.properties.length > 0">
 							<div v-for="(prop, pIndex) in attack.properties" :key="`property_${aIndex}_${pIndex}`">
-								<span class="link">{{ prop.title }}</span>
+								<info-button outlined small>
+									{{ prop.title }}
+									<template #info>
+										<h4 class="uppercase bg-gray-200 p-2 border-b-2 border-gray-300">{{ prop.title }}</h4>
+										<div class="p-2">
+											<render-markdown :content="prop.description" />
+										</div>
+									</template>
+								</info-button>
 							</div>
 						</td>
 						<td v-else>—</td>
@@ -57,12 +71,18 @@
 			<h3>Arcane Lore</h3>
 			<render-markdown :content="adversary.arcane_lore" />
 		</section>
+		<info-button small outlined type="primary">
+			Hello
+			<template #info>
+				Hello
+			</template>
+		</info-button>
 	</div>
 </template>
 <script>
 import Vue from 'vue'
 import adversaries from '~/state/adversaries'
-import { STAT_MIGHT } from '~/utils/config'
+import { SKILLS, STAT_MIGHT } from '~/utils/config'
 
 export default Vue.component('AdversaryView', {
 	props: {
@@ -70,6 +90,12 @@ export default Vue.component('AdversaryView', {
 			type: Object,
 			required: true,
 		},
+	},
+
+	data() {
+		return {
+			showAllSkills: false
+		}
 	},
 
 	computed: {
@@ -101,6 +127,18 @@ export default Vue.component('AdversaryView', {
 
 			return attacks
 		},
+
+		skills() {
+			if(this.showAllSkills) {
+				const skills = {}
+
+				SKILLS.forEach(skill => skills[skill] = 0)
+
+				return { ...skills, ...this.adversary.skills }
+			}
+
+			return this.adversary.skills
+		},
 	},
 
 	methods: {
@@ -111,7 +149,11 @@ export default Vue.component('AdversaryView', {
 			)
 
 			return characteristic + (this.adversary.skills[attack.skill] || 0)
-		}
+		},
+
+		toggleAllSkills() {
+			this.showAllSkills = !this.showAllSkills
+		},
 	},
 })
 </script>

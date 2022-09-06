@@ -67,19 +67,19 @@ ol.list, .content ol {
 	@apply mt-4;
 }
 
-.two-column {
-	@apply grid grid-cols-4 gap-4;
+.secondary-navigation {
+	@apply flex;
 }
-.two-column > aside {
-	@apply px-6 py-8;
+.secondary-navigation > aside {
+	@apply px-6 hidden md:flex-none md:block md:w-64 lg:w-80;
 }
-.two-column > article {
-	@apply col-span-3 px-6 py-8;
+.secondary-navigation > article {
+	@apply px-6;
 }
 
 /* form inputs */
 .input {
-	@apply font-sans text-gray-600 text-sm relative bg-white rounded border border-gray-300 shadow outline-none w-full focus:outline-none focus:ring focus:ring-blue-600 px-3 py-3 placeholder-gray-300;
+	@apply font-sans text-gray-600 text-sm relative bg-white rounded border border-gray-300 shadow outline-none w-full focus:outline-none focus:ring focus:ring-blue-600 p-3 placeholder-gray-300;
 }
 .input.warning {
 	@apply focus:ring-red-600 text-red-800 border-red-300;
