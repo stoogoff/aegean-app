@@ -1,0 +1,104 @@
+[
+	{
+		"title": "Noble",
+		"cost": 5,
+		"description": "You were raised in wealth and luxury as part of the nobility of your city. You have invested some of this wealth in your new home. You begin the game with rich clothing in addition to any other equipment you may take.",
+		"standing": 4,
+		"skills": ["Manipulation", "Perform", "Ride"],
+		"polis": "The polis begins with a building of your choice of any value. You funded the building's construction and it may even be named after you.",
+		"relationships": [
+			"**Okos**, a noble. *An old family friend? Or a bitter political rival?*",
+			"**Dorothea**, a beggar. *A gossip with a loose tongue? Or a spy watching your every move?*",
+			"**Gyrtas**, a physician. *Did they bring you back from the dead? Or perhaps they used their arts to murder your kin.*"
+		]
+	},
+	{
+		"title": "Priest",
+		"cost": 4,
+		"description": "Your character was raised in a devout household and has served at a temple from a young age. When you moved to your new home you were prominent in building a temple to your favourite deity.",
+		"standing": 3,
+		"skills": ["Knowledge", "Lore", "Medicine"],
+		"polis": "The polis begins with a temple dedicated to a deity of your choice. If two players choose this background the city can start with two temples to different deities or a sanctuary.",
+		"relationships": [
+			"**Zoe**, a temple guard. *A saviour from a common foe? Or a rejected lover?*",
+			"**Atreus**, a merchant. *The one who delivers your sacrifices? Or a thief who stole a sacred relic from the temple?*",
+			"**Gorgo**, a councillor. *A long standing friend watching your back? Or holding a dagger and waiting for an opportunity?*"
+		]
+	},
+	{
+		"title": "Merchant",
+		"cost": 3,
+		"description": "Your character grew up amongst traders and merchants. You may have travelled far and wide selling your wares but you are most at home in the agora. When choosing equipment you may take one Uncommon item with a price equal to or lower than your Standing.",
+		"standing": 3,
+		"skills": ["Diplomacy", "Manipulation", "Ride"],
+		"polis": "The polis begins with a +2 Status relationship of your choice.",
+		"relationships": [
+			"**Kharis**, a potter. *Do you trade her wares in the agora? Or did you cheat her on a deal?*",
+			"**Kileos**, a seer. *Perhaps the one who foretold your doom? Or the keeper of your secrets?*",
+			"**Akaia**, a pedlar. *A friend who brings your wares or a rival who steals your trade?*"
+		]
+	},
+	{
+		"title": "Soldier",
+		"cost": 2,
+		"description": "Your character grew up amongst soldiers and you spent many years on the training grounds or in battlefield camps. You have brought your knowledge of warfare to your new home and helped improve its defences or build its training ground.",
+		"standing": 2,
+		"skills": ["Accuracy", "Melee"],
+		"polis": "The polis begins with your choice of a gymnasion, palaestra or defensive palisade surrounding the city. If two players choose this background they can choose to build a stone wall to surround the city instead.",
+		"relationships": [
+			"**Melita**, a pankratiast. *Did they train you in the fighting arts? Or beat you bloody at the games?*",
+			"**Glauke**, a smith. *Do they keep your weapons sharp and armour in good repair? Or do you owe them money for their craft?*",
+			"The legendary **Polykasta**. *A mentor? Or perhaps a deadly rival?*"
+		]
+	},
+	{
+		"title": "Farmer",
+		"cost": 2,
+		"description": "You were brought up on a farm and have brought your knowledge of animals and agriculture to your new home. The city’s farm doesn’t belong to you, but you may help with your experience there from time to time.",
+		"standing": 2,
+		"skills": ["Craft", "Knowledge"],
+		"polis": "The polis begins with a farm.",
+		"relationships": [
+			"**Kileos**, a seer. *He wishes you ill but you don't know why. Or has he seen your future glory?*",
+			"**Akaia**, a pedlar. *A long time friend who visits when they can? Or a thief you've never caught?*",
+			"The legendary **Polykasta**. *A family member? Or perhaps a deadly rival?*"
+		]
+	},
+	{
+		"title": "Herder",
+		"cost": 1,
+		"description": "Your character grew up roaming the hills around the city with a herd of sheep or goats. When you moved to your new home you brought some of your herd with you. You may not have as much time to watch over them as you used to, instead leaving that task to others, but you help out when you can.",
+		"standing": 1,
+		"skills": ["Awareness"],
+		"polis": "The polis begins with a herd.",
+		"relationships": [
+			"**Tekton**, a faun. *A thief who stole your herd? Or perhaps the one who returned it?*",
+			"**Etion**, a hunter. *A friend who shares their game? Or a competitor for the affections of another?*",
+			"**Melita**, a pankratiast. *You won good money betting on her or did she find out you bet against her?*"
+		]
+	},
+	{
+		"title": "Hunter",
+		"cost": 1,
+		"description": "Your character lived in the wilds and hunted for food before settling down in their new home.",
+		"standing": 1,
+		"skills": ["Accuracy", "Survival"],
+		"relationships": [
+			"**Pallas**, a playwright. *A family member? Or perhaps they lampooned you in their last play?*",
+			"**Dolon**, an athlete. *A mentor in the javelin and bow? Or a rival in the hunt?*",
+			"**Gyrtas**, a physician. *Do you bring them herbs you find in the wilds? Or do they refuse to treat you?*"
+		]
+	},
+	{
+		"title": "Criminal",
+		"cost": 0,
+		"description": "Your character has been in trouble with the law in the past and been pressed into service in the mines or as a rower on a warship. That’s all behind you and you haven’t broken the law in your new home. Yet.",
+		"standing": 1,
+		"skills": ["Vigour"],
+		"relationships": [
+			"**Gorgo**, a councillor. *The one who convicted your of your crimes? Or did they give you a second chance?*",
+			"**Pallas**, a playwright. *A confidant in the tavern or a rejected lover?*",
+			"**Parthenia**, a priest. *Did you steal from her? Or did she speak of your innocence?*"
+		]
+	}
+]

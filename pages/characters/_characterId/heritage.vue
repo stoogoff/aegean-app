@@ -35,8 +35,7 @@
 	</div>
 </template>
 <script>
-
-import { character, chargen } from '~/state'
+import { character, data } from '~/state'
 
 // choose heritage:
 // 1. mortal
@@ -56,7 +55,7 @@ export default {
 		const { params } = this.$nuxt.context
 
 		this.character = await character.byId(params.characterId)
-		this.heritages = chargen.heritage()
+		this.heritages = data.heritage()
 		this.startingCP = this.character.cp
 	},
 

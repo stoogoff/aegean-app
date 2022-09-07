@@ -1,6 +1,5 @@
 <template>
-	<div class="mb-4">
-		<h2>{{ divinity.title }}</h2>
+	<card-view :title="divinity.title">
 		<p>{{ divinity.description }} Your character gains 1 point in the {{ characteristicText }} and 1 point in each of the following skills:</p>
 		<ul class="list">
 			<li
@@ -9,21 +8,32 @@
 			>{{ skill }}</li>
 		</ul>
 		<p>Your character gains the skill specialisation <strong>{{ divinity.specialisation }}</strong>. You may choose one of the following Gifts:</p>
-		<ul class="list">
+		<ul>
 			<li
 				v-for="(gift, idx) in divinity.gifts"
 				:key="`gift_${divinity.title}_${idx}`"
-			>{{ gift }}</li>
+			>
+				<info-button small outlined>
+					{{ gift }}
+					<template #info>
+						<card-view :title="gift">
+							<render-markdown :content="getGift(gift).description" />
+						</card-view>
+					</template>
+				</info-button>
+			</li>
 		</ul>
 		<button-action
 			block
+			:outlined="hasSelected"
 			:type="buttonType"
 			@click="$emit('click')"
 		>Select</button-action>
-	</div>
+	</card-view>
 </template>
 <script>
 import Vue from 'vue'
+import { data } from '~/state'
 
 export default Vue.component('DivinityView', {
 	props: {
@@ -32,6 +42,10 @@ export default Vue.component('DivinityView', {
 			required: true,
 		},
 		isSelected: {
+			type: Boolean,
+			default: false,
+		},
+		hasSelected: {
 			type: Boolean,
 			default: false,
 		},
@@ -47,6 +61,12 @@ export default Vue.component('DivinityView', {
 				return `${this.divinity.characteristics[0]} characteristic`
 
 			return `${this.divinity.characteristics.join(' and ')} characteristics`
+		},
+	},
+
+	methods: {
+		getGift(title) {
+			return data.getGiftByTitle(title)
 		},
 	},
 })

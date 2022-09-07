@@ -15,16 +15,24 @@ export default Vue.component('RenderMarkdown', {
 			type: String,
 			required: true,
 		},
+		stripOuterTag: {
+			type: Boolean,
+			default: false,
+		},
 	},
 
 	computed: {
 		parsedContent() {
-			return unified()
+			const content = unified()
 				.use(remarkParse)
 				.use(remarkRehype)
 				.use(rehypeSanitize)
 				.use(rehypeStringify)
 				.processSync(this.content).toString()
+
+			if(!this.stripOuterTag) return content
+
+			return content.replace(/^<[^>]+>/, '').replace(/<\/[^>]+>$/, '')
 		},
 	},
 })

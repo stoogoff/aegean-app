@@ -1,0 +1,87 @@
+[
+	{
+		"title": "Abundant Catch",
+		"active": false,
+		"description": "During the agora phase any Produce skill check for a polis which has a port or harbour gains +2D."
+	},
+	{
+		"title": "Blight",
+		"active": false,
+		"description": "At your request your mother will withhold her gifts from the land you are in. Once per session gain 1 Hubris to cause a blight. All Produce rolls during the land’s next agora phase suffer a -4D penalty."
+	},
+	{
+		"title": "Bountiful Harvest",
+		"active": false,
+		"description": "Your mother watches over your home and sees that the crops always grow. During the agora phase any Produce skill check for a polis which has a farm or a herd gains +2D. Alternatively, once per agora phase you may use this power to ignore the effects of a blight relating to agriculture."
+	},
+	{
+		"title": "Divine Architect",
+		"active": false,
+		"description": "Your character’s knowledge of the materials required to build and ability to remember plans and details is second to none. When you are acting as an officer of the city and you choose to build a structure, it starts with 1 Structure point already completed."
+	},
+	{
+		"title": "Divine Artisan",
+		"active": false,
+		"description": "Your character’s patience and attention for detail when making anything borders on the divine. Any items you create using the Craft skill automatically gains the property Fine +1 or Rich +1."
+	},
+	{
+		"title": "Eagle of Zeus",
+		"active": false,
+		"description": "A loyal and intelligent eagle watches over you. It is a gift from Zeus and accompanies you on your travels. While the eagle is with you gain +2D to Awareness rolls and to Survival rolls relating to hunting. If needed, use raptor stats. The eagle is immortal and if defeated will return to you at the beginning of the next session.\n\n*What is the name of your eagle?*"
+	},
+	{
+		"title": "Fawning",
+		"active": false,
+		"description": "Your character has a divine charm or beauty that at times stops others in their tracks. Once per session a number of mortal NPCs equal to your character’s Cool will do almost anything to help you. They won’t put themselves into unnecessary danger, nor pauper themselves, or go against their deepest beliefs but will otherwise aid you as best they can. You gain an automatic success on any Diplomacy or Manipulation skill checks targeting them until the effect ends at the end of the encounter.\n\nWhen the effect wears off they will be confused, distrustful and possibly even angry with you. Any further social interactions increases the Difficulty by 1. Using this gift on a character a second time will result in anger."
+	},
+	{
+		"title": "Fearsome",
+		"active": true,
+		"description": "Your character is filled with an aura of the blood and terror of the battlefield. Once per session you may cause a character or minion group of characters to quake in fear of you. Make a Might(Diplomacy:Intimidation) roll with the Difficulty equal to the target’s Vigour. If successful the mortal NPC or minion group suffers a -1D penalty from all skill checks per success. If this leaves the target with zero dice on their next Action they may beg for mercy or flee, at the GM’s discretion. Using this power inappropriately, such as at the agora or someone’s home, gains the character 1 Hubris."
+	},
+	{
+		"title": "Fleet Footed",
+		"active": false,
+		"description": "You are quick and light on your feet and are easily able to avoid enemies. You gain +1D to all Disengage and Misdirect Actions. Once per session you may take a free Move Maneuver on your turn."
+	},
+	{
+		"title": "Healer",
+		"active": false,
+		"description": "Your character is a masterful healer and can heal any Wound suffered, including a Close to Death Wound, which can’t usually be healed except during downtime. In addition to this, once per session you may completely remove a Wound that you have healed with a First Aid Action instead of crossing it out.\n\nHealing a Close to Death Wound is an affront to the gods and causes you to gain 1 Hubris, whether successful or not."
+	},
+	{
+		"title": "Heroism",
+		"active": false,
+		"description": "Your character’s semi-divine nature comes to the fore. Once per session you may add +2D to your dice pool for any one skill check."
+	},
+	{
+		"title": "Oracle",
+		"active": true,
+		"description": "You have the ability to predict the future and may read a portent once per session. At the start of the session make an Insight(Lore:Augury) roll and make a note of the number of successes in the Oracle section of your character sheet. At any time until the end of the session, as a Reaction, you may replace the results of one roll made by you or an NPC with the results from your portent roll—even if you failed the roll. If you don’t use the portent roll before the end of the session you gain 1 Hubris for defying the gods.\n\nYour character’s gift of reading omens and foretelling the future allows you to use the Lore skill for Bolster Income downtime Actions."
+	},
+	{
+		"title": "Plentiful Trade",
+		"active": true,
+		"description": "Negotiations with other cities have a divine eye watching over them. During the agora phase any Trade skill check for the polis gains +2D."
+	},
+	{
+		"title": "Rage",
+		"active": false,
+		"description": "Your character is consumed with your father’s unquenchable rage. Once per session you may add your current Risk as damage to one successful attack with the Brawl or Melee skill."
+	},
+	{
+		"title": "Robust",
+		"active": false,
+		"description": "The blood running through your character’s veins is mixed with the ikhor of the gods. You are resistant to the effects of poisons, venoms, and burning. You reduce the ongoing damage of such effects by 1. Once per session when taking a Wound you may choose to reduce the result by 2 after you roll."
+	},
+	{
+		"title": "Steed",
+		"active": true,
+		"description": "Once per session your character may call upon the aid of Arion, a black-maned horse who is the son of Poseidon and one of your siblings. It takes an Action to summon Arion and he arrives at the end of the following round. Arion will remain with you for the duration of the scene. If needed, use the stats for a war horse. Arion is immortal and retreats if defeated, but is available again next session."
+	},
+	{
+		"title": "Water Breathing",
+		"active": false,
+		"description": "Your character is at home breathing water as they are breathing air. You can breathe freely while underwater but still suffer the effects of suffocation and poisonous gases as usual."
+	}
+]

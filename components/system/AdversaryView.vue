@@ -51,13 +51,12 @@
 						<td class="text-center">{{ attack.damage }}</td>
 						<td v-if="attack.properties.length > 0">
 							<div v-for="(prop, pIndex) in attack.properties" :key="`property_${aIndex}_${pIndex}`">
-								<info-button outlined small>
+								<info-button outlined small y="right" x="bottom">
 									{{ prop.title }}
 									<template #info>
-										<h4 class="uppercase bg-gray-200 p-2 border-b-2 border-gray-300">{{ prop.title }}</h4>
-										<div class="p-2">
+										<card-view :title="prop.title">
 											<render-markdown :content="prop.description" />
-										</div>
+										</card-view>
 									</template>
 								</info-button>
 							</div>
@@ -71,12 +70,6 @@
 			<h3>Arcane Lore</h3>
 			<render-markdown :content="adversary.arcane_lore" />
 		</section>
-		<info-button small outlined type="primary">
-			Hello
-			<template #info>
-				Hello
-			</template>
-		</info-button>
 	</div>
 </template>
 <script>

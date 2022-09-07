@@ -25,7 +25,6 @@
 	</div>
 </template>
 <script>
-
 import { character } from '~/state'
 
 export default {

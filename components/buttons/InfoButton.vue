@@ -5,6 +5,9 @@
 			'block w-full': block,
 			'inline-block': !block,
 		}"
+		@focus="show"
+		@focusout="hide"
+		tabindex="0"
 	>
 		<button-action v-bind="$attrs" block :disabled="disabled" @click="toggle">
 			<slot />
@@ -18,9 +21,7 @@
 			leave-to-class="translate-y-3 opacity-0"
 		>
 			<div v-show="isVisible" :class="`absolute pt-2 z-10 w-64 ${positionClass}`">
-				<div class="relative bg-white border border-gray-200 rounded-md shadow-md">
-					<slot name="info" />
-				</div>
+				<slot name="info" />
 			</div>
 		</transition>
 	</div>
@@ -38,10 +39,14 @@ export default Vue.component('InfoButton', {
 			type: Boolean,
 			default: false,
 		},
-		position: {
+		x: {
 			type: String,
 			default: 'bottom',
 		},
+		y: {
+			type: String,
+			default: 'left'
+		}
 	},
 
 	data() {
@@ -52,7 +57,10 @@ export default Vue.component('InfoButton', {
 
 	computed: {
 		positionClass() {
-			return this.position === 'bottom' ? 'bottom-12' : 'top-12'
+			return [
+				this.x === 'bottom' ? 'bottom-12' : 'top-12',
+				this.y === 'left' ? 'left-0' : 'right-0',
+			].join(' ')			
 		},
 	},
 
