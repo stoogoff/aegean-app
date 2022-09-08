@@ -32,12 +32,17 @@ export const SKILLS = [
 	'Vigour',
 ]
 
-export const STARTING_CREATION_POINTS = 15
+const skillMap = {}
 
+SKILLS.forEach(skill => skillMap[skill] = 0)
+
+export const STARTING_CREATION_POINTS = 15
 
 export const DEFAULT_CHARACTER = {
 	cp: STARTING_CREATION_POINTS,
 	heritage: null,
+	parent: null,
+	background: null,
 	attributes: {
 		[STAT_MIGHT]: CHARACTERISTIC_MIN,
 		[STAT_REFLEXES]: CHARACTERISTIC_MIN,
@@ -45,4 +50,5 @@ export const DEFAULT_CHARACTER = {
 		[STAT_INSIGHT]: CHARACTERISTIC_MIN,
 		[STAT_CUNNING]: CHARACTERISTIC_MIN,
 	},
+	skills: { ...skillMap },
 }

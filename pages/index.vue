@@ -25,11 +25,50 @@
 				<p>View GM reference material.</p>
 			</li>
 		</ul>
+		<div v-if="!$fetchState.pending">
+			<text-input label="Pouch Test Name" v-model="doc.title" />
+			<button-action @click="test">TEST</button-action>
+		</div>
 	</main>
 </template>
 
 <script>
+import { database } from '~/plugins/pouch'
+
 export default {
-	name: 'IndexPage'
+	name: 'IndexPage',
+
+	async fetch() {
+		const db = database()
+
+		this.doc = await db.get('mydoc')
+		console.log('doc=', this.doc)
+
+		try {
+			const response = await db.get('notthere')
+
+			console.log(response)
+		}
+		catch(ex) {
+			console.log(ex)
+		}
+
+	},
+
+	data() {
+		return {
+			doc: null,
+		}
+	},
+
+	methods: {
+		async test() {
+			const db = database()
+
+			let response = await db.put(this.doc)
+
+			console.log(response)
+		}
+	},
 }
 </script>

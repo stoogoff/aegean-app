@@ -5,7 +5,7 @@ import { character, image } from '~/state'
 
 const state = Vue.observable({
 	//user: null,
-	user: { email: 'stoo.goff@gmail.com', uid: 1 },
+	user: { email: 'stoo.goff@gmail.com', name: 'stoo', uid: 1 },
 })
 
 

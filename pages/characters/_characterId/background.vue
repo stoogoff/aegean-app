@@ -15,8 +15,8 @@
 			</div>
 			<step-buttons
 				v-if="character"
-				:next="`/characters/${character.id}/`"
-				:previous="`/characters/${character.id}/heritage`"
+				:next="`/characters/${character._id}/`"
+				:previous="`/characters/${character._id}/heritage`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>
@@ -66,9 +66,9 @@ export default {
 			}
 		},
 
-		save(done) {
+		async save(done) {
 			this.character.background = this.background
-			/*await*/ character.save(this.character)
+			await character.save(this.character)
 			done()
 		},
 	},

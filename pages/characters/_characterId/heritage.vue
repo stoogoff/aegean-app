@@ -73,7 +73,7 @@ export default {
 
 			const suffix = this.character.heritage.title === 'Mortal' ? 'background' : 'divine'
 
-			return `/characters/${this.character.id}/${suffix}`
+			return `/characters/${this.character._id}/${suffix}`
 		},
 
 		hasSelected() {
@@ -104,8 +104,8 @@ export default {
 			}
 		},
 
-		save(done) {
-			/*await*/ character.save(this.character)
+		async save(done) {
+			await character.save(this.character)
 			done()
 		},
 	}

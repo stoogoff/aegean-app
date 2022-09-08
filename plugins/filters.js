@@ -5,7 +5,7 @@ Vue.filter('lower', value => (value || '').toLowerCase())
 Vue.filter('upper', value => (value || '').toUpperCase())
 
 const join = (joiner = '') => value => {
-	if(!value) value = []
+	if(!value) return ''
 
 	const copy = [ ...value ]
 	const last = copy.pop()

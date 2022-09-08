@@ -16,6 +16,7 @@
     "firebase": "8.3.2",
     "lodash": "^4.17.21",
     "nuxt": "^2.15.8",
+    "pouchdb": "^7.3.0",
     "rehype-sanitize": "^5.0.1",
     "rehype-stringify": "^9.0.3",
     "remark-parse": "^10.0.1",
