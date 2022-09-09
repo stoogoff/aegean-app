@@ -2,18 +2,20 @@
 //import Vue from 'vue'
 import { database } from '~/plugins/pouch'
 import { DEFAULT_CHARACTER } from '~/utils/config'
-import { user, image } from '~/state'
 import { createId } from '~/utils/string'
 
 export const CHARACTER_ID_PREFIX = 'character:'
-const db = database()
 
 export default {
 	async byId(id) {
+		const db = database()
+
 		return await db.get(id)
 	},
 
 	async all() {
+		const db = database()
+
 		// for some reason this returning all docs for me
 		const response = await db.allDocs({
 			include_docs: true,
@@ -28,9 +30,7 @@ export default {
 	},
 
 	async create() {
-		const loggedInUser = user.getLoggedInUser()
-
-		if(!loggedInUser) throw 'User not found'
+		const db = database()
 
 		// TODO once the character is named this should be rewritten with the character
 		// name instead of the random ID, then this doc deleted
@@ -48,10 +48,14 @@ export default {
 	},
 
 	async save(data) {
+		const db = database()
+
 		return await db.put(data)
 	},
 
 	async delete(data) {
+		const db = database()
+
 		return await db.remove(data)
 	},
 }

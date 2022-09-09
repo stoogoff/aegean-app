@@ -21,7 +21,7 @@
 </template>
 <script>
 import Vue from 'vue'
-import { user } from '~/state'
+//import { user } from '~/state'
 
 const ACCOUNT = 3
 
@@ -92,19 +92,19 @@ export default Vue.component('MainNav', {
 			})*/
 
 			// update account options depending on user state
-			const loggedInUser = user.getLoggedInUser()
+			/*const loggedInUser = user.getLoggedInUser()
 
-			if(!loggedInUser || loggedInUser.isAnonymous) {
+			if(!loggedInUser || loggedInUser.isAnonymous) {*/
 				menuItems[ACCOUNT].menuItems = [
 					{ title: 'Login', href: '/account/login' },
 					{ title: 'Register', href: '/account/register' },
 				]
-			}
+			/*}
 			else {
 				menuItems[ACCOUNT].menuItems = [
 					{ title: 'Logout', href: '/account/logout'},
 				]
-			}
+			}*/
 
 			return menuItems
 		},
