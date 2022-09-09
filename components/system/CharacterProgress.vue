@@ -5,14 +5,24 @@
 			<strong>Creation Points:</strong> {{ character.cp }} / {{ startingCreationPoints }}
 		</section>
 		<section v-if="character.heritage">
-			<div><strong>Heritage:</strong> {{ character.heritage.title }}</div>
-			<div v-if="character.parent"><strong>Parent:</strong> {{ character.parent.title }}</div>
+			<div><strong>Heritage:</strong> {{ character.heritage }}</div>
+			<div v-if="character.parent"><strong>Parent:</strong> {{ character.parent }}</div>
 			<div>
 				<link-action
 					small
-					:to="`/characters/${character.id}/heritage`"
+					:to="`/characters/${character._id}/heritage`"
 				>Edit</link-action>
 			</div>
+		</section>
+		<section v-if="hasSkills">
+			<div><strong>Skills</strong></div>
+			<definition-term
+				v-for="(value, key) in character.skills"
+				v-if="value > 0"
+				:definition="key"
+				:term="value"
+				:key="key"
+			/>
 		</section>
 	</aside>
 </template>
@@ -35,6 +45,10 @@ export default Vue.component('CharacterProgress', {
 
 		startingCreationPoints() {
 			return STARTING_CREATION_POINTS
+		},
+
+		hasSkills() {
+			return Object.values(this.character.skills).filter(skill => skill > 0).length > 0
 		},
 	},
 })

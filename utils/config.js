@@ -1,5 +1,4 @@
 
-export const STORAGE_CHARACTERS = 'characters'
 export const STORAGE_FEEDBACK = 'feedback'
 
 export const STAT_MIGHT = 'Might'
@@ -51,4 +50,6 @@ export const DEFAULT_CHARACTER = {
 		[STAT_CUNNING]: CHARACTERISTIC_MIN,
 	},
 	skills: { ...skillMap },
+	gifts: [],
+	talents: [],
 }

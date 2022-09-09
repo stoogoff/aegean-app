@@ -53,16 +53,36 @@ export default {
 
 	methods: {
 		isSelected(divinity) {
-			return this.parent === divinity
+			return this.parent === divinity.title
 		},
 
 		toggleSelected(divinity) {
 			if(this.isSelected(divinity)) {
 				this.parent = null
+				this.removeSkills(divinity)
 			}
 			else {
-				this.parent = divinity
+				if(this.parent !== null) this.removeSkills(this.findDivinityByTitle(this.parent))
+
+				this.parent = divinity.title
+				this.addSkills(divinity)
 			}
+		},
+
+		findDivinityByTitle(title) {
+			return this.divinities.find(divinity => divinity.title === title)
+		},
+
+		removeSkills(divinity) {
+			divinity.skills.forEach(skill =>
+				this.character.skills[skill] = Math.max(this.character.skills[skill] - 1, 0)
+			)
+		},
+
+		addSkills(divinity) {
+			divinity.skills.forEach(skill =>
+				this.character.skills[skill] += 1
+			)
 		},
 
 		async save(done) {

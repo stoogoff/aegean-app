@@ -71,7 +71,7 @@ export default {
 		nextPage() {
 			if(!this.hasSelected) return ''
 
-			const suffix = this.character.heritage.title === 'Mortal' ? 'background' : 'divine'
+			const suffix = this.character.heritage === 'Mortal' ? 'background' : 'divine'
 
 			return `/characters/${this.character._id}/${suffix}`
 		},
@@ -90,7 +90,8 @@ export default {
 		},
 
 		isSelected(heritage) {
-			return this.character.heritage === heritage
+			console.log('isSelected?', this.character.heritage === heritage)
+			return this.character.heritage === heritage.title
 		},
 
 		toggleSelected(heritage) {
@@ -99,7 +100,7 @@ export default {
 				this.character.cp = this.startingCP
 			}
 			else {
-				this.character.heritage = heritage
+				this.character.heritage = heritage.title
 				this.character.cp = this.startingCP - heritage.cost
 			}
 		},

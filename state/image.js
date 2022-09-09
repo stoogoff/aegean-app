@@ -1,7 +1,9 @@
 
 import Vue from 'vue'
 import { storage } from '~/plugins/firebase'
-import { STORAGE_CHARACTERS } from '~/utils/config'
+//import { STORAGE_CHARACTERS } from '~/utils/config'
+
+const STORAGE_CHARACTERS = ''
 
 const state = Vue.observable({
 	images: [],

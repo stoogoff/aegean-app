@@ -7,6 +7,7 @@
 		>
 			{{ character.id }}
 			<link-action :to="`/characters/${character.id}/heritage`">Edit</link-action>
+			<button-action @click="deleteCharacter(character.doc)">Delete</button-action>
 		</card-view>
 		<link-action to="/characters/new" primary block>Create Character</link-action>
 	</main>
@@ -19,8 +20,6 @@ export default {
 	async fetch() {
 		const response = await character.all()
 
-		console.log(response)
-
 		this.characters = response.rows
 	},
 
@@ -28,6 +27,13 @@ export default {
 		return {
 			characters: []
 		}
+	},
+
+	methods: {
+		async deleteCharacter(current) {
+			await character.delete(current)
+			await this.$fetch()
+		},
 	},
 }
 </script>
