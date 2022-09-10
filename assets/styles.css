@@ -197,3 +197,8 @@ ol.list, .content ol {
 .btn-group .btn:last-child {
 	@apply rounded-r-md;
 }
+
+/* card */
+.card {
+	@apply relative bg-white border border-gray-200 rounded-md shadow-md;
+}

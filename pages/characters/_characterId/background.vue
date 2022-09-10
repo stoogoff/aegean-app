@@ -3,16 +3,33 @@
 		<character-progress :character="character" v-if="character" />
 		<article>
 			<markdown-content content="characters/background" />
-			<div class="grid grid-cols-2 gap-4">
-				<background-view
+			<accordion-group v-if="character">
+				<accordion-item
 					v-for="(background, idx) in backgrounds"
 					:key="`background_${idx}`"
-					:background="background"
-					:isSelected="isSelected(background)"
-					:hasSelected="hasSelected"
-					@click="toggleSelected(background)"
-				/>
-			</div>
+					:checked="character.background === background.title"
+				>
+					<template #trigger>
+						<strong class="text-xl">{{ background.title }}</strong>
+					</template>
+					<template #content>
+						<div class="grid grid-cols-3 mb-4">
+							<stat-view label="Standing" :value="background.standing" />
+							<stat-view label="Skills" :value="join(background.skills, ', ')" />
+							<stat-view label="CP" :value="background.cost" />
+						</div>
+						<p>{{ background.description }}</p>
+						<radio-action
+							v-model="character.background"
+							:data="background.title"
+							block
+							outlined
+						>
+							Select
+						</radio-action>
+					</template>
+				</accordion-item>
+			</accordion-group>
 			<step-buttons
 				v-if="character"
 				:next="`/characters/${character._id}/`"
@@ -25,6 +42,7 @@
 </template>
 <script>
 import { character, data } from '~/state'
+import { join } from '~/utils/list'
 
 export default {
 	name: 'CharacterBackgroundPage',
@@ -34,40 +52,60 @@ export default {
 		const { params } = this.$nuxt.context
 
 		this.character = await character.byId(params.characterId)
-		this.background = this.character.background
-		this.backgrounds = data.backgrounds()
+
+		this.$watch('character.background', (newValue, oldValue) => {
+			if(oldValue !== null && oldValue !== undefined) {
+				this.removeSkills(oldValue)
+			}
+
+			if(newValue !== null && newValue !== undefined) {
+				this.addSkills(newValue)
+			}
+		})
 	},
 
 	data() {
 		return {
 			character: null,
-			background: null,
-			backgrounds: [],
 		}
 	},
 
 	computed: {
+		backgrounds() {
+			return data.backgrounds()
+		},
+
 		hasSelected() {
-			return false
+			return this.character && this.character.background !== null
 		},
 	},
 
 	methods: {
-		isSelected(background) {
-			return this.background === background
+		join(arr, joiner) {
+			return join(joiner)(arr)
 		},
 
-		toggleSelected(background) {
-			if(this.isSelected(background)) {
-				this.background = null
-			}
-			else {
-				this.background = background
-			}
+		findByTitle(list, title) {
+			return list.find(item => item.title === title)
+		},
+
+		removeSkills(title) {
+			const obj = this.findByTitle(this.backgrounds, title)
+
+			obj.skills.forEach(skill =>
+				this.character.skills[skill] = Math.max(this.character.skills[skill] - 1, 0)
+			)
+		},
+
+		addSkills(title) {
+			const obj = this.findByTitle(this.backgrounds, title)
+
+			obj.skills.forEach(skill =>
+				this.character.skills[skill] += 1
+			)
 		},
 
 		async save(done) {
-			this.character.background = this.background
 			await character.save(this.character)
 			done()
 		},

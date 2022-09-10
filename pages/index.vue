@@ -29,6 +29,33 @@
 			<text-input label="Pouch Test Name" v-model="doc.title" />
 			<button-action @click="test">TEST</button-action>
 		</div>
+		<accordion-group>
+			<accordion-item open>
+				<template #trigger>
+					TEST 1
+				</template>
+				<template #content>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</template>
+			</accordion-item>
+			<accordion-item>
+				<template #trigger>
+					TEST 2
+				</template>
+				<template #content>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</template>
+			</accordion-item>
+			<accordion-item>
+				<template #trigger>
+					TEST 3
+				</template>
+				<template #content>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</template>
+			</accordion-item>
+
+		</accordion-group>
 	</main>
 </template>
 

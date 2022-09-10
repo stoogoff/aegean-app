@@ -3,72 +3,80 @@
 		<character-progress :character="character" v-if="character" />
 		<article>
 			<markdown-content content="characters/heritage" />
-			<div v-if="character">
-				<div
-					class="mb-4 p-6 rounded-lg shadow-lg"
+			<accordion-group v-if="character">
+				<accordion-item
 					v-for="(heritage, idx) in heritages"
 					:key="`heritage_${idx}`"
+					:checked="character.heritage === heritage.title"
 				>
-					<div class="grid grid-cols-5">
-						<!--optional expander with paragraph in collapsed bit-->
-						<div>expand</div>
+					<template #trigger>
 						<strong class="text-xl">{{ heritage.title }}</strong>
-						<div class="flex flex-col text-center">
-							<span>{{ heritage.endurance }}</span>
-							<span class="text-sm text-gray-500 uppercase">Endurance</span>
+					</template>
+					<template #content>
+						<div class="grid grid-cols-3 mb-4">
+							<stat-view label="Endurance" :value="heritage.endurance" />
+							<stat-view label="Glory" :value="heritage.glory" />
+							<stat-view label="CP" :value="heritage.cost" />
 						</div>
-						<div class="flex flex-col text-center">
-							<span>{{ heritage.glory }}</span>
-							<span class="text-sm text-gray-500 uppercase">Glory</span>
-						</div>
-						<radio-group v-model="character.heritage" :data="heritage.title" :label="`${heritage.cost} CP`" />
-					</div>
-					<p>{{ heritage.description }}</p>
-				</div>
-			</div>
+						<p>{{ heritage.description }}</p>
+						<radio-action
+							v-model="character.heritage"
+							:data="heritage.title"
+							block
+							outlined
+						>
+							Select
+						</radio-action>
+					</template>
+				</accordion-item>
+			</accordion-group>
 			<div v-if="isDivineHeritage">
 				<h3>Divine Parent</h3>
-				<div
-					class="mb-4 p-6 rounded-lg shadow-lg"
-					v-for="(parent, idx) in divinities"
-					:key="`parent_${idx}`"
-				>
-					<div class="grid grid-cols-5">
-						<!--optional expander with paragraph in collapsed bit-->
-						<div>expand</div>
-						<strong class="text-xl">{{ parent.title }}</strong>
-						<div class="col-span-2">
-							<info-button
-								v-for="(gift, idx) in parent.gifts"
-								:key="`gift_${parent.title}_${idx}`"
-								small outlined
+				<p>Choose your divine parent from those below.</p>
+				<accordion-group>
+					<accordion-item
+						v-for="(parent, idx) in divinities"
+						:key="`parent_${idx}`"
+						:checked="character.parent === parent.title"
+					>
+						<template #trigger>
+							<strong class="text-xl">{{ parent.title }}</strong>
+						</template>
+						<template #content>
+							<div class="flex my-4">
+								<info-button
+									v-for="(gift, idx) in parent.gifts"
+									:key="`gift_${parent.title}_${idx}`"
+									small outlined
+								>
+									{{ gift }}
+									<template #info>
+										<card-view :title="gift">
+											<render-markdown :content="getGift(gift).description" />
+										</card-view>
+									</template>
+								</info-button>
+							</div>
+							<div class="grid grid-cols-3 mb-4">
+								<stat-view label="Skills" :value="join(parent.skills, ', ')" />
+								<stat-view label="Specialisation" :value="parent.specialisation" />
+								<stat-view
+									label="Characteristics"
+									:value="join(parent.characteristics, ', and ')"
+								/>
+							</div>
+							<p>{{ parent.description }}</p>
+							<radio-action
+								v-model="character.parent"
+								:data="parent.title"
+								block
+								outlined
 							>
-								{{ gift }}
-								<template #info>
-									<card-view :title="gift">
-										<render-markdown :content="getGift(gift).description" />
-									</card-view>
-								</template>
-							</info-button>
-						</div>
-						<radio-group v-model="character.parent" :data="parent.title" />
-					</div>
-					<div class="grid grid-cols-5">
-						<div class="col-start-2 flex flex-col text-center">
-							<span class="text-sm text-gray-500 uppercase">Skills</span>
-							<span>{{ parent.skills | join }}</span>
-						</div>
-						<div class="flex flex-col text-center">
-							<span class="text-sm text-gray-500 uppercase">Specialisation</span>
-							<span>{{ parent.specialisation }}</span>
-						</div>
-						<div class="flex flex-col text-center">
-							<span class="text-sm text-gray-500 uppercase">Characteristics</span>
-							<span>{{ parent.characteristics | join-and }}</span>
-						</div>
-					</div>
-					<p>{{ parent.description }}</p>
-				</div>
+								Select
+							</radio-action>
+						</template>
+					</accordion-item>
+				</accordion-group>
 			</div>
 			<step-buttons
 				v-if="character"
@@ -82,6 +90,7 @@
 </template>
 <script>
 import { character, data } from '~/state'
+import { join } from '~/utils/list'
 
 // choose heritage:
 // 1. mortal
@@ -154,22 +163,26 @@ export default {
 	},
 
 	methods: {
-		findDivinityByTitle(title) {
-			return this.divinities.find(divinity => divinity.title === title)
+		join(arr, joiner) {
+			return join(joiner)(arr)
+		},
+
+		findByTitle(list, title) {
+			return list.find(item => item.title === title)
 		},
 
 		removeSkills(title) {
-			const divinity = this.findDivinityByTitle(title)
+			const obj = this.findByTitle(this.divinities, title)
 
-			divinity.skills.forEach(skill =>
+			obj.skills.forEach(skill =>
 				this.character.skills[skill] = Math.max(this.character.skills[skill] - 1, 0)
 			)
 		},
 
 		addSkills(title) {
-			const divinity = this.findDivinityByTitle(title)
+			const obj = this.findByTitle(this.divinities, title)
 
-			divinity.skills.forEach(skill =>
+			obj.skills.forEach(skill =>
 				this.character.skills[skill] += 1
 			)
 		},
