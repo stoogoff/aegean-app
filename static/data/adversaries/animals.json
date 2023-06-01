@@ -43,7 +43,7 @@
 				"skill": "Brawl",
 				"reach": "2",
 				"damage": 5,
-				"properties": ["property:Stagger", "property:Maul"]
+				"properties": ["property:Maul", "property:Savage", "property:Stagger"]
 			}
 		],
 		"arcane_lore": "The hardy nature of a bear can be gained by drinking a concoction made from its liver. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the liver. This requires a successful **Cool(Craft)** skill check. Anyone who spends a Maneuver drinking the potion reduces the next Wound roll they are forced to make by -2."
@@ -77,7 +77,8 @@
 			{
 				"title": "Frenzy",
 				"description": "Once this creature takes a Wound it enters into a frenzied state, fighting until the bitter end. It gains an additional attack per round and does +2 damage on all attacks."
-			}
+			},
+			"ability:Trample"
 		],
 		"attacks": [
 			{
@@ -191,7 +192,7 @@
 			"Cunning": 2
 		},
 		"skills": {
-			"Athletics": 2,
+			"Athletics": 3,
 			"Awareness": 3,
 			"Brawl": 1,
 			"Survival": 3,
@@ -415,16 +416,16 @@
 		"description": "Leopards are lone predators who roam the wild grasslands and forests where they can hunt freely, using their natural camouflage to their advantage. They are dangerous and only the most cautious—or foolhardy—hunt them. Dionysos, the god of wine and revelry, is said to ride a leopard or a chariot pulled by leopards.",
 		"tactics": "Leopards prefer to attack with surprise, using their Ambush Predator ability to their advantage. They prefer a quick kill and will flee if they take a Wound.",
 		"characteristics": {
-			"Might": 4,
+			"Might": 3,
 			"Reflexes": 4,
-			"Cool": 1,
+			"Cool": 3,
 			"Insight": 1,
 			"Cunning": 4
 		},
 		"skills": {
 			"Athletics": 3,
 			"Awareness": 3,
-			"Brawl": 3,
+			"Brawl": 4,
 			"Survival": 3,
 			"Vigour": 3
 		},
@@ -456,7 +457,8 @@
 				"damage": 4,
 				"properties": ["property:Stagger"]
 			}
-		]
+		],
+		"arcane_lore": "Leopards are so stealthy they’re said to walk between worlds. Anyone with the Arcane Lore talent can spend a downtime Action preparing a concoction of the leopard’s blood with a successful **Cool (Craft)** skill check. This thick paste takes a Maneuver to be applied as markings to any character’s face, granting them the Necromancer talent until the end of the scene. The total successes on the Craft skill check can be used in place of Hubris for any necromancy skill checks the bearer is required to make."
 	},
 	{
 		"title": "Lion",
@@ -466,7 +468,7 @@
 		"characteristics": {
 			"Might": 5,
 			"Reflexes": 4,
-			"Cool": 1,
+			"Cool": 3,
 			"Insight": 1,
 			"Cunning": 3
 		},

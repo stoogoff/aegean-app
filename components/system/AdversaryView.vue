@@ -4,6 +4,7 @@
 		<div>
 			<tag-view type="success">{{ adversary.type }}</tag-view>
 			<tag-view type="warning">{{ adversary.category }}</tag-view>
+			<tag-view type="info">{{ adversary.source }}</tag-view>
 		</div>
 		<render-markdown :content="adversary.description" />
 		<render-markdown v-if="hasTactics" :content="`**Tactics:** ${adversary.tactics}`" />
@@ -22,7 +23,7 @@
 			<render-markdown
 				v-for="(ability, index) in adversary.abilities"
 				:key="`ability_${index}`"
-				:content="`**${ability.title}:** ${ability.description}`"
+				:content="`**${ability.title}${ability.active ? ' (Active)' : ''}:** ${ability.description}`"
 			/>
 		</section>
 		<section v-if="hasAttacks">
@@ -36,7 +37,10 @@
 							<span class="md:hidden">R / R</span>
 							<span class="hidden md:inline">Range / Reach</span>
 						</th>
-						<th>Dmg</th>
+						<th>
+							<span class="md:hidden">Dmg</span>
+							<span class="hidden md:inline">Damage</span>
+						</th>
 						<th>Properties</th>
 					</tr>
 				</thead>
@@ -55,7 +59,7 @@
 								<info-button outlined small y="right" x="bottom">
 									{{ prop.title }}
 									<template #info>
-										<card-view :title="prop.title">
+										<card-view :title="`${prop.title}${prop.active ? ' (Active)' : ''}`">
 											<render-markdown :content="prop.description" />
 										</card-view>
 									</template>
@@ -75,6 +79,7 @@
 </template>
 <script>
 import Vue from 'vue'
+import { sortByProperty } from 'we-ui/utils/list'
 import adversaries from '~/state/adversaries'
 import { SKILLS, STAT_MIGHT } from '~/utils/config'
 
@@ -119,7 +124,7 @@ export default Vue.component('AdversaryView', {
 				if(attack.thrown) attacks.push({ title: `${attack.title} (thrown)`, thrown: true, ...attack.thrown })
 			})
 
-			return attacks
+			return attacks.sort(sortByProperty('title'))
 		},
 
 		skills() {
@@ -142,7 +147,14 @@ export default Vue.component('AdversaryView', {
 				this.adversary.characteristics[STAT_MIGHT]
 			)
 
-			return characteristic + (this.adversary.skills[attack.skill] || 0)
+			const result = characteristic + (this.adversary.skills[attack.skill] || 0)
+
+			// exception for thrown axes
+			if(attack.title === 'Axe (thrown)') {
+				return result - 1
+			}
+
+			return result
 		},
 
 		toggleAllSkills() {

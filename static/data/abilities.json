@@ -40,6 +40,11 @@
 		"description": "Treat characteristics as 1 rather than 0 when Stunned."
 	},
 	{
+		"title": "Huge",
+		"active": false,
+		"description": "This creature is gigantic in size. Increase the Difficulty of all Pin Actions made against it by 2."
+	},
+	{
 		"title": "Keen Senses",
 		"active": true,
 		"description": "Gain +2D when tracking prey using the Survival skill or on Awareness rolls which involve hearing or smell."

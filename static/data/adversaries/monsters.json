@@ -35,6 +35,7 @@
 				"description": "The drakon may take two turns each round. It can’t choose itself to go next in the same round unless all other characters in the conflict have acted."
 			},
 			"ability:Flyer",
+			"ability:Huge",
 			"ability:Venomous",
 			{
 				"title": "Weak Underbelly",
@@ -47,20 +48,14 @@
 				"skill": "Brawl",
 				"reach": "5",
 				"damage": 6,
-				"properties": ["property:Pierce", 
-					{
-						"title": "Notes",
-						"active": false,
-						"description": "Prone or Pinned targets only."
-					}
-				]
+				"properties": ["property:Pierce", "ability:Venomous"]
 			},
 			{
 				"title": "Flaming Breath / Acid Spit",
 				"skill": "Accuracy",
 				"range": "Short",
 				"damage": 4,
-				"properties": []
+				"properties": ["ability:Burning"]
 			}
 		],
 		"arcane_lore": "With the right incantation, the teeth of a drakon can be thrown on the ground to grow an army of spartoi. Anyone with the Arcane Lore talent can gather enough teeth to raise a minion group of spartoi. It takes an Action to throw the teeth and a successful **Cool(Craft)** skill check is required. A number of spartoi equal to the number of successes on the roll begin to grow and are fully formed at the beginning of the next round. They respond to simple commands from the sower and last until destroyed."

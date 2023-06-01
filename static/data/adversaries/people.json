@@ -259,7 +259,7 @@
 		"attributes": {
 			"Armour": 0,
 			"Shield": 0,
-			"Parry": 0,
+			"Parry": 1,
 			"Endurance": 4,
 			"Standing": 2
 		},
@@ -397,7 +397,7 @@
 			"Endurance": 6,
 			"Standing": 1
 		},
-		"equipment": "Greaves, spolas, 2 ammo loads.",
+		"equipment": "Greaves, spolas, 3 javelins, 2 ammo loads.",
 		"abilities": ["ability:Ambush"],
 		"attacks": ["weapon:Javelin", "weapon:Kopis", "weapon:Sling"]
 	},
@@ -424,7 +424,7 @@
 		"attributes": {
 			"Armour": 0,
 			"Shield": 0,
-			"Parry": 0,
+			"Parry": 1,
 			"Endurance": 6,
 			"Standing": 2
 		},
@@ -568,7 +568,7 @@
 		"attributes": {
 			"Armour": 0,
 			"Shield": 0,
-			"Parry": 0,
+			"Parry": 1,
 			"Endurance": 6,
 			"Standing": 3
 		},
@@ -592,7 +592,7 @@
 		"tactics": "Pirates are looking for a quick fight so will gang up in groups of two to three and focus on injuring as many of their opponents as quickly as they can. They will flee if their leader or more than half their number are killed.",
 		"characteristics": {
 			"Might": 3,
-			"Reflexes": 2,
+			"Reflexes": 3,
 			"Cool": 3,
 			"Insight": 2,
 			"Cunning": 2
@@ -676,7 +676,7 @@
 		"attributes": {
 			"Armour": 0,
 			"Shield": 0,
-			"Parry": 2,
+			"Parry": 3,
 			"Endurance": 6,
 			"Standing": 3
 		},
@@ -766,12 +766,11 @@
 			"Cunning": 2
 		},
 		"skills": {
-			"Athletics": 2,
 			"Awareness": 2,
-			"Brawl": 2,
+			"Brawl": 3,
 			"Diplomacy": 2,
 			"Lore": 3,
-			"Melee": 3,
+			"Melee": 4,
 			"Vigour": 3
 		},
 		"attributes": {
@@ -803,7 +802,6 @@
 			"Cunning": 2
 		},
 		"skills": {
-			"Athletics": 2,
 			"Awareness": 2,
 			"Brawl": 2,
 			"Diplomacy": 1,

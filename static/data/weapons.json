@@ -225,7 +225,7 @@
 		"title": "Pelte",
 		"skill": "Melee",
 		"reach": 1,
-		"damage": 4,
+		"damage": 3,
 		"properties": ["property:Shield 2", "property:Stagger"]
 	},
 	{

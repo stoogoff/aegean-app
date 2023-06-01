@@ -22,9 +22,9 @@ const KEY_WEAPON   = 'weapon:'
 
 // merge all adversaries
 const ADVERSARIES = [
-	...people.map(adv => ({ id: id(adv.title), category: 'Human', ...adv})),
-	...animals.map(adv => ({ id: id(adv.title), category: 'Animal', ...adv})),
-	...monsters.map(adv => ({ id: id(adv.title), category: 'Monster', ...adv})),
+	...people.map(adv => ({ id: id(adv.title), source: 'Aegean Core', category: 'Human', ...adv})),
+	...animals.map(adv => ({ id: id(adv.title), source: 'Aegean Core', category: 'Animal', ...adv})),
+	...monsters.map(adv => ({ id: id(adv.title), source: 'Aegean Core', category: 'Monster', ...adv})),
 ].sort(sortByProperty('title'))
 
 
@@ -32,7 +32,13 @@ const ADVERSARIES = [
 const getStats = (container, key, item) => {
 	if(typeof item === 'object') return item
 
-	return container.find(obj => obj.title === item.replace(key, ''))
+	// match by title with the key removed and any ranks removed
+	const found = container.find(obj => obj.title === item.replace(key, '').replace(/\s\d$/, ''))
+
+	if(!found) return null
+
+	// replace the title with the searched for title, which adds any ranks to it
+	return { ...found, title: item.replace(key, '') }
 }
 
 const getWeaponProperties = property => getStats(properties, KEY_PROPERTY, property)
