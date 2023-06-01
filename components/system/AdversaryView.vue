@@ -2,10 +2,11 @@
 	<div>
 		<h1>{{ adversary.title }}</h1>
 		<div>
-			<small>{{ adversary.type }}, {{ adversary.category }}</small>
+			<tag-view type="success">{{ adversary.type }}</tag-view>
+			<tag-view type="warning">{{ adversary.category }}</tag-view>
 		</div>
-		<!-- render-markdown :content="adversary.description" / -->
-		<!-- render-markdown v-if="hasTactics" :content="`**Tactics:** ${adversary.tactics}`" / -->
+		<render-markdown :content="adversary.description" />
+		<render-markdown v-if="hasTactics" :content="`**Tactics:** ${adversary.tactics}`" />
 		<stat-block title="Characteristics" :stats="adversary.characteristics" />
 		<stat-block title="Skills" :stats="skills">
 			<template #header>
@@ -18,11 +19,11 @@
 		<definition-term v-if="hasEquipment" definition="Equipment" :term="adversary.equipment" />
 		<section v-if="hasAbilities">
 			<h3>Abilities</h3>
-			<!-- render-markdown
+			<render-markdown
 				v-for="(ability, index) in adversary.abilities"
 				:key="`ability_${index}`"
 				:content="`**${ability.title}:** ${ability.description}`"
-			/ -->
+			/>
 		</section>
 		<section v-if="hasAttacks">
 			<h3>Attacks</h3>
@@ -42,8 +43,8 @@
 				<tbody>
 					<tr v-for="(attack, aIndex) in attacks" :key="`attack_${aIndex}`">
 						<td>
-							<div>{{ attack.title }} <small v-if="attack.subtitle">{{ attack.subtitle }}</small></div>
-							<div><small>{{ attack.skill }}</small></div>
+							<div>{{ attack.title }} <small v-if="attack.subtitle" class="italic">{{ attack.subtitle }}</small></div>
+							<div><tag-view type="info">{{ attack.skill }}</tag-view></div>
 						</td>
 						<td class="text-center">{{ getDiceTotal(attack) }}D</td>
 						<td v-if="attack.reach" class="text-center">{{ attack.reach }}</td>
@@ -68,7 +69,7 @@
 		</section>
 		<section v-if="adversary.arcane_lore">
 			<h3>Arcane Lore</h3>
-			<!-- render-markdown :content="adversary.arcane_lore" / -->
+			<render-markdown :content="adversary.arcane_lore" />
 		</section>
 	</div>
 </template>

@@ -1,8 +1,8 @@
 <template>
-	<div class="card">
+	<div class="relative bg-gray-800 text-gray-200 border border-black rounded-md shadow-md">
 		<h4
 			v-if="title"
-			class="uppercase bg-gray-200 p-2 border-b-2 border-gray-300"
+			class="uppercase text-center text-gray-100 font-bold bg-gray-900 p-2 border-b-2 border-black"
 		>
 			{{ title }}
 		</h4>

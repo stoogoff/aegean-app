@@ -1,7 +1,7 @@
 
 //import Vue from 'vue'
 import { DEFAULT_CHARACTER } from '~/utils/config'
-import { createId } from '~/utils/string'
+import { createId } from 'we-ui/utils/string'
 
 export const CHARACTER_ID_PREFIX = 'character:'
 

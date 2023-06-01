@@ -22,6 +22,7 @@ export default {
 
 		this.characters = response.rows
 	},
+	fetchOnServer: false,
 
 	data() {
 		return {

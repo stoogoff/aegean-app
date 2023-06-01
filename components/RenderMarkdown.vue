@@ -1,13 +1,9 @@
 <template>
-	<div v-html="parsedContent" />
+	<div class="prose" v-html="parsedContent" />
 </template>
 <script>
 import Vue from 'vue'
-//import { unified } from 'unified'
-//import remarkParse from 'remark-parse'
-//import remarkRehype from 'remark-rehype'
-//import rehypeSanitize from 'rehype-sanitize'
-//import rehypeStringify from 'rehype-stringify'
+import marked from 'marked'
 
 export default Vue.component('RenderMarkdown', {
 	props: {
@@ -23,12 +19,7 @@ export default Vue.component('RenderMarkdown', {
 
 	computed: {
 		parsedContent() {
-			const content = /*unified()
-				.use(remarkParse)
-				.use(remarkRehype)
-				.use(rehypeSanitize)
-				.use(rehypeStringify)
-				.processSync(*/this.content//).toString()
+			const content = marked.parse(this.content)
 
 			if(!this.stripOuterTag) return content
 

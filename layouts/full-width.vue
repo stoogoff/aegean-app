@@ -6,24 +6,13 @@
 				<Nuxt />
 			</div>
 		</section>
-		<message-view v-if="hasText">{{ text }}</message-view>
-		<we-responsive-debug />
+		<footer-section />
 	</div>
 </template>
 <script>
 
 export default {
 	name: 'FullWidthLayout',
-
-	computed: {
-		text() {
-			return this.$messages.getMessage()
-		},
-
-		hasText() {
-			return this.$messages.hasMessage()
-		}
-	}
 }
 
 </script>

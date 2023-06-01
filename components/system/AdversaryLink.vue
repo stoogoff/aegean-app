@@ -1,9 +1,9 @@
 <template>
 	<div class="py-1">
-		<nuxt-link :to="`/adversaries/${adversary.id}`">
+		<nuxt-link :to="`/adversaries/${adversary.id}`" class="hover:text-blue-600">
 			{{ adversary.title }}
-			<small>({{ adversary.type }})</small>
 		</nuxt-link>
+		<tag-view>{{ adversary.type }}</tag-view>
 	</div>
 </template>
 <script>

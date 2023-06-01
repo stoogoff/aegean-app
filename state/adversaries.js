@@ -1,6 +1,6 @@
 
-import { unique, sortByProperty } from '~/utils/list'
-import { id } from '~/utils/string'
+import { unique, sortByProperty } from 'we-ui/utils/list'
+import { id } from 'we-ui/utils/string'
 import {
 	STAT_MIGHT,
 	STAT_REFLEXES,

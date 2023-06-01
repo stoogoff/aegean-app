@@ -8,12 +8,8 @@ body {
 	font-family: 'Josefin Sans', sans-serif;
 }
 
-header {
-	@apply bg-black mb-8 md:mb-16;
-	background-image: url(~@/assets/marble.jpg);
-}
 h1 {
-	@apply tracking-wider uppercase text-center font-bold mx-5 text-4xl sm:text-5xl lg:text-4xl xl:text-5xl text-white py-24 md:py-32;
+	@apply tracking-wider uppercase text-center font-bold mx-5 text-4xl sm:text-5xl lg:text-4xl xl:text-5xl text-black pt-20 pb-8;
 }
 h2 {
 	@apply tracking-wider uppercase text-center font-semibold my-5 text-lg;
@@ -39,21 +35,19 @@ p {
 	@apply max-w-3xl mx-auto px-4 md:px-0;
 }
 
+.secondary-navigation {
+	@apply flex;
+}
+.secondary-navigation > aside {
+	@apply px-6 hidden md:flex-none md:block md:w-64 lg:w-80;
+}
+.secondary-navigation > article {
+	@apply px-6;
+}
+
 .aegean {
 	@apply uppercase font-bold;
 	font-size: 0.8em;
-}
-.hero {
-	@apply mb-8 text-lg;
-}
-
-.card {
-	@apply block md:flex pb-8 mb-8;
-	background: url(~@/assets/divider.svg) 50% bottom no-repeat;
-	background-size: 25%;
-}
-.card:last-of-type {
-	@apply bg-none;
 }
 
 .prose ul {
@@ -75,11 +69,6 @@ ul.list li:after, .prose ul li:after {
 	@apply bg-gray-50;
 }
 
-/* home page specific */
-#home-page .prose p, #home-page .prose li {
-	@apply md:text-2xl;
-}
-
 /* navigation */
 .nav {
 	@apply bg-black bg-opacity-70;
@@ -93,20 +82,30 @@ ul.list li:after, .prose ul li:after {
 .nav-logo {
 	@apply text-white;
 }
-#home-page .nav {
-	@apply bg-white;
-}
-#home-page .nav:not(.mobile-menu) {
-	@apply bg-opacity-70 md:bg-opacity-30;
-}
-#home-page .nav-item {
-	@apply text-gray-400 hover:text-black transition-colors duration-500 ease-in-out;
-}
-#home-page .nav-button {
-	@apply text-black;
-}
 
 /* buttons */
 .btn {
 	@apply bg-black text-gray-300 hover:text-white hover:bg-gray-700 border-gray-400;
+}
+
+/* tags */
+.tag.success {
+	@apply bg-green-800 text-white;
+}
+.tag.info {
+	@apply bg-blue-800 text-white;
+}
+.tag.warning {
+	@apply bg-red-800 text-white;
+}
+
+/* tabs */
+.tab-item {
+	@apply hover:text-gray-600 hover:border-gray-300;
+}
+.tab-item.active {
+	@apply text-blue-600 border-blue-600;
+}
+.tab-item.disabled {
+	@apply text-gray-400 hover:text-gray-400 hover:border-gray-200 cursor-not-allowed;
 }
