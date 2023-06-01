@@ -6,7 +6,7 @@
 			<adversary-link v-for="adv in filtered" :key="adv.id" :adversary="adv" />
 		</aside>
 		<article>
-			<loading-spinner v-if="$fetchState.pending" />
+			<we-loading-spinner v-if="$fetchState.pending" />
 			<div v-else-if="adversary === null">
 				Adversary not found.
 			</div>

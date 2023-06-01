@@ -3,11 +3,11 @@
 </template>
 <script>
 import Vue from 'vue'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeSanitize from 'rehype-sanitize'
-import rehypeStringify from 'rehype-stringify'
+//import { unified } from 'unified'
+//import remarkParse from 'remark-parse'
+//import remarkRehype from 'remark-rehype'
+//import rehypeSanitize from 'rehype-sanitize'
+//import rehypeStringify from 'rehype-stringify'
 
 export default Vue.component('RenderMarkdown', {
 	props: {
@@ -23,12 +23,12 @@ export default Vue.component('RenderMarkdown', {
 
 	computed: {
 		parsedContent() {
-			const content = unified()
+			const content = /*unified()
 				.use(remarkParse)
 				.use(remarkRehype)
 				.use(rehypeSanitize)
 				.use(rehypeStringify)
-				.processSync(this.content).toString()
+				.processSync(*/this.content//).toString()
 
 			if(!this.stripOuterTag) return content
 

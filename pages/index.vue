@@ -5,7 +5,7 @@
 			<li>
 				<h2>Characters</h2>
 				<p>Create a new character and view existing ones.</p>
-				<link-action to="/characters/" block>Characters</link-action>
+				<we-link-action to="/characters/" block>Characters</we-link-action>
 			</li>
 			<li>
 				<h2>Cities</h2>
@@ -14,7 +14,7 @@
 			<li>
 				<h2>Adversaries</h2>
 				<p>Find adversaries to fight.</p>
-				<link-action to="/adversaries/" block>Adversaries</link-action>
+				<we-link-action to="/adversaries/" block>Adversaries</we-link-action>
 			</li>
 			<li>
 				<h2>Factions</h2>
@@ -26,8 +26,8 @@
 			</li>
 		</ul>
 		<div v-if="!$fetchState.pending">
-			<text-input label="Pouch Test Name" v-model="doc.title" />
-			<button-action @click="test">TEST</button-action>
+			<we-text-input label="Pouch Test Name" v-model="doc.title" />
+			<we-button-action @click="test">TEST</we-button-action>
 		</div>
 		<accordion-group>
 			<accordion-item open>
@@ -60,19 +60,16 @@
 </template>
 
 <script>
-import { database } from '~/plugins/pouch'
 
 export default {
 	name: 'IndexPage',
 
 	async fetch() {
-		const db = database()
-
-		this.doc = await db.get('mydoc')
+		this.doc = await this.$db.get('mydoc')
 		console.log('doc=', this.doc)
 
 		try {
-			const response = await db.get('notthere')
+			const response = await this.$db.get('notthere')
 
 			console.log(response)
 		}
@@ -90,9 +87,7 @@ export default {
 
 	methods: {
 		async test() {
-			const db = database()
-
-			let response = await db.put(this.doc)
+			let response = await this.$db.put(this.doc)
 
 			console.log(response)
 		}

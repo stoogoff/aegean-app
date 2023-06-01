@@ -1,61 +1,52 @@
 
 //import Vue from 'vue'
-import { database } from '~/plugins/pouch'
 import { DEFAULT_CHARACTER } from '~/utils/config'
 import { createId } from '~/utils/string'
 
 export const CHARACTER_ID_PREFIX = 'character:'
 
-export default {
-	async byId(id) {
-		const db = database()
+export default db => {
+	return {
+		async byId(id) {
+			return await db.get(id)
+		},
 
-		return await db.get(id)
-	},
+		async all() {
+			// for some reason this returning all docs for me
+			const response = await db.allDocs({
+				include_docs: true,
+				startKey: CHARACTER_ID_PREFIX,
+				endKey: `${CHARACTER_ID_PREFIX}\u1111`,
+			})
 
-	async all() {
-		const db = database()
+			response.rows = response.rows.filter(row => row.id.startsWith(CHARACTER_ID_PREFIX))
+			response.total_rows = response.rows.length
 
-		// for some reason this returning all docs for me
-		const response = await db.allDocs({
-			include_docs: true,
-			startKey: CHARACTER_ID_PREFIX,
-			endKey: `${CHARACTER_ID_PREFIX}\u1111`,
-		})
+			return response
+		},
 
-		response.rows = response.rows.filter(row => row.id.startsWith(CHARACTER_ID_PREFIX))
-		response.total_rows = response.rows.length
+		async create() {
+			// TODO once the character is named this should be rewritten with the character
+			// name instead of the random ID, then this doc deleted
+			const id = `${CHARACTER_ID_PREFIX}${createId()}`
+			const character = {
+				...DEFAULT_CHARACTER,
+				_id: id,
+			}
 
-		return response
-	},
+			const response = await db.put(character)
 
-	async create() {
-		const db = database()
+			if(!response.ok) throw 'Unable to create character'
 
-		// TODO once the character is named this should be rewritten with the character
-		// name instead of the random ID, then this doc deleted
-		const id = `${CHARACTER_ID_PREFIX}${createId()}`
-		const character = {
-			...DEFAULT_CHARACTER,
-			_id: id,
-		}
+			return id
+		},
 
-		const response = await db.put(character)
+		async save(data) {
+			return await db.put(data)
+		},
 
-		if(!response.ok) throw 'Unable to create character'
-
-		return id
-	},
-
-	async save(data) {
-		const db = database()
-
-		return await db.put(data)
-	},
-
-	async delete(data) {
-		const db = database()
-
-		return await db.remove(data)
-	},
+		async delete(data) {
+			return await db.remove(data)
+		},
+	}
 }

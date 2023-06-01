@@ -16,17 +16,15 @@
 			</ol>
 		</aside>
 		<article>
-			<markdown-content content="characters/creation" />
+			<!-- markdown-content content="characters/creation" /-->
 			<div class="flex">
-				<button-action block @click="walkthrough">Walkthrough</button-action>
-				<button-action block @click="add">Add</button-action>
+				<we-button-action block @click="walkthrough">Walkthrough</we-button-action>
+				<we-button-action block @click="add">Add</we-button-action>
 			</div>
 		</article>
 	</div>
 </template>
 <script>
-import { character } from '~/state'
-
 export default {
 	name: 'CharacterNewPage',
 	layout: 'full-width',
@@ -37,7 +35,7 @@ export default {
 
 			this.loading = true
 
-			const newId = await character.create()
+			const newId = await this.$character.create()
 
 			redirect(`/characters/${newId}/${suffix}`)
 

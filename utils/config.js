@@ -1,4 +1,27 @@
 
+export const MENU = [
+	{
+		title: 'Home',
+		href: '/',
+		//icon: 'home',
+	},
+	{
+		title: 'Characters',
+		href: '/characters',
+		//icon: 'characters',
+	},
+	{
+		title: 'Adversaries',
+		href: '/adversaries',
+		//icon: 'characters',
+	},
+	{
+		title: 'Account',
+		href: '/account',
+		//icon: 'account-circle',
+	},
+]
+
 export const STORAGE_FEEDBACK = 'feedback'
 
 export const STAT_MIGHT = 'Might'

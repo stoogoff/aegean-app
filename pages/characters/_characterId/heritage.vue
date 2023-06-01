@@ -2,7 +2,7 @@
 	<div class="secondary-navigation">
 		<character-progress :character="character" v-if="character" />
 		<article>
-			<markdown-content content="characters/heritage" />
+			<!--markdown-content content="characters/heritage" /-->
 			<accordion-group v-if="character">
 				<accordion-item
 					v-for="(heritage, idx) in heritages"
@@ -89,7 +89,7 @@
 	</div>
 </template>
 <script>
-import { character, data } from '~/state'
+import { data } from '~/state'
 import { join } from '~/utils/list'
 
 // choose heritage:
@@ -109,7 +109,7 @@ export default {
 	async fetch() {
 		const { params } = this.$nuxt.context
 
-		this.character = await character.byId(params.characterId)
+		this.character = await this.$character.byId(params.characterId)
 		this.startingCP = this.character.cp
 
 		// setup watchers here so they're not applied when the character is set

@@ -8,10 +8,10 @@
 			<div><strong>Heritage:</strong> {{ character.heritage }}</div>
 			<div v-if="character.parent"><strong>Parent:</strong> {{ character.parent }}</div>
 			<div>
-				<link-action
+				<we-link-action
 					small
 					:to="`/characters/${character._id}/heritage`"
-				>Edit</link-action>
+				>Edit</we-link-action>
 			</div>
 		</section>
 		<section v-if="hasSkills">

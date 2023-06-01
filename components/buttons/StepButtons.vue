@@ -1,8 +1,8 @@
 <template>
 	<div class="flex">
-		<button-action outlined block @click="previousClick" v-if="previous">Previous</button-action>
+		<we-button-action outlined block @click="previousClick" v-if="previous">Previous</we-button-action>
 		<link-action block outlined :to="exit" v-else>Exit</link-action>
-		<button-action block type="primary" :disabled="disabled" @click="nextClick">{{ label }}</button-action>
+		<we-button-action block type="primary" :disabled="disabled" @click="nextClick">{{ label }}</we-button-action>
 	</div>
 </template>
 <script>

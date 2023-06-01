@@ -13,15 +13,15 @@
 				v-for="(relationship, idx) in background.relationships"
 				:key="`relationship_${idx}`"
 			>
-				<render-markdown :content="relationship" strip-outer-tag />
+				<!-- render-markdown :content="relationship" strip-outer-tag / -->
 			</li>
 		</ul>
-		<button-action
+		<we-button-action
 			block
 			:outlined="hasSelected"
 			:type="buttonType"
 			@click="$emit('click')"
-		>Select ({{ background.cost }})</button-action>
+		>Select ({{ background.cost }})</we-button-action>
 	</card-view>
 </template>
 <script>

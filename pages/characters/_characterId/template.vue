@@ -15,7 +15,7 @@
 	</div>
 </template>
 <script>
-import { character, data } from '~/state'
+import { data } from '~/state'
 
 export default {
 	name: 'CharacterBackgroundPage',
@@ -24,7 +24,7 @@ export default {
 	async fetch() {
 		const { params } = this.$nuxt.context
 
-		this.character = await character.byId(params.characterId)
+		this.character = await this.$character.byId(params.characterId)
 	},
 
 	data() {

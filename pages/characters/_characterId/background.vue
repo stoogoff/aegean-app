@@ -2,7 +2,7 @@
 	<div class="secondary-navigation">
 		<character-progress :character="character" v-if="character" />
 		<article>
-			<markdown-content content="characters/background" />
+			<!-- markdown-content content="characters/background" / -->
 			<accordion-group v-if="character">
 				<accordion-item
 					v-for="(background, idx) in backgrounds"
@@ -41,7 +41,7 @@
 	</div>
 </template>
 <script>
-import { character, data } from '~/state'
+import { data } from '~/state'
 import { join } from '~/utils/list'
 
 export default {
@@ -51,7 +51,7 @@ export default {
 	async fetch() {
 		const { params } = this.$nuxt.context
 
-		this.character = await character.byId(params.characterId)
+		this.character = await this.$character.byId(params.characterId)
 
 		this.$watch('character.background', (newValue, oldValue) => {
 			if(oldValue !== null && oldValue !== undefined) {

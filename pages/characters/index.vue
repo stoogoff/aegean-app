@@ -6,19 +6,19 @@
 			:title="character.id"
 		>
 			{{ character.id }}
-			<link-action :to="`/characters/${character.id}/heritage`">Edit</link-action>
-			<button-action @click="deleteCharacter(character.doc)">Delete</button-action>
+			<we-link-action :to="`/characters/${character.id}/heritage`">Edit</we-link-action>
+			<we-button-action @click="deleteCharacter(character.doc)">Delete</we-button-action>
 		</card-view>
-		<link-action to="/characters/new" primary block>Create Character</link-action>
+		<we-link-action to="/characters/new" primary block>Create Character</we-link-action>
 	</main>
 </template>
 <script>
-import { character } from '~/state'
+
 export default {
 	name: 'CharacterIndexPage',
 
 	async fetch() {
-		const response = await character.all()
+		const response = await this.$character.all()
 
 		this.characters = response.rows
 	},

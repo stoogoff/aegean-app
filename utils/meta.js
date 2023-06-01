@@ -2,7 +2,7 @@
 const OG_TYPE = 'website'
 const BASE_URL = 'https://app.aegeanrpg.com'
 const BASE_TITLE = 'Aegean'
-const BASE_DESCRIPTION = ''
+const BASE_DESCRIPTION = 'AEGEAN is a tabletop role-playing game about a group of mythic heroes building a new, free city on the shores of the Aegean Sea. There are neighbouring cities to trade or war with, monsters to kill, gods to appease, deceptions, negotiations and bloody skirmishes.'
 const BASE_IMAGE = `${BASE_URL}/img/kickstarter-banner.png`
 
 export const title = meta => meta && meta.title ? `${meta.title} | ${BASE_TITLE}` : BASE_TITLE
@@ -10,14 +10,16 @@ export const title = meta => meta && meta.title ? `${meta.title} | ${BASE_TITLE}
 export const url = meta => meta && meta.url ? `${BASE_URL}${meta.url}` : `${BASE_URL}/`
 
 export const image = meta => meta && meta.image ? `${BASE_URL}${meta.image}` : BASE_IMAGE
- 
-export const meta = meta => {
+
+export const description = meta => (meta && meta.description) || BASE_DESCRIPTION
+
+export const meta = (meta, additional = null) => {
 	const newTitle = title(meta)
 	const combinedUrl = url(meta)
 	const newImage = image(meta)
-	const newDescription = (meta && meta.description) || BASE_DESCRIPTION
+	const newDescription = description(meta)
 
-	return [
+	let tags = [
 		{
 			hid: 'description',
 			name: 'description',
@@ -69,4 +71,10 @@ export const meta = meta => {
 			content: newImage,
 		},
 	]
+
+	if(additional) {
+		tags = [...tags, ...additional]
+	}
+
+	return tags
 }

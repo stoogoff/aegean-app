@@ -4,25 +4,25 @@
 		<div>
 			<small>{{ adversary.type }}, {{ adversary.category }}</small>
 		</div>
-		<render-markdown :content="adversary.description" />
-		<render-markdown v-if="hasTactics" :content="`**Tactics:** ${adversary.tactics}`" />
+		<!-- render-markdown :content="adversary.description" / -->
+		<!-- render-markdown v-if="hasTactics" :content="`**Tactics:** ${adversary.tactics}`" / -->
 		<stat-block title="Characteristics" :stats="adversary.characteristics" />
 		<stat-block title="Skills" :stats="skills">
 			<template #header>
-				<button-action small :outlined="!showAllSkills" @click="toggleAllSkills">
+				<we-button-action small :outlined="!showAllSkills" @click="toggleAllSkills">
 					Show all
-				</button-action>
+				</we-button-action>
 			</template>
 		</stat-block>
 		<stat-block title="Attributes" :stats="adversary.attributes" />
 		<definition-term v-if="hasEquipment" definition="Equipment" :term="adversary.equipment" />
 		<section v-if="hasAbilities">
 			<h3>Abilities</h3>
-			<render-markdown
+			<!-- render-markdown
 				v-for="(ability, index) in adversary.abilities"
 				:key="`ability_${index}`"
 				:content="`**${ability.title}:** ${ability.description}`"
-			/>
+			/ -->
 		</section>
 		<section v-if="hasAttacks">
 			<h3>Attacks</h3>
@@ -68,7 +68,7 @@
 		</section>
 		<section v-if="adversary.arcane_lore">
 			<h3>Arcane Lore</h3>
-			<render-markdown :content="adversary.arcane_lore" />
+			<!-- render-markdown :content="adversary.arcane_lore" / -->
 		</section>
 	</div>
 </template>
