@@ -7,7 +7,7 @@
 			<div>
 				<h2 class="meander"><span>Characters</span></h2>
 				<p>Create a new character and view existing ones.</p>
-				<we-link-action to="/characters/" block>Characters</we-link-action>
+				<we-link-action to="/characters/" outlined block>Characters</we-link-action>
 			</div>
 			<div>
 				<h2 class="meander"><span>Cities</span></h2>
@@ -16,7 +16,7 @@
 			<div>
 				<h2 class="meander"><span>Adversaries</span></h2>
 				<p>Find adversaries to fight.</p>
-				<we-link-action to="/adversaries/" block>Adversaries</we-link-action>
+				<we-link-action to="/adversaries/" outlined block>Adversaries</we-link-action>
 			</div>
 			<div>
 				<h2 class="meander"><span>Factions</span></h2>

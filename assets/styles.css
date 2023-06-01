@@ -65,6 +65,9 @@ ul.list li:after, .prose ul li:after {
 	top: .4em;
 	left: 0;
 }
+ol.list {
+	@apply list-decimal;
+}
 .inverse ul.list li:after, .inverse .prose ul li:after {
 	@apply bg-gray-50;
 }
@@ -86,6 +89,9 @@ ul.list li:after, .prose ul li:after {
 /* buttons */
 .btn {
 	@apply bg-black text-gray-300 hover:text-white hover:bg-gray-700 border-gray-400;
+}
+.btn.outlined {
+	@apply bg-white text-gray-700 border-gray-700 hover:bg-gray-300 hover:text-black;
 }
 
 /* tags */

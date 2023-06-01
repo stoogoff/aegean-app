@@ -71,7 +71,7 @@ export default {
 
 	computed: {
 		backgrounds() {
-			return this.$content.backgrounds()
+			return this.$static.backgrounds()
 		},
 
 		hasSelected() {

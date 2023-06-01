@@ -1,6 +1,6 @@
 <template>
 	<div class="content mb-8">
-		<loading-spinner v-if="$fetchState.pending" />
+		<we-loading-spinner v-if="$fetchState.pending" />
 		<nuxt-content :document="text" v-else />
 	</div>
 </template>

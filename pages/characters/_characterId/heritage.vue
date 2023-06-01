@@ -139,11 +139,11 @@ export default {
 
 	computed: {
 		heritages() {
-			return this.$content.heritages()
+			return this.$static.heritages()
 		},
 
 		divinities() {
-			return this.$content.divinities()
+			return this.$static.divinities()
 		},
 
 		isDivineHeritage() {
@@ -188,7 +188,7 @@ export default {
 		},
 
 		getGift(title) {
-			return this.$content.getGiftByTitle(title)
+			return this.$static.getGiftByTitle(title)
 		},
 
 		async save(done) {

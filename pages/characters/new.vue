@@ -1,7 +1,7 @@
 <template>
 	<div class="secondary-navigation">
 		<aside>
-			<h1>Steps</h1>
+			<h3>Steps</h3>
 			<ol class="list">
 				<li>Choose a concept</li>
 				<li>Choose a heritage</li>
@@ -16,7 +16,7 @@
 			</ol>
 		</aside>
 		<article>
-			<!-- markdown-content content="characters/creation" /-->
+			<markdown-content content="characters/creation" />
 			<div class="flex">
 				<we-button-action block @click="walkthrough">Walkthrough</we-button-action>
 				<we-button-action block @click="add">Add</we-button-action>
