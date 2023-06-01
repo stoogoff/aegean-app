@@ -35,7 +35,7 @@ export default {
 
 			this.loading = true
 
-			const newId = await this.$character.create()
+			const newId = await this.$characters.create()
 
 			redirect(`/characters/${newId}/${suffix}`)
 

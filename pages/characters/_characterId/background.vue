@@ -41,7 +41,6 @@
 	</div>
 </template>
 <script>
-import { data } from '~/state'
 import { join } from '~/utils/list'
 
 export default {
@@ -51,7 +50,7 @@ export default {
 	async fetch() {
 		const { params } = this.$nuxt.context
 
-		this.character = await this.$character.byId(params.characterId)
+		this.character = await this.$characters.byId(params.characterId)
 
 		this.$watch('character.background', (newValue, oldValue) => {
 			if(oldValue !== null && oldValue !== undefined) {
@@ -72,7 +71,7 @@ export default {
 
 	computed: {
 		backgrounds() {
-			return data.backgrounds()
+			return this.$content.backgrounds()
 		},
 
 		hasSelected() {

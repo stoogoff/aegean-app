@@ -57,27 +57,29 @@ const getAttackStats = attack => {
 	return stats
 }
 
-export default {
-	byId(id) {
-		const adversary = ADVERSARIES.find(adv => adv.id === id)
+export default () => {
+	return {
+		byId(id) {
+			const adversary = ADVERSARIES.find(adv => adv.id === id)
 
-		if(!adversary) return null
+			if(!adversary) return null
 
-		adversary.attacks = adversary.attacks.map(attack => getAttackStats(attack)).filter(attack => !!attack)
-		adversary.abilities = (adversary.abilities || []).map(ability => getAbilityStats(ability)).filter(ability => !!ability)
+			adversary.attacks = adversary.attacks.map(attack => getAttackStats(attack)).filter(attack => !!attack)
+			adversary.abilities = (adversary.abilities || []).map(ability => getAbilityStats(ability)).filter(ability => !!ability)
 
-		return adversary
-	},
+			return adversary
+		},
 
-	forCategory(category) {
-		return ADVERSARIES.filter(adv => adv.category === category)
-	},
+		forCategory(category) {
+			return ADVERSARIES.filter(adv => adv.category === category)
+		},
 
-	categories() {
-		return unique(ADVERSARIES.map(adv => adv.category))
-	},
+		categories() {
+			return unique(ADVERSARIES.map(adv => adv.category))
+		},
 
-	all() {
-		return ADVERSARIES
-	},
+		all() {
+			return ADVERSARIES
+		},
+	}
 }

@@ -5,18 +5,20 @@ const state = Vue.observable({
 	message: null,
 })
 
-export default {
-	getMessage() {
-		return state.message
-	},
+export default () => {
+	return {
+		getMessage() {
+			return state.message
+		},
 
-	hasMessage() {
-		return state.message !== null
-	},
+		hasMessage() {
+			return state.message !== null
+		},
 
-	setMessage(text) {
-		state.message = text
+		setMessage(text) {
+			state.message = text
 
-		window.setTimeout(() => state.message = null, 3000)
-	},
+			window.setTimeout(() => state.message = null, 3000)
+		},
+	}
 }

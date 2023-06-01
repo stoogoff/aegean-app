@@ -25,7 +25,7 @@
 				<p>View GM reference material.</p>
 			</li>
 		</ul>
-		<div v-if="!$fetchState.pending">
+		<div v-if="!$fetchState.pending && doc !== null">
 			<we-text-input label="Pouch Test Name" v-model="doc.title" />
 			<we-button-action @click="test">TEST</we-button-action>
 		</div>
@@ -65,6 +65,8 @@ export default {
 	name: 'IndexPage',
 
 	async fetch() {
+		if(!this.$db) return
+
 		this.doc = await this.$db.get('mydoc')
 		console.log('doc=', this.doc)
 

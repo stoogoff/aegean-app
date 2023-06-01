@@ -18,7 +18,6 @@
 	</div>
 </template>
 <script>
-import adversaries from '~/state/adversaries'
 import { meta, title, url } from '~/utils/meta'
 
 export default {
@@ -28,8 +27,8 @@ export default {
 	async fetch() {
 		const { params } = this.$nuxt.context
 
-		this.filtered = this.adversaries = await adversaries.all()
-		this.adversary = adversaries.byId(params.id)
+		this.filtered = this.adversaries = await this.$adversaries.all()
+		this.adversary = this.$adversaries.byId(params.id)
 	},
 
 	data() {

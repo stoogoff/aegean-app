@@ -5,25 +5,26 @@ import divinities from '~/static/data/chargen/divinities.json'
 import backgrounds from '~/static/data/chargen/backgrounds.json'
 import gifts from '~/static/data/gifts.json'
 
+export default () => {
+	return {
+		heritages() {
+			return heritages
+		},
 
-export default {
-	heritages() {
-		return heritages
-	},
+		divinities() {
+			return divinities
+		},
 
-	divinities() {
-		return divinities
-	},
+		backgrounds() {
+			return backgrounds
+		},
 
-	backgrounds() {
-		return backgrounds
-	},
+		gifts() {
+			return gifts
+		},
 
-	gifts() {
-		return gifts
-	},
-
-	getGiftByTitle(title) {
-		return gifts.find(g => g.title === title)
-	},
+		getGiftByTitle(title) {
+			return gifts.find(g => g.title === title)
+		},
+	}
 }

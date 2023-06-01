@@ -15,8 +15,6 @@
 	</div>
 </template>
 <script>
-import { data } from '~/state'
-
 export default {
 	name: 'CharacterBackgroundPage',
 	layout: 'full-width',
@@ -24,7 +22,7 @@ export default {
 	async fetch() {
 		const { params } = this.$nuxt.context
 
-		this.character = await this.$character.byId(params.characterId)
+		this.character = await this.$characters.byId(params.characterId)
 	},
 
 	data() {
@@ -41,7 +39,7 @@ export default {
 
 	methods: {
 		async save(done) {
-			await character.save(this.character)
+			await this.$characters.save(this.character)
 			done()
 		},
 	},

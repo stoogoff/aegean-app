@@ -109,7 +109,7 @@ export default {
 	async fetch() {
 		const { params } = this.$nuxt.context
 
-		this.character = await this.$character.byId(params.characterId)
+		this.character = await this.$characters.byId(params.characterId)
 		this.startingCP = this.character.cp
 
 		// setup watchers here so they're not applied when the character is set
@@ -139,11 +139,11 @@ export default {
 
 	computed: {
 		heritages() {
-			return data.heritages()
+			return this.$content.heritages()
 		},
 
 		divinities() {
-			return data.divinities()
+			return this.$content.divinities()
 		},
 
 		isDivineHeritage() {
@@ -188,7 +188,7 @@ export default {
 		},
 
 		getGift(title) {
-			return data.getGiftByTitle(title)
+			return this.$content.getGiftByTitle(title)
 		},
 
 		async save(done) {

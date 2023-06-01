@@ -18,7 +18,7 @@ export default {
 	name: 'CharacterIndexPage',
 
 	async fetch() {
-		const response = await this.$character.all()
+		const response = await this.$characters.all()
 
 		this.characters = response.rows
 	},
@@ -31,7 +31,7 @@ export default {
 
 	methods: {
 		async deleteCharacter(current) {
-			await character.delete(current)
+			await this.$characters.delete(current)
 			await this.$fetch()
 		},
 	},

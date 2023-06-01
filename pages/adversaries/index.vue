@@ -29,14 +29,13 @@
 	</main>
 </template>
 <script>
-import adversaries from '~/state/adversaries'
 import { unique } from '~/utils/list'
 
 export default {
 	name: 'AdversaryIndexPage',
 
 	async fetch() {
-		this.filtered = this.adversaries = await adversaries.all()
+		this.filtered = this.adversaries = await this.$adversaries.all()
 	},
 
 	data() {

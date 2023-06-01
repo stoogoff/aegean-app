@@ -12,18 +12,16 @@
 </template>
 <script>
 
-import { message } from '~/state'
-
 export default {
 	name: 'DefaultLayout',
 
 	computed: {
 		text() {
-			return message.getMessage()
+			return this.$messages.getMessage()
 		},
 
 		hasText() {
-			return message.hasMessage()
+			return this.$messages.hasMessage()
 		}
 	}
 }
