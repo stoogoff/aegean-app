@@ -12,9 +12,8 @@ import {
 import abilities from '~/static/data/abilities.json'
 import properties from '~/static/data/properties.json'
 import weapons from '~/static/data/weapons.json'
-import people from '~/static/data/adversaries/people.json'
-import animals from '~/static/data/adversaries/animals.json'
-import monsters from '~/static/data/adversaries/monsters.json'
+import all from '~/static/data/adversaries/all.json'
+
 
 const KEY_ABILITY  = 'ability:'
 const KEY_PROPERTY = 'property:'
@@ -22,9 +21,7 @@ const KEY_WEAPON   = 'weapon:'
 
 // merge all adversaries
 const ADVERSARIES = [
-	...people.map(adv => ({ id: id(adv.title), source: 'Aegean Core', category: 'Human', ...adv})),
-	...animals.map(adv => ({ id: id(adv.title), source: 'Aegean Core', category: 'Animal', ...adv})),
-	...monsters.map(adv => ({ id: id(adv.title), source: 'Aegean Core', category: 'Monster', ...adv})),
+	...all.map(adv => ({ id: id(adv.title), ...adv }))
 ].sort(sortByProperty('title'))
 
 
@@ -46,7 +43,9 @@ const getAbilityStats = ability => getStats(abilities, KEY_ABILITY, ability)
 const getAttackStats = attack => {
 	const stats = getStats(weapons, KEY_WEAPON, attack)
 
-	stats.properties = stats.properties.map(property => getWeaponProperties(property)).filter(weapon => !!weapon)
+	if(!stats) return
+
+	stats.properties = (stats.properties || []).map(property => getWeaponProperties(property)).filter(weapon => !!weapon)
 
 	// set the correct characteristic for the weapon
 	const charProps = [STAT_CUNNING, STAT_INSIGHT, STAT_REFLEXES]

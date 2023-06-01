@@ -27,6 +27,14 @@
 						</div>
 					</div>
 				</we-tab-panel>
+				<we-tab-panel title="Source">
+					<div class="columns-1 sm:columns-2 md:columns-3">
+						<div v-for="(adversaries, source) in bySource" :key="source">
+							<h3>{{ source }}</h3>
+							<adversary-link v-for="adv in adversaries" :key="adv.id" :adversary="adv" />
+						</div>
+					</div>
+				</we-tab-panel>
 			</we-tab-group>
 		</div>
 	</article>
@@ -55,6 +63,10 @@ export default {
 
 		byType() {
 			return this.group('type')
+		},
+
+		bySource() {
+			return this.group('source')
 		},
 	},
 

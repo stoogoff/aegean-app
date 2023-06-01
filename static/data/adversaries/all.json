@@ -1,0 +1,3995 @@
+[
+  {
+    "title": "Bear",
+    "type": "Champion",
+    "description": "Bears are solitary creatures inhabiting the mountains and forests. They are shy, avoiding humans if possible, but can turn aggressive if threatened. Their pelts are prized by many but, to most hunters, the risk is deemed too great.\n\nAnyone slaying a bear single-handedly gains 1 Glory.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "tactics": "Bears will attack if cornered or threatened and flee when they can. They will make use of their double claw attack to Pin an opponent before biting. They will flee if they take a Wound unless their young are threatened.",
+    "characteristics": {
+      "Might": 6,
+      "Reflexes": 2,
+      "Cool": 2,
+      "Insight": 1,
+      "Cunning": 3
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 1,
+      "Brawl": 4,
+      "Survival": 3,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Endurance": 10,
+      "Armour": 4,
+      "Dodge": 0
+    },
+    "abilities": [
+      "ability:Claws",
+      {
+        "title": "Maul (Active)",
+        "description": "After a successful claw attack the GM may _invoke the Fates_ to Pin the target character in addition to inflicting the attack damage. Successes on the attack roll are used as both additional damage for the Harm Action and for the Pin penalty applied to the target."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Bite",
+        "skill": "Brawl",
+        "reach": 1,
+        "damage": 6,
+        "properties": [
+          "property:Pierce"
+        ]
+      },
+      {
+        "title": "Claws",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 5,
+        "properties": [
+          "property:Savage",
+          "property:Stagger",
+          "property:Maul"
+        ]
+      }
+    ],
+    "arcane_lore": "The hardy nature of a bear can be gained by drinking a concoction made from its liver. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the liver. This requires a successful Cool (Craft) skill check. Anyone who spends a Maneuver drinking the potion reduces the next Wound roll they are forced to make by -2."
+  },
+  {
+    "title": "Boar",
+    "type": "Champion",
+    "description": "Boars are reclusive creatures which are at home scavenging in the forests. They are cunning and elusive, but savage when cornered and both prized and respected by hunters.\n\nIn ancient times, boars tusks were used to make helmets for the most prestigious warriors. They were difficult and time consuming to make, requiring forty or more tusks, and handed down as prized heirlooms. Their use has fallen out of favour in recent times to the more sturdy bronze helm.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "tactics": "Boars are tough and relentless. They will avoid a fight if they can but if cornered they will fight until the bitter end.",
+    "characteristics": {
+      "Might": 4,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 3
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 2,
+      "Brawl": 2,
+      "Survival": 3,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Endurance": 6,
+      "Armour": 2,
+      "Dodge": 1
+    },
+    "abilities": [
+      "ability:Charge",
+      "ability:Frenzy",
+      "ability:Trample"
+    ],
+    "attacks": [
+      {
+        "title": "Gore",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Stagger"
+        ]
+      },
+      {
+        "title": "Trample",
+        "skill": "Brawl",
+        "reach": 0,
+        "damage": 5
+      }
+    ],
+    "arcane_lore": "The ferocity of a boar can be gained by drinking a concoction made from its horns. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the ground up horn. This requires a successful Cool (Craft) skill check. Anyone who spends a Maneuver drinking the potion enters a frenzy. They do +2 damage on all Melee and Brawling attacks and must attack something—friend or foe—on their turn or gain 2 Risk. This effect lasts for a number of rounds equal to the successes rolled on the Craft skill check."
+  },
+  {
+    "title": "Cattle",
+    "type": "Minion",
+    "description": "Cattle are a common sight across farmland and can be found roaming wild. They can be extremely fierce, especially when defending their herd, and are used as part of the bull dancing rituals performed on Kreta. Cattle are sacred\nto Poseidon and are used in the most important sacrifices.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "tactics": "Unless cornered or the herd is in danger, cattle will flee. Cattle in the arena are goaded to anger before they enter to make the dance more difficult.",
+    "characteristics": {
+      "Might": 5,
+      "Reflexes": 2,
+      "Cool": 2,
+      "Insight": 1,
+      "Cunning": 1
+    },
+    "skills": {
+      "Athletics": 1,
+      "Awareness": 1,
+      "Brawl": 3,
+      "Survival": 1,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Endurance": 8,
+      "Armour": 2,
+      "Dodge": 0
+    },
+    "abilities": [
+      "ability:Charge"
+    ],
+    "attacks": [
+      {
+        "title": "Gore",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Stagger"
+        ]
+      }
+    ],
+    "arcane_lore": "The blood of cattle can be made into a powerful ingestible poison. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the blood. This requires a successful Cool (Craft) skill check. Anyone who drinks the potion is immediately poisoned with a Poison 3 effect."
+  },
+  {
+    "title": "Deer",
+    "type": "Minion",
+    "description": "Deer herds roam the hills and forests and are prime targets for hunters. They are sacred to Artemis.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "tactics": "Deer are swift and elusive creatures who will flee at the first sign of danger. They will only fight if cornered.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 3,
+      "Awareness": 3,
+      "Brawl": 1,
+      "Survival": 3,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Endurance": 4,
+      "Armour": 1,
+      "Dodge": 2
+    },
+    "abilities": [
+      "ability:Swift"
+    ],
+    "attacks": [
+      {
+        "title": "Antlers",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Pierce"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Dog, War",
+    "type": "Minion",
+    "description": "Dogs trained for war make great bodyguards and sentries.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "tactics": "Well trained dogs will do as their master tells them.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 4,
+      "Brawl": 3,
+      "Survival": 1,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Endurance": 6,
+      "Armour": 2,
+      "Dodge": 2
+    },
+    "abilities": [
+      "ability:Keen Senses"
+    ],
+    "attacks": [
+      {
+        "title": "Bite and Claws",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 3,
+        "properties": [
+          "property:Pierce"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Dog",
+    "type": "Minion",
+    "description": "Most families will include a dog of some kind, to bark at strangers and as companions. Breeds and training vary, with most being trained as sentries or hunting companions. Some—notably the molossus mastiff—are trained for warfare.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "tactics": "Well trained dogs will do as their master tells them.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 2,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 4,
+      "Brawl": 1,
+      "Survival": 1,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Endurance": 4,
+      "Armour": 1,
+      "Dodge": 2
+    },
+    "abilities": [
+      "ability:Keen Senses"
+    ],
+    "attacks": [
+      {
+        "title": "Bite and Claws",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 3,
+        "properties": [
+          "property:Pierce"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Donkey / Mule",
+    "type": "Minion",
+    "description": "Donkeys and mules are found as pack animals or riding animals. They’re known for being stubborn.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "characteristics": {
+      "Might": 4,
+      "Reflexes": 2,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 2,
+      "Vigour": 5
+    },
+    "attributes": {
+      "Endurance": 5,
+      "Armour": 1,
+      "Dodge": 0,
+      "Handling": "-4"
+    },
+    "abilities": [
+      "ability:Trample"
+    ],
+    "attacks": [
+      {
+        "title": "Kick",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Stagger"
+        ]
+      },
+      {
+        "title": "Trample",
+        "skill": "Athletics",
+        "reach": 1,
+        "damage": 6,
+        "properties": [
+          "property:Stun"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Horse, Draft",
+    "type": "Minion",
+    "description": "A standard draft horse, used as part of a chariot team. Draft horses are poorly trained and easily startled.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "characteristics": {
+      "Might": 4,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 2,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Endurance": 5,
+      "Armour": 1,
+      "Dodge": 0,
+      "Handling": "-2"
+    },
+    "abilities": [
+      "ability:Swift",
+      "ability:Trample"
+    ],
+    "attacks": [
+      {
+        "title": "Kick",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Stagger"
+        ]
+      },
+      {
+        "title": "Trample",
+        "skill": "Athletics",
+        "reach": 1,
+        "damage": 8,
+        "properties": [
+          "property:Stun"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Horse, Riding",
+    "type": "Minion",
+    "description": "A prized riding horse, possibly used as part of a chariot team or as a suitable mount for a nomad. Better trained (and more expensive) riding horses may be available with a better Handling attribute.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "characteristics": {
+      "Might": 4,
+      "Reflexes": 4,
+      "Cool": 2,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 3,
+      "Brawl": 1,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Endurance": 5,
+      "Armour": 1,
+      "Dodge": 0,
+      "Handling": "-2"
+    },
+    "abilities": [
+      "ability:Swift",
+      "ability:Trample"
+    ],
+    "attacks": [
+      {
+        "title": "Kick",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Stagger"
+        ]
+      },
+      {
+        "title": "Trample",
+        "skill": "Athletics",
+        "reach": 1,
+        "damage": 8,
+        "properties": [
+          "property:Stun"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Horse, War",
+    "type": "Minion",
+    "description": "A well-trained war horse is a rarity and can only be found with the champions of Amazon or other nomadic tribes. Supremely trained war horses, or those gifted by the gods, may have an increased Handling attribute.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "characteristics": {
+      "Might": 4,
+      "Reflexes": 4,
+      "Cool": 3,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 4,
+      "Brawl": 2,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Endurance": 5,
+      "Armour": 1,
+      "Dodge": 0,
+      "Handling": 1
+    },
+    "abilities": [
+      {
+        "title": "Battle Trained",
+        "description": "A war horse can make a kick Harm Action on the rider’s turn in addition to any Action the rider takes."
+      },
+      "ability:Swift",
+      "ability:Trample"
+    ],
+    "attacks": [
+      {
+        "title": "Kick",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Stagger"
+        ]
+      },
+      {
+        "title": "Trample",
+        "skill": "Athletics",
+        "reach": 1,
+        "damage": 8,
+        "properties": [
+          "property:Stun"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Leopard",
+    "type": "Champion",
+    "description": "Leopards are lone predators who roam the wild grasslands and forests where they can hunt freely, using their natural camouflage to their advantage. They are dangerous and only the most cautious—or foolhardy—hunt them. Dionysos, the god of wine and revelry, is said to ride a leopard or a chariot pulled by leopards.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "tactics": "Leopards prefer to attack with surprise, using their Ambush Predator ability to their advantage. They prefer a quick kill and will flee if they take a Wound.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 4,
+      "Cool": 3,
+      "Insight": 1,
+      "Cunning": 4
+    },
+    "skills": {
+      "Athletics": 3,
+      "Awareness": 3,
+      "Brawl": 4,
+      "Survival": 3,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Endurance": 8,
+      "Armour": 3,
+      "Dodge": 3
+    },
+    "abilities": [
+      "ability:Ambush Predator",
+      "ability:Claws",
+      "ability:Keen Senses"
+    ],
+    "attacks": [
+      {
+        "title": "Bite",
+        "skill": "Brawl",
+        "reach": 1,
+        "damage": 5,
+        "properties": [
+          "property:Pierce"
+        ]
+      },
+      {
+        "title": "Claws",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Savage",
+          "property:Stagger"
+        ]
+      }
+    ],
+    "arcane_lore": "Leopards are so stealthy they’re said to walk between worlds. Anyone with the Arcane Lore talent can spend a downtime Action preparing a concoction of the leopard’s blood with a successful Cool (Craft) skill check. This thick paste takes a Maneuver to be applied as markings to any character’s face, granting them the Necromancer talent until the end of the scene. The total successes on the Craft skill check can be used in place of Hubris for any necromancy skill checks the bearer is required to make."
+  },
+  {
+    "title": "Lion",
+    "type": "Champion",
+    "description": "Lions on their own are fearsome predators and dangerous opponents who hunt in the grasslands and forests. However, they rarely hunt alone and live in prides of four to twelve. Most hunters wisely avoid them.\n\nAnyone slaying a lion single-handedly gains 1 Glory.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "tactics": "Lions aren’t afraid of humans but will avoid a fight against greater numbers. They will attempt to summon their pride, if they can, otherwise they will flee. When cornered they will fight until Wounded.",
+    "characteristics": {
+      "Might": 5,
+      "Reflexes": 4,
+      "Cool": 3,
+      "Insight": 1,
+      "Cunning": 3
+    },
+    "skills": {
+      "Athletics": 3,
+      "Awareness": 3,
+      "Brawl": 4,
+      "Survival": 2,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Endurance": 10,
+      "Armour": 3,
+      "Dodge": 2
+    },
+    "abilities": [
+      "ability:Claws",
+      "ability:Keen Senses",
+      "ability:Mighty Roar",
+      {
+        "title": "Pride",
+        "description": "As a Maneuver the GM may spend a point of Hubris to call in two additional lions. The pride arrives at the start of the next round."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Bite",
+        "skill": "Brawl",
+        "reach": 1,
+        "damage": 5,
+        "properties": [
+          "property:Pierce"
+        ]
+      },
+      {
+        "title": "Claws",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Stagger",
+          "property:Savage"
+        ]
+      },
+      {
+        "title": "Mighty Roar",
+        "skill": "Vigour",
+        "range": "Medium",
+        "damage": 0,
+        "properties": [
+          "property:Stun"
+        ]
+      }
+    ],
+    "arcane_lore": "The strength of a lion is said to reside in its heart. Anyone with the Arcane Lore talent can spend a downtime Action preparing a concoction made from the heart. This requires a successful Cool (Craft) skill check. Anyone who spends a Maneuver eating the heart gains +1 Might and 1 Risk per success on the Craft skill check. The bonus to Might lasts until the end of the encounter."
+  },
+  {
+    "title": "Raptor",
+    "type": "Minion",
+    "description": "Raptor includes all kinds of eagles, hawks, falcons and other birds of prey. Falconry is a common sport in Thrakia and amongst the nomadic Amazon tribes where hunters use trained eagles to hunt small game.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "tactics": "Raptors won’t usually attack anything as large as a human and will flee instead. Well trained raptors will do as their master commands.",
+    "characteristics": {
+      "Might": 1,
+      "Reflexes": 5,
+      "Cool": 2,
+      "Insight": 2,
+      "Cunning": 4
+    },
+    "skills": {
+      "Athletics": 4,
+      "Awareness": 5,
+      "Brawl": 2,
+      "Survival": 2
+    },
+    "attributes": {
+      "Endurance": 3,
+      "Armour": 0,
+      "Dodge": 4
+    },
+    "abilities": [
+      "ability:Flyer",
+      {
+        "title": "Agile",
+        "description": "This creature can make two Dodge Reactions per round."
+      },
+      "ability:Talons"
+    ],
+    "attacks": [
+      {
+        "title": "Talons",
+        "skill": "Brawl",
+        "reach": 3,
+        "damage": 2,
+        "properties": [
+          "property:Pierce",
+          "property:Reflexes"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Snake",
+    "type": "Minion",
+    "description": "Snakes are a common sight throughout Hellas and many people keep them as pets to kill rats and mice. Some are venomous and dangerous to humans but many are not. They are sacred to Athena and Asklepios and are symbols for many gods and heroes. They are said to teach wisdom, prophecy and knowledge of healing.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "tactics": "Snakes prey on small animals, such as mice and rats; they only attack humans if they are attacked or feel threatened. After striking, a snake will attempt to flee.",
+    "characteristics": {
+      "Might": 1,
+      "Reflexes": 5,
+      "Cool": 1,
+      "Insight": 2,
+      "Cunning": 3
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 1,
+      "Brawl": 2,
+      "Survival": 3
+    },
+    "attributes": {
+      "Endurance": 3,
+      "Armour": 0,
+      "Dodge": 3
+    },
+    "abilities": [
+      {
+        "title": "Agile",
+        "description": "This creature can make two Dodge Reactions per round."
+      },
+      {
+        "title": "Venomous (Active)",
+        "description": "Any character who suffers a successful Harm Action when this property is activated, whether or not they gain Risk or suffer a Wound, gains Poison 1."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Bite",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 1,
+        "properties": [
+          "property:Reflexes",
+          "property:Venomous (Optional)"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Wolf",
+    "type": "Minion",
+    "description": "Wolves hunt and travel in packs. They can be a menace to livestock but have a\nsensible fear of people and rarely attack unless provoked.",
+    "source": "Aegean Core",
+    "category": "Animal",
+    "tactics": "Wolves rely on their Pack Instincts ability to assist each other and work together. Unless cornered, they will attempt to flee using the Misdirect Action. They will flee if faced with greater numbers or are wounded.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 3
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 3,
+      "Brawl": 2,
+      "Survival": 2,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Endurance": 5,
+      "Armour": 2,
+      "Dodge": 1
+    },
+    "abilities": [
+      "ability:Keen Senses",
+      {
+        "title": "Pack Instincts",
+        "description": "When working together as a minion group, each wolf grants +2D assistance up to a maximum of +6D."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Bite and Claws",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 3,
+        "properties": [
+          "property:Pierce"
+        ]
+      }
+    ],
+    "arcane_lore": "The cunning of a wolf is said to reside in its tongue. Anyone with the Arcane Lore talent can spend a downtime Action preparing a concoction from the tongue. This requires a successful Cool (Craft) skill check. Anyone who spends a Maneuver eating the tongue gains +1 Cunning and 1 Risk per success on the Craft skill check. The bonus to Cunning lasts until the end of the encounter."
+  },
+  {
+    "title": "Drakon",
+    "type": "Legend",
+    "description": "Drakons are giant serpents, ferocious and terrifying, rarely found in the wild except at the behest of some god, usually to protect a sacred grove or artefact. Drakons take many forms, from serpents of the land or sea, to creatures with two or four legs. Some are winged and many spit acid or breathe fire. Defeating a drakon is worth 2 Glory.",
+    "source": "Aegean Core",
+    "category": "Monster",
+    "tactics": "The drakon will use its fiery breath to hit as many foes as possible at the start of a conflict. Once they engage it will attempt to destroy one enemy at a time with its bite attack. It will always choose itself to go next at the start of a new round.",
+    "characteristics": {
+      "Might": 7,
+      "Reflexes": 6,
+      "Cool": 1,
+      "Insight": 2,
+      "Cunning": 4
+    },
+    "skills": {
+      "Accuracy": 2,
+      "Athletics": 2,
+      "Awareness": 3,
+      "Brawl": 4,
+      "Survival": 3,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Endurance": 20,
+      "Armour": 10,
+      "Dodge": 0
+    },
+    "abilities": [
+      {
+        "title": "Burning (Active)",
+        "description": "The target character and any character within Melee range of the target when this property is activated, gains the Burning 3 effect for 3 rounds."
+      },
+      {
+        "title": "Fearsome",
+        "description": "Anyone facing a drakon for the first time must make a Cool(Vigour) Resistance roll with a Difficulty of 2 or suffer a -3D penalty to all skill checks while facing the drakon. A failed roll can be repeated on the start of the character’s next turn."
+      },
+      {
+        "title": "Ferocious",
+        "description": "The drakon may take two turns each round. It can’t choose itself to go next in the same round unless all other characters in the conflict have acted."
+      },
+      "ability:Flyer",
+      {
+        "title": "Huge",
+        "description": "This creature is gigantic in size. Increase the Difficulty of all Pin Actions made against it by 2."
+      },
+      {
+        "title": "Venomous (Active)",
+        "description": "Any character who suffers a successful Bite Action when this property is activated, whether or not they gain Risk or suffer a Wound, gains Poison 2."
+      },
+      {
+        "title": "Weak Underbelly",
+        "description": "When a drakon is pinned, treat its Armour as 5."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Bite",
+        "skill": "Brawl",
+        "reach": 5,
+        "damage": 6,
+        "properties": [
+          "property:Pierce",
+          "property:Venomous"
+        ]
+      },
+      {
+        "title": "Flaming Breath",
+        "skill": "Accuracy",
+        "range": "Short",
+        "damage": 4,
+        "properties": [
+          "property:Burning"
+        ]
+      }
+    ],
+    "arcane_lore": "With the right incantation, the teeth of a drakon can be thrown on the ground to grow an army of spartoi. Anyone with the Arcane Lore talent can gather enough teeth to raise a minion group of spartoi. It takes an Action to throw the teeth and a successful Cool (Craft) skill check is required. A number of spartoi equal to the number of successes on the roll begin to grow and are fully formed at the beginning of the next round. They respond to simple commands from the sower and last until destroyed."
+  },
+  {
+    "title": "Greater Kyklopes",
+    "type": "Champion",
+    "description": "The greater kyklopes are single-eyed giants standing up to 20 feet tall. They are simple creatures, easily fooled and evaded.",
+    "source": "Aegean Core",
+    "category": "Monster",
+    "tactics": "Kyklopes will hurl boulders, despite their lack of accuracy, until they can reach their opponent and pound them with their club. They don’t think of humans as a real threat so they won’t retreat.",
+    "characteristics": {
+      "Might": 8,
+      "Reflexes": 1,
+      "Cool": 2,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 2,
+      "Brawl": 3,
+      "Melee": 3,
+      "Survival": 1,
+      "Vigour": 5
+    },
+    "attributes": {
+      "Endurance": 15,
+      "Armour": 6,
+      "Dodge": 0
+    },
+    "abilities": [
+      "ability:Hard Headed",
+      {
+        "title": "Huge",
+        "description": "This creature is gigantic in size. Increase the Difficulty of all Pin Actions made against it by 2."
+      },
+      {
+        "title": "One-Eyed",
+        "description": "With limited depth perception, kyklopes treat range band penalties as one level higher. They suffer a -1D penalty at Short range, -2D at Medium range, etc."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Boulder",
+        "skill": "Accuracy",
+        "range": "Long",
+        "damage": 7,
+        "properties": [
+          "property:Heavy",
+          "property:Stagger",
+          "property:Stun"
+        ]
+      },
+      {
+        "title": "Brass Bound Club",
+        "skill": "Melee",
+        "reach": 4,
+        "damage": 7,
+        "properties": [
+          "property:Heavy",
+          "property:Stagger",
+          "property:Stun"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Gryphon",
+    "type": "Champion",
+    "description": "Gryphons are hybrid beasts combining elements of both eagles and lions. They have feathered and beaked heads, with a leonine body and legs but are much larger than lions. Most are winged but wingless varieties can be found and some have horns but scholars are undecided if these are a separate species.\n\nGryphons live far to the east and are said to line their nests with gold. Many people hunt them down to profit from their nests, and for the glory of the kill.\n\nAnyone slaying a gryphon single-handedly gains 1 Glory.",
+    "source": "Aegean Core",
+    "category": "Monster",
+    "tactics": "Gryphons will fight to the death to protect their young in the nest but will carry their young away if they can take them out of danger.",
+    "characteristics": {
+      "Might": 6,
+      "Reflexes": 5,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 4
+    },
+    "skills": {
+      "Athletics": 4,
+      "Awareness": 3,
+      "Brawl": 5,
+      "Survival": 2,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Endurance": 12,
+      "Armour": 3,
+      "Dodge": 2
+    },
+    "abilities": [
+      "ability:Claws",
+      "ability:Flyer",
+      {
+        "title": "Maul (Active)",
+        "description": "After a successful claw attack the GM may invoke the Fates to Pin the target character in addition to inflicting the attack damage. Successes on the attack roll are used as both the additional damage for the Harm Action and for the Pin penalty applied to the target. The gryphon will use its next available Maneuver to fly upwards, eventually dropping the hapless victim to the ground."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Beak",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 6,
+        "properties": [
+          "property:Pierce"
+        ]
+      },
+      {
+        "title": "Claws",
+        "skill": "Brawl",
+        "reach": 3,
+        "damage": 5,
+        "properties": [
+          "property:Pierce",
+          "property:Stagger",
+          "property:Maul"
+        ]
+      }
+    ],
+    "arcane_lore": "The beak of a gryphon is hard and sharp and makes an exceptional head for arrows. Anyone with the Arcane Lore talent who succeeds on a Cool (Lore) roll can make an ammo load of arrows with the beak of a gryphon. The ammo load can be spent to add +1 damage and to activate the Pierce property, even if the bow doesn’t have this property."
+  },
+  {
+    "title": "Harpy",
+    "type": "Minion",
+    "description": "Harpies are large birds with the heads and upper bodies of humans. In art they are usually depicted as female, but male harpies are occasionally seen in the wild. They are vicious hunters, sometimes sent as a curse from the gods.",
+    "source": "Aegean Core",
+    "category": "Monster",
+    "tactics": "Harpies appear in flocks of two to four in the wild and will mob an opponent for any food or wealth on display. They use their flying ability to keep away from their foes and will retreat if they steal what they’re after or if more than half their number are defeated.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 4,
+      "Cool": 2,
+      "Insight": 2,
+      "Cunning": 4
+    },
+    "skills": {
+      "Athletics": 4,
+      "Awareness": 3,
+      "Brawl": 5,
+      "Survival": 2,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Endurance": 5,
+      "Armour": 1,
+      "Dodge": 3
+    },
+    "abilities": [
+      "ability:Flyer"
+    ],
+    "attacks": [
+      {
+        "title": "Talons",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 3,
+        "properties": [
+          "property:Pierce",
+          "property:Reflexes"
+        ]
+      }
+    ],
+    "arcane_lore": "The feathers of a harpy make exceptional flights for arrows. Anyone with the Arcane Lore talent who succeeds on a Cool (Craft) roll can make an ammo load of arrows with the feathers of a harpy. The ammo load can be spent to increase the range of the bow by one range band and ignore all range penalties."
+  },
+  {
+    "title": "Hydra",
+    "type": "Legend",
+    "description": "The hydra is a large, multi-headed serpent found in lakes and swamp land. It is a dangerous foe with poisonous blood and spit and avoided by sensible people.\n\nDefeating a hydra is worth 1 Glory.",
+    "source": "Aegean Core",
+    "category": "Monster",
+    "tactics": "The hydra is a simple creature which will attack anyone who attacks it. It doesn’t retreat and fights to the death.",
+    "characteristics": {
+      "Might": 6,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 4
+    },
+    "skills": {
+      "Accuracy": 2,
+      "Athletics": 2,
+      "Awareness": 1,
+      "Brawl": 3,
+      "Survival": 3,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Endurance": 12,
+      "Armour": 5,
+      "Dodge": 0
+    },
+    "abilities": [
+      {
+        "title": "Fearsome",
+        "description": "Anyone facing a hydra for the first time must make a Cool (Vigour) Resistance roll with a Difficulty of 1 or suffer a -2D penalty to all skill checks while facing the hydra. A failed roll can be repeated on the start of the character’s next turn."
+      },
+      {
+        "title": "Multiple Heads",
+        "description": "The hydra has many heads, usually five but sometimes as many as nine. Each head can make a single bite attack on the hydra’s turn or can be treated as a Minion group and provide assistance to other heads. When moving away from the hydra without taking a Disengage Action treat each head as an opponent for the purposes of gaining Risk."
+      },
+      {
+        "title": "Noxious Blood",
+        "description": "Anyone at Melee range to the hydra who cause it to take a Wound must make an immediate Reflexes (Athletics) Resistance roll to avoid the acidic blood that splashes from the wound. Failure causes the character to gain Burning 2 for 3 rounds."
+      },
+      {
+        "title": "Regeneration",
+        "description": "The hydra reduces its Risk by 2 and the value of all Wounds by 2 at the start of its turn unless it suffered damage from fire since its previous turn."
+      },
+      {
+        "title": "Venomous (Active)",
+        "description": "Any character who suffers a successful Bite Action when this property is activated, whether or not they gain Risk or suffer a Wound, gains Poison 2."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Bite",
+        "skill": "Brawl",
+        "reach": 5,
+        "damage": 5,
+        "properties": [
+          "property:Pierce",
+          "property:Venomous"
+        ]
+      },
+      {
+        "title": "Claw",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 5,
+        "properties": [
+          "property:Savage"
+        ]
+      }
+    ],
+    "arcane_lore": "The blood of a hydra can be used by anyone with the Arcane Lore talent to create a poison with the Poison 2 quality. It takes an Action and a successful Cool (Craft) roll to make the potion and a Maneuver to apply to any weapon. The poison has a single use and can be activated by _invoking the Fates_."
+  },
+  {
+    "title": "Keres",
+    "type": "Minion",
+    "description": "The Keres are foul creatures, blood-drinking fiends that suckle from battle-wounds, ensuring that injuries become fatal. When starved or freed they can suck blood directly from their victims through the skin.",
+    "source": "Aegean Core",
+    "category": "Monster",
+    "tactics": "Keres don’t fight for mortal values, nor with an animal’s instincts. They are aspects of fear and, as such, feel no fear themselves. They will fight in groups of up to four but will split as needed to engage all opponents.",
+    "characteristics": {
+      "Might": 1,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 3
+    },
+    "skills": {
+      "Brawl": 2
+    },
+    "attributes": {
+      "Endurance": 5,
+      "Armour": 3,
+      "Dodge": 1
+    },
+    "abilities": [
+      {
+        "title": "Shadowy Fangs",
+        "description": "The shadowy form of the keres passes through inorganic materials and ignores any worn armour."
+      },
+      {
+        "title": "Undead",
+        "description": "Keres are undead and ignore Stun and Savage weapon properties. They are immune to fear or social attacks in any form."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Shadowy Fangs",
+        "skill": "Brawl",
+        "reach": "0--1",
+        "damage": 3,
+        "properties": [
+          "property:Reflexes"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Lamia",
+    "type": "Legend",
+    "description": "A lamia was once a person who has been cursed by the gods. Their legs have fused together and grown into a giant serpent body. Outcast from society, lamia haunt caves and ancient ruins.",
+    "source": "Aegean Core",
+    "category": "Monster",
+    "tactics": "Some lamia may attempt to speak to anyone visiting their lair and may even wish to have the curse removed. Most will attack on sight and fight to the death.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 6,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 3
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 1,
+      "Brawl": 3,
+      "Manipulation": 2,
+      "Melee": 3,
+      "Survival": 1,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Standing": "n/a",
+      "Endurance": 10,
+      "Armour": 6,
+      "Parry": 0,
+      "Shield": 3
+    },
+    "abilities": [
+      {
+        "title": "Constrictor",
+        "description": "When making Pin Actions the lamia gains the Entangle property, providing +2D to the skill check. If successful, in addition to the standard Pin penalty, the target can only make Harm Actions with a weapon that has a Reach of 0–1. When a target is Pinned the Lamia can use its crush attack."
+      },
+      {
+        "title": "Prehensile",
+        "description": "The lamia is large and swift and can treat melee weapon attacks as upto +2 Reach and may make one weapon and one tail attack per turn."
+      },
+      {
+        "title": "Weak Underbelly",
+        "description": "When pinned treat the lamia’s Armour as 2."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Crush",
+        "skill": "Brawl",
+        "reach": 0,
+        "damage": 6
+      },
+      "weapon:Doru",
+      "weapon:Hoplon",
+      {
+        "title": "Tail Lash",
+        "skill": "Brawl",
+        "reach": 4,
+        "damage": 4,
+        "properties": [
+          "property:Reflexes",
+          "property:Savage"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Orthrian Hound",
+    "type": "Champion",
+    "description": "Larger and more ferocious than dogs or wolves, orthrian hounds are dogs descended from Orthros and kin to Kerberos, the hound of Haides. They have two heads and a poisonous snake for a tail.",
+    "source": "Aegean Core",
+    "category": "Monster",
+    "tactics": "An orthrian hound will attempt to inflict its venomous snakebite attack on as many people as possible, then focus its other bites on stronger looking foes first.",
+    "characteristics": {
+      "Might": 5,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 4
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 3,
+      "Brawl": 3,
+      "Survival": 2,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Endurance": 8,
+      "Armour": 3,
+      "Dodge": 1
+    },
+    "abilities": [
+      "ability:Keen Senses",
+      {
+        "title": "Many Bites",
+        "description": "An orthrian hound can make two bite attacks and one snakebite attack per turn against one or more opponents at Melee range."
+      },
+      {
+        "title": "Venomous (Active)",
+        "description": "Any character who suffers a successful Harm Action when this property is activated, whether or not they gain Risk or suffer a Wound, gains Poison 2."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Bite",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Pierce"
+        ]
+      },
+      {
+        "title": "Snakebite",
+        "skill": "Brawl",
+        "reach": 3,
+        "damage": 3,
+        "properties": [
+          "property:Venomous"
+        ]
+      }
+    ],
+    "arcane_lore": "Consuming a potion containing the scent gland of an orthrian hound is said to grant the imbiber its senses. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the scent glands. This requires a successful Cool (Craft) skill check. Anyone who spends a Maneuver drinking the potion gains the Keen Senses ability until the end of the encounter."
+  },
+  {
+    "title": "Spartoi",
+    "type": "Minion",
+    "description": "Spartoi, or the sown ones, are grown from the ground either through a curse of the gods or—some say—the teeth of a drakon. They burst forth from the ground armed and armoured and are something more than skeletons but not quite human.",
+    "source": "Aegean Core",
+    "category": "Monster",
+    "tactics": "Spartoi fight in groups of two to four and have no fear of death. They are relentless and will fight until they or their opponent are destroyed.",
+    "characteristics": {
+      "Might": 4,
+      "Reflexes": 2,
+      "Cool": 5,
+      "Insight": 1,
+      "Cunning": 1
+    },
+    "skills": {
+      "Accuracy": 1,
+      "Athletics": 1,
+      "Awareness": 2,
+      "Melee": 2,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Endurance": 5,
+      "Armour": 2,
+      "Parry": 2,
+      "Shield": 2
+    },
+    "equipment": "Scraps of armour and weapons.",
+    "abilities": [
+      {
+        "title": "Inhuman",
+        "description": "Spartoi ignore Stun and Savage weapon properties. They are immune to fear or social attacks in any form."
+      }
+    ],
+    "attacks": [
+      "weapon:Kopis",
+      "weapon:Pelte",
+      "weapon:Self Bow"
+    ]
+  },
+  {
+    "title": "Sphinx",
+    "type": "Legend",
+    "description": "A sphinx has the body of a lion with golden wings and a human head. They are talkative tricksters fond of riddles, preferring to toy with their food before killing and eating it.\n\nDefeating a sphinx is worth 1 Glory.",
+    "source": "Aegean Core",
+    "category": "Monster",
+    "tactics": "The sphinx will attempt to talk with anyone who approaches before resorting to violence. It will try to engage in riddles or wordplay before resorting to its battle of wits ability. Failing that it will attack from the air with its claws. Sphinxes are intelligent and will retreat to the skies if they feel they are in serious danger.",
+    "characteristics": {
+      "Might": 5,
+      "Reflexes": 4,
+      "Cool": 3,
+      "Insight": 5,
+      "Cunning": 6
+    },
+    "skills": {
+      "Athletics": 4,
+      "Awareness": 3,
+      "Brawl": 5,
+      "Diplomacy": 2,
+      "Knowledge": 5,
+      "Lore": 5,
+      "Manipulation": 5,
+      "Survival": 2,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Endurance": 10,
+      "Armour": 3,
+      "Dodge": 2
+    },
+    "abilities": [
+      {
+        "title": "Battle of Wits",
+        "description": "The sphinx may use Cunning (Manipulation) to make a Harm attack Action against a target within Short range. Each success causes the target to gain 1 point of Risk. The target’s Standing attribute can be used as defence to reduce the sphinx’s dice pool."
+      },
+      "ability:Claws",
+      "ability:Flyer"
+    ],
+    "attacks": [
+      {
+        "title": "Battle of Wits",
+        "skill": "Manipulation",
+        "range": "Short",
+        "damage": 0,
+        "properties": [
+          "property:Cunning",
+          "property:Stun"
+        ]
+      },
+      {
+        "title": "Claws",
+        "skill": "Brawl",
+        "reach": 3,
+        "damage": 5,
+        "properties": [
+          "property:Pierce",
+          "property:Stagger"
+        ]
+      }
+    ],
+    "arcane_lore": "The wits of a sphinx is said to reside in its tongue. Anyone with the Arcane Lore talent can spend a downtime Action preparing a concoction from the tongue. This requires a successful Cool (Craft) skill check. Anyone who spends a Maneuver eating the tongue gains +1 Manipulation per success on the Craft skill check as well as the sphinx’s Battle of Wits ability. Both effects last until the end of the encounter."
+  },
+  {
+    "title": "Amazon Champion",
+    "type": "Champion",
+    "description": "Amazon champions are the best warriors of their tribe and excel at melee and ranged combat. Many of them are favoured by Artemis or Ares and some are the children of Ares.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Amazon Champions will keep their opponents at bay and whittle them down if they can. In melee they will fight to the death unless mercy is offered.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 4,
+      "Cool": 3,
+      "Insight": 4,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 4,
+      "Athletics": 3,
+      "Awareness": 2,
+      "Diplomacy": 2,
+      "Melee": 4,
+      "Ride": 4,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Standing": 4,
+      "Endurance": 7,
+      "Armour": 3,
+      "Parry": 2,
+      "Shield": 2
+    },
+    "equipment": "Spolas, cap, greaves, 3 javelins, 2 ammo loads, rich clothing, war horse.",
+    "abilities": [
+      {
+        "title": "Full Draw",
+        "description": "Before firing the character may spend an ammo load or a point of Hubris to gain +4 damage on their next attack with a missile weapon."
+      },
+      "ability:Riposte",
+      "ability:Volley"
+    ],
+    "attacks": [
+      "weapon:Kopis",
+      "weapon:Javelin",
+      "weapon:Pelte",
+      "weapon:Recurve Bow"
+    ]
+  },
+  {
+    "title": "Amazon",
+    "type": "Minion",
+    "description": "There are many nomadic Amazon tribes that roam the lands surrounding the Aegean Sea. Their all-female warriors are exceptional riders and archers and use both to great effect when raiding.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Mounted Amazons fight in groups of four and will keep their distance and whittle away their enemy with arrows. On foot they will attempt to do the same if they can and will only flee from melee combat when three-quarters of their number are defeated.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 3,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 3,
+      "Awareness": 2,
+      "Diplomacy": 1,
+      "Melee": 3,
+      "Ride": 3,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 2,
+      "Endurance": 5,
+      "Armour": 3,
+      "Parry": 0,
+      "Shield": 2
+    },
+    "equipment": "Spolas, cap, greaves, 3 javelins, 2 ammo loads, riding horse.",
+    "abilities": [
+      "ability:Volley"
+    ],
+    "attacks": [
+      "weapon:Axe",
+      "weapon:Composite Bow",
+      "weapon:Javelin",
+      "weapon:Pelte"
+    ]
+  },
+  {
+    "title": "Archer",
+    "type": "Minion",
+    "description": "Archers are skirmishers conscripted from the common folk of the cities and villages and armed and armoured as best they can afford. Archers are no match for trained soldiers, so avoid melee, preferring to keep a distance and pepper their enemies with arrows.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Archers will fight in groups of four to six and will fight until half their number are defeated. They avoid melee and will attempt to disengage and use their Volley ability to wear down their opponents.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 2,
+      "Cool": 1,
+      "Insight": 3,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 2,
+      "Awareness": 2,
+      "Vigour": 1
+    },
+    "attributes": {
+      "Standing": 2,
+      "Endurance": 4,
+      "Armour": 3,
+      "Parry": 1,
+      "Shield": 0
+    },
+    "equipment": "Cap, spolas, greaves, 2 ammo loads.",
+    "abilities": [
+      "ability:Retreat",
+      "ability:Volley"
+    ],
+    "attacks": [
+      "weapon:Makhaira",
+      "weapon:Self Bow"
+    ]
+  },
+  {
+    "title": "Athlete",
+    "type": "Champion",
+    "description": "Athletes are some of the most honoured people in all of Hellas. Local games are held as part of many religious festivals, including funerary rites, and some athletes travel far and wide to compete. To compete in the four great panhellenic games— Olympian, Pythian, Delian, and Nemean—is the dream of many and, while the games only award laurels, the victors are showered with gifts when they return home.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Athletes are expecting to compete, not to fight, though many of them are capable soldiers. They will retreat at the first opportunity and save themselves for the games.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 4,
+      "Cool": 2,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 3,
+      "Awareness": 1,
+      "Brawl": 1,
+      "Perform": 1,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 2,
+      "Endurance": 7,
+      "Armour": 0,
+      "Parry": 0,
+      "Shield": 0
+    },
+    "equipment": "Javelins",
+    "abilities": [],
+    "attacks": [
+      "weapon:Javelin",
+      "weapon:Unarmed Strike"
+    ]
+  },
+  {
+    "title": "Bandit Leader",
+    "type": "Champion",
+    "description": "Bandit leaders are the toughest of their gang and rule through a mix of fear and deadly competence. Few bandit leaders maintain their position if they can’t bring in the coin.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "A bandit leader will attempt to hide and attack the weakest looking target from surprise. They make extensive use of the Misdirect Action combined with their Camouflage ability. They will flee if more than half of their bandits are killed.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 2,
+      "Insight": 2,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 1,
+      "Awareness": 2,
+      "Manipulation": 2,
+      "Melee": 3,
+      "Survival": 3
+    },
+    "attributes": {
+      "Standing": 1,
+      "Endurance": 6,
+      "Armour": 2,
+      "Parry": 2,
+      "Shield": 2
+    },
+    "equipment": "Cap, spolas, 2 ammo loads, 1D drakhmae.",
+    "abilities": [
+      "ability:Ambush",
+      {
+        "title": "Camouflage",
+        "description": "When performing a Misdirect Action the character may hide one ally or minion group of allies who is within Short range."
+      }
+    ],
+    "attacks": [
+      "weapon:Kopis",
+      "weapon:Pelte",
+      "weapon:Sling"
+    ]
+  },
+  {
+    "title": "Bandit",
+    "type": "Minion",
+    "description": "Bandits are a problem in the wilds outside the cities and often prey on unarmed (or unwise) travellers. They are lightly armed and rarely armoured and often have a handful of coins from their previous victims.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Bandits are a cowardly bunch and will fight in groups of four or more. They make extensive use of the Misdirect Action to attack from concealment and gang up on the weakest opponent if they can. They will flee if their leader or more than half their number is killed.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 2,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 2,
+      "Awareness": 2,
+      "Melee": 1,
+      "Survival": 2
+    },
+    "attributes": {
+      "Standing": 1,
+      "Endurance": 5,
+      "Armour": 1,
+      "Parry": 0,
+      "Shield": 2
+    },
+    "equipment": "A cap or spolas, 2 ammo loads, 1D obols.",
+    "abilities": [],
+    "attacks": [
+      "weapon:Club",
+      "weapon:Pelte",
+      "weapon:Sling"
+    ]
+  },
+  {
+    "title": "Bodyguard",
+    "type": "Minion",
+    "description": "Many nobles or wealthy merchants employ bodyguards to protect them, either at home or when travelling abroad. Bodyguards usually carry some token of their employer to show their patronage, but are often poorly armoured.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Bodyguards will split into groups, one to protect their employer and as many as needed to engage their opponents. Their main concern is getting their employer to safety; they’re not out to kill and few are prepared to die for the job.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 2,
+      "Cool": 2,
+      "Insight": 3,
+      "Cunning": 2
+    },
+    "skills": {
+      "Awareness": 2,
+      "Brawl": 1,
+      "Melee": 2,
+      "Manipulation": 1,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 1,
+      "Endurance": 5,
+      "Armour": 2,
+      "Parry": 0,
+      "Shield": 0
+    },
+    "equipment": "Greaves, spolas, 1D obols.",
+    "abilities": [
+      {
+        "title": "Bodyguard",
+        "description": "As a Reaction this character may gain up to 2 Risk to grant an allied character at Melee range a Shield rating equal to the Risk gained."
+      },
+      {
+        "title": "Loom",
+        "description": "When an allied character at Short range successfully intimidates a target using the Manipulation skill, the target gains 1 Risk per bodyguard present up to a maximum of 5."
+      }
+    ],
+    "attacks": [
+      "weapon:Club",
+      "weapon:Unarmed Strike"
+    ]
+  },
+  {
+    "title": "City Folk",
+    "type": "Minion",
+    "description": "The majority of the people of a polis are adept crafts people, working with pottery, wood, cloth, and metal who trade their wares at the agora. They expect their voices to be heard in the running of the city and are knowledgeable of local political and religious matters, as well as gossip.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "City folk are not expecting to fight on the streets of the agora but will defend their polis if they must. Unless they have a strong leader to command them, they will flee or surrender in the face of greater numbers or if more than a third of their number are defeated.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 2,
+      "Cool": 2,
+      "Insight": 3,
+      "Cunning": 2
+    },
+    "skills": {
+      "Craft": 1,
+      "Diplomacy": 3,
+      "Knowledge": 2,
+      "Lore": 1,
+      "Melee": 1,
+      "Perform": 2
+    },
+    "attributes": {
+      "Standing": 2,
+      "Endurance": 4,
+      "Armour": 0,
+      "Parry": 1,
+      "Shield": 0
+    },
+    "equipment": "Khiton, 1D obols.",
+    "abilities": [],
+    "attacks": [
+      "weapon:Makhaira"
+    ]
+  },
+  {
+    "title": "Councillor",
+    "type": "Champion",
+    "description": "Whether a democracy, theocracy or a monarchy, every city has a body of councillor’s, either ruling or as advisers to the ruler. In many places the councillors are the most powerful people in the city.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Councillors are not expecting to fight; they have other people to do that for them. They will use their Scathing Tirade ability to harm an attacker if there are other soldiers or bodyguards available to defend them. Otherwise they will flee.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 2,
+      "Cool": 3,
+      "Insight": 4,
+      "Cunning": 3
+    },
+    "skills": {
+      "Awareness": 2,
+      "Diplomacy": 3,
+      "Knowledge": 3,
+      "Lore": 2,
+      "Manipulation": 4,
+      "Perform": 2,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 4,
+      "Endurance": 6,
+      "Armour": 0,
+      "Parry": 0,
+      "Shield": 0
+    },
+    "equipment": "Rich khiton, symbol of office, 1D drakhmae.",
+    "abilities": [
+      "ability:Scathing Tirade"
+    ],
+    "attacks": [
+      "abilities:Scathing Tirade"
+    ]
+  },
+  {
+    "title": "Hoplitis Captain",
+    "type": "Champion",
+    "description": "It’s not just strength which promotes through the ranks—cunning, political insight, and no small amount of wealth is required as well. Any hoplitis rising to the ranks of captain has shown themselves to be a resourceful and fearless leader who inspires dedication in their troops.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Hoplitis captains lead from the front. They rely on their superior armour and training both to protect themselves and to strike back. They will use their Tactical Direction ability to cluster their allies around the toughest looking opponent and whittle them down first. They prefer to use their spears in close combat, only throwing them if they have to.",
+    "characteristics": {
+      "Might": 4,
+      "Reflexes": 2,
+      "Cool": 4,
+      "Insight": 3,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 1,
+      "Awareness": 3,
+      "Diplomacy": 2,
+      "Melee": 4,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Standing": 4,
+      "Endurance": 7,
+      "Armour": 6,
+      "Parry": 2,
+      "Shield": 4
+    },
+    "equipment": "Bronze breastplate, helm, greaves.",
+    "abilities": [
+      "armour:Breastplate",
+      "armour:Helm",
+      "ability:Riposte",
+      "ability:Tactical Direction"
+    ],
+    "attacks": [
+      "weapon:Dori",
+      "weapon:Kopis",
+      "weapon:Hoplon"
+    ]
+  },
+  {
+    "title": "Hoplitis",
+    "type": "Minion",
+    "description": "Hoplites are the heavy infantry of Hellas. They are well armed and well trained and usually come from the nobility or the richer merchant classes. They take their name from the hoplon, the large bronze-faced shield they carry, and meet their enemies with solid ranks of impenetrable bronze.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Hoplites will fight in groups of two to four and will fight until three quarters of their number are defeated. They prefer to use their spears in close combat, only throwing them if they have to.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 2,
+      "Cool": 3,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 2,
+      "Athletics": 1,
+      "Awareness": 2,
+      "Melee": 3,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 3,
+      "Endurance": 5,
+      "Armour": 5,
+      "Parry": 2,
+      "Shield": 3
+    },
+    "equipment": "Linothorax armour, helm, greaves.",
+    "abilities": [
+      "armour:Helm",
+      {
+        "title": "Shield Wall",
+        "description": "A minion group of two or more hoplites gains +1 to their Shield rating for each hoplitis after the first."
+      }
+    ],
+    "attacks": [
+      "weapon:Doru",
+      "weapon:Kopis",
+      "weapon:Hoplon"
+    ]
+  },
+  {
+    "title": "Hunter",
+    "type": "Champion",
+    "description": "Hunters are found throughout the wilderness and are often devotees of Artemis. They hunt wild game, both for their own survival and to sell in the agoras of the cities. Some seek a glorious hunt and track down ever larger and more outlandish beasts, while a small few act as bounty hunters to bring back criminals.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Hunters make extensive use of the Misdirect Action to keep away from their foes and to make the greatest use of their ranged weapon skills. Whenever they can they will attack using their Ambush ability. Most aren’t prepared to die for the hunt and will flee when Wounded.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 3,
+      "Cool": 2,
+      "Insight": 3,
+      "Cunning": 4
+    },
+    "skills": {
+      "Accuracy": 2,
+      "Athletics": 2,
+      "Awareness": 3,
+      "Melee": 1,
+      "Survival": 4,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 1,
+      "Endurance": 6,
+      "Armour": 2,
+      "Parry": 0,
+      "Shield": 0
+    },
+    "equipment": "Greaves, spolas, 3 javelins, 2 ammo loads.",
+    "abilities": [
+      "ability:Ambush"
+    ],
+    "attacks": [
+      "weapon:Javelin",
+      "weapon:Kopis",
+      "weapon:Sling"
+    ]
+  },
+  {
+    "title": "Merchant",
+    "type": "Champion",
+    "description": "Merchants operate as a mediator between the crafters of the city and those who wish to buy their wares. Many people frown upon this activity and merchants— despite many of them becoming wealthy—aren’t afforded the same honour as athletes, philosophers or priests are. Some merchants belong to the kapeloi, a loose-knit guild of traders supporting each other throughout the Aegean Sea.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Merchants aren’t expecting to fight and will flee or hide at the first opportunity. They often employ bodyguards to do any dirty (or bloody) work for them.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 2,
+      "Cool": 3,
+      "Insight": 3,
+      "Cunning": 3
+    },
+    "skills": {
+      "Awareness": 1,
+      "Diplomacy": 2,
+      "Knowledge": 2,
+      "Lore": 1,
+      "Manipulation": 3,
+      "Perform": 2
+    },
+    "attributes": {
+      "Standing": 2,
+      "Endurance": 6,
+      "Armour": 0,
+      "Parry": 1,
+      "Shield": 0
+    },
+    "equipment": "Khiton, 2D drakhmae.",
+    "abilities": [
+      {
+        "title": "Hard Bargain",
+        "description": "Anyone attempting to negotiate with this character to gain a better price on a deal immediately gains 1 Risk."
+      }
+    ],
+    "attacks": [
+      "weapon:Makhaira"
+    ]
+  },
+  {
+    "title": "Orator",
+    "type": "Champion",
+    "description": "Public speaking and debate are valued skills in Hellenic society, both in the council chamber and the agora. Orators, whether actors, poets, philosophers, or teachers are highly regarded by many, while others are suspicious of their rhetoric and the ease with which they twist their words. Their skill is invoking an impassioned response from their audience.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "An orator will attempt to flee if attacked.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 2,
+      "Cool": 3,
+      "Insight": 4,
+      "Cunning": 3
+    },
+    "skills": {
+      "Diplomacy": 2,
+      "Knowledge": 1,
+      "Manipulation": 2,
+      "Perform": 4,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 3,
+      "Endurance": 6,
+      "Armour": 0,
+      "Parry": 0,
+      "Shield": 0
+    },
+    "equipment": "Khiton, mask, pen, sheaf of papers.",
+    "abilities": [
+      {
+        "title": "Lampoon",
+        "description": "As an Action the character may make a Might (Perform) skill check. If successful, a number of enemies equal to the successes rolled within Medium range increase their Risk by 2."
+      },
+      "ability:Motivate",
+      "ability:Scathing Tirade"
+    ],
+    "attacks": [
+      "abilities:Scathing Tirade"
+    ]
+  },
+  {
+    "title": "Peltast Captain",
+    "type": "Champion",
+    "description": "While hoplitis captains are usually promoted through political savvy more than combat ability, it’s not so for the peltast. As the less prestigious of the infantry, captains are promoted purely for their leadership and experience on the field.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Peltast captains will attempt to whittle away their opponents one at a time. They will focus their attacks to bring down a single opponent before moving on to the next one. Disciplined but not suicidal, peltast captains will attempt to retreat or surrender when half their peltasts are defeated.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 4,
+      "Cool": 3,
+      "Insight": 2,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 4,
+      "Athletics": 2,
+      "Awareness": 3,
+      "Diplomacy": 2,
+      "Melee": 3,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Standing": 3,
+      "Endurance": 7,
+      "Armour": 5,
+      "Parry": 2,
+      "Shield": 2
+    },
+    "equipment": "Linothorax armour, helm, greaves, 3 javelins.",
+    "abilities": [
+      "ability:Coordinated Assault",
+      "armour:Helm",
+      "ability:Retreat"
+    ],
+    "attacks": [
+      "weapon:Javelin",
+      "weapon:Pelte",
+      "weapon:Xiphos"
+    ]
+  },
+  {
+    "title": "Peltast",
+    "type": "Minion",
+    "description": "Peltasts are the light infantry and are armed with javelins and a pelte, from which they get their name. They spend their time on the battlefield harrying the more heavily armed hoplites.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Peltasts will fight in groups of two to four and will fight until half their number are defeated. They prefer to keep their distance and use their javelins and will only engage in melee if they have to.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 3,
+      "Cool": 2,
+      "Insight": 2,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 2,
+      "Awareness": 2,
+      "Melee": 2,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 3,
+      "Endurance": 5,
+      "Armour": 3,
+      "Parry": 2,
+      "Shield": 2
+    },
+    "equipment": "Spolas, cap, greaves, 3 javelins.",
+    "abilities": [
+      "ability:Retreat"
+    ],
+    "attacks": [
+      "weapon:Javelin",
+      "weapon:Pelte",
+      "weapon:Xiphos"
+    ]
+  },
+  {
+    "title": "Physician",
+    "type": "Champion",
+    "description": "Most villages will have a physician or lay healer, available to cure disease\nand see to the injured. However, the most sought after physicians are the Therapeutae of Asklepios. They are devoted to the god of healing and are trained at one of his sanctuaries, the largest of which can be found at Epidaurus.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Physicians are not expecting to fight and will surrender or flee at the suggestion of violence.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 2,
+      "Cool": 3,
+      "Insight": 4,
+      "Cunning": 2
+    },
+    "skills": {
+      "Awareness": 2,
+      "Craft": 2,
+      "Diplomacy": 2,
+      "Knowledge": 4,
+      "Lore": 3,
+      "Manipulation": 2,
+      "Medicine": 4,
+      "Survival": 1,
+      "Vigour": 1
+    },
+    "attributes": {
+      "Standing": 3,
+      "Endurance": 6,
+      "Armour": 0,
+      "Parry": 0,
+      "Shield": 0
+    },
+    "equipment": "Khiton, herbalists bag with 2 doses.",
+    "abilities": [
+      {
+        "title": "First Aid",
+        "description": "The character may gain a success on a Medicine skill check by forcing their patient to gain 1 Risk."
+      },
+      {
+        "title": "Pharmakos",
+        "description": "The character may spend a dose from their herbalist’s bag to gain an automatic success on one Medicine skill check."
+      }
+    ],
+    "attacks": [
+      "weapon:Makhaira"
+    ]
+  },
+  {
+    "title": "Pirate Captain",
+    "type": "Champion",
+    "description": "The main quality which sets a pirate captain apart from their crew is tenacity— toughness and a brutal will to survive. Many deceive themselves into thinking they’ll retire one day but few give up their life of raiding the Aegean Sea. There’s always just a little bit more wealth to steal.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "A pirate captain’s goal is to hit hard and fast and retreat with the greatest amount of wealth. They will use their Back to the Ship talent to retreat when they deem the odds of wealth are against them. How many crew they’re prepared to lose will depend on the apparent wealth available.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 2,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 1,
+      "Awareness": 3,
+      "Melee": 3,
+      "Survival": 3,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 1,
+      "Endurance": 6,
+      "Armour": 4,
+      "Parry": 2,
+      "Shield": 2
+    },
+    "equipment": "Linothorax armour, cap, greaves, 2 ammo loads, plunder worth 2D drakhmae back on the ship.",
+    "abilities": [
+      {
+        "title": "Back to the Ship",
+        "description": "As an Action the GM may spend a point of Hubris to have the Pirate Captain and all allies within Medium range immediately disengage from their opponents and move to Short range of them without gaining Risk."
+      }
+    ],
+    "attacks": [
+      "weapon:Kopis",
+      "weapon:Pelte",
+      "weapon:Sling"
+    ]
+  },
+  {
+    "title": "Pirate",
+    "type": "Minion",
+    "description": "Pirates are a problem throughout the Aegean, whether they’re slavers or opportunists looking for wealth. Most sail in pentekonter, a single decked ship with a single mast and space for 30–50 rowers, but conditions are cramped and they spend their nights beached on one of the countless natural harbours.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Pirates are looking for a quick fight so will gang up in groups of two to three and focus on injuring as many of their opponents as quickly as they can. They will flee if their leader or more than half their number are killed.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 1,
+      "Athletics": 1,
+      "Awareness": 2,
+      "Melee": 2,
+      "Survival": 2,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 1,
+      "Endurance": 5,
+      "Armour": 3,
+      "Parry": 2,
+      "Shield": 2
+    },
+    "equipment": "Cap, spolas, greaves, 2 ammo loads, 1D obols.",
+    "abilities": [
+      "ability:Sure Footed"
+    ],
+    "attacks": [
+      "weapon:Kopis",
+      "weapon:Pelte",
+      "weapon:Sling"
+    ]
+  },
+  {
+    "title": "Priest",
+    "type": "Champion",
+    "description": "Priests are a common sight with every small shrine having at least one, while the larger temples and sanctuaries have many more.\n\nA priest may have the favour of the god they are dedicated to in which case add the relevant Favour ability to their profile. Priests who are dedicated enough to have the favour of their god are more likely to defend the shrine with their life.\n\nAttacking a priest or group of priests gains the attacker 1 Hubris. Killing them gains the attacker 2 Hubris. If the dead priest had the favour of their god the murderer gains a disfavour with that deity.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Priests are not expecting to fight but will attempt to defend themselves and their temple if they must. On their first turn they will call for reinforcements and use their Scathing Tirade ability to harm their attacker. Once their reinforcements arrive they will fall back to a support role. Most won’t die to protect their shrine or temple but the more devout will.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 2,
+      "Cool": 4,
+      "Insight": 3,
+      "Cunning": 3
+    },
+    "skills": {
+      "Awareness": 2,
+      "Craft": 1,
+      "Diplomacy": 2,
+      "Knowledge": 3,
+      "Lore": 4,
+      "Manipulation": 2,
+      "Medicine": 2
+    },
+    "attributes": {
+      "Standing": 3,
+      "Endurance": 6,
+      "Armour": 0,
+      "Parry": 3,
+      "Shield": 0
+    },
+    "equipment": "Ornate staff, robes.",
+    "abilities": [
+      "ability:Motivate",
+      "ability:Scathing Tirade",
+      "ability:Temple Reinforcements"
+    ],
+    "attacks": [
+      "abilities:Scathing Tirade",
+      "weapon:Staff"
+    ]
+  },
+  {
+    "title": "Sailor",
+    "type": "Minion",
+    "description": "Sailors are found in the many ports and fishing villages across the Aegean Sea. They tend to be a superstitious lot and honour Poseidon with sacrifices before any voyage.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Sailors are not looking for a fight against armed opponents but often get into brawls in local taverns. They will fight in groups of four to six and will flee when half their number are defeated.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 2,
+      "Cool": 1,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Awareness": 2,
+      "Brawl": 1,
+      "Craft": 1,
+      "Survival": 2,
+      "Vigour": 1
+    },
+    "attributes": {
+      "Standing": 1,
+      "Endurance": 4,
+      "Armour": 0,
+      "Parry": 0,
+      "Shield": 0
+    },
+    "equipment": "Khiton, 1D obols.",
+    "abilities": [
+      "ability:Sure Footed"
+    ],
+    "attacks": [
+      "weapon:Club",
+      "weapon:Unarmed Strike"
+    ]
+  },
+  {
+    "title": "Slinger",
+    "type": "Minion",
+    "description": "Slingers act as skirmishers in the armies of Hellas. They are conscripted from the common folk of the cities and villages and armed and armoured as best they can afford. Slingers are no match for trained soldiers so avoid melee, preferring to keep a distance and torment their enemies with sling stones.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Slingers will fight in groups of four to six and will fight until half their number are defeated. They avoid melee and will attempt to disengage and use their Harry ability to keep opponents at bay until other soldiers can engage with them.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 3,
+      "Awareness": 1,
+      "Vigour": 1
+    },
+    "attributes": {
+      "Standing": 2,
+      "Endurance": 5,
+      "Armour": 1,
+      "Parry": 1,
+      "Shield": 2
+    },
+    "equipment": "Cap or greaves, 2 ammo loads.",
+    "abilities": [
+      "ability:Harry",
+      "ability:Retreat"
+    ],
+    "attacks": [
+      "weapon:Makhaira",
+      "weapon:Pelte",
+      "weapon:Sling"
+    ]
+  },
+  {
+    "title": "Temple Captain",
+    "type": "Champion",
+    "description": "Temple captains are the best fighters and leaders of the temple guard. As with the rest of the guard they are as richly equipped as the temple can accommodate and employ the labrys as their weapon of choice.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Temple Captains will fight to the death to protect their temple. They will avoid killing citizens if they can but are not adverse to doing so if they must. The Captain will make good use of their abilities to bolster their allies and bring in reinforcements if needed.",
+    "characteristics": {
+      "Might": 4,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 3,
+      "Cunning": 2
+    },
+    "skills": {
+      "Awareness": 2,
+      "Brawl": 3,
+      "Diplomacy": 2,
+      "Lore": 3,
+      "Melee": 4,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Standing": 3,
+      "Endurance": 6,
+      "Armour": 6,
+      "Parry": 0,
+      "Shield": 0
+    },
+    "equipment": "Breastplate, helm, greaves, ornate labrys, rich clothing.",
+    "abilities": [
+      "armour:Breastplate",
+      "armour:Helm",
+      "ability:Tactical Direction",
+      "ability:Temple Reinforcements"
+    ],
+    "attacks": [
+      "weapon:Labrys"
+    ]
+  },
+  {
+    "title": "Temple Guard",
+    "type": "Minion",
+    "description": "All of the larger temples, shrines and holy sites employ guards to keep order amongst the congregation. Temple guards are as richly equipped as the temple can accommodate and employ the labrys as their weapon of choice. This is a tradition started on Kreta which has become popular throughout Hellas.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Temple guards will fight in groups of two to four and will fight to the death to protect their temple. They will avoid killing citizens if they can but are not adverse to doing so if they must. They are not out to kill so will try and deal with all opponents equally rather than ganging up on one individual.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Awareness": 2,
+      "Brawl": 2,
+      "Diplomacy": 1,
+      "Lore": 2,
+      "Melee": 3,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 3,
+      "Endurance": 6,
+      "Armour": 6,
+      "Parry": 0,
+      "Shield": 0
+    },
+    "equipment": "Breastplate, helm, greaves, ornate labrys, rich clothing.",
+    "abilities": [
+      "armour:Breastplate",
+      "armour:Helm"
+    ],
+    "attacks": [
+      "weapon:Labrys"
+    ]
+  },
+  {
+    "title": "Wrestler",
+    "type": "Champion",
+    "description": "While most athletes train for many events in the games, wrestlers focus on one: the pankration. Pankration is a brutal form of unarmed combat with few rules. Many contestants die in the ring and only the toughest survive. As with other forms of athletics, the awards for winning are few, but the adoration of the crowds back home make it worth it for many.",
+    "source": "Aegean Core",
+    "category": "Human",
+    "tactics": "Wrestlers will strike repeatedly to wear down their opponent before attempting to pin them and force a submission. Most won’t fight to the death of themselves or their opponent, but accidents happen.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 2,
+      "Insight": 2,
+      "Cunning": 3
+    },
+    "skills": {
+      "Athletics": 1,
+      "Brawl": 3,
+      "Medicine": 1,
+      "Perform": 1,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 2,
+      "Endurance": 6,
+      "Armour": 0,
+      "Parry": 0,
+      "Shield": 0
+    },
+    "equipment": null,
+    "abilities": [],
+    "attacks": [
+      "weapon:Unarmed Strike"
+    ]
+  },
+  {
+    "title": "Elephant, War",
+    "type": "Minion",
+    "description": "There are only a small number of these creatures in the Western armies of Persia, brought from conquered territories far in the east. Due to a keen sense of self-preservation, Elephants are not easy to direct in battle, but can cause enemies to scatter when they charge.",
+    "source": "Book of Empires",
+    "category": "Animal",
+    "tactics": "Elephants are used to cause panic in enemy formations. Given their huge size and frightening appearance, few warriors will stand their ground against them. A phalanx that holds its nerve can usually defeat an elephant quite handily with their spears.",
+    "characteristics": {
+      "Might": 7,
+      "Reflexes": 2,
+      "Cool": 1,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Brawl": 1,
+      "Awareness": 3,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Armour": 4,
+      "Dodge": 0,
+      "Endurance": 8
+    },
+    "abilities": [
+      "ability:Charge",
+      {
+        "title": "Stomp",
+        "description": "This creature can _invoke the Fates_ to attack all creatures in Melee range using its Trample attack."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Tusk",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 7,
+        "properties": [
+          "property:Pierce"
+        ]
+      },
+      {
+        "title": "Trample",
+        "skill": "Brawl",
+        "reach": "Melee",
+        "damage": 5,
+        "properties": [
+          "property:Stagger"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Hydarnes the Younger",
+    "type": "Champion",
+    "description": "A Persian noble of high rank, Hydarnes *(proud, loyal, brave)* commands the forces of the Immortals in the field. He is thoroughly devoted to the empire, and considers the  safety of the current ruler to be his personal responsibility. Hydarnes himself is not one of the Anauša, but he fights alongside them, and is an excellent warrior in his own right.",
+    "source": "Book of Empires",
+    "category": "Human",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 3,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 4,
+      "Athletics": 2,
+      "Awareness": 1,
+      "Diplomacy": 3,
+      "Melee": 4,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Armour": 5,
+      "Shield": 3,
+      "Parry": 2,
+      "Endurance": 8,
+      "Standing": 4
+    },
+    "equipment": "Rich scale armour, cap, greaves,<br />2 ammo loads.",
+    "abilities": [
+      "ability:Riposte",
+      {
+        "title": "Concentrated Fire",
+        "description": "As a Maneuver you may spend an ammo load and nominate a target. Anyone, including yourself, who attacks the target with a ranged or thrown weapon gains a +1D bonus to their skill check. This bonus lasts until your next turn."
+      }
+    ],
+    "attacks": [
+      "weapon:Kopis",
+      "weapon:Hoplon",
+      "weapon:Recurve Bow"
+    ]
+  },
+  {
+    "title": "Immortal Anauša",
+    "type": "Champion",
+    "description": "Companions who serve well may be inducted into the inner mysteries of the cult, their bodies made nigh-immortal through the consumption of sacred food prepared by the magi. As long as they continue to fight in their master’s name they will not age and, in time, can recover from almost any illness or injury. There are only ever one thousand Anauša, as this is the maximum number that the Empire can support. However, there is a cost for such power; the Anauša can only eat the sacred food---should they be starved, they steadily become slower and slower, until eventually they turn into a lifeless stone statue. \n\nApart from being the tip of the spear in Persia’s army, the Anauša also serve as a personal guard to the emperor and his favourites.",
+    "source": "Book of Empires",
+    "category": "Human",
+    "tactics": "The Anauša fight with eerie silence, making no cries of pain or anger. They pursue a single tactical goal, focusing on that even if it leaves individual members exposed. They will not retreat unless ordered. They do not die unless physically dismembered.",
+    "characteristics": {
+      "Might": 5,
+      "Reflexes": 3,
+      "Cool": 5,
+      "Insight": 3,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 1,
+      "Awareness": 3,
+      "Lore": 2,
+      "Melee": 4,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Armour": 6,
+      "Shield": 3,
+      "Parry": 2,
+      "Endurance": 6,
+      "Standing": 4
+    },
+    "equipment": "Scale armour, helm, greaves,<br />2 ammo loads.",
+    "abilities": [
+      "armour:Helm",
+      {
+        "title": "Regeneration",
+        "description": "This character recovers 1 Risk at the end of their turn."
+      },
+      {
+        "title": "Starved",
+        "description": "If this character is starved of divine food, they take -3D to all actions and lose their Regeneration ability."
+      },
+      {
+        "title": "Unnerving Silence",
+        "description": "Characters who face these eerily silent warriors suffer a -2D penalty to any action they take unless they make a successful Difficulty 3 Cool (Vigour) Resistance roll at the start of their turn."
+      }
+    ],
+    "attacks": [
+      "weapon:Dori",
+      "weapon:Kopis",
+      "weapon:Hoplon",
+      "weapon:Recurve Bow"
+    ]
+  },
+  {
+    "title": "Immortal Companion",
+    "type": "Minion",
+    "description": "These are aspiring Anauša, professional soldiers drawn from respected families across the Empire. Most of their number are Persian, but there are also Medes and members of other cultures. It matters little; from the moment one joins, all past loyalties are discarded. Companions are ruthlessly drilled, and expected to perform flawlessly in combat; cowardice or incompetence are grounds for instant execution. They are proficient in most weapons, and carry many into battle. Only those who prove themselves worthy will be offered the chance to join the Anauša. There is quite a high turnover in Companions, and fresh recruits arrive regularly to reinforce them.",
+    "source": "Book of Empires",
+    "category": "Human",
+    "tactics": "Companions are expected to act as shock troops, vigorously assaulting enemy forces while the Anauša manoeuvre to deliver a decisive blow. They are unlikely to retreat unless ordered to do so, but they are only human.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 1,
+      "Awareness": 2,
+      "Melee": 3,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Armour": 6,
+      "Shield": 3,
+      "Parry": 2,
+      "Endurance": 5,
+      "Standing": 4
+    },
+    "equipment": "Scale armour, helm, greaves,<br />2 ammo loads.",
+    "abilities": [
+      "armour:Helm",
+      {
+        "title": "Charge",
+        "description": "The Companion gains +2 damage on any Melee Harm attack Action if they make a Move Maneuver immediately before the attack."
+      }
+    ],
+    "attacks": [
+      "weapon:Dori",
+      "weapon:Kopis",
+      "weapon:Hoplon",
+      "weapon:Composite Bow"
+    ]
+  },
+  {
+    "title": "Jaini",
+    "type": "Champion",
+    "description": "These powerful beings have only a semi-solid form, and are capable of dissolving into a mist or cloud of sand particles. Persian priests know chants and charms to drive these creatures into clay pots, binding them where they can do no harm. In war, these pots can be launched from mangonels at the enemy, unleashing the Jaini to wreak havoc amidst the troops.",
+    "source": "Book of Empires",
+    "category": "Androphagi",
+    "tactics": "Jaini are extremely strong and delight in warfare and slaughter, and are hard to harm except during the moment when they are in their solid form. As such, they simply wade into the densest clump of enemies and start pummelling.",
+    "characteristics": {
+      "Might": 6,
+      "Reflexes": 4,
+      "Cool": 2,
+      "Insight": 1,
+      "Cunning": 1
+    },
+    "skills": {
+      "Brawl": 2,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Armour": 3,
+      "Dodge": 8,
+      "Endurance": 6
+    },
+    "abilities": [
+      {
+        "title": "Sandstorm Form",
+        "description": "The only point that a Jaini is vulnerable is the split second when it  materialises to deliver an attack. There is no limit to how often the Jaini can use its Dodge during a round and it is immune to the Pierce, Savage, Stagger, and Stun properties. Jaini can pass through small cracks and go anywhere a grain of sand can without hindrance."
+      },
+      {
+        "title": "Clobbering",
+        "description": "Any creature struck by the Jaini when the Stagger or Stun properties are activated must make a Might (Vigour) Resistance roll with a Difficulty of the Jaini’s Might or gain 1 Risk and be knocked back to Short range."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Stone Fists",
+        "skill": "Brawl",
+        "reach": 3,
+        "damage": 4,
+        "properties": [
+          "property:Stagger",
+          "property:Stun"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Kargadan",
+    "type": "Champion",
+    "description": "A beast akin to a rhinoceros, but much larger and possessed of a malevolent cunning. The rampage of the Kargadan is an act of unstoppable fury that can shatter stone and grind bones to dust. The beast’s horn is as long and sharp as a sword blade. Although it has poor eyesight, the Kargadan has a sense of smell so acute that it more than makes up for it.",
+    "source": "Book of Empires",
+    "category": "Androphagi",
+    "tactics": "A kargadan will attack anything that annoys, blocks or startles it, and is completely fearless in battle. It generally opens by charging as fast as possible at the biggest target, trying to impale them with its horn. It then tramples and bites any remaining enemies.",
+    "characteristics": {
+      "Might": 7,
+      "Reflexes": 2,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 3,
+      "Awareness": 2,
+      "Brawl": 3,
+      "Survival": 2,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Armour": 5,
+      "Dodge": 0,
+      "Endurance": 9
+    },
+    "abilities": [
+      "ability:Charge",
+      {
+        "title": "Keen Nose",
+        "description": "Gain +2D on all Awareness rolls using smell."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Horn",
+        "skill": "Brawl",
+        "reach": 3,
+        "damage": 6,
+        "properties": [
+          "property:Pierce",
+          "property:Stagger"
+        ]
+      },
+      {
+        "title": "Stomp",
+        "skill": "Brawl",
+        "reach": 1,
+        "damage": 4,
+        "properties": [
+          "property:Stun"
+        ]
+      }
+    ],
+    "arcane_lore": "The horn of a Kargadan can be used by anyone with the Arcane Lore talent to create a magical potion which gives +3 Might and -1 Insight for a single scene. The potion can be prepared as a downtime Action and requires a successful Cool (Craft) roll to make and an Action to drink. The potion has a single use and is activated by being consumed."
+  },
+  {
+    "title": "Magi",
+    "type": "Champion",
+    "description": "Persian priests, Magi are responsible both for bringing glory to Ormazhd, and for the propitiation of any local gods that have been deemed Yazata. An ancient and cloistered group, they carry many secrets and treasures. Their ceremonies are usually held around a large, open flame. Magi tend to wear long robes and cover their faces.",
+    "source": "Book of Empires",
+    "category": "Human",
+    "tactics": "Magi aren’t warriors, but they will stand near them and inspire them with their words. Persian forces will fight with great vigour to protect or avenge a magi. Magi encourage moral rectitude, and soldiers will act to a higher standard of honour around them, eschewing trickery or wanton slaughter.",
+    "characteristics": {
+      "Might": 1,
+      "Reflexes": 2,
+      "Cool": 4,
+      "Insight": 4,
+      "Cunning": 3
+    },
+    "skills": {
+      "Lore": 3,
+      "Melee": 1,
+      "Perform": 3
+    },
+    "attributes": {
+      "Armour": 0,
+      "Shield": 0,
+      "Parry": 1,
+      "Endurance": 5,
+      "Standing": 2
+    },
+    "equipment": "Makhaira,<br />rich robes.",
+    "abilities": [
+      {
+        "title": "Voice of Ormazhd",
+        "description": "Each round the Magi can make a Cool(Perform) roll as an action. For each success, they can give +1D to all Persian human forces in Short range when pursuing virtuous action (by Persian lights.) Persian human forces acting dishonourably take -1D to all rolls instead."
+      },
+      {
+        "title": "Sacred",
+        "description": "If a Magi is struck down, all Persian human forces in Medium range reduce their Risk by 2, but must attack whomever killed the Magi for the next round if able."
+      }
+    ],
+    "attacks": [
+      "weapon:Makhaira"
+    ]
+  },
+  {
+    "title": "Martikhora",
+    "type": "Champion",
+    "description": "These vile creatures have a human face with rows of sharp teeth, the body of a lion and a stinging tail like a scorpion’s which they use to hurl poisonous spines at their victims. They are also capable of perfectly imitating any voices and words that they have heard, although they themselves don’t use language or understand the meaning.",
+    "source": "Book of Empires",
+    "category": "Androphagi",
+    "tactics": "Cruel and despicable, Martikhora enjoy tormenting their foes. They prefer to soften enemies up with poisoned spines from range, hopefully paralysing their victims so that they can eat them alive.",
+    "characteristics": {
+      "Might": 4,
+      "Reflexes": 4,
+      "Cool": 3,
+      "Insight": 3,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 4,
+      "Athletics": 3,
+      "Awareness": 3,
+      "Brawl": 3,
+      "Perform": 3,
+      "Survival": 2,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Armour": 3,
+      "Dodge": 3,
+      "Endurance": 8
+    },
+    "abilities": [
+      "ability:Claws",
+      {
+        "title": "Paralytic Venom",
+        "description": "Any character poisoned by the Martikhora’s spines adds their current Poison level to all Critical Hits they roll."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Poison Spine",
+        "skill": "Accuracy",
+        "range": "Medium",
+        "damage": 6,
+        "properties": [
+          "property:Pierce",
+          "property:Poison 2"
+        ]
+      },
+      {
+        "title": "Claws",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Savage"
+        ]
+      }
+    ],
+    "arcane_lore": "The quills of the Martikhora remain poisonous for some time after death. Anyone with the Arcane Lore talent can spend a turn harvesting the spines and make a Cool (Craft) roll to create an ammo load of arrows. The ammo load can be spent to give the attack Poison 3 with the Martikhora’s Paralytic Venom ability."
+  },
+  {
+    "title": "Shahmaran",
+    "type": "Champion",
+    "description": "This creature has the upper body of a human and the lower body of a giant serpent. Unlike other monsters, Shahmaran are extremely intelligent and highly versed in the ways of medicine and alchemy. Several of them are included in the Followers of the Athanatoi as healers and advisors. While they do consume human flesh, they are not wanton murderers or gluttons, using table manners every bit as civilised as the courts of Persia.",
+    "source": "Book of Empires",
+    "category": "Androphagi",
+    "tactics": "Shahmaran are the last of their kind, and hence very keen to stay alive. They will spinelessly assist whoever represents their best chance at survival. They are fascinated by medicine and will enjoy talking to anybody who has an interesting case for them.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 4,
+      "Cool": 4,
+      "Insight": 4,
+      "Cunning": 4
+    },
+    "skills": {
+      "Diplomacy": 2,
+      "Knowledge": 3,
+      "Medicine": 5
+    },
+    "attributes": {
+      "Armour": 2,
+      "Endurance": 5,
+      "Dodge": 4
+    },
+    "abilities": [
+      {
+        "title": "Alchemists",
+        "description": "When encountered, Shahmaran always have a Herbalist’s bag and sufficient ingredients to produce one dose of any standard potion."
+      },
+      {
+        "title": "Shed Tail",
+        "description": "When attacked, a Shahmaran can shed its tail once per battle and make one free Disengage Action to ignore any damage taken. The tail continues to fight as a constricting snake for the remainder of the scene."
+      }
+    ],
+    "attacks": [
+      "weapon:Makhaira"
+    ],
+    "arcane_lore": "Shahmaran blood is rich in mystical properties, and can be transfused to allow a patient to recover fully from all injuries. This process is lethal for the Shahmaran, and may have strange side-effects for the recipient..."
+  },
+  {
+    "title": "Sparabara",
+    "type": "Minion",
+    "description": "These are part-time soldiers drawn from full-blooded Persian families across the empire. While not professional soldiers, they are well trained and courageous. They wear armour of quilted linen and fight with large rectangular wicker shields and long spears. Due to their light armour, they tend to fare poorly against hoplites.",
+    "source": "Book of Empires",
+    "category": "Human",
+    "tactics": "Companions are expected to act as shock troops, vigorously assaulting enemy forces while the Anauša manoeuvre to deliver a decisive blow. They are unlikely to retreat unless ordered to do so, but they are only human.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 2,
+      "Cool": 3,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 2,
+      "Athletics": 2,
+      "Awareness": 2,
+      "Melee": 2,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Armour": 2,
+      "Shield": 4,
+      "Parry": 0,
+      "Endurance": 5,
+      "Standing": 2
+    },
+    "equipment": "Spolas, cap.",
+    "abilities": [],
+    "attacks": [
+      "weapon:Dori",
+      {
+        "title": "Tower Shield",
+        "skill": "Melee",
+        "reach": 2,
+        "damage": 3,
+        "properties": [
+          "property:Shield 4",
+          "property:Stagger"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Zahhak",
+    "type": "Legend",
+    "description": "This demigod claims to be the daughter of Ahriman himself. Zahhak _(cruel, inhuman)_ would be beautiful, if her skin was not as pale as that of a corpse and if venomous serpents did not occasionally burst from her body to lash out at anything nearby. She is in charge of the Androphagi in the Persian train, as she is the one being they fear and obey. As long as she serves a purpose for Persia, the Magi tolerate her presence but keep her under constant surveillance. Zahhak serves her father by making Persia more tolerant of cruelty and fear as weapons.\n\nDefeating Zahhak is worth 1 Glory, and will bring the heroes to the attention of both Ormazhd and Ahriman.",
+    "source": "Book of Empires",
+    "category": "Androphagi",
+    "tactics": "Zahhak has no interest in fighting personally (that’s what minions are for), but she has no fear of it either. If forced to battle, she simply walks among her foes, allowing her serpents to strike out at them. She does enjoy pitting her “pets” against heroes, though.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 6,
+      "Cool": 4,
+      "Insight": 4,
+      "Cunning": 4
+    },
+    "skills": {
+      "Accuracy": 2,
+      "Athletics": 1,
+      "Awareness": 3,
+      "Brawl": 5,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Endurance": 10,
+      "Armour": 5,
+      "Dodge": 4
+    },
+    "abilities": [
+      {
+        "title": "Serpents",
+        "description": "This creature may make three serpent attacks per turn against one or more opponents at up to Short range. When used in Melee, Zahhak can decide the Reach of each serpent."
+      },
+      {
+        "title": "Sunlight Weakness",
+        "description": "In direct sunlight, Zahhak suffers a -2D penalty on all rolls."
+      },
+      {
+        "title": "Venomous Blood",
+        "description": "Zahhak is immune to poison of all kinds, as her heart pumps nothing but venom. Any time she takes a Wound, all creatures in Melee range must make a Reflexes (Athletics) Reaction roll or gain Poison 1."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Serpents",
+        "skill": "Brawl",
+        "reach": "1–5",
+        "damage": 6,
+        "properties": [
+          "property:Pierce",
+          "property:Poison 1"
+        ]
+      },
+      {
+        "title": "Serpents (Ranged)",
+        "skill": "Accuracy",
+        "range": "Short",
+        "damage": 6,
+        "properties": [
+          "property:Pierce",
+          "property:Poison 1"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Minotaur",
+    "type": "Legend",
+    "description": "",
+    "source": "Book of Empires",
+    "category": "Monster",
+    "tactics": "The Minotaur is a mighty foe and is contemptuous of all opponents. It prefers to target the toughest-looking opponent in the group as it perceives this to be the greatest challenge and glory. It will use its Mighty Roar to harm all of its enemies as its first Action before charging the toughest.",
+    "characteristics": {
+      "Might": 6,
+      "Reflexes": 4,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 4
+    },
+    "skills": {
+      "Athletics": 3,
+      "Awareness": 2,
+      "Brawl": 5,
+      "Melee": 4,
+      "Survival": 4,
+      "Vigour": 5
+    },
+    "attributes": {
+      "Endurance": 12,
+      "Armour": 3,
+      "Parry": 0,
+      "Shield": 0,
+      "Standing": "n/a"
+    },
+    "abilities": [
+      "ability:Charge",
+      {
+        "title": "Fearsome",
+        "description": "Anyone facing the Minotaur for the first time gains 2 Risk and must make a Cool (Vigour) Resistance roll with a Difficulty of 1 or suffer a -3D penalty to all skill checks while facing the Minotaur. A failed roll can be repeated at the start of the character’s next turn."
+      },
+      {
+        "title": "Ferocious",
+        "description": "The Minotaur may take two turns each round. It can’t choose itself to go next in the same round unless all other characters in the conflict have acted."
+      },
+      "ability:Mighty Roar"
+    ],
+    "attacks": [
+      "weapon:Labrys",
+      {
+        "title": "Gore",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 6,
+        "properties": [
+          "property:Pierce",
+          "property:Stagger"
+        ]
+      },
+      {
+        "title": "Mighty Roar",
+        "skill": "Vigour",
+        "range": "Medium",
+        "damage": 0,
+        "properties": [
+          "property:Stun"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Akhilles",
+    "type": "Legend",
+    "description": "<div class=\"centre\">\n\n_Sing, oh goddess, of the rage of Akhilles_\n\n</div>\n\nA few things come to mind when deciding how to build Akhilles as a hero: he's fast, he's dangerous, and he's invulnerable. That made the choice of heroic abilities straightforward as there are direct matches to those qualities of AKhilles.\n\nThis didn't give me a good starting point, though. The Hoplitis Captain seems like the most appropriate base profile but that has a focus around strength, rather than speed---it felt more appropriate for someone like Aias son of Telemon. Instead I went with the Amazon Champion profile for its high Reflexes. I changed the equipment to fit that of a wealthy Akhaian warrior and removed the archery related abilities. With a boost to Reflexes and to some skills, plus the previously mentioned heroic abilities, that was Akhilles finished and ready to take to the battlefield.",
+    "source": "Book of Empires",
+    "category": "Human",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 6,
+      "Cool": 3,
+      "Insight": 4,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 4,
+      "Athletics": 4,
+      "Awareness": 3,
+      "Diplomacy": 2,
+      "Melee": 5,
+      "Ride": 4,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Standing": 5,
+      "Endurance": 8,
+      "Armour": 10,
+      "Parry": 2,
+      "Shield": 3
+    },
+    "equipment": "Bronze breastplate, helm, greaves,<br />3 javelins.",
+    "abilities": [
+      {
+        "title": "Akhilles' Heel",
+        "description": "Akhilles is nigh-invulnerable, except for his left heel, which has an Armour rating of 0. Anyone attempting to hit Akhilles in the heel takes a -5D penalty on their attack roll, or -3D if Akhilles is Pinned."
+      },
+      "armour:Breastplate",
+      {
+        "title": "Fast",
+        "description": "Akhilles is unbelievably fast and takes 2 Actions per turn. He can't choose himself to go next unless all other characters in the conflict have acted."
+      },
+      "armour:Helm",
+      {
+        "title": "Lethal Blows",
+        "description": "Akhilles' blows are exceptionally dangerous. If he causes a wound, Akhilles can _invoke the Fates_ to make the target roll twice on the Critical Injury table and take the highest result."
+      },
+      "ability:Riposte"
+    ],
+    "attacks": [
+      "weapon:Xiphos",
+      "weapon:Javelin",
+      "weapon:Hoplon"
+    ]
+  },
+  {
+    "title": "Idaean Daktyl",
+    "type": "Champion",
+    "description": "Daktyls may be equipped with any weaponry. All their weapons have the Fine 2 property as they are forged of Phrygian Iron. Any equipment taken by force or deception from a Daktyl risks carrying with it the Disfavour of Kybele.",
+    "source": "Book of Empires",
+    "category": "Wildfolk",
+    "tactics": "Daktyls have little interest in fighting but if they are forced to, they lure their enemies into cunningly-wrought traps or cause rockfalls in caves. Their weapons are finely-wrought and capable of cutting through armour and flesh with ease.",
+    "characteristics": {
+      "Might": 5,
+      "Reflexes": 1,
+      "Cool": 3,
+      "Insight": 3,
+      "Cunning": 3
+    },
+    "skills": {
+      "Awareness": 2,
+      "Craft": 5,
+      "Lore": 3,
+      "Melee": 3,
+      "Survival": 2,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Armour": 5,
+      "Shield": 0,
+      "Parry": 2,
+      "Endurance": 5,
+      "Standing": "n/a"
+    },
+    "abilities": [
+      {
+        "title": "Divine Craftsman",
+        "description": "The GM may _invoke the Fates_ to add any property to a piece of equipment they wield. For instance, they might add Pierce to their own weapon, even if it does not normally have the Pierce property. Properties with a rating (such as Parry) have a rating of 1 when gained in this way."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Fine Kopis",
+        "skill": "Melee",
+        "reach": 2,
+        "damage": 5,
+        "properties": [
+          "property:Fine 2",
+          "property:Parry 2",
+          "property:Pommel Strike",
+          "property:Savage"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Automata Hydra",
+    "type": "Legend",
+    "description": "The automata hydra is a huge construct of brass, bronze and gold. Each of its five heads has a different gemstone for eyes which glow in the darkness.",
+    "source": "Book of Heroes",
+    "category": "Automata",
+    "characteristics": {
+      "Might": 7,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 1,
+      "Cunning": 4
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 1,
+      "Brawl": 3,
+      "Survival": 3,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Endurance": 14,
+      "Armour": 9,
+      "Dodge": 0
+    },
+    "abilities": [
+      "ability:Divine Automata",
+      {
+        "title": "Fearsome",
+        "description": "Anyone facing a hydra for the first time must make a Cool (Vigour) Resistance roll with a Difficulty of 1 or suffer a -2D penalty to all skill checks while facing the hydra. A failed roll can be repeated on the start of the character’s next turn."
+      },
+      "ability:Huge",
+      {
+        "title": "Multiple Heads",
+        "description": "The Automata Hydra has five heads. Each head can make a single bite attack on the hydra’s turn or can be treated as a Minion group and provide assistance to other heads. When moving away from the hydra without taking a Disengage Action treat each head as an opponent for the purposes of gaining Risk."
+      },
+      {
+        "title": "Stupid",
+        "description": "This creature is enticed by motion. An attacker can use the Perform or Manipulate skills when attempting a Pin Action."
+      },
+      {
+        "title": "Noxious Blood",
+        "description": "Anyone at Melee range to the hydra who cause it to take a Wound must make an immediate Reflexes (Athletics) Resistance roll to avoid the acidic blood that splashes from the wound. Failure causes the character to gain Burning 2 for 3 rounds."
+      },
+      {
+        "title": "Weak Spot",
+        "description": "While Pinned, treat its Armour as 2."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Bite",
+        "skill": "Brawl",
+        "reach": 5,
+        "damage": 5,
+        "properties": [
+          "property:Pierce"
+        ]
+      },
+      {
+        "title": "Claw",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 5,
+        "properties": [
+          "property:Savage"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Decapod",
+    "type": "Minion",
+    "description": "Crab-like creatures the size of dogs. While their general outline is crustacean, individual creatures may have features that mark them out as unnatural: an extra pair of claws, one oversized claw, two or four extra (or missing) legs, jelly-fish like tendrils that inflict a stinging welt, lobster-like bodies, human-like eyes.",
+    "source": "Book of Heroes",
+    "category": "Monster",
+    "tactics": "The decapods are unsubtle combatants that try to overrun human opponents, nipping with their pincers and biting with their complex mandibles. A minion group probably consists of between three and six, and the GM should merge groups together as they lose members.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 3,
+      "Brawl": 2,
+      "Survival": 2,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Armour": 3,
+      "Dodge": 2,
+      "Endurance": 4
+    },
+    "abilities": [
+      {
+        "title": "Grabbing Pincer",
+        "description": "The GM can spend a point of Hubris to have the decapod grab a weapon or shield. The hero must make a Might (Melee) Resistance roll to avoid losing the item, which is dropped at their feet."
+      },
+      {
+        "title": "Overrun",
+        "description": "A minion group of at least three decapods can try to _overrun_ human-sized opponents. If the target takes any Risk or Wound from the attack, the creatures can move to Short range as if disengaging, without gaining any Risk, and need not move _away_ from their target to do so."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Claws",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Disarm"
+        ]
+      },
+      {
+        "title": "Overrun",
+        "skill": "Brawl",
+        "reach": 0,
+        "damage": 2,
+        "properties": [
+          "property:Stagger"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Giant Scorpion",
+    "type": "Champion",
+    "description": "Giant scorpions are descendants of Skorpios who was sent by Gaia to slay the giant Orion when the latter had threatened to hunt and kill all the creatures of the earth. This scorpion is nowhere near as large as the one sent to slay Orion; it is closer in size to a large dog or wolf, though rumour has it that larger relatives can be found in the wild places of the world.",
+    "source": "Book of Heroes",
+    "category": "Monster",
+    "tactics": null,
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 2,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 3,
+      "Awareness": 2,
+      "Brawl": 3,
+      "Survival": 2,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Armour": 6,
+      "Dodge": 1,
+      "Endurance": 6
+    },
+    "abilities": [
+      {
+        "title": "Pin and Crush",
+        "description": "A giant scorpion’s pincers are very good at pinning an opponent, giving it +2D to any Pin Actions. Once an opponent is pinned, the scorpion can use its crush attack against the target, either as a Reaction or on its following turn."
+      },
+      {
+        "title": "Multi-Attack",
+        "description": "A giant scorpion can make two pincer and one stinging tail attack, or one Pin Action and one stinging tail attack per round, against any opponent in Melee range."
+      },
+      {
+        "title": "Venomous (Active)",
+        "description": "Any character who suffers a successful Harm Action when this property is activated, whether or not they gain Risk or suffer a Wound, gains Poison 2."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Pincers",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4,
+        "properties": [
+          "property:Pierce"
+        ]
+      },
+      {
+        "title": "Crush",
+        "skill": "Brawl",
+        "reach": 0,
+        "damage": 6,
+        "properties": [
+          "property:Pierce",
+          "property:Savage"
+        ]
+      },
+      {
+        "title": "Stinging Tail",
+        "skill": "Brawl",
+        "reach": 4,
+        "damage": 4,
+        "properties": [
+          "property:Pierce",
+          "property:Venomous"
+        ]
+      }
+    ],
+    "arcane_lore": "Anyone with the Arcane Lore talent can harvest the scorpion’s stinger and use a downtime Action to make it into a formidable makhaira with a successful Cool (Craft) roll. The makhaira has the Fine 1 and Pierce properties and the scorpion’s Venomous (Active) ability. The Venomous property can be activated a number of times equal to the successes rolled on the Craft skill check before it is completely used up."
+  },
+  {
+    "title": "The Golden Lion of Hephaestos",
+    "type": "Legend",
+    "description": "",
+    "source": "Book of Heroes",
+    "category": "Automata",
+    "tactics": null,
+    "characteristics": {
+      "Might": 7,
+      "Reflexes": 6,
+      "Cool": 1,
+      "Insight": 4,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 2,
+      "Athletics": 5,
+      "Awareness": 4,
+      "Brawl": 4,
+      "Survival": 3,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Armour": 12,
+      "Dodge": 0,
+      "Endurance": 24
+    },
+    "abilities": [
+      {
+        "title": "Burning (Active)",
+        "description": "The target hero, and any hero within Melee range of the target when this property is activated, gains the Burning 3 effect for 3 rounds."
+      },
+      "ability:Claws",
+      "ability:Divine Automata",
+      {
+        "title": "Fearsome",
+        "description": "When facing the golden lion for the first time, a hero must make a Cool (Vigour) Resistance roll with a Difficulty of 2 or suffer a -2D penalty to all skill checks. A failed roll can be repeated on the start of the hero’s next turn."
+      },
+      {
+        "title": "Ferocious",
+        "description": "The Golden Lion may spend a point of Hubris to take an additional turn in a round. It can’t choose itself to go next in the same round unless all other characters in the conflict have acted, and it can't employ both flaming breath and mighty roar in the same round, nor use one of those abilities twice."
+      },
+      "ability:Huge",
+      "ability:Mighty Roar",
+      {
+        "title": "Indestructible",
+        "description": "The Golden Lion can be incapacitated, but cannot be killed. At the start of each round the golden lion reduces its Risk by 1. If it has no Risk remaining, it removes one Wound instead."
+      },
+      {
+        "title": "Weak Spot",
+        "description": "When the Golden Lion is pinned, treat its Armour as 8."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Bite",
+        "skill": "Brawl",
+        "reach": 3,
+        "damage": 6,
+        "properties": [
+          "property:Pierce"
+        ]
+      },
+      {
+        "title": "Claws",
+        "skill": "Brawl",
+        "reach": 5,
+        "damage": 5,
+        "properties": [
+          "property:Savage",
+          "property:Dual Strike"
+        ]
+      },
+      {
+        "title": "Flaming Breath",
+        "skill": "Accuracy",
+        "range": "Short",
+        "damage": 4,
+        "properties": [
+          "property:Burning"
+        ]
+      },
+      {
+        "title": "Mighty Roar",
+        "skill": "Vigour",
+        "range": "Medium",
+        "damage": 0,
+        "properties": [
+          "property:Stun"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Karkinoi",
+    "type": "Champion",
+    "description": "These are giant crab-like creatures that can face a hero one-on-one. They are even more unnatural than the smaller decapods, capable of rearing up on their legs to almost human height.",
+    "source": "Book of Heroes",
+    "category": "Monster",
+    "tactics": "A karkinos Crustacean tends to focus attacks on a single opponent. If they are badly hurt, they use _sudden scuttle_ to disengage, and then move away.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 3,
+      "Brawl": 2,
+      "Survival": 2,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Armour": 6,
+      "Dodge": 2,
+      "Endurance": 10
+    },
+    "abilities": [
+      {
+        "title": "Weak Underbelly",
+        "description": "When a karkinos is pinned, treat its Armour as 0."
+      },
+      {
+        "title": "Twin Pincers",
+        "description": "A karkinos can make two pincer, Grab, or crush attacks each turn but they must be against different opponents."
+      },
+      {
+        "title": "Grab",
+        "description": "When making a Pin Action with its pincer, the karkinos adds +2D to the skill check. If successful, the target remains pinned until the karkinos releases them, or someone succeeds at an opposed Might (Brawl) roll as an Action on their turn (this roll to break free does not suffer the usual penalty to skill rolls for being pinned). While a target is pinned, the karkinos can use its crush attack against them, and if it moves they are forced to move with it. The karkinos can only have one human-sized creature grabbed at a time"
+      },
+      {
+        "title": "Sudden Scuttle",
+        "description": "The karkinos can move with bursts of remarkable speed. The karkinos makes a Reflexes (Brawl) roll to Disengage, adding its Dodge to the dice pool without needing to spend its Reaction."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Pincer",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 4
+      },
+      {
+        "title": "Pin (Pincer)",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": "—",
+        "properties": [
+          "property:Improved Grab"
+        ]
+      },
+      {
+        "title": "Crush",
+        "skill": "Brawl",
+        "reach": 0,
+        "damage": 6
+      }
+    ]
+  },
+  {
+    "title": "Khrysomalloi Ram",
+    "type": "Champion",
+    "description": "Fearsome predators that hunt in small packs led by a dominant male. Sacred to both Hermes and Zeus, anyone who harms one of these creatures gains a point of Hubris the first time they do so, and anyone striking a killing blow receives another point.",
+    "source": "Book of Heroes",
+    "category": "Monster",
+    "tactics": "The Khrysomalloi rams are tough, relentless, and savage. Unlike natural animals they have no fear of humans, and view them as just another thing to eat. In combat, they attempt to knock enemies prone with _headbutt_ (ideally as part of a charge), and then use _iron hoofed trample_ or _savage bite_, favouring prone opponents where possible. Once they succumb to _frenzy_ they favour using both attacks against prone opponents, or combine a _headbutt_ with an _iron hoofed trample_.",
+    "characteristics": {
+      "Might": 5,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 3
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 2,
+      "Brawl": 3,
+      "Survival": 3,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Armour": 6,
+      "Dodge": 1,
+      "Endurance": 8
+    },
+    "abilities": [
+      {
+        "title": "Blazing Fleece",
+        "description": "The fleece of the Khrysomalloi not only turns aside weapons, but burns with fiery potence. Unless they are protected from fire, anyone touching the ram's wool with bare hands must make a Might (Vigour) Resistance roll or gain 1 Risk. Anyone actively grappling the ram gains 2 Risk, reducing the effect by one for each success on the Resistance roll. Likewise, a mundane net will begin to smoulder the round after it is used to capture the ram, and will combust in three rounds unless it has special properties."
+      },
+      {
+        "title": "Charge",
+        "description": "This creature gains +2 damage on any Brawl or Melee Harm attack Action if it makes a Move Maneuver immediately before the attack."
+      },
+      {
+        "title": "Dominant Male",
+        "description": "One of the rams in any pack is likely to be the dominant male, notably larger than the younger males. Add +1 to Might and +2 Endurance."
+      },
+      {
+        "title": "Frenzy",
+        "description": "Once this creature takes a Wound it enters into a frenzied state, fighting until the bitter end. It gains an additional attack per round and does +2 damage on all attacks."
+      },
+      {
+        "title": "Iron-Hoofed Trample",
+        "description": "An Iron-Hoofed Trample attack can be made against a prone target. Unlike a natural creature, the Khrysomalloi ram does not need to make a Move Maneuver before making this attack, rearing and crushing with their iron hooves and tearing with their savage jaws."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Headbutt",
+        "skill": "Brawl",
+        "reach": 1,
+        "damage": 4,
+        "properties": [
+          "property:Stagger"
+        ]
+      },
+      {
+        "title": "Iron-Hoofed Trample",
+        "skill": "Athletics",
+        "reach": 1,
+        "damage": 5,
+        "properties": [
+          "property:Pierce"
+        ]
+      },
+      {
+        "title": "Savage Bite",
+        "skill": "Brawl",
+        "reach": 1,
+        "damage": 5,
+        "properties": [
+          "property:Savage"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Mekathiron",
+    "type": "Legend",
+    "description": "A child of the titans Tethys and Okeanos, Mekathiron is a titanic brute that towers over human beings. Its shell is pockmarked, overgrown with patches of weed and coral. It has two massive, razor-sharp pincers and ten multi-jointed armoured legs that propel it with equal facility overland or across the bottom of the sea. A terrifying, ancient beast, it is almost immune to slashing and piercing weapons, and has no fear of either fire or humanity. Its only vulnerability is to crushing weapons, and they can only temporarily crack its dreadnought shell.",
+    "source": "Book of Heroes",
+    "category": "Monster",
+    "tactics": "Mekathiron is the primary antagonist of the adventure, and represents a major threat to anyone and anything nearby. It is as much a force of nature as a creature, and the GM should present it as such. It can destroy a stone building as an Action, and when it is not under attack, this is what it does.\n\nHeroes are likely to come up with plans to weaken or slow the creature's advance, and the GM needs to interpret the existing rules to help put those plans into operation. They should remember that Mekathiron is not here to kill people, it is here as an agent of destruction and is more interested in destroying settlements than cutting heroes or villagers in half. That's what its minions are for.\n\nIf it is suffers a Wound it retreats into the sea. It can always come back later.\n",
+    "characteristics": {
+      "Might": 7,
+      "Reflexes": 6,
+      "Cool": 1,
+      "Insight": 2,
+      "Cunning": 4
+    },
+    "skills": {
+      "Athletics": 4,
+      "Awareness": 2,
+      "Brawl": 3,
+      "Survival": 3,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Armour": 12,
+      "Dodge": 0,
+      "Endurance": 30
+    },
+    "abilities": [
+      {
+        "title": "Titanic",
+        "description": "This creature is gigantic in size. Increase the Difficulty of all Pin Actions made against it by 3. Successful Pin Actions don’t prevent the creature from making a Move Maneuver unless the attacker has either the Huge or Titanic ability."
+      },
+      {
+        "title": "Terrifying",
+        "description": "Anyone facing Mekathiron for the first time must make a Cool (Vigour) Resistance roll with a Difficulty of 2 or suffer a -3D penalty to all skill checks while facing it. A failed roll can be repeated at the start of each turn until it is successful. NPCs are likely to flee or cower in terror if they fail the roll."
+      },
+      {
+        "title": "Nigh Invulnerable",
+        "description": "Mekathiron's carapace is resistant to slashing and piercing attacks and ignores the Pierce and Savage properties of all normal weapons. It is immune to the effects of normal fires."
+      },
+      {
+        "title": "Fragile",
+        "description": "Mekathiron's carapace cracks easily and is vulnerable to bludgeoning attacks. Any attack made with a bludgeoning weapon (e.g. club, mattock, sling, unarmed strike, etc) treats Mekathiron's Armour as 4 lower than its current value. If the attack is successful and causes Mekathiron to gain Risk or suffer a Wound the attacker can _invoke the Fates_ to crack the carapace and reduce Mekathiron's Armour by 1 against all attacks until the end of the encounter."
+      },
+      {
+        "title": "Under the Behemoth",
+        "description": "An attacker at Engaged range of Mekathiron can use a Move Maneuver or Disengage Action to move under the beast. The attacker gains 4 Risk (only 1 if Mekathiron is pinned), which can be reduced by the successes of a Disengage roll. All attacks against Mekathiron from underneath reduce its Armour by 4. Mekathiron can use its crush attack against everyone underneath it as an Action. This attack ignores any Shield or Parry Reactions the targets may have. Moving out from under Mekathiron moves the character to Engaged range using the same rules for moving underneath."
+      },
+      {
+        "title": "Force of Destruction",
+        "description": "Mekathiron can make two Actions each round, although it cannot choose itself to go next in the same round unless all other characters in the conflict have acted."
+      },
+      {
+        "title": "Grab",
+        "description": "When making Pin Action with its claw Mekathiron gains +2D. If successful, the target remains pinned until Mekathiron releases them, or someone succeeds at an opposed Might (Brawl) roll as an Action on their turn (this roll to break free does not suffer the usual penalty to skill rolls for being pinned). When Mekathiron begins its turn with a target pinned, it can use its squeeze attack or Fling ability against them, and if it moves, they are forced to move with it. Mekathiron can have up to two people grabbed at a time."
+      },
+      {
+        "title": "Fling",
+        "description": "When Mekathiron has someone grabbed, it can fling them away as an Action. They are immediately moved to Short or Medium range, and suffer falling damage as if they'd fallen from Short range."
+      },
+      {
+        "title": "Juggernaut",
+        "description": "Mekathiron never gains Risk for moving past opponents and does not need to make the Disengage Action. Anyone moving away from Mekathiron gains 2 Risk instead of the usual 1."
+      },
+      {
+        "title": "Monstrous Spawn",
+        "description": "As a Reaction, the GM can spend a point of Hubris to have Mekathiron attract either two minion groups of four decapods, or a single karkinos, to join the fight at the start of the next round."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Immense Claw",
+        "skill": "Brawl",
+        "reach": 5,
+        "damage": 6,
+        "properties": [
+          "property:Grab",
+          "property:Savage"
+        ]
+      },
+      {
+        "title": "Squeeze",
+        "skill": "Brawl",
+        "reach": "—",
+        "damage": 7,
+        "properties": [
+          "property:Pierce"
+        ]
+      },
+      {
+        "title": "Crush",
+        "skill": "Athletics",
+        "reach": "—",
+        "damage": 7,
+        "properties": [
+          "property:Stagger",
+          "property:Stun"
+        ]
+      }
+    ],
+    "arcane_lore": "The carapace of Mekathiron can be used to make a robust hoplon. Anyone with the Arcane Lore talent can spend a downtime Action making the shield with a successful Cool (Craft) roll. For each success choose one of the following effects, each effect can only be chosen once.\n\n  - Inrease Shield rating by 1\n  - Increase damage by 1\n  - The Pierce property used against the wielder only reduces Armour by 3 if the Shield Reaction is used\n"
+  },
+  {
+    "title": "Arai",
+    "type": "Minion",
+    "description": "Curse spirits summoned and directed by the use of curse tablets, the Arai seek out the victim of their curse and harry them night and day, giving them not a moment’s peace. The curse can only be lifted by the will of the Gods or by the curse-giver ending it.",
+    "source": "Book of Heroes",
+    "category": "Underworld",
+    "tactics": "The Arai hunt in groups and prefer hit and run tactics over a stand up fight. They use their darts at range to pierce people with the guilt of their actions, bringing their targets low with visions of their doom. If they are attacked in melee, they are likely to use their Hit and Run ability to break away and resume their assault from elsewhere on the battlefield. When slain, the Arai dissipate into nothingness and return to the Underworld until they can hunt their target once again.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 2,
+      "Athletics": 2,
+      "Awareness": 2,
+      "Brawl": 2,
+      "Lore": 2
+    },
+    "attributes": {
+      "Armour": 2,
+      "Dodge": 1,
+      "Endurance": 3
+    },
+    "abilities": [
+      {
+        "title": "Judgement is Due",
+        "description": "If an Arai uses Darts of Doom on a character who is Cursed by the Gods or is the victim of a curse by a mortal, that character is Stunned as Moros overwhelms them with a vision of their own Doom."
+      },
+      {
+        "title": "Hit and Run",
+        "description": "Arai can _invoke the Fates_ to activate this ability as a Reaction when they are attacked and instantly teleport to another point within Short range of the attacker before they take any damage."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Claws",
+        "skill": "Brawl",
+        "reach": 1,
+        "damage": 2
+      },
+      {
+        "title": "Darts of Doom",
+        "skill": "Accuracy",
+        "range": "Short",
+        "damage": 3,
+        "properties": [
+          "property:Pierce",
+          "property:Reflexes"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Furies",
+    "type": "Champion",
+    "description": "The Erinyes, called the Eumenides (Kindly Ones) by those who fear invoking their wrath, are monstrous creatures borne of the blood of Ouranos where it fell upon Gaia when he was castrated by Kronos. Named Alekto, Tisiphone and Megaera, they are the embodiments of vengeance and can never truly be stopped, only delayed. They can take different forms, but are mostly seen as three bat-winged women with snakes twisting through their hair.\n\nTheir worst vengeance is reserved for those who commit crimes towards their family members, such as Orestes and Oedipus. The only known way to stave off their grasp is through a trial presided over by a respected authority where judgement is ruled on the crimes of the transgressor. Athena, as an arbiter of law, is often appealed to during these trials, as her judgement carries divine weight, but even her intercession might leave the Erinyes angry at being robbed of their vengeance. When a city has allowed a criminal to go free, the Furies may harass the city as a whole and the entire city must undergo a ritual purification to free it of their torment.",
+    "source": "Book of Heroes",
+    "category": "Underworld",
+    "tactics": "The Furies may look like women but they are ancient beings with no pity for those who have earned their vengeance. Transgressors of pettier crimes might be pursued by the Arai, but only the most heinous crimes attract the attention of the Furies. They might hunt together or alone, tracking their prey across every world. The Furies use three primary weapons: a burning spear, a cup of stinging poison, and an iron whip. Combined with their manoeuvrability and tireless pursuit, they are terrifying foes. If they are driven off, they retreat only to return to their target when they have recovered their strength.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 4,
+      "Cool": 3,
+      "Insight": 2,
+      "Cunning": 3
+    },
+    "skills": {
+      "Athletics": 4,
+      "Awareness": 3,
+      "Melee": 4,
+      "Survival": 2,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Armour": 4,
+      "Dodge": 2,
+      "Parry": 2,
+      "Endurance": 8
+    },
+    "abilities": [
+      {
+        "title": "Burning (Active)",
+        "description": "The target character and any character within Melee range of the target when this property is activated, gains Burning 2 for 2 rounds."
+      },
+      {
+        "title": "Flyer",
+        "description": "This creature can fly. It ignores all penalties for rough terrain and gets a free Move Maneuver per turn. It must make a Move Maneuver every turn or stall. It ignores up to 2 Risk when disengaging from a non-flying opponent."
+      },
+      {
+        "title": "Poisoned Chalice",
+        "description": "_Invoke the Fates_ and use an Action to activate this item against all enemies at Short Range. Every target must make a Reflexes (Vigour) roll to resist the attack or gain 1 Risk and suffer a -1D penalty to all skill checks until they take an Action to clean the stinging poison from their skin."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Burning Spear",
+        "skill": "Melee",
+        "reach": 3,
+        "damage": 6,
+        "properties": [
+          "property:Burning 2/2",
+          "property:Parry 2"
+        ]
+      },
+      {
+        "title": "Whip of Iron",
+        "skill": "Melee",
+        "reach": "Short",
+        "damage": 4,
+        "properties": [
+          "property:Entangle",
+          "property:Pierce"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Hekatonkheires",
+    "type": "Legend",
+    "description": "Three children of Gaia and Ouranous, the Hekatonkheires were so hideous that Ouranous pushed them back inside Gaia’s womb, along with the Kyklopes, in horror that they had produced such offspring. Named Briareos, Kottos and Gyges, these vastly strong giant beings have fifty heads and a hundred arms. When they assisted Zeus in the war against the Titans, he assigned them a new purpose: guard the prison of the Titans in Tartaros for eternity, to ensure they could never escape.",
+    "source": "Book of Heroes",
+    "category": "Underworld",
+    "tactics": "The Hekatonkheires are unlikely to attack anyone who does not attempt to breach the Titans’ cage, but since they are huge, they might also not notice if they step on a smaller being as they patrol Tartaros. In the event of fighting one of the Hekatonkheires, they are terrifying foes with a mass of arms and heads that blur in motion as they bring the crashing horrors of the depths of the earth upon their foes.",
+    "characteristics": {
+      "Might": 8,
+      "Reflexes": 4,
+      "Cool": 1,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 3,
+      "Brawl": 4,
+      "Melee": 2,
+      "Survival": 1,
+      "Vigour": 5
+    },
+    "attributes": {
+      "Armour": 4,
+      "Dodge": 2,
+      "Endurance": 15
+    },
+    "abilities": [
+      {
+        "title": "Fearsome",
+        "description": "Anyone facing one of the Hekatonkheires for the first time must make a Cool (Vigour) Resistance roll with a Difficulty of 2 or suffer a -2D penalty to all skill checks while facing them. A failed roll can be repeated on the start of the character’s next turn."
+      },
+      {
+        "title": "Great Leap",
+        "description": "_Invoke the Fates_ and perform a mighty leap to close the space between themselves and an enemy, immediately taking an Action afterwards."
+      },
+      {
+        "title": "Titanic",
+        "description": "This creature is gigantic in size. Increase the Difficulty of all Pin Actions made against it by 3. Successful Pin Actions don’t prevent the creature from making a Move Maneuver unless the attacker has either the Huge or Titanic ability."
+      },
+      {
+        "title": "Whirling Limbs",
+        "description": "_Invoke the Fates_ to attack everyone within Short range in the fight, at a cumulative -2D penalty for each target beyond the first."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Hundred–Handed",
+        "skill": "Brawl",
+        "range": "Short",
+        "damage": 7,
+        "properties": [
+          "property:Heavy",
+          "property:Stagger",
+          "property:Stun"
+        ]
+      },
+      {
+        "title": "Boulder Throw",
+        "skill": "Accuracy",
+        "range": "Medium",
+        "damage": 4,
+        "properties": [
+          "property:Stagger"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Hound of Hekate",
+    "type": "Minion",
+    "description": "The legendary dogs belonging to Hekate, the witch goddess, are rarely set upon mortals, but her coming is heralded by their howls and some say that they are restless souls or daimons who accompany her and take the form of dogs. Hekate is a protector of those who travel between worlds, but when angered she is a dangerous foe, as she cannot be held back by any boundary. She sends her pack of spectral Hounds after those who have angered her, tireless and deathless enemies that can only be evaded for a time.",
+    "source": "Book of Heroes",
+    "category": "Underworld",
+    "tactics": "The Hounds of Hekate are fast hunting dogs who are built for speed and endurance rather than strength. They take physical form while on the hunt and can be fought, or the characters can attempt to mislead them with the sort of tactics that throw mortal hounds off the scent. With a successful Cunning(Survival) roll, a character can lay down false trails, use bundles of herbs that confuse the dogs' noses, navigate through water to drown the scent, or put down traps that slow them down. If the characters fight the dogs and successfully slay them, they discorporate for one night with spine-chilling howls, but return the next night as soon as the sun has set. The Hounds of Hekate only cease their hunt when their prey is dead, Hekate is placated or the characters pull some sort of ploy to misdirect Hekate onto another target.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 4,
+      "Brawl": 3,
+      "Survival": 2,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Endurance": 6,
+      "Armour": 2,
+      "Dodge": 2
+    },
+    "abilities": [
+      "ability:Keen Senses",
+      {
+        "title": "Howl of Doom",
+        "description": "*Invoke the Fates* to let out a spine-chilling howl as a Maneuver. Any character who hears it must make a Cool (Vigour) resistance roll or take 1 Risk and -1D on all rolls to target or defend against this creature."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Bite and Claws",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 3,
+        "properties": [
+          "property:Pierce"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Hungry Shades",
+    "type": "Minion",
+    "description": "Driven by deep, gnawing hunger for the blood of the living, these Shades largely cluster at the banks of the Underworld rivers, but during a rite such as the nekyia, they surge forth into the living world to lap up the essence of life contained in the blood spilled for the ritual, or within those who performed it.\n\nHungry Shades are restless and angry, unable to find peace. They direct this anger towards those who are still living, an eternal reminder of the importance of a final send-off. While it is rare to find these ghosts in large numbers unless under the direction of another being or clustered on the shores of the Underworld rivers, they could occur in places where natural disasters have left many corpses unburied or unable to be retrieved.\n\nThere are three kinds of Hungry Shades: Ataphoi, those who were not buried with proper funerary rites; Aōroi, Shades of those whose lives were cut short and died with unfinished business, and Biaiothanatoi, who died violently. These different versions could be reflected by small changes to their stats, for instance giving the Shades of warriors slain in battle armour and weaponry.",
+    "source": "Book of Heroes",
+    "category": "Underworld",
+    "tactics": "Hungry Shades are mindless ghosts who have lost all vestige of who they once were. Whether they could not pay their way along the River Akheron or did not understand the mystic etiquette of the Underworld, they sense the death rituals such as the nekyia as beacons and flock towards them.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 2,
+      "Cool": 1,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Athletics": 2,
+      "Awareness": 4,
+      "Brawl": 2,
+      "Knowledge": 2,
+      "Lore": 2,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Armour": 0,
+      "Dodge": 2,
+      "Endurance": 2
+    },
+    "abilities": [
+      {
+        "title": "Hunger of the Dead",
+        "description": "Hungry Ghosts gain +1D to all skill checks made in the presence of spilled blood."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Claws",
+        "skill": "Brawl",
+        "reach": 1,
+        "damage": 3
+      }
+    ]
+  },
+  {
+    "title": "Kerberos",
+    "type": "Legend",
+    "description": "The Hound of Hades, Kerberos is the multi-headed dog that guards the entrance to the Underworld. Born of the monstrous Titans Typhon and Ekhidna, Kerberos has a serpent for a tail, snakes along his spine and three dog heads. Kerberos has been overcome once, when Herakles grappled him and bound him in chains.\n\nDefeating Kerberos is worth 1 Glory. Killing Kerberos gains the Disfavour of Haides and Persephone to all involved.",
+    "source": "Book of Heroes",
+    "category": "Underworld",
+    "tactics": "Kerberos is a dangerous foe, but can be placated rather than overcome. He is strong and fast with a venom that can exhaust a group of enemies. He will retreat only when severly wounded. Groups who don’t wish to attack Kerberos can try to drug him with raw meat or use music to send him to sleep and sneak past as he slumbers. If overpowered, Kerberos can be chained and ransomed back to Haides or Persephone in exchange for a favour, though a chain not reinforced with divine magic won’t hold him for long. To chain Kerberos, a character must Pin him until someone makes a successful Might (Survival) skill check.",
+    "characteristics": {
+      "Might": 5,
+      "Reflexes": 3,
+      "Cool": 2,
+      "Insight": 4,
+      "Cunning": 4
+    },
+    "skills": {
+      "Athletics": 4,
+      "Awareness": 3,
+      "Brawl": 5,
+      "Manipulation": 2,
+      "Survival": 2,
+      "Vigour": 5
+    },
+    "attributes": {
+      "Armour": 5,
+      "Dodge": 4,
+      "Endurance": 12
+    },
+    "abilities": [
+      {
+        "title": "Keen Senses",
+        "description": "Gain +2D when tracking prey using the Survival skill or on Awareness rolls which involve hearing or smell."
+      },
+      {
+        "title": "Many Bites",
+        "description": "Kerberos can make three bite attacks and one snakebite attack per turn against one or more opponents at Melee range."
+      },
+      {
+        "title": "Lashing Strike",
+        "description": "When a character makes an attack against Kerberos that does no damage, either through Armour, Dodge, or a failed attack, *invoke the Fates* to cause the attacker to gain 3 Risk."
+      },
+      {
+        "title": "Venomous (Active)",
+        "description": "Any character who suffers a successful Harm Action when this property is activated, whether or not they gain Risk or suffer a Wound, gains Poison 2."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Bite",
+        "skill": "Brawl",
+        "reach": 2,
+        "damage": 6,
+        "properties": [
+          "property:Pierce",
+          "property:Savage"
+        ]
+      },
+      {
+        "title": "Snakebite",
+        "skill": "Brawl",
+        "reach": 3,
+        "damage": 5,
+        "properties": [
+          "property:Venomous"
+        ]
+      }
+    ],
+    "arcane_lore": "The venom of Kerberos' serpent head can be harvested to make a bottle of venom. While Kerberos is chained or asleep, anyone with the Arcane Lore talent who succeeds on a Cool (Survival or Medicine) skill check gains one bottle of venom with the Poison 2 property. With an Action, a character can apply to any weapon. The poison has a single use and can be activated by *invoking the Fates*."
+  },
+  {
+    "title": "Mystery Cultist",
+    "type": "Champion",
+    "description": "The secret practices of cults, especially those centred around funerary practices or Underworld travels, are mostly ceremonial and harmless, often providing ritualistic or diplomatic support within a city. Some take things to another level, however, and are willing to kill those who stand in the way of their goals. The stats here are for Cultists whose mysteries centre on death and the Underworld, but they can easily be adapted to reflect other traditions or themes. Mystery Cultists have the capability to communicate with and command the Shades of those who were not properly buried with the appropriate rites. Some cults might even go so far as to perform different rites over some corpses to trap them into service. They can summon the use of Hungry Shades and pronounce potent curses upon those who defy them.",
+    "source": "Book of Heroes",
+    "category": "Underworld",
+    "tactics": "Mystery Cultists are likely to rely on their Temple Guards and Temple Captains to protect them, but their familiarity with the visceral nature of life and death, as well as the secrecy that surrounds their operations, makes them more willing to defend themselves aggressively with Pronouncement of Doom and Unearthly Summons.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 2,
+      "Cool": 4,
+      "Insight": 4,
+      "Cunning": 3
+    },
+    "skills": {
+      "Awareness": 2,
+      "Diplomacy": 3,
+      "Knowledge": 3,
+      "Lore": 4,
+      "Manipulation": 3,
+      "Medicine": 2,
+      "Melee": 3,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Armour": 0,
+      "Parry": 1,
+      "Shield": 0,
+      "Standing": 2,
+      "Endurance": 4
+    },
+    "abilities": [
+      {
+        "title": "Pronouncement of Doom",
+        "description": "The touch of Thanatos is upon the victim of this curse as the hour of their death draws nearer. The character may use Cunning (Lore) to make a Harm attack upon someone in their presence, with each success inflicting 1 point of Risk on the target, ignoring armour. A target who has the Favour of an Underworld deity or entity reduces this Harm by 1. The Cultist also gains 1 Risk and if they get no successes on the attack, all members of the Cult gain Disfavour (Thanatos), as they tried to command Death himself."
+      },
+      {
+        "title": "Summon Assistance",
+        "description": "*Invoke the Fates* to take an Action that summons 4 Minions, mortal guards or Hungry Shades, who arrive immediately and go next in the initiative."
+      }
+    ],
+    "attacks": [
+      "weapon:Makhaira",
+      {
+        "title": "Pronouncement of Doom",
+        "skill": "Lore",
+        "range": "Medium",
+        "damage": 0,
+        "properties": [
+          "property:Cunning"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Oneiroi",
+    "type": "Minion",
+    "description": "The beings that follow Hypnos and weave dreams through the minds of sleeping mortals, the Oneiroi are playful beings that cluster around Hypnos’ Cave and the edges of the lands of dreams, weaving their illusions into nightmares.",
+    "source": "Book of Heroes",
+    "category": "Underworld",
+    "tactics": "The Oneiroi are mischievous rather than aggressive, easily bored but not likely to stay in the fight if things become too dangerous for them. They can be driven off, or if the heroes amuse them, helpful to the extent that such fickle entities can be relied upon.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 4,
+      "Cunning": 3
+    },
+    "skills": {
+      "Awareness": 2,
+      "Brawl": 2,
+      "Diplomacy": 1,
+      "Knowledge": 2,
+      "Manipulation": 5,
+      "Perform": 4
+    },
+    "attributes": {
+      "Armour": 0,
+      "Dodge": 2,
+      "Endurance": 2
+    },
+    "abilities": [
+      {
+        "title": "Sweet Dreams",
+        "description": "As an Action the character may make an Insight (Manipulation) skill check. If successful, one other character in the scene becomes overwhelmed by a dreamworld and cannot act in the real one until they make a Cool (Knowledge) skill check at Difficulty 1."
+      },
+      {
+        "title": "Nightmare",
+        "description": "As an Action the character may make a Cunning (Manipulation) skill check. If successful, one other character in the scene increases their Risk by 2 and takes a -1D penalty on all actions as they are beset by horribly convincing nightmares."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Claws",
+        "skill": "Brawl",
+        "reach": 1,
+        "damage": 2,
+        "properties": [
+          "property:Insight"
+        ]
+      }
+    ]
+  }
+]
