@@ -31,24 +31,26 @@
 			<div v-if="hasPackage" class="my-8">
 				<h3>Characteristics</h3>
 
-				<div class="mb-2">
-					<span
-						v-for="(value, idx) in selectedPackage.values"
-						:key="`values_${idx}`"
-						class="mr-2"
-					>
-						<tag-view>{{value}}</tag-view>
-					</span>
-				</div>
-
 				<div class="grid grid-cols-5 gap-2">
 					<div
-						v-for="(characteristic, idx) in characteristics"
+						v-for="(ch, idx) in characteristics"
 						:key="`charcteristic_${idx}`"
 						class="border border-gray-200 rounded-md shadow-md"
 					>
-						<stat-view :label="characteristic">
-							<strong class="text-xl pt-4 pb-3 block">{{ character.characteristics[characteristic] }}</strong>
+						<stat-view :label="ch">
+							<span
+								v-for="(value, jdx) in selectedPackage.values"
+								:key="`charcteristic_${idx}_values_${jdx}`"
+								class="mt-4 mr-2"
+								:class="{
+									'cursor-pointer': canClick(ch, jdx),
+									'cursor-not-allowed': !canClick(ch, jdx),
+								}"
+								@click="toggleCharacteristic(ch, jdx)"
+							>
+								<tag-view :type="getValueLabel(ch, jdx)">{{value}}</tag-view>
+							</span>
+							<strong class="text-xl pt-4 pb-3 block">{{ character.characteristics[ch] }}</strong>
 						</stat-view>
 					</div>
 				</div>
@@ -66,11 +68,22 @@
 <script>
 
 import { hasDivineHeritage } from '~/utils/character'
-import { CHARACTERISTICS, CHARACTERISTIC_MIN, CHARACTERISTIC_MAX } from '~/utils/config'
+import {
+	CHARACTERISTICS,
+	CHARACTERISTIC_MIN,
+	CHARACTERISTIC_MAX,
+	CHARACTERISTIC_START
+} from '~/utils/config'
 
 // choose a characteristic package
 // assign allotted points to characteristics
 // add any bonus from parentage
+
+const SELECTED_BY_SELF = 1
+const SELECTED_BY_OTHER = 2
+const NOT_SELECTED = 3
+const NOT_SELECTED_BUT_HAS_CHOSEN_ANOTHER = 4
+
 
 export default {
 	name: 'CharacterBackgroundPage',
@@ -95,6 +108,7 @@ console.log(this.character)
 	data() {
 		return {
 			character: null,
+			selectedValues: {},
 		}
 	},
 
@@ -135,6 +149,59 @@ console.log(this.character)
 			const obj = this.$characteristics.byTitle(title)
 
 			this.character.cp -= obj.cost
+			this.selectedValues = {}
+
+			// reset characteristics to starting values
+			Object.keys(this.character.characteristics).forEach(ch => this.character.characteristics[ch] = CHARACTERISTIC_START)
+		},
+
+		canClick(ch, valueIndex) {
+			const state = this.getValueState(ch, valueIndex)
+
+			if(state === SELECTED_BY_SELF) return true
+			if(state === SELECTED_BY_OTHER) return false
+			if(state === NOT_SELECTED_BUT_HAS_CHOSEN_ANOTHER) return false
+
+			return true
+		},
+
+		getValueLabel(ch, valueIndex) {
+			const state = this.getValueState(ch, valueIndex)			
+
+			if(state === SELECTED_BY_SELF) return 'success'
+			if(state === SELECTED_BY_OTHER) return ''
+			if(state === NOT_SELECTED_BUT_HAS_CHOSEN_ANOTHER) return ''
+
+			return 'info'
+		},
+
+		getValueState(ch, valueIndex) {
+			// the valueIndex has been selected and it's by this characteristic
+			if(valueIndex in this.selectedValues && this.selectedValues[valueIndex] === ch) return SELECTED_BY_SELF
+
+			// the valueIndex has been selected by a different characteristic
+			if(valueIndex in this.selectedValues) return SELECTED_BY_OTHER
+
+			// the valueIndex hasn't been selected but this characteristic has selected something
+			if(Object.values(this.selectedValues).filter(v => v === ch).length > 0) return NOT_SELECTED_BUT_HAS_CHOSEN_ANOTHER
+
+			// the valueIndex has not been selected
+			return NOT_SELECTED
+		},
+
+		toggleCharacteristic(ch, valueIndex) {
+			if(!this.canClick(ch, valueIndex)) return
+
+			const value = this.selectedPackage.values[valueIndex]
+
+			if(valueIndex in this.selectedValues) {
+				this.character.characteristics[ch] = CHARACTERISTIC_START
+				delete this.selectedValues[valueIndex]
+			}
+			else {
+				this.character.characteristics[ch] = value
+				this.selectedValues[valueIndex] = ch
+			}
 		},
 
 		async save(done) {
