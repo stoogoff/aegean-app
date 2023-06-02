@@ -1,0 +1,26 @@
+[
+	{
+		"title": "Legendary",
+		"description": "- One characteristic starts at 4\n- Two characteristics start at 3\n- Remaining characteristics start at 2",
+		"cost": 5,
+		"values": [4, 3, 3]
+	},
+	{
+		"title": "Heroic",
+		"description": "- Three characteristics start at 3\n- Remaining characteristics start at 2",
+		"cost": 3,
+		"values": [3, 3, 3]
+	},
+	{
+		"title": "Strong",
+		"description": "- Two characteristics start at 3\n- Remaining characteristics start at 2",
+		"cost": 2,
+		"values": [3, 3]
+	},
+	{
+		"title": "Average",
+		"description": "- All characteristics start at 2",
+		"cost": 0,
+		"values": []
+	}
+]

@@ -1,11 +1,13 @@
 <template>
 	<div>
-		<h1>{{ adversary.title }}</h1>
-		<div>
-			<tag-view type="success">{{ adversary.type }}</tag-view>
-			<tag-view type="warning">{{ adversary.category }}</tag-view>
-			<tag-view type="info">{{ adversary.source }}</tag-view>
-		</div>
+		<h1 class="text-xl text-left mx-0 mb-4 tracking-wide border-b border-black py-0 flex">
+			<div class="flex-grow">{{ adversary.title }}</div>
+			<div class="hidden md:block">
+				<tag-view type="success">{{ adversary.type }}</tag-view>
+				<tag-view type="warning">{{ adversary.category }}</tag-view>
+				<tag-view type="info">{{ adversary.source }}</tag-view>
+			</div>
+		</h1>
 		<render-markdown :content="adversary.description" />
 		<render-markdown v-if="hasTactics" :content="`**Tactics:** ${adversary.tactics}`" />
 		<stat-block title="Characteristics" :stats="adversary.characteristics" />

@@ -27,7 +27,6 @@
 <script>
 export default {
 	name: 'CharacterNewPage',
-	layout: 'full-width',
 
 	methods: {
 		async create(suffix) {

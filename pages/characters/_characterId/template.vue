@@ -17,7 +17,6 @@
 <script>
 export default {
 	name: 'CharacterBackgroundPage',
-	layout: 'full-width',
 
 	async fetch() {
 		const { params } = this.$nuxt.context

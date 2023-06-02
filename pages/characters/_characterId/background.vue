@@ -2,7 +2,7 @@
 	<div class="secondary-navigation">
 		<character-progress :character="character" v-if="character" />
 		<article>
-			<!-- markdown-content content="characters/background" / -->
+			<markdown-content content="characters/background" />
 			<accordion-group v-if="character">
 				<accordion-item
 					v-for="(background, idx) in backgrounds"
@@ -10,13 +10,16 @@
 					:checked="character.background === background.title"
 				>
 					<template #trigger>
-						<strong class="text-xl">{{ background.title }}</strong>
+						<div>
+							<strong class="text-xl">{{ background.title }}</strong>
+							<small>({{ background.cost }} CP)</small>
+						</div>
 					</template>
 					<template #content>
 						<div class="grid grid-cols-3 mb-4">
-							<stat-view label="Standing" :value="background.standing" />
-							<stat-view label="Skills" :value="join(background.skills, ', ')" />
-							<stat-view label="CP" :value="background.cost" />
+							<stat-view label="Standing">{{ background.standing }}</stat-view>
+							<stat-view label="Skills">{{ join(background.skills, ', ') }}</stat-view>
+							<stat-view label="CP">{{ background.cost }}</stat-view>
 						</div>
 						<p>{{ background.description }}</p>
 						<radio-action
@@ -32,7 +35,7 @@
 			</accordion-group>
 			<step-buttons
 				v-if="character"
-				:next="`/characters/${character._id}/`"
+				:next="`/characters/${character._id}/characteristics`"
 				:previous="`/characters/${character._id}/heritage`"
 				:disabled="!hasSelected"
 				@click="save"
@@ -42,10 +45,10 @@
 </template>
 <script>
 import { join } from '~/utils/list'
+import { addSkills, removeSkills } from '~/utils/character'
 
 export default {
 	name: 'CharacterBackgroundPage',
-	layout: 'full-width',
 
 	async fetch() {
 		const { params } = this.$nuxt.context
@@ -54,14 +57,15 @@ export default {
 
 		this.$watch('character.background', (newValue, oldValue) => {
 			if(oldValue !== null && oldValue !== undefined) {
-				this.removeSkills(oldValue)
+				this.removeBackground(oldValue)
 			}
 
 			if(newValue !== null && newValue !== undefined) {
-				this.addSkills(newValue)
+				this.addBackground(newValue)
 			}
 		})
 	},
+	fetchOnServer: false,
 
 	data() {
 		return {
@@ -71,7 +75,7 @@ export default {
 
 	computed: {
 		backgrounds() {
-			return this.$static.backgrounds()
+			return this.$backgrounds.all()
 		},
 
 		hasSelected() {
@@ -84,28 +88,22 @@ export default {
 			return join(joiner)(arr)
 		},
 
-		findByTitle(list, title) {
-			return list.find(item => item.title === title)
+		removeBackground(title) {
+			const obj = this.$backgrounds.byTitle(title)
+
+			removeSkills(obj.skills, this.character)
+			this.character.cp += obj.cost
 		},
 
-		removeSkills(title) {
-			const obj = this.findByTitle(this.backgrounds, title)
+		addBackground(title) {
+			const obj = this.$backgrounds.byTitle(title)
 
-			obj.skills.forEach(skill =>
-				this.character.skills[skill] = Math.max(this.character.skills[skill] - 1, 0)
-			)
-		},
-
-		addSkills(title) {
-			const obj = this.findByTitle(this.backgrounds, title)
-
-			obj.skills.forEach(skill =>
-				this.character.skills[skill] += 1
-			)
+			addSkills(obj.skills, this.character)
+			this.character.cp -= obj.cost
 		},
 
 		async save(done) {
-			await character.save(this.character)
+			await this.$characters.save(this.character)
 			done()
 		},
 	},

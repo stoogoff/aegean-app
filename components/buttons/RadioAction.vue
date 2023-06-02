@@ -1,7 +1,10 @@
 <template>
-	<button :class="classList" :disabled="disabled" @click="toggle">
-		<slot />
-	</button>
+	<we-button-action :block="block" :outlined="outlined" :disabled="disabled" @click="toggle">
+		<div class="flex">
+			<span class="flex-grow-0"><we-icon-view :icon="icon" /></span>
+			<span class="flex-grow"><slot /></span>
+		</div>
+	</we-button-action>
 </template>
 <script>
 import Vue from 'vue'
@@ -30,31 +33,6 @@ export default Vue.component('RadioAction', {
 	},
 
 	computed: {
-		classList() {
-			let classList = ['btn']
-
-			if(this.block === true) {
-				classList.push('block w-full')
-			}
-
-			if(this.outlined) {
-				classList.push('outlined')
-			}
-
-			if(this.disabled === true) {
-				classList.push('disabled')
-			}
-			else {
-				classList.push('enabled')
-				
-				if(this.isChecked) {
-					classList.push('success')
-				}
-			}
-
-			return classList.join(' ')
-		},
-
 		isChecked() {
 			return this.value === this.data
 		},

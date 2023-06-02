@@ -1,5 +1,5 @@
 <template>
-	<ul class="card mb-4">
+	<ul class="relative bg-white border border-gray-200 rounded-md shadow-md mb-4">
 		<slot />
 	</ul>
 </template>

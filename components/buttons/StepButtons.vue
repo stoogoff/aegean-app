@@ -1,7 +1,7 @@
 <template>
-	<div class="flex">
+	<div class="btn-group">
 		<we-button-action outlined block @click="previousClick" v-if="previous">Previous</we-button-action>
-		<link-action block outlined :to="exit" v-else>Exit</link-action>
+		<we-link-action block outlined :to="exit" v-else>Exit</we-link-action>
 		<we-button-action block type="primary" :disabled="disabled" @click="nextClick">{{ label }}</we-button-action>
 	</div>
 </template>

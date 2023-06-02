@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<message-view v-if="hasText">{{ text }}</message-view>
-		<we-responsive-debug />
+		<!-- we-responsive-debug / -->
 	</div>
 </template>
 <script>

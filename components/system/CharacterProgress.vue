@@ -10,9 +10,19 @@
 			<div>
 				<we-link-action
 					small
+					outline
 					:to="`/characters/${character._id}/heritage`"
 				>Edit</we-link-action>
 			</div>
+		</section>
+		<section v-if="hasCharacteristics">
+			<div><strong>Characterisics</strong></div>
+			<definition-term
+				v-for="(value, key) in character.characteristics"
+				:definition="key"
+				:term="value"
+				:key="key"
+			/>
 		</section>
 		<section v-if="hasSkills">
 			<div><strong>Skills</strong></div>
@@ -28,7 +38,7 @@
 </template>
 <script>
 import Vue from 'vue'
-import { STARTING_CREATION_POINTS } from '~/utils/config'
+import { STARTING_CREATION_POINTS, CHARACTERISTIC_START, SKILL_MIN } from '~/utils/config'
 
 export default Vue.component('CharacterProgress', {
 	props: {
@@ -39,16 +49,16 @@ export default Vue.component('CharacterProgress', {
 	},
 
 	computed: {
-		remainingCreationPoints() {
-			return 1
-		},
-
 		startingCreationPoints() {
 			return STARTING_CREATION_POINTS
 		},
 
 		hasSkills() {
-			return Object.values(this.character.skills).filter(skill => skill > 0).length > 0
+			return Object.values(this.character.skills).filter(skill => skill > SKILL_MIN).length > 0
+		},
+
+		hasCharacteristics() {
+			return Object.values(this.character.characteristics).filter(ch => ch > CHARACTERISTIC_START).length > 0
 		},
 	},
 })

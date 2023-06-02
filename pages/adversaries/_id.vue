@@ -5,15 +5,14 @@
 			<small>Showing {{ filtered.length }} of {{ adversaries.length }}</small>
 			<adversary-link v-for="adv in filtered" :key="adv.id" :adversary="adv" />
 		</aside>
-		<article>
+		<article class="mt">
 			<we-loading-spinner v-if="$fetchState.pending" />
 			<div v-else-if="adversary === null">
 				Adversary not found.
 			</div>
-			<adversary-view
-				v-else
-				:adversary="adversary"
-			/>
+			<div v-else>
+				<adversary-view :adversary="adversary" />
+			</div>
 		</article>
 	</div>
 </template>
@@ -22,7 +21,6 @@ import { meta, title, url } from '~/utils/meta'
 
 export default {
 	name: 'AdversaryPage',
-	layout: 'full-width',
 
 	async fetch() {
 		const { params } = this.$nuxt.context

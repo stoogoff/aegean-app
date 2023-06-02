@@ -88,3 +88,8 @@ export default {
 	},
 }
 </script>
+<style scoped>
+h3 {
+	@apply mt-4 mb-1;
+}
+</style>

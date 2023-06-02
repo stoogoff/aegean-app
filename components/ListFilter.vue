@@ -1,7 +1,7 @@
 <template>
 	<text-input :label="label" v-model="filter" @append="clear" >
 		<template #append>
-			<icon-view icon="close" />
+			<span @click="clear()"><icon-view icon="close" /></span>
 		</template>
 	</text-input>
 </template>

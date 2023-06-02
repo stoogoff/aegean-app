@@ -2,7 +2,7 @@
 	<div class="secondary-navigation">
 		<character-progress :character="character" v-if="character" />
 		<article>
-			<!--markdown-content content="characters/heritage" /-->
+			<markdown-content content="characters/heritage" />
 			<accordion-group v-if="character">
 				<accordion-item
 					v-for="(heritage, idx) in heritages"
@@ -10,13 +10,16 @@
 					:checked="character.heritage === heritage.title"
 				>
 					<template #trigger>
-						<strong class="text-xl">{{ heritage.title }}</strong>
+						<div>
+							<strong class="text-lg">{{ heritage.title }}</strong>
+							<small>({{ heritage.cost }} CP)</small>
+						</div>
 					</template>
 					<template #content>
 						<div class="grid grid-cols-3 mb-4">
-							<stat-view label="Endurance" :value="heritage.endurance" />
-							<stat-view label="Glory" :value="heritage.glory" />
-							<stat-view label="CP" :value="heritage.cost" />
+							<stat-view label="Endurance"> {{ heritage.endurance }}</stat-view>
+							<stat-view label="Glory"> {{ heritage.glory }}</stat-view>
+							<stat-view label="CP"> {{ heritage.cost }}</stat-view>
 						</div>
 						<p>{{ heritage.description }}</p>
 						<radio-action
@@ -30,7 +33,7 @@
 					</template>
 				</accordion-item>
 			</accordion-group>
-			<div v-if="isDivineHeritage">
+			<div v-if="hasDivineHeritage" class="mt-8">
 				<h3>Divine Parent</h3>
 				<p>Choose your divine parent from those below.</p>
 				<accordion-group>
@@ -40,7 +43,7 @@
 						:checked="character.parent === parent.title"
 					>
 						<template #trigger>
-							<strong class="text-xl">{{ parent.title }}</strong>
+							<strong class="text-lg">{{ parent.title }}</strong>
 						</template>
 						<template #content>
 							<div class="flex my-4">
@@ -58,12 +61,9 @@
 								</info-button>
 							</div>
 							<div class="grid grid-cols-3 mb-4">
-								<stat-view label="Skills" :value="join(parent.skills, ', ')" />
-								<stat-view label="Specialisation" :value="parent.specialisation" />
-								<stat-view
-									label="Characteristics"
-									:value="join(parent.characteristics, ', and ')"
-								/>
+								<stat-view label="Skills">{{ join(parent.skills, ', ') }}</stat-view>
+								<stat-view label="Specialisation">{{ parent.specialisation }}</stat-view>
+								<stat-view label="Characteristics">{{ join(parent.characteristics, ', and ') }}</stat-view>
 							</div>
 							<p>{{ parent.description }}</p>
 							<radio-action
@@ -91,6 +91,12 @@
 <script>
 import { data } from '~/state'
 import { join } from '~/utils/list'
+import { HERITAGE_MORTAL, HERITAGE_DIVINE } from '~/utils/config'
+import {
+	addSkills, removeSkills,
+	addCharacteristics, removeCharacteristics,
+	hasDivineHeritage
+} from '~/utils/character'
 
 // choose heritage:
 // 1. mortal
@@ -104,59 +110,64 @@ import { join } from '~/utils/list'
 
 export default {
 	name: 'CharacterHeritagePage',
-	layout: 'full-width',
 
 	async fetch() {
 		const { params } = this.$nuxt.context
 
 		this.character = await this.$characters.byId(params.characterId)
-		this.startingCP = this.character.cp
 
 		// setup watchers here so they're not applied when the character is set
 		this.$watch('character.heritage', (newValue, oldValue) => {
-			if(oldValue === 'Divine' && newValue === 'Mortal') {
+			const divine = this.$heritages.byTitle(HERITAGE_DIVINE)
+
+			if(oldValue === HERITAGE_DIVINE || newValue === HERITAGE_MORTAL) {
 				this.character.parent = null
+				this.character.cp += divine.cost
+			}
+
+			if(oldValue === HERITAGE_MORTAL || newValue === HERITAGE_DIVINE) {
+				this.character.cp -= divine.cost
 			}
 		})
 
 		this.$watch('character.parent', (newValue, oldValue) => {
 			if(oldValue !== null && oldValue !== undefined) {
-				this.removeSkills(oldValue)
+				this.removeParent(oldValue)
 			}
 
 			if(newValue !== null && newValue !== undefined) {
-				this.addSkills(newValue)
+				this.addParent(newValue)
 			}
 		})
 	},
+	fetchOnServer: false,
 
 	data() {
 		return {
 			character: null,
-			startingCP: 0,
 		}
 	},
 
 	computed: {
 		heritages() {
-			return this.$static.heritages()
+			return this.$heritages.all()
 		},
 
 		divinities() {
-			return this.$static.divinities()
+			return this.$divinities.all()
 		},
 
-		isDivineHeritage() {
-			return this.character && this.character.heritage === 'Divine'
+		hasDivineHeritage() {
+			return hasDivineHeritage(this.character)
 		},
 
 		isMortalHeritage() {
-			return this.character && this.character.heritage === 'Mortal'
+			return this.character && this.character.heritage === HERITAGE_MORTAL
 		},
 
 		hasSelected() {
 			if(this.isMortalHeritage) return true
-			if(this.isDivineHeritage && this.character.parent !== null) return true
+			if(this.hasDivineHeritage && this.character.parent !== null) return true
 
 			return false
 		},
@@ -167,32 +178,26 @@ export default {
 			return join(joiner)(arr)
 		},
 
-		findByTitle(list, title) {
-			return list.find(item => item.title === title)
+		removeParent(title) {
+			const obj = this.$divinities.byTitle(title)
+
+			removeSkills(obj.skills, this.character)
+			removeCharacteristics(obj.characteristics, this.character)
 		},
 
-		removeSkills(title) {
-			const obj = this.findByTitle(this.divinities, title)
+		addParent(title) {
+			const obj = this.$divinities.byTitle(title)
 
-			obj.skills.forEach(skill =>
-				this.character.skills[skill] = Math.max(this.character.skills[skill] - 1, 0)
-			)
-		},
-
-		addSkills(title) {
-			const obj = this.findByTitle(this.divinities, title)
-
-			obj.skills.forEach(skill =>
-				this.character.skills[skill] += 1
-			)
+			addSkills(obj.skills, this.character)
+			addCharacteristics(obj.characteristics, this.character)
 		},
 
 		getGift(title) {
-			return this.$static.getGiftByTitle(title)
+			return this.$gifts.byTitle(title)
 		},
 
 		async save(done) {
-			await character.save(this.character)
+			await this.$characters.save(this.character)
 			done()
 		},
 	}
