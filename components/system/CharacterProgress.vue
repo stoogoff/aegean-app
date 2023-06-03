@@ -18,7 +18,7 @@
 		<section v-if="hasCharacteristics">
 			<div><strong>Characterisics</strong></div>
 			<definition-term
-				v-for="(value, key) in character.characteristics"
+				v-for="(value, key) in characteristics"
 				:definition="key"
 				:term="value"
 				:key="key"
@@ -38,7 +38,8 @@
 </template>
 <script>
 import Vue from 'vue'
-import { STARTING_CREATION_POINTS, CHARACTERISTIC_START, SKILL_MIN } from '~/utils/config'
+import { hasDivineHeritage, addCharacteristics } from '~/utils/character'
+import { STARTING_CREATION_POINTS, CHARACTERISTIC_MIN, SKILL_MIN } from '~/utils/config'
 
 export default Vue.component('CharacterProgress', {
 	props: {
@@ -58,7 +59,22 @@ export default Vue.component('CharacterProgress', {
 		},
 
 		hasCharacteristics() {
-			return Object.values(this.character.characteristics).filter(ch => ch > CHARACTERISTIC_START).length > 0
+			return Object.values(this.character.characteristics).filter(ch => ch > CHARACTERISTIC_MIN).length > 0
+		},
+
+		characteristics() {
+			// get the character's characteristics and apply any divine bonus to them
+			if(hasDivineHeritage(this.character)) {
+				const parent = this.$divinities.byTitle(this.character.parent)
+				const clone = {}
+
+				clone.characteristics = { ...this.character.characteristics }
+				addCharacteristics(parent.characteristics, clone)
+
+				return clone.characteristics
+			}
+
+			return this.character.characteristics
 		},
 	},
 })

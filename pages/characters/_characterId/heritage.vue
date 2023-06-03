@@ -92,11 +92,7 @@
 import { data } from '~/state'
 import { join } from '~/utils/list'
 import { HERITAGE_MORTAL, HERITAGE_DIVINE } from '~/utils/config'
-import {
-	addSkills, removeSkills,
-	addCharacteristics, removeCharacteristics,
-	hasDivineHeritage
-} from '~/utils/character'
+import { addSkills, removeSkills, hasDivineHeritage } from '~/utils/character'
 
 // choose heritage:
 // 1. mortal
@@ -105,8 +101,8 @@ import {
 // 		3 skills
 // 		1 characteristic
 // 		1 specialisation
-// 		choose 1 of 3 gifts
-// with a variation for Zeus
+// 		choose 1 of 3 gifts TODO
+// with a variation for Zeus TODO
 
 export default {
 	name: 'CharacterHeritagePage',
@@ -120,12 +116,12 @@ export default {
 		this.$watch('character.heritage', (newValue, oldValue) => {
 			const divine = this.$heritages.byTitle(HERITAGE_DIVINE)
 
-			if(oldValue === HERITAGE_DIVINE || newValue === HERITAGE_MORTAL) {
+			if(oldValue === HERITAGE_DIVINE) {
 				this.character.parent = null
 				this.character.cp += divine.cost
 			}
 
-			if(oldValue === HERITAGE_MORTAL || newValue === HERITAGE_DIVINE) {
+			if(newValue === HERITAGE_DIVINE) {
 				this.character.cp -= divine.cost
 			}
 		})
@@ -182,14 +178,12 @@ export default {
 			const obj = this.$divinities.byTitle(title)
 
 			removeSkills(obj.skills, this.character)
-			removeCharacteristics(obj.characteristics, this.character)
 		},
 
 		addParent(title) {
 			const obj = this.$divinities.byTitle(title)
 
 			addSkills(obj.skills, this.character)
-			addCharacteristics(obj.characteristics, this.character)
 		},
 
 		getGift(title) {

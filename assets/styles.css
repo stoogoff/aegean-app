@@ -114,20 +114,28 @@ ol.list {
 .btn-group .btn:first-child {
 	@apply rounded-l-md;
 }
-
 .btn-group .btn:last-child {
 	@apply rounded-r-md;
 }
 
-/* tags */
+/* colouring, applies to buttons and tags */
 .tag.success {
-	@apply bg-green-800 text-white;
+	@apply bg-green-200 text-green-900;
 }
 .tag.info {
-	@apply bg-blue-800 text-white;
+	@apply bg-blue-200 text-blue-900;
 }
 .tag.warning {
-	@apply bg-red-800 text-white;
+	@apply bg-red-200 text-red-900;
+}
+.btn.success {
+	@apply bg-green-200 text-green-900 hover:bg-green-800 hover:text-green-100;
+}
+.btn.info {
+	@apply bg-blue-200 text-blue-900 hover:bg-blue-800 hover:text-blue-100;
+}
+.btn.warning {
+	@apply bg-red-200 text-red-900 hover:bg-red-800 hover:text-red-100;
 }
 
 /* tabs */

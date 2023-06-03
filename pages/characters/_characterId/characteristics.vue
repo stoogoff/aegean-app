@@ -28,29 +28,32 @@
 					</template>
 				</accordion-item>
 			</accordion-group>
-			<div v-if="hasPackage" class="my-8">
+			<div v-if="mustChooseCharacteristics" class="my-8">
 				<h3>Characteristics</h3>
-
-				<div class="grid grid-cols-5 gap-2">
+				<p>Use the buttons by each characteristic to choose its value. If your character has divine heritage the bonus is noted next to the value and will be applied later.</p>
+				<div class="grid grid-cols-2 md:grid-cols-5 gap-2">
 					<div
 						v-for="(ch, idx) in characteristics"
 						:key="`charcteristic_${idx}`"
 						class="border border-gray-200 rounded-md shadow-md"
 					>
 						<stat-view :label="ch">
-							<span
-								v-for="(value, jdx) in selectedPackage.values"
-								:key="`charcteristic_${idx}_values_${jdx}`"
-								class="mt-4 mr-2"
-								:class="{
-									'cursor-pointer': canClick(ch, jdx),
-									'cursor-not-allowed': !canClick(ch, jdx),
-								}"
-								@click="toggleCharacteristic(ch, jdx)"
-							>
-								<tag-view :type="getValueLabel(ch, jdx)">{{value}}</tag-view>
-							</span>
-							<strong class="text-xl pt-4 pb-3 block">{{ character.characteristics[ch] }}</strong>
+							<div class="btn-group">
+								<we-button-action
+									v-for="(value, jdx) in selectedPackage.values"
+									:key="`charcteristic_${idx}_values_${jdx}`"
+									:disabled="!canClick(ch, jdx)"
+									small
+									:type="getValueLabel(ch, jdx)"
+									@click="toggleCharacteristic(ch, jdx)"
+								>
+									{{value}}
+								</we-button-action>
+							</div>
+							<strong class="text-xl pt-4 pb-3 block">
+								{{ character.characteristics[ch] }}
+								<span v-if="hasDivineHeritageBonus(ch)">+ {{ divineHeritageBonus(ch) }}</span>
+							</strong>
 						</stat-view>
 					</div>
 				</div>
@@ -67,7 +70,7 @@
 </template>
 <script>
 
-import { hasDivineHeritage } from '~/utils/character'
+import { hasDivineHeritage, addCharacteristics } from '~/utils/character'
 import {
 	CHARACTERISTICS,
 	CHARACTERISTIC_MIN,
@@ -92,7 +95,7 @@ export default {
 		const { params } = this.$nuxt.context
 
 		this.character = await this.$characters.byId(params.characterId)
-console.log(this.character)
+
 		this.$watch('character.characteristicPackage', (newValue, oldValue) => {
 			if(oldValue !== null && oldValue !== undefined) {
 				this.removePackage(oldValue)
@@ -121,28 +124,43 @@ console.log(this.character)
 			return CHARACTERISTICS
 		},
 
-		hasDivineHeritage() {
-			return hasDivineHeritage(this.character)
-		},
-
 		selectedPackage() {
 			return this.$characteristics.byTitle(this.character.characteristicPackage)
 		},
 
 		hasPackage() {
-			return this.character && !!this.character.characteristicPackage && this.character.characteristicPackage !== 'Average'
+			return this.character && !!this.character.characteristicPackage
+		},
+
+		mustChooseCharacteristics() {
+			return this.hasPackage && this.character.characteristicPackage !== 'Average'
 		},
 
 		hasSelected() {
-			return false
+			return this.hasPackage && Object.keys(this.selectedValues).length === this.selectedPackage.values.length
 		},
 	},
 
 	methods: {
+		hasDivineHeritageBonus(ch) {
+			return this.divineHeritageBonus(ch) > 0
+		},
+
+		divineHeritageBonus(ch) {
+			if(!hasDivineHeritage(this.character)) return 0
+
+			const obj = this.$divinities.byTitle(this.character.parent)
+
+			return obj.characteristics.includes(ch) ? 1 : 0
+		},
+
 		removePackage(title) {
 			const obj = this.$characteristics.byTitle(title)
 
 			this.character.cp += obj.cost
+
+			// reset characteristics to minimum value
+			Object.keys(this.character.characteristics).forEach(ch => this.character.characteristics[ch] = CHARACTERISTIC_MIN)
 		},
 
 		addPackage(title) {
@@ -158,21 +176,23 @@ console.log(this.character)
 		canClick(ch, valueIndex) {
 			const state = this.getValueState(ch, valueIndex)
 
-			if(state === SELECTED_BY_SELF) return true
-			if(state === SELECTED_BY_OTHER) return false
-			if(state === NOT_SELECTED_BUT_HAS_CHOSEN_ANOTHER) return false
-
-			return true
+			switch(state) {
+				case SELECTED_BY_SELF: return true
+				case SELECTED_BY_OTHER: return false
+				case NOT_SELECTED_BUT_HAS_CHOSEN_ANOTHER: return false
+				default: return true
+			}
 		},
 
 		getValueLabel(ch, valueIndex) {
 			const state = this.getValueState(ch, valueIndex)			
 
-			if(state === SELECTED_BY_SELF) return 'success'
-			if(state === SELECTED_BY_OTHER) return ''
-			if(state === NOT_SELECTED_BUT_HAS_CHOSEN_ANOTHER) return ''
-
-			return 'info'
+			switch(state) {
+				case SELECTED_BY_SELF: return 'success'
+				case SELECTED_BY_OTHER: return ''
+				case NOT_SELECTED_BUT_HAS_CHOSEN_ANOTHER: return ''
+				default: return 'info'
+			}
 		},
 
 		getValueState(ch, valueIndex) {
@@ -197,10 +217,11 @@ console.log(this.character)
 			if(valueIndex in this.selectedValues) {
 				this.character.characteristics[ch] = CHARACTERISTIC_START
 				delete this.selectedValues[valueIndex]
+				this.selectedValues = { ...this.selectedValues }
 			}
 			else {
 				this.character.characteristics[ch] = value
-				this.selectedValues[valueIndex] = ch
+				this.selectedValues = { ...this.selectedValues, [valueIndex]: ch }
 			}
 		},
 
