@@ -39,11 +39,11 @@ export default Vue.component('InfoButton', {
 			type: Boolean,
 			default: false,
 		},
-		x: {
+		y: {
 			type: String,
 			default: 'bottom',
 		},
-		y: {
+		x: {
 			type: String,
 			default: 'left'
 		}
@@ -58,8 +58,8 @@ export default Vue.component('InfoButton', {
 	computed: {
 		positionClass() {
 			return [
-				this.x === 'bottom' ? 'bottom-12' : 'top-12',
-				this.y === 'left' ? 'left-0' : 'right-0',
+				this.y === 'bottom' ? 'bottom-12' : 'top-12',
+				this.x === 'left' ? 'left-0' : 'right-0',
 			].join(' ')			
 		},
 	},

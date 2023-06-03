@@ -60,7 +60,7 @@
 			</div>
 			<step-buttons
 				v-if="character"
-				:next="`/characters/${character._id}/`"
+				:next="`/characters/${character._id}/careers`"
 				:previous="`/characters/${character._id}/background`"
 				:disabled="!hasSelected"
 				@click="save"
@@ -89,7 +89,7 @@ const NOT_SELECTED_BUT_HAS_CHOSEN_ANOTHER = 4
 
 
 export default {
-	name: 'CharacterBackgroundPage',
+	name: 'CharacterCharacteristicsPage',
 
 	async fetch() {
 		const { params } = this.$nuxt.context

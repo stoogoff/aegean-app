@@ -23,6 +23,7 @@ export default {
 
 		this.character = await this.$characters.byId(params.characterId)
 	},
+	fetchOnServer: false,
 
 	data() {
 		return {

@@ -86,4 +86,6 @@ export const DEFAULT_CHARACTER = {
 	skills: { ...skillMap },
 	gifts: [],
 	talents: [],
+	startingCareer: null,
+	careers: [],
 }

@@ -15,6 +15,10 @@
 				>Edit</we-link-action>
 			</div>
 		</section>
+		<section>
+			<div v-if="character.background"><strong>Background:</strong> {{ character.background }}</div>
+			<div v-if="character.startingCareer"><strong>Career:</strong> {{ character.startingCareer }}</div>
+		</section>
 		<section v-if="hasCharacteristics">
 			<div><strong>Characterisics</strong></div>
 			<definition-term
