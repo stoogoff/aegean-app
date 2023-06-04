@@ -91,7 +91,7 @@
 			</accordion-group>
 			<step-buttons
 				v-if="character"
-				:next="`/characters/${character._id}/`"
+				:next="`/characters/${character._id}/skills`"
 				:previous="`/characters/${character._id}/characteristics`"
 				:disabled="!hasSelected"
 				@click="save"

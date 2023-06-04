@@ -44,6 +44,7 @@ export const CHARACTERISTIC_MAX = 5
 export const CHARACTERISTIC_START = 2
 
 export const SKILL_MIN = 0
+export const SKILL_STARTING_MAX = 3
 export const SKILL_MAX = 5
 
 export const SKILLS = [

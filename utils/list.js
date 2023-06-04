@@ -14,3 +14,5 @@ export const join = (joiner = '') => value => {
 			return copy.join(', ') + joiner + last
 	}
 }
+
+export const sum = (a, b) => a + b
