@@ -34,6 +34,9 @@ h2.meander span {
 h3 {
 	@apply text-xl font-semibold mb-2 uppercase;
 }
+h4 {
+	@apply text-lg font-bold pb-1;
+}
 p {
 	@apply mb-4;
 }

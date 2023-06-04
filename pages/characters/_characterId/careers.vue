@@ -7,16 +7,18 @@
 				<accordion-item
 					v-for="(career, idx) in careers"
 					:key="`career_${idx}`"
-					:checked="character.startingCareer === career.title"
+					:checked="isCareerSelected(career.title)"
 				>
 					<template #trigger>
 						<div>
 							<strong class="text-xl">{{ career.title }}</strong>
+							<small v-if="hasCareer">(3 CP)</small>
 						</div>
 					</template>
 					<template #content>
 						<render-markdown :content="career.description" />
-						<p>If you choose this career you gain the following skills: {{ join(career.skills, ', and ') }}.</p>
+						<p>If you choose this career you gain the following skills:</p>
+						<p>{{ join(career.skills, ', and ') }}.</p>
 						<div class="flex justify-end mb-4">
 							<info-button
 								small outlined
@@ -24,37 +26,66 @@
 							>
 								More Info
 								<template #info>
-									<card-view :title="gift">
+									<card-view>
 										<render-markdown :content="career.choose" />
 										<render-markdown :content="career.works" />
 									</card-view>
 								</template>
 							</info-button>
 						</div>
-						<div>
-							<p>Choose one of the following talents or skill specialisations:</p>
-							<ul>
-								<li
-									v-for
-								>
-
-								</li>
-								<li
-									v-for="(spec, sdx) in career.specialisations"
-									:key="`specialisation_${sdx}`"
-								>
-									{{ spec }}
-								</li>
-							</ul>
-						</div>
-						<radio-action
-							v-model="character.startingCareer"
+						<checkbox-action
+							:value="isCareerSelected(career.title)"
 							:data="career.title"
+							@input="toggleCareer"
 							block
 							outlined
+							:disabled="!canAffordNewCareer && !isCareerSelected(career.title)"
 						>
 							Select
-						</radio-action>
+						</checkbox-action>
+						<div
+							v-if="isCareerSelected(career.title)"
+							class="my-4 py-4 border-t border-gray-300"
+						>
+							<p>Choose one of the following talents or skill specialisations:</p>
+							<h4>Talents</h4>
+							<ul>
+								<radio-list
+									v-for="(talent, tdx) in getCareerStartingTalents(career)"
+									:key="`talent_${tdx}`"
+									v-model="getSelectedCareer(career.title).chosenSpec"
+									:data="talent.title"
+								>
+									<div class="flex">
+										<span class="flex-grow">{{ talent.title }}</span>
+										<span class="flex-grow-0">
+										<info-button
+												small outlined
+												x="right"
+											>
+												More Info
+												<template #info>
+													<card-view :title="talent.title">
+														<render-markdown :content="talent.description" />
+													</card-view>
+												</template>
+											</info-button>
+										</span>
+									</div>
+								</radio-list>
+							</ul>
+							<h4>Specialisations</h4>
+							<ul>
+								<radio-list
+									v-for="(spec, sdx) in career.specialisations"
+									:key="`specialisation_${sdx}`"
+									v-model="getSelectedCareer(career.title).chosenSpec"
+									:data="spec"
+								>
+									{{ spec }}
+								</radio-list>
+							</ul>
+						</div>
 					</template>
 				</accordion-item>
 			</accordion-group>
@@ -72,6 +103,13 @@
 import { join } from '~/utils/list'
 import { addSkills, removeSkills } from '~/utils/character'
 
+// choose a career
+// this adds skills
+// choose a talent or specialisation
+// optionally choose another career at 3CP per additional
+
+const CAREER_COST = 3
+
 export default {
 	name: 'CharacterCareersPage',
 
@@ -79,16 +117,6 @@ export default {
 		const { params } = this.$nuxt.context
 
 		this.character = await this.$characters.byId(params.characterId)
-
-		this.$watch('character.startingCareer', (newValue, oldValue) => {
-			if(oldValue !== null && oldValue !== undefined) {
-				this.removeCareer(oldValue)
-			}
-
-			if(newValue !== null && newValue !== undefined) {
-				this.addCareer(newValue)
-			}
-		})
 	},
 	fetchOnServer: false,
 
@@ -103,8 +131,18 @@ export default {
 			return this.$careers.all()
 		},
 
+		hasCareer() {
+			return this.character && this.character.careers.length > 0
+		},
+
+		canAffordNewCareer() {
+			return this.character.cp >= CAREER_COST
+		},
+
 		hasSelected() {
-			return false
+			return this.character &&
+				this.character.careers.length > 0 &&
+				this.character.careers.map(career => career.chosenSpec).filter(spec => !!spec).length > 0
 		},
 	},
 
@@ -113,27 +151,46 @@ export default {
 			return join(joiner)(arr)
 		},
 
+		toggleCareer(input) {
+			input.value ? this.addCareer(input.data) : this.removeCareer(input.data)
+		},
+
 		addCareer(title) {
 			const obj = this.$careers.byTitle(title)
 
+			// the character has a career already so subsequent careers cost
+			if(this.hasCareer) {
+				this.character.cp -= CAREER_COST
+			}
+
+			this.character.careers = [ ...this.character.careers, {
+				title,
+				chosenSpec: null,
+			}]
 			addSkills(obj.skills, this.character)
 		},
 
 		removeCareer(title) {
 			const obj = this.$careers.byTitle(title)
 
+			if(this.character.careers.length >= 2) {
+				this.character.cp += CAREER_COST
+			}
+
+			this.character.careers = [ ...this.character.careers.filter(career => career.title !== title) ]
 			removeSkills(obj.skills, this.character)
 		},
 
-		getSelectedCareerStartingTalents() {
-			if(!this.character.startingCareer) return []
+		getSelectedCareer(title) {
+			return this.character.careers.find(career => career.title === title)
+		},
 
-			const obj = this.$careers.byTitle(this.character.startingCareer)
-			const talents = obj.tracks.map(track => track.talents[0])
+		getCareerStartingTalents(career) {
+			return career.tracks.map(track => this.$talents.byTitle(track.talents[0]))
+		},
 
-			// TODO load the actual talents
-
-			return talents
+		isCareerSelected(title) {
+			return this.character.careers.map(career => career.title).includes(title)
 		},
 
 		async save(done) {

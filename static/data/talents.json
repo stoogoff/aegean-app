@@ -69,7 +69,7 @@
 	},
 	{
 		"title": "Commander",
-		"description": "As an Action you may make a \*(Diplomacy: Leadership) skill check where * is a characteristic of your choice. A number of allies equal to the successes rolled within Short range may immediately gain 1 Risk to make a free Maneuver."
+		"description": "As an Action you may make a \\*(Diplomacy: Leadership) skill check where * is a characteristic of your choice. A number of allies equal to the successes rolled within Short range may immediately gain 1 Risk to make a free Maneuver."
 	},
 	{
 		"title": "Concentrated Fire",
