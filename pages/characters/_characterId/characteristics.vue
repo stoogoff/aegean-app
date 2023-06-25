@@ -41,7 +41,7 @@
 							<div class="btn-group">
 								<we-button-action
 									v-for="(value, jdx) in selectedPackage.values"
-									:key="`charcteristic_${idx}_values_${jdx}`"
+									:key="`characteristic_${idx}_values_${jdx}`"
 									:disabled="!canClick(ch, jdx)"
 									small
 									:type="getValueLabel(ch, jdx)"
@@ -81,6 +81,8 @@ import {
 // choose a characteristic package
 // assign allotted points to characteristics
 // add any bonus from parentage
+// selectedValues array:
+// [index matching the selectedPackage.values array] = characteristic name
 
 const SELECTED_BY_SELF = 1
 const SELECTED_BY_OTHER = 2
@@ -95,6 +97,25 @@ export default {
 		const { params } = this.$nuxt.context
 
 		this.character = await this.$characters.byId(params.characterId)
+
+		// a characteristic package has been chosen so prefill values
+		if(this.character.characteristicPackage !== null) {
+			// get values from selected package
+			const values = [ ...this.selectedPackage.values ]
+
+			// go through the values in the package
+			Object.keys(this.character.characteristics).forEach(ch => {
+				if(this.character.characteristics[ch] > CHARACTERISTIC_START) {
+					// if there's a match in the characteristics set it
+					const index = values.indexOf(this.character.characteristics[ch])
+
+					if(index !== -1) {
+						this.selectedValues[index] = ch
+						values[index] = 0
+					}
+				}
+			})
+		}
 
 		this.$watch('character.characteristicPackage', (newValue, oldValue) => {
 			if(oldValue !== null && oldValue !== undefined) {
