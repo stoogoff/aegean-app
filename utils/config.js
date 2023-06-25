@@ -85,6 +85,7 @@ export const DEFAULT_CHARACTER = {
 		[STAT_CUNNING]: CHARACTERISTIC_MIN,
 	},
 	skills: { ...skillMap },
+	skillIncreases: { ...skillMap },
 	gifts: [],
 	talents: [],
 	careers: [],

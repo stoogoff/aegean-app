@@ -61,27 +61,33 @@ export default {
 		const { params } = this.$nuxt.context
 
 		this.character = await this.$characters.byId(params.characterId)
-		this.currentSkills = { ...this.character.skills }
 	},
 	fetchOnServer: false,
 
 	data() {
 		return {
 			character: null,
-			currentSkills: {},
 		}
 	},
 
 	computed: {
 		skills() {
-			return SKILLS.map(skill => ({ title: skill, value: this.currentSkills[skill] || 0 }))
+			if(!this.character) return []
+
+			return SKILLS.map(skill => (
+				{
+					title: skill,
+					value: 
+						(this.character.skills[skill] || 0) +
+						(this.character.skillIncreases[skill] || 0)
+				}
+			))
 		},
 
 		skillIncreases() {
 			if(!this.character) return 0
 
-			return Object.values(this.currentSkills).reduce(sum, 0)
-				- Object.values(this.character.skills).reduce(sum, 0)
+			return Object.values(this.character.skillIncreases).reduce(sum, 0)
 		},
 
 		cost() {
@@ -96,7 +102,7 @@ export default {
 	methods: {
 		increaseSkill(skill) {
 			if(this.canIncrease(skill)) {
-				this.currentSkills[skill]++
+				this.character.skillIncreases[skill]++
 
 				if(this.skillIncreases % SKILL_PER_CP === 1) {
 					this.character.cp -= 1
@@ -106,7 +112,7 @@ export default {
 
 		reduceSkill(skill) {
 			if(this.canReduce(skill)) {
-				this.currentSkills[skill]--
+				this.character.skillIncreases[skill]--
 
 				if(this.skillIncreases % SKILL_PER_CP === 0) {
 					this.character.cp += 1
@@ -123,11 +129,12 @@ export default {
 				return false
 			}
 
-			return this.character && this.currentSkills[skill] < SKILL_STARTING_MAX
+			return this.character &&
+				(this.character.skills[skill] + this.character.skillIncreases[skill]) < SKILL_STARTING_MAX
 		},
 
 		canReduce(skill) {
-			return this.character && this.currentSkills[skill] > this.character.skills[skill]
+			return this.character && this.character.skillIncreases[skill] > 0
 		},
 
 		async save(done) {

@@ -25,7 +25,7 @@
 		<section v-if="hasSkills">
 			<h4>Skills</h4>
 			<definition-term
-				v-for="(value, key) in character.skills"
+				v-for="(value, key) in skills"
 				v-if="value > 0"
 				:definition="key"
 				:term="value"
@@ -92,6 +92,16 @@ export default Vue.component('CharacterProgress', {
 
 		hasSkills() {
 			return Object.values(this.character.skills).filter(skill => skill > SKILL_MIN).length > 0
+		},
+
+		skills() {
+			const skills = {}
+
+			Object.keys(this.character.skills).forEach(sk => {
+				skills[sk] = (this.character.skills[sk] || 0) + (this.character.skillIncreases[sk] || 0)
+			})
+
+			return skills
 		},
 
 		hasCareer() {
