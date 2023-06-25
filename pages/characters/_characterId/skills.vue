@@ -52,6 +52,8 @@
 import { SKILLS, SKILL_STARTING_MAX } from '~/utils/config'
 import { sum } from '~/utils/list'
 
+const SKILL_PER_CP = 3
+
 export default {
 	name: 'CharacterSkillsPage',
 
@@ -83,7 +85,7 @@ export default {
 		},
 
 		cost() {
-			return Math.ceil(this.skillIncreases / 3)
+			return Math.ceil(this.skillIncreases / SKILL_PER_CP)
 		},
 
 		hasSelected() {
@@ -95,16 +97,32 @@ export default {
 		increaseSkill(skill) {
 			if(this.canIncrease(skill)) {
 				this.currentSkills[skill]++
+
+				if(this.skillIncreases % SKILL_PER_CP === 1) {
+					this.character.cp -= 1
+				}
 			}
 		},
 
 		reduceSkill(skill) {
 			if(this.canReduce(skill)) {
 				this.currentSkills[skill]--
+
+				if(this.skillIncreases % SKILL_PER_CP === 0) {
+					this.character.cp += 1
+				}
 			}
 		},
 
 		canIncrease(skill) {
+			if(
+				this.character &&
+				this.character.cp - 1 < 0 &&
+				this.skillIncreases % SKILL_PER_CP === 0
+			) {
+				return false
+			}
+
 			return this.character && this.currentSkills[skill] < SKILL_STARTING_MAX
 		},
 
