@@ -4,7 +4,9 @@ import heritages from '~/static/data/chargen/heritages.json'
 import divinities from '~/static/data/chargen/divinities.json'
 import backgrounds from '~/static/data/chargen/backgrounds.json'
 import characteristics from '~/static/data/chargen/characteristics.json'
+import advantages from '~/static/data/chargen/advantages.json'
 import careers from '~/static/data/chargen/careers.json'
+
 import gifts from '~/static/data/gifts.json'
 import talents from '~/static/data/talents.json'
 
@@ -22,5 +24,6 @@ export default () => {
 		careers: new Data(careers),
 		talents: new Data(talents),
 		gifts: new Data(gifts),
+		advantages: new Data(advantages),
 	}
 }
