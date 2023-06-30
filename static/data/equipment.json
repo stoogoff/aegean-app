@@ -1,0 +1,78 @@
+[
+	{
+		"title": "Breastplate",
+		"category": "Armour",
+		"availability": "Uncommon",
+		"price": 4,
+		"weight": 1,
+		"description": "A breastplate is made of two bronze pieces covering the front and back of the torso. It is heavy and somewhat inflexible but provides excellent protection against all types of weapons. Leather or linen covers the shoulders and a pteruges, a skirt made of leather or fabric strips, protects the hips and groin. Anyone wearing a breastplate ignores the Savage property of any attacks made against them but suffers a -2D penalty to all Athletics skill checks.",
+		"stats": {
+			"covers": "Body",
+			"armour": 3,
+			"properties": ["Cumbersome 2", "Reinforced"]
+		}
+	},
+	{
+		"title": "Cap",
+		"category": "Armour",
+		"availability": "Common",
+		"price": 1,
+		"weight": 0,
+		"description": "A cap is made of metal, shaped to cover the head but leaving the face and ears free. They come in many designs but serve the same purpose.",
+		"stats": {
+			"covers": "Head",
+			"armour": 1
+		}
+	},
+	{
+		"title": "Greaves",
+		"category": "Armour",
+		"availability": "Common",
+		"price": 1,
+		"weight": 0,
+		"description": "Greaves cover the shins upto the knee and are made of bronze or reinforced leather.",
+		"stats": {
+			"covers": "Legs",
+			"armour": 1,
+			"properties": ["Cumbersome 1"]
+		}
+	},
+	{
+		"title": "Helm",
+		"category": "Armour",
+		"availability": "Common",
+		"price": 2,
+		"weight": 0,
+		"description": "A helm is made of metal, shaped to cover the head with cheek and nose guards. They come in many designs and frequently include a horse hair plume. A helm fully covers the face with a T-shaped slit to allow vision and breathing. Anyone wearing a helm treats their characteristics as 1 rather 0 when Stunned but suffers a -1D penalty to Awareness and Accuracy skill checks.",
+		"stats": {
+			"covers": "Head",
+			"armour": 2,
+			"properties": ["Cumbersome 1"]
+		}
+	},
+	{
+		"title": "Linothorax",
+		"category": "Armour",
+		"availability": "Common",
+		"price": 2,
+		"weight": 1,
+		"description": "Linothorax is a surprisingly tough armour made of layers of quilted linen glued together with animal fat. It protects the torso and shoulders and is combined with a pteruges, a skirt made of leather or fabric strips, to protect the hips and groin.",
+		"stats": {
+			"covers": "Body",
+			"armour": 2,
+			"properties": ["Cumbersome 1"]
+		}
+	},
+	{
+		"title": "Spolas",
+		"category": "Armour",
+		"availability": "Common",
+		"price": 1,
+		"weight": 1,
+		"description": "A spolas is a thickly woven tunic or light leather armour which covers the body and shoulders. It is cheap to manufacture and provides some protection in combat. It is frequently worn by skirmishers.",
+		"stats": {
+			"covers": "Body",
+			"armour": 1
+		}
+	}
+]

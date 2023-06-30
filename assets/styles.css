@@ -121,7 +121,7 @@ ol.list {
 	@apply rounded-r-md;
 }
 
-/* colouring, applies to buttons and tags */
+/* colouring, applies to buttons, tags, form messages */
 .tag.success {
 	@apply bg-green-200 text-green-900;
 }
@@ -139,6 +139,9 @@ ol.list {
 }
 .btn.warning {
 	@apply bg-red-200 text-red-900 hover:bg-red-800 hover:text-red-100;
+}
+.message.warning {
+	@apply text-red-700;
 }
 
 /* tabs */

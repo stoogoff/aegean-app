@@ -32,7 +32,7 @@
 			</accordion-group>
 			<step-buttons
 				v-if="character"
-				:next="`/characters/${character._id}/`"
+				:next="`/characters/${character._id}/fate`"
 				:previous="`/characters/${character._id}/skills`"
 				:disabled="!hasSelected"
 				@click="save"
@@ -63,7 +63,7 @@ export default {
 		},
 
 		hasSelected() {
-			return false
+			return true
 		},
 	},
 

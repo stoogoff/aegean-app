@@ -77,6 +77,7 @@ export const DEFAULT_CHARACTER = {
 	parent: null,
 	background: null,
 	characteristicPackage: null,
+	fate: '',
 	characteristics: {
 		[STAT_MIGHT]: CHARACTERISTIC_MIN,
 		[STAT_REFLEXES]: CHARACTERISTIC_MIN,
