@@ -2,7 +2,7 @@
 	<div class="secondary-navigation">
 		<character-progress :character="character" v-if="character" />
 		<article>
-			<markdown-content content="characters/background" />
+			<markdown-content content="characters/equipment" />
 
 			<step-buttons
 				v-if="character"
