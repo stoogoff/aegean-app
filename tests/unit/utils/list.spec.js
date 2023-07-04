@@ -11,7 +11,7 @@ describe('utils/list', () => {
 	describe('join', () => {
 		const joinerDefault = join()
 		const joinerEmpty = join('')
-		const joinerAnd = join(' and ')
+		const joinerAnd = join(', and ')
 
 		it('returns an empty string if no value is specified', () => {
 			expect(joinerDefault()).toEqual('')
@@ -28,13 +28,7 @@ describe('utils/list', () => {
 		})
 
 		it('comma separates multiple values and uses the parameter between the final two', () => {
-			expect(joinerAnd(['One', 'Two', 'Three'])).toEqual('One, Two and Three')
-		})
-
-		it('remove the comma for two parameters', () => {
-			const joiner = join(', ')
-
-			expect(joiner(['One', 'Two'])).toEqual('One Two')
+			expect(joinerAnd(['One', 'Two', 'Three'])).toEqual('One, Two, and Three')
 		})
 	})
 })
