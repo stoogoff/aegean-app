@@ -1,10 +1,10 @@
 <template>
-	<div class="py-1">
-		<nuxt-link :to="`/adversaries/${adversary.id}`" class="hover:text-blue-600">
+	<li class="py-1">
+		<span class="hover:text-blue-600 cursor-pointer" @click="loadAdversary">
 			{{ adversary.title }}
-		</nuxt-link>
+		</span>
 		<tag-view>{{ adversary.type }}</tag-view>
-	</div>
+	</li>
 </template>
 <script>
 import Vue from 'vue'
@@ -16,5 +16,11 @@ export default Vue.component('AdversaryLink', {
 			required: true,
 		},
 	},
+
+	methods: {
+		loadAdversary() {
+			this.$emit('click', this.adversary.id)
+		}
+	}
 })
 </script>

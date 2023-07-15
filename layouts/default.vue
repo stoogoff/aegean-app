@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<header-section />
-		<main class="mb-16">
+		<main>
 			<Nuxt />
 		</main>
 		<footer-section />

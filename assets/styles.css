@@ -49,7 +49,7 @@ p {
 	@apply md:flex;
 }
 .secondary-navigation > aside {
-	@apply px-6 hidden md:flex-none md:block md:w-64 lg:w-80 pt-20;
+	@apply px-6 hidden md:flex-none md:block md:w-64 lg:w-80;
 }
 .secondary-navigation > article {
 	@apply px-6 pt-20;
@@ -126,6 +126,10 @@ ol.list {
 }
 
 /* colouring, applies to buttons, tags, form messages */
+.tag {
+	font-size: 10px;
+	line-height: 12px;
+}
 .tag.success {
 	@apply bg-green-200 text-green-900;
 }

@@ -1,37 +1,43 @@
 <template>
 	<article>
-		<header>
+		<header class="marble">
 			<h1>Adversaries</h1>
 		</header>
 		<div class="container">
 			<list-filter :list="adversaries" property="title" @filter="update" />
 			<we-tab-group>
 				<we-tab-panel title="All">
-					<div class="columns-1 sm:columns-2 md:columns-3">
-						<adversary-link v-for="adv in filtered" :key="adv.id" :adversary="adv" />
-					</div>
+					<ul class="columns-1 sm:columns-2 md:columns-3 min-h-max">
+						<adversary-link v-for="adv in filtered" :key="adv.id" :adversary="adv" @click="load" />
+					</ul>
 				</we-tab-panel>
 				<we-tab-panel title="Category">
-					<div class="columns-1 sm:columns-2 md:columns-3">
+					<div class="columns-1 sm:columns-2 md:columns-3 min-h-max">
 						<div v-for="(adversaries, category) in byCategory" :key="category">
-							<h3>{{ category }}</h3>
-							<adversary-link v-for="adv in adversaries" :key="adv.id" :adversary="adv" />
+							<h3 v-if="showHeading">{{ category }}</h3>
+							<ul>
+								<adversary-link v-for="adv in adversaries" :key="adv.id" :adversary="adv" @click="load" />
+							</ul>
 						</div>
 					</div>
 				</we-tab-panel>
 				<we-tab-panel title="Type">
-					<div class="columns-1 sm:columns-2 md:columns-3">
+					<div class="columns-1 sm:columns-2 md:columns-3 min-h-max">
 						<div v-for="(adversaries, type) in byType" :key="type">
-							<h3>{{ type }}</h3>
-							<adversary-link v-for="adv in adversaries" :key="adv.id" :adversary="adv" />
+							<h3 v-if="showHeading">{{ type }}</h3>
+							<ul>
+								<adversary-link v-for="adv in adversaries" :key="adv.id" :adversary="adv" @click="load" />
+							</ul>
 						</div>
 					</div>
 				</we-tab-panel>
 				<we-tab-panel title="Source">
-					<div class="columns-1 sm:columns-2 md:columns-3">
+					<div class="columns-1 sm:columns-2 md:columns-3 min-h-max">
 						<div v-for="(adversaries, source) in bySource" :key="source">
-							<h3>{{ source }}</h3>
-							<adversary-link v-for="adv in adversaries" :key="adv.id" :adversary="adv" />
+							<h3 v-if="showHeading">{{ source }}</h3>
+							<ul>
+								<adversary-link v-for="adv in adversaries" :key="adv.id" :adversary="adv" @click="load" />
+							</ul>
 						</div>
 					</div>
 				</we-tab-panel>
@@ -68,11 +74,19 @@ export default {
 		bySource() {
 			return this.group('source')
 		},
+
+		showHeading() {
+			return this.adversaries.length === this.filtered.length
+		},
 	},
 
 	methods: {
 		update(adversaries) {
 			this.filtered = adversaries
+		},
+
+		load(id) {
+			this.$router.push(`/adversaries/${id}`)
 		},
 
 		group(group) {

@@ -39,7 +39,7 @@ export default Vue.component('ListFilter', {
 					.normalize('NFD')
 					.replace(/[\u0300-\u036f]/g, '')
 					.toLowerCase()
-					.indexOf(text) != -1)
+					.indexOf(text) !== -1)
 
 			this.$emit('filter', list)
 		}

@@ -100,7 +100,7 @@
       {
         "title": "Trample",
         "skill": "Brawl",
-        "reach": 0,
+        "reach": "0",
         "damage": 5
       }
     ],
@@ -1133,8 +1133,9 @@
       {
         "title": "Crush",
         "skill": "Brawl",
-        "reach": 0,
-        "damage": 6
+        "reach": "0",
+        "damage": 6,
+        "properties": []
       },
       "weapon:Doru",
       "weapon:Hoplon",
@@ -2385,7 +2386,7 @@
       "Endurance": 8,
       "Standing": 4
     },
-    "equipment": "Rich scale armour, cap, greaves,<br />2 ammo loads.",
+    "equipment": "Rich scale armour, cap, greaves, 2 ammo loads.",
     "abilities": [
       "ability:Riposte",
       {
@@ -2428,7 +2429,7 @@
       "Endurance": 6,
       "Standing": 4
     },
-    "equipment": "Scale armour, helm, greaves,<br />2 ammo loads.",
+    "equipment": "Scale armour, helm, greaves, 2 ammo loads.",
     "abilities": [
       "armour:Helm",
       {
@@ -2479,7 +2480,7 @@
       "Endurance": 5,
       "Standing": 4
     },
-    "equipment": "Scale armour, helm, greaves,<br />2 ammo loads.",
+    "equipment": "Scale armour, helm, greaves, 2 ammo loads.",
     "abilities": [
       "armour:Helm",
       {
@@ -2622,7 +2623,7 @@
       "Endurance": 5,
       "Standing": 2
     },
-    "equipment": "Makhaira,<br />rich robes.",
+    "equipment": "Makhaira, rich robes.",
     "abilities": [
       {
         "title": "Voice of Ormazhd",
@@ -2934,7 +2935,7 @@
       "Parry": 2,
       "Shield": 3
     },
-    "equipment": "Bronze breastplate, helm, greaves,<br />3 javelins.",
+    "equipment": "Bronze breastplate, helm, greaves, 3 javelins.",
     "abilities": [
       {
         "title": "Akhilles' Heel",
@@ -3127,7 +3128,7 @@
       {
         "title": "Overrun",
         "skill": "Brawl",
-        "reach": 0,
+        "reach": "0",
         "damage": 2,
         "properties": [
           "property:Stagger"
@@ -3188,7 +3189,7 @@
       {
         "title": "Crush",
         "skill": "Brawl",
-        "reach": 0,
+        "reach": "0",
         "damage": 6,
         "properties": [
           "property:Pierce",
@@ -3364,7 +3365,7 @@
       {
         "title": "Crush",
         "skill": "Brawl",
-        "reach": 0,
+        "reach": "0",
         "damage": 6
       }
     ]

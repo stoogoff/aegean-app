@@ -113,7 +113,7 @@ export default Vue.component('AdversaryView', {
 		},
 
 		hasTactics() {
-			return this.adversary && 'tactics' in this.adversary
+			return this.adversary && 'tactics' in this.adversary && this.adversary.tactics !== null
 		},
 
 		// merge weapons and thrown weapons and add dice pools
