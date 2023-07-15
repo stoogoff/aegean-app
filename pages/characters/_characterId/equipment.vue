@@ -3,10 +3,13 @@
 		<character-progress :character="character" v-if="character" />
 		<article>
 			<markdown-content content="characters/equipment" />
-			<definition-term
-				definition="Encumbrance"
-				:term="encumbrance"
-			/>
+
+			<div class="columns-2 pb-2">
+				<definition-term definition="Encumbrance">
+					{{ currentEncumbrance | fraction }} of {{ totalEncumbrance }}
+				</definition-term>
+				<tag-view v-if="currentEncumbrance > totalEncumbrance" type="warning">Over-encumbered</tag-view>
+			</div>
 
 			<accordion-group>
 				<accordion-item
@@ -24,7 +27,7 @@
 									<th>Price</th>
 									<th>Weight</th>
 									<th>Availability</th>
-									<th>Notes</th>
+									<th>&nbsp;</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -36,14 +39,27 @@
 										<we-check-box
 											:value="isItemSelected(item.title)"
 											:label="item.title"
+											:disabled="!canPurchase(item)"
 											@input="toggleItem(item)"
 										/>
 									</td>
 									<td>{{ item.price }}</td>
-									<td v-if="'weight' in item">{{ item.weight }}</td>
+									<td v-if="'weight' in item">{{ item.weight | fraction }}</td>
 									<td v-else>&mdash;</td>
 									<td>{{ item.availability }}</td>
-									<td>.</td>
+									<td>
+										<info-button
+											small outlined wide
+											x="right"
+										>
+											More Info
+											<template #info>
+												<card-view :title="item.title">
+													<render-markdown :content="item.description" />
+												</card-view>
+											</template>
+										</info-button>
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -63,8 +79,9 @@
 </template>
 <script>
 
-import { findByProperty } from 'we-ui/utils/list'
+import { findByProperty, sortByProperties } from 'we-ui/utils/list'
 import { sum } from '~/utils/list'
+import { EQUIPMENT_COMMON, EQUIPMENT_UNCOMMON, EQUIPMENT_RARE } from '~/utils/config'
 
 // display equipment categories as accordions
 // each category lists the equipment within it
@@ -91,7 +108,17 @@ export default {
 
 	computed: {
 		equipment() {
-			return this.$equipment.all()
+			return this.$equipment.all().sort(sortByProperties('category', 'title'))
+		},
+
+		standing() {
+			if(!this.character) return 0
+
+			const background = this.$backgrounds.byTitle(this.character.background)
+
+			// TODO factor in Rich or other background
+
+			return background.standing
 		},
 
 		categories() {
@@ -108,34 +135,54 @@ export default {
 				byCategory[item.category].equipment.push(item)
 			})
 
-			// TODO filter out rare items
-			// TODO filter out uncommon items unless Merchant
-			// TODO filter out stuff they can't afford
-			// OR disable these items so they can see them and look at info
-			// but can't add them
-
 			return Object.values(byCategory)
 		},
 
-		encumbrance() {
-			if(!this.character) return ' 0 of 0'
+		currentEncumbrance() {
+			if(!this.character) return 0
 
-			const current = this.character.equipment.map(({ weight }) => weight).reduce(sum, 0)
-			const max = this.character.characteristics.Might + 2
+			return this.character.equipment.map(({ weight }) => weight).reduce(sum, 0)
+		},
 
-			return `${current} of ${max}`
+		totalEncumbrance() {
+			if(!this.character) return 0
+
+			return this.character.characteristics.Might + 2
 		},
 
 		hasSelected() {
-			return false
+			return this.character && this.character.equipment.length > 0
 		},
 	},
 
 	methods: {
+		canPurchase(item) {
+			// can't afford
+			if(item.price > this.standing) return false
+
+			// no-one can begin with a rare item
+			if(item.availability === EQUIPMENT_RARE) return false
+
+			// common availability can be taken by anyone
+			if(item.availability === EQUIPMENT_COMMON) return true
+
+			// merchants can have one uncommon item
+			if(this.character.background === 'Merchant') {
+				const currentUncommon = this.character.equipment.filter(
+					({ availability, title }) => availability === EQUIPMENT_UNCOMMON && title !== item.title
+				)
+
+				return currentUncommon.length === 0
+			}
+
+			// nobles can always have rich clothing
+			if(this.character.background === 'Noble' && item.title === 'Rich Clothing') return true
+
+			return false
+		},
+
 		isItemSelected(item) {
 			if(!this.character) return false
-
-			// TODO Noble background starts with Rich Clothing
 
 			return this.character.equipment.find(findByProperty('title', item)) !== undefined
 		},

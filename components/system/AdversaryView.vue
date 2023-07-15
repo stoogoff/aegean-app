@@ -19,7 +19,10 @@
 			</template>
 		</stat-block>
 		<stat-block title="Attributes" :stats="adversary.attributes" />
-		<definition-term v-if="hasEquipment" definition="Equipment" :term="adversary.equipment" />
+		<definition-term
+			v-if="hasEquipment"
+			definition="Equipment"
+		>{{ adversary.equipment }}</definition-term>
 		<section v-if="hasAbilities">
 			<h3>Abilities</h3>
 			<render-markdown

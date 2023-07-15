@@ -120,6 +120,13 @@ ol.list {
 	@apply bg-gray-200 text-gray-400 border-gray-400 hover:bg-gray-200 hover:text-gray-400;	
 }
 
+.checkbox.disabled {
+	@apply text-gray-300;
+}
+.checkbox-label {
+	@apply text-gray-700;
+}
+
 /* colouring, applies to buttons, tags, form messages */
 .tag {
 	font-size: 10px;

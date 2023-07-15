@@ -102,7 +102,7 @@
 		"category": "Clothing",
 		"availability": "Common",
 		"price": 3,
-		"weight": "1/2",
+		"weight": 0.5,
 		"description": "",
 		"stats": {
 			"properties": ["Concealable", "Rich 1"]
@@ -113,7 +113,7 @@
 		"category": "Clothing",
 		"availability": "Uncommon",
 		"price": 4,
-		"weight": "1/2",
+		"weight": 0.5,
 		"description": "",
 		"stats": {
 			"properties": ["Concealable", "Rich 2+"]
@@ -235,7 +235,7 @@
 		"category": "Musical Instruments",
 		"availability": "Uncommon",
 		"price": 1,
-		"weight": "1/2",
+		"weight": 0.5,
 		"description": "A salpinx is a straight trumpet, made of bronze. Its primary use is not for music or religious ceremonies but to signify the start of an event at the games or as a means of signalling to soldiers on the battlefield."
 	},
 	{
@@ -253,7 +253,7 @@
 		"category": "Musical Instruments",
 		"availability": "Common",
 		"price": 0,
-		"weight":"1/2",
+		"weight":0.5,
 		"description": "A tympanum is a drum made of a circular wooden frame with a leather skin stretched over it. It is beaten with the palm of the hand or with a stick. It is popular in religious ceremonies and as an accompaniment to all forms of music."
 	},
 	{
@@ -293,5 +293,200 @@
 		"availability": "Common",
 		"price": 3,
 		"description": "A workshop isn’t really equipment but is the tools and furnishings needed to outfit a proper workshop in your home. A workshop can either be for crafting or for medicine, which must be decided when it’s purchased. When you’re at home and in your workshop it provides +2D to Craft or Medicine skill checks, including skill checks made during downtime."
+	},
+	{
+		"title": "Axe",
+		"category": "Melee Weapons",
+		"availability": "Common",
+		"price": 1,
+		"weight": 1,
+		"description": "An axe is a single-handed and single-headed tool found everywhere. It is often repurposed as a weapon and can be lethal, but is rarely found on the battlefield. It isn’t balanced for throwing and the wielder suffers a -1D penalty when doing so, but an axe can still make an effective ranged weapon if needed."
+	},
+	{
+		"title": "Club",
+		"category": "Melee Weapons",
+		"availability": "Common",
+		"price": 0,
+		"weight": 1,
+		"description": "A club is a simple length of wood, often bound with leather to form a handle and studded or bound in bronze bands at the hitting end. The simple and cheap construction makes it a weapon available to everyone."
+	},
+	{
+		"title": "Dori",
+		"subtitle": "Spear",
+		"category": "Melee Weapons",
+		"availability": "Common",
+		"price": 1,
+		"weight": 1,
+		"description": "A dori is a spear 2–3 metres in length and the most common weapon on the battlefield due to its effectiveness and simple construction. It has a short iron head and a bronze spike on the butt to serve as a counter balance and back up weapon in case the dori breaks. The dori, coupled with a hoplon, is the backbone of the heavy infantry."
+	},
+	{
+		"title": "Falx",
+		"subtitle": "Two-Handed Sword",
+		"category": "Melee Weapons",
+		"availability": "Uncommon",
+		"price": 2,
+		"weight": 1,
+		"description": "A falx is an unusual weapon with a long pole for a hilt and a curved blade similar to a sickle. The blade has a single cutting edge on the inside of the curve and the weapon is somewhere between a sword and a spear. It is a popular weapon amongst the Thrakians."
+	},
+	{
+		"title": "Harpe",
+		"subtitle": "Sickle",
+		"category": "Melee Weapons",
+		"availability": "Uncommon",
+		"price": 2,
+		"weight": 1,
+		"description": "A harpe is an unusual short straight– edged sword with a hook curving off one edge about half to a third of the way down the blade. The hook is useful for disarming an opponent but the awkwardness of the blade makes it an uncommon weapon choice."
+	},
+	{
+		"title": "Javelin",
+		"category": "Melee Weapons",
+		"availability": "Common",
+		"price": 1,
+		"weight": 1,
+		"description": "A javelin is a short spear, primarily used for throwing. Its lighter weight makes it more accurate than the larger dori when thrown while still maintaining some of the power. It is the main weapon of the peltast, the light infantry of Hellas, who carry a bundle of three or four in their shield hand.\n\nThe price and weight is for a batch of three javelins."
+	},
+	{
+		"title": "Kopis",
+		"subtitle": "Machete",
+		"category": "Melee Weapons",
+		"availability": "Common",
+		"price": 2,
+		"weight": 1,
+		"description": "A kopis is a long knife or short sword with a forward-curving blade. The blade varies from 45–65cm with a single cutting edge on the inside of the curve. Its lack of a thrusting point has made it less common on the battlefield than the xiphos but cavalry and charioteers find the weighted blade useful. Its savage cutting stroke makes it a favourite of the Spartan hoplites."
+	},
+	{
+		"title": "Labrys",
+		"subtitle": "Two-Handed Axe",
+		"category": "Melee Weapons",
+		"availability": "Uncommon",
+		"price": 3,
+		"weight": 1,
+		"description": "A labrys is a two-handed, double- headed axe, with a long pole. Originally carried by temple guards on Kreta, it has spread as a symbol of authority to every temple throughout the Aegean Sea. Due to its ceremonial nature a labrys often has an ornately carved head featuring symbols of the gods the temple is dedicated to."
+	},
+	{
+		"title": "Makhaira",
+		"subtitle": "Dagger",
+		"category": "Melee Weapons",
+		"availability": "Common",
+		"price": 0,
+		"weight": 0,
+		"description": "A makhaira is a long knife with a single cutting edge. As a tool it is found everywhere and most people, no matter their status or occupation, will have several at home, if not on their person. A makhaira is small enough to be thrown accurately."
+	},
+	{
+		"title": "Mattock",
+		"category": "Melee Weapons",
+		"availability": "Common",
+		"price": 1,
+		"weight": 1,
+		"description": "A mattock is a large, two-handed hammer made from a wooden pole with a head made of stone or bronze bands. What a mattock lacks in finesse it makes up for with hitting power. It’s not a commonly used weapon due to its size and weight, but some heroes have been known to use one."
+	},
+	{
+		"title": "Net",
+		"category": "Melee Weapons",
+		"availability": "Common",
+		"price": 0,
+		"weight": 1,
+		"description": "The net is most commonly used for fishing but occasionally used for hunting wild animals. A net does no damage but is incredibly good at pinning opponents."
+	},
+	{
+		"title": "Staff",
+		"category": "Melee Weapons",
+		"availability": "Common",
+		"price": 0,
+		"weight": 1,
+		"description": "A staff is a length of wood ranging from 1.5–2.5 metres in length. It’s a versatile weapon and can be used in one or two hands. Staves often form part of a symbol of office for the many rulers and priests. They vary from plain and simple to ornately carved and inlaid with gold. Ornately carved staves gain the Rich 1 property."
+	},
+	{
+		"title": "Rich Staff",
+		"category": "Melee Weapons",
+		"availability": "Uncommon",
+		"price": 3,
+		"weight": 1,
+		"description": "A staff is a length of wood ranging from 1.5–2.5 metres in length. It’s a versatile weapon and can be used in one or two hands. Staves often form part of a symbol of office for the many rulers and priests. They vary from plain and simple to ornately carved and inlaid with gold. Ornately carved staves gain the Rich 1 property."
+	},
+	{
+		"title": "Trident",
+		"category": "Melee Weapons",
+		"availability": "Common",
+		"price": 1,
+		"weight": 1,
+		"description": "A trident is a short spear similar in size to a javelin with three prongs instead of a single point. The bident is related to the trident but has two prongs, like a pitchfork. Their use is mainly ceremonial due to their association with two powerful gods. The bident is associated with Haides while the trident is associated with his brother Poseidon."
+	},
+	{
+		"title": "Xiphos",
+		"subtitle": "Sword",
+		"category": "Melee Weapons",
+		"availability": "Common",
+		"price": 2,
+		"weight": 1,
+		"description": "A xiphos is a straight, short sword with a leaf-shaped blade. The blade is round 50–60cm long with a small cross hilt. It’s the most commonly used sword due to the swiftness of its cut and thrust, as well as its defensive capabilities. The scabbard is usually attached to a bandolier worn across the shoulder or carried in the shield hand."
+	},
+	{
+		"title": "Composite Bow",
+		"category": "Missile Weapons",
+		"availability": "Uncommon",
+		"price": 5,
+		"weight": 1,
+		"description": "A composite bow is small and light and made of wood reinforced with horn. The composite bow is much more powerful than the self bow but more difficult to make. A composite bow requires two hands to use and can’t be used with a shield."
+	},
+	{
+		"title": "Recurve Bow",
+		"category": "Missile Weapons",
+		"availability": "Rare",
+		"price": 5,
+		"weight": 1,
+		"description": "A recurve bow is a stronger version of the composite bow with limbs which curve away from the archer when unstrung. The recurve bow is significantly more powerful than the self bow but more difficult to make and are rare in Hellas. Most recurve bows are made by Skythian nomads or Amazons and brought back by soldiers or adventurers. A recurve bow requires two hands to use and can’t be used with a shield."
+	},
+	{
+		"title": "Self Bow",
+		"category": "Missile Weapons",
+		"availability": "Common",
+		"price": 1,
+		"weight": 1,
+		"description": "A self bow is small and light and made from a single piece of wood. The self bow is a common hunting weapon due to its ease of construction. However, it lacks power compared to a dori, javelin or sling so isn’t commonly found on the battlefield. A self bow requires two hands to use and can’t be used with a shield."
+	},
+	{
+		"title": "Sling",
+		"category": "Missile Weapons",
+		"availability": "Common",
+		"price": 0,
+		"weight": 1,
+		"description": "A sling is made of a length of cord or rope with a pouch for holding a stone. It is swung around above the head and the stone released. It takes great skill and years of training to use a sling, but in capable hands it’s a deadly weapon found in all the armies of Hellas."
+	},
+	{
+		"title": "Dipylon",
+		"subtitle": "Tower",
+		"category": "Shields",
+		"availability": "Common",
+		"price": 2,
+		"weight": 1,
+		"description": "A dipylon is an oval-shaped, heavy shield often with semi-circular cut-outs on the longer edges. The cutouts allow for a weapon to be thrust out from the edge of the shield while still protecting a large portion of the body. The dipylon is cumbersome and is slowly falling into disuse in favour of the hoplon."
+	},
+	{
+		"title": "Hoplon",
+		"subtitle": "Round",
+		"category": "Shields",
+		"availability": "Common",
+		"price": 3,
+		"weight": 1,
+		"description": "A hoplon is a heavy, circular shield, made of wood and faced with bronze. It is large, with a diameter of almost a metre and the face is often painted to signify allegiance. Hoplites take their name from this shield, which they carry on the battlefield."
+	},
+	{
+		"title": "Klipeus",
+		"subtitle": "Buckler",
+		"category": "Shields",
+		"availability": "Common",
+		"price": 1,
+		"weight": 1,
+		"description": "A klipeus is a small, circular shield with a prominent bronze or iron boss. Its small size makes it difficult to use against missile weapons but effective as a parrying tool. The heavy boss makes it a great off-hand weapon."
+	},
+	{
+		"title": "Pelte",
+		"subtitle": "Crescent",
+		"category": "Shields",
+		"availability": "Common",
+		"price": 1,
+		"weight": 1,
+		"description": "A pelte is a light, crescent shaped shield, made of wood or wicker and covered in goat or sheep hide. It makes for a cheap but effective shield against missile weapons. Peltasts take their name from this shield, which they carry on the battlefield."
 	}
 ]

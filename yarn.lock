@@ -13054,9 +13054,9 @@ watchpack@^2.4.0:
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.1.2"
 
-"we-ui@https://github.com/stoogoff/nuxt-components#v1.0.1":
+"we-ui@https://github.com/stoogoff/nuxt-components#v1.0.2":
   version "1.0.0"
-  resolved "https://github.com/stoogoff/nuxt-components#12087dfc30e1279296f3dd753f601a53ed2a15a9"
+  resolved "https://github.com/stoogoff/nuxt-components#9a2dbda2c85369201ff5caa611b32944e3438051"
   dependencies:
     "@babel/preset-env" "^7.22.7"
     "@vue/test-utils" "1"

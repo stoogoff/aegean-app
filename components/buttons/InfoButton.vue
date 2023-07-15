@@ -20,7 +20,18 @@
 			leave-class="translate-y-0 opacity-100"
 			leave-to-class="translate-y-3 opacity-0"
 		>
-			<div v-show="isVisible" :class="`absolute pt-2 z-10 w-64 ${positionClass}`">
+			<div
+				v-show="isVisible"
+				class="absolute pt-2 z-10"
+				:class="{
+					'w-64': !wide,
+					'w-96': wide,
+					'bottom-12': y === 'bottom',
+					'top-12': y !== 'bottom',
+					'left-0': x === 'left',
+					'right-0': x !== 'left',
+				}"
+			>
 				<slot name="info" />
 			</div>
 		</transition>
@@ -39,6 +50,10 @@ export default Vue.component('InfoButton', {
 			type: Boolean,
 			default: false,
 		},
+		wide: {
+			type: Boolean,
+			default: false,
+		},
 		y: {
 			type: String,
 			default: 'bottom',
@@ -53,15 +68,6 @@ export default Vue.component('InfoButton', {
 		return {
 			isVisible: false
 		}
-	},
-
-	computed: {
-		positionClass() {
-			return [
-				this.y === 'bottom' ? 'bottom-12' : 'top-12',
-				this.x === 'left' ? 'left-0' : 'right-0',
-			].join(' ')			
-		},
 	},
 
 	methods: {

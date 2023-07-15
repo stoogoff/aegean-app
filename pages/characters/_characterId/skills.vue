@@ -4,14 +4,8 @@
 		<article>
 			<markdown-content content="characters/skills" />
 			<div class="grid grid-cols-2 gap-4 py-4">
-				<definition-term
-					definition="Skill Increases"
-					:term="skillIncreases"
-				/>
-				<definition-term
-						definition="Cost"
-						:term="`${cost} CP`"
-				/>
+				<definition-term definition="Skill Increases">{{ skillIncreases }}</definition-term>
+				<definition-term definition="Cost">{{ cost }} CP</definition-term>
 			</div>
 			<ul class="mb-4">
 				<li

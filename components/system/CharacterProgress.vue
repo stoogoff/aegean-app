@@ -9,18 +9,16 @@
 			<definition-term
 				v-for="(value, key) in backgroundInfo"
 				:definition="key"
-				:term="value"
 				:key="key"
-			/>
+			>{{ value }}</definition-term>
 		</section>
 		<section v-if="hasCharacteristics">
 			<h4>Characterisics</h4>
 			<definition-term
 				v-for="(value, key) in characteristics"
 				:definition="key"
-				:term="value"
 				:key="key"
-			/>
+			>{{ value }}</definition-term>
 		</section>
 		<section v-if="hasSkills">
 			<h4>Skills</h4>
@@ -28,9 +26,8 @@
 				v-for="(value, key) in skills"
 				v-if="value > 0"
 				:definition="key"
-				:term="value"
 				:key="key"
-			/>
+			>{{ value }}</definition-term>
 		</section>
 		<section v-if="hasTalents">
 			<h4>Talents</h4>

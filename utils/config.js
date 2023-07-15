@@ -22,6 +22,10 @@ export const MENU = [
 	},
 ]
 
+export const EQUIPMENT_COMMON = 'Common'
+export const EQUIPMENT_UNCOMMON = 'Uncommon'
+export const EQUIPMENT_RARE = 'Rare'
+
 export const HERITAGE_MORTAL = 'Mortal'
 export const HERITAGE_DIVINE = 'Divine'
 

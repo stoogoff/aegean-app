@@ -10,8 +10,9 @@
 			v-for="(value, key) in stats"
 			:key="key"
 			:definition="key"
-			:term="value"
-		/>
+		>
+			{{ value }}
+		</definition-term>
 	</section>
 </template>
 <script>

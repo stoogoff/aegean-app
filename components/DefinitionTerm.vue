@@ -1,7 +1,7 @@
 <template>
 	<div class="grid grid-cols-2 p-1">
 		<strong>{{ definition }}</strong>
-		<span class="text-right inline-block">{{ term }}</span>
+		<span class="text-right inline-block"><slot /></span>
 	</div>
 </template>
 <script>
@@ -13,10 +13,6 @@ export default Vue.component('DefinitionTerm', {
 			type: String,
 			required: true,
 		},
-		term: {
-			type: [String, Number],
-			required: true,
-		}
 	},
 })
 </script>
