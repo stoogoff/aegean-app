@@ -1,16 +1,15 @@
 <template>
 	<div>
 		<header-section />
-		<main class="mb-16">
+		<main>
 			<Nuxt />
 		</main>
-		<footer-section />
 	</div>
 </template>
 <script>
 
 export default {
-	name: 'DefaultLayout',
+	name: 'NoFooterLayout',
 }
 
 </script>

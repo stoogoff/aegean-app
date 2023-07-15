@@ -74,5 +74,224 @@
 			"covers": "Body",
 			"armour": 1
 		}
+	},
+	{
+		"title": "Rich Clothing",
+		"category": "Clothing",
+		"availability": "Uncommon",
+		"price": 3,
+		"weight": 0,
+		"description": "",
+		"stats": {
+			"properties": ["Rich 1"]
+		}
+	},
+	{
+		"title": "Expensive Clothing",
+		"category": "Clothing",
+		"availability": "Rare",
+		"price": 4,
+		"weight": 0,
+		"description": "",
+		"stats": {
+			"properties": ["Rich 2"]
+		}
+	},
+	{
+		"title": "Jewellery",
+		"category": "Clothing",
+		"availability": "Common",
+		"price": 3,
+		"weight": "1/2",
+		"description": "",
+		"stats": {
+			"properties": ["Concealable", "Rich 1"]
+		}
+	},
+	{
+		"title": "Expensive Jewellery",
+		"category": "Clothing",
+		"availability": "Uncommon",
+		"price": 4,
+		"weight": "1/2",
+		"description": "",
+		"stats": {
+			"properties": ["Concealable", "Rich 2+"]
+		}
+	},
+	{
+		"title": "Cattle",
+		"category": "Livestock",
+		"availability": "Common",
+		"price": 2,
+		"description": "Herds of cattle are sacred to Poseidon. Cattle are reserved for the most important sacrifices and are used as part of the bull-dancing ritual in Kreta. Sacrificing cattle grants +2D to relevant Lore or augury rolls."
+	},
+	{
+		"title": "Dog",
+		"category": "Livestock",
+		"availability": "Common",
+		"price": 2,
+		"description": "Dogs are common with many breeds available, trained to guard livestock and the home. Dogs provide a +1D assistance to all Awareness skill checks made by the owner."
+	},
+	{
+		"title": "Dog, Hunting",
+		"category": "Livestock",
+		"availability": "Common",
+		"price": 3,
+		"description": "There are many breeds of hunting dogs common throughout Hellas and all are specially trained to hunt and bait large prey as well as guard the home. Hunting dogs provide a +1D assistance to Awareness skill checks made by the owner and +1D assistance to Survival skill checks relating to hunting."
+	},
+	{
+		"title": "Dog, War",
+		"category": "Livestock",
+		"availability": "Uncommon",
+		"price": 3,
+		"description": "Dogs trained for war are uncommon and never used on the battlefield, being used instead as camp and personal guards amongst the wealthy, the Mollosian mastiff, native to Epiros, being the most sought after. War dogs provide a +1D assistance to Awareness skill checks made by the owner and +1D assistance to Melee or Brawl skill checks during combat."
+	},
+	{
+		"title": "Donkey",
+		"category": "Livestock",
+		"availability": "Common",
+		"price": 1,
+		"description": "Donkeys are common labour and pack animals found on many farms and can occasionally be used as riding beasts."
+	},
+	{
+		"title": "Goat / Sheep / Pig",
+		"category": "Livestock",
+		"availability": "Common",
+		"price": 1,
+		"description": "Goats, sheep and pigs are common, both wild and as grazing herds. They are commonly sold outside temples and shrines as sacrificial animals and grant a +1D to any Lore or augury rolls relating to the sacrifice."
+	},
+	{
+		"title": "Hawk",
+		"category": "Livestock",
+		"availability": "Uncommon",
+		"price": 4,
+		"description": "Falconry is popular in Thrakia and amongst the nomadic Amazons for hunting small game. It is less common in Hellas or the rest of the Aegean but trained hawks are becoming more popular. A trained hawk grants a +1D assistance to Survival skill checks when hunting."
+	},
+	{
+		"title": "Horse, Draft",
+		"category": "Livestock",
+		"availability": "Uncommon",
+		"price": 4,
+		"description": "Horses are prized possessions across the Aegean Sea. They are not commonly ridden or used in agriculture but are reserved for pulling chariots in battle. Owning a stable of horses is a mark of high standing, even though the chariot is losing favour on the battlefield. In Athens horses are becoming more commonplace and its wealthier citizens are beginning to form a cavalry to replace its chariots."
+	},
+	{
+		"title": "Horse, Riding",
+		"category": "Livestock",
+		"availability": "Rare",
+		"price": 6,
+		"description": "Horses trained for riding aren’t common as the mountainous landscape is better suited to hardier beasts. When found, riding horses are prized possessions."
+	},
+	{
+		"title": "Horse, War",
+		"category": "Livestock",
+		"availability": "Rare",
+		"price": 10,
+		"description": "Trained war horses are almost unheard of in Hellas and usually only found amongst nomadic tribes in the north of Thrakia or in Anatolia or as a gift from the gods."
+	},
+	{
+		"title": "Mule",
+		"category": "Livestock",
+		"availability": "Uncommon",
+		"price": 2,
+		"description": "A mule is the sterile offspring of a donkey and a horse. They’re known for their stubbornness and hardiness and are prized as labour and pack animals."
+	},
+	{
+		"title": "Small Mammals / Birds",
+		"category": "Livestock",
+		"availability": "Common",
+		"price": 0,
+		"description": "Many animals and birds are sold outside temples and shrines for use in divinations or to otherwise appease the gods. Doves and rabbits are the most common animals sacrificed."
+	},
+	{
+		"title": "Aulos",
+		"subtitle": "Pipes",
+		"category": "Musical Instruments",
+		"availability": "Common",
+		"price": 0,
+		"weight": 0,
+		"description": "An aulos is a reed instrument, similar to an oboe or clarinet. It comes in both single- and double-pipe forms and is made of hollowed wood. Some players wear a leather strap with a hole for the mouth to help support the lips and prevent strain to the cheeks when playing."
+	},
+	{
+		"title": "Epigonion",
+		"subtitle": "Harp",
+		"category": "Musical Instruments",
+		"availability": "Uncommon",
+		"price": 2,
+		"weight": 1,
+		"description": "An epigonion is a triangular shaped harp named after Epigonus of Ambrakia. Some claim Epigonus invented it while others say he merely made it popular. It has a number of strings stretched over its frame—up to forty on some instruments. The epigonion isn’t as popular the lyre but can be found throughout Hellas."
+	},
+	{
+		"title": "Lyre",
+		"category": "Musical Instruments",
+		"availability": "Common",
+		"price": 1,
+		"weight": 1,
+		"description": "A lyre is a stringed instrument favoured by Apollo. It is similar in appearance to a small, hand-held harp but is strummed rather than plucked. A lyre is made of wood or horn, with the sound-box sometimes being made of tortoise shell. The strings are made of sheep or cow gut."
+	},
+	{
+		"title": "Salpinx",
+		"subtitle": "Trumpet",
+		"category": "Musical Instruments",
+		"availability": "Uncommon",
+		"price": 1,
+		"weight": "1/2",
+		"description": "A salpinx is a straight trumpet, made of bronze. Its primary use is not for music or religious ceremonies but to signify the start of an event at the games or as a means of signalling to soldiers on the battlefield."
+	},
+	{
+		"title": "Syrinx",
+		"subtitle": "Pan Pipes",
+		"category": "Musical Instruments",
+		"availability": "Common",
+		"price": 0,
+		"weight": 0,
+		"description": "A syrinx is a set of pipes favoured by Pan. It is made from a reed which is cut to different lengths and bound together. The syrinx is a rustic instrument played by shepherds and goatherds while they watch their flocks. It is rarely used at religious ceremonies, except at those dedicated to Pan."
+	},
+	{
+		"title": "Tympanum",
+		"subtitle": "Drum",
+		"category": "Musical Instruments",
+		"availability": "Common",
+		"price": 0,
+		"weight":"1/2",
+		"description": "A tympanum is a drum made of a circular wooden frame with a leather skin stretched over it. It is beaten with the palm of the hand or with a stick. It is popular in religious ceremonies and as an accompaniment to all forms of music."
+	},
+	{
+		"title": "Apotropaic Item",
+		"category": "Miscellaneous",
+		"availability": "Uncommon",
+		"price": 1,
+		"weight": 0,
+		"description": "Apotropaic items come in many forms but all serve the same purpose: to protect the bearer from evil magics and the spirits of the dead. Eyes painted on cups to watch for evil or a gorgoneion amulet—the tusked head of Medusa, or one of her sisters, with her tongue sticking out—offer protection from all manner of evils.\n\nWhile carrying an apotropaic item all magic cast against you has its Difficulty increased by 1 along with all attacks from dead creatures and spirits."
+	},
+	{
+		"title": "Herbalist’s Bag",
+		"category": "Miscellaneous",
+		"availability": "Common",
+		"price": 1,
+		"weight": 1,
+		"description": "A herbalist’s bag contains a pestle and mortar, along with small knives and scissors for collecting herbs and preparing concoctions. The bag contains two doses of herbs. A character with the Herbalist or Pharmakeia Talent can spend a dose to add one success to a Medicine or Craft skill check, as described in the Talent description.\n\nDoses can be replenished in the wilds by making an Insight (Survival: Foraging) roll or by purchasing supplies at the agora. Each dose has a price of 0 to replenish. Doses are replenished automatically during downtime as part of regular upkeep."
+	},
+	{
+		"title": "Library",
+		"category": "Miscellaneous",
+		"availability": "Uncommon",
+		"price": 3,
+		"description": "A library isn’t equipment that you carry with you but furnishings for your home. A library includes numerous scrolls you’ve collected on your travels and the shelves to store them. It provides +2D to Knowledge or Lore skill checks while at home, including skill checks made during downtime."
+	},
+	{
+		"title": "Toolkit",
+		"category": "Miscellaneous",
+		"availability": "Common",
+		"price": 2,
+		"weight": 1,
+		"description": "A toolkit is a bag of various tools for different trades, usually including numerous small knives and scrapers, a hammer, nails, perhaps a chisel or pestle and mortar. Without a toolkit only the simplest items can be built, if they can be built at all."
+	},
+	{
+		"title": "Workshop",
+		"category": "Miscellaneous",
+		"availability": "Common",
+		"price": 3,
+		"description": "A workshop isn’t really equipment but is the tools and furnishings needed to outfit a proper workshop in your home. A workshop can either be for crafting or for medicine, which must be decided when it’s purchased. When you’re at home and in your workshop it provides +2D to Craft or Medicine skill checks, including skill checks made during downtime."
 	}
 ]

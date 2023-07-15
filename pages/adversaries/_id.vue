@@ -25,6 +25,7 @@ import { meta, title, url } from '~/utils/meta'
 
 export default {
 	name: 'AdversaryPage',
+	layout: 'nofooter',
 
 	async fetch() {
 		const { params } = this.$nuxt.context

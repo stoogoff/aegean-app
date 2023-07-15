@@ -1,9 +1,9 @@
 <template>
-	<div class="btn-group">
+	<we-button-group>
 		<we-button-action outlined block @click="previousClick" v-if="previous">Previous</we-button-action>
 		<we-link-action block outlined :to="exit" v-else>Exit</we-link-action>
 		<we-button-action block type="primary" :disabled="disabled" @click="nextClick">{{ label }}</we-button-action>
-	</div>
+	</we-button-group>
 </template>
 <script>
 import Vue from 'vue'

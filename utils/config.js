@@ -91,4 +91,5 @@ export const DEFAULT_CHARACTER = {
 	talents: [],
 	careers: [],
 	advantages: [],
+	equipment: [],
 }

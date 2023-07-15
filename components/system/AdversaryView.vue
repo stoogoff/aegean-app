@@ -169,15 +169,6 @@ export default Vue.component('AdversaryView', {
 h3 {
 	@apply uppercase text-center;
 }
-th {
-	@apply uppercase;
-}
-td {
-	@apply align-top p-1;
-}
-tbody tr:nth-child(odd) {
-	@apply bg-gray-200;
-}
 section {
 	@apply pt-6;
 }

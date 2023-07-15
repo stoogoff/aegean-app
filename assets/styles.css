@@ -41,6 +41,16 @@ p {
 	@apply mb-4;
 }
 
+th {
+	@apply uppercase text-sm;
+}
+td {
+	@apply align-top p-1;
+}
+tbody tr:nth-child(odd) {
+	@apply bg-gray-200;
+}
+
 .container {
 	@apply max-w-3xl mx-auto px-4 md:px-0;
 }
@@ -108,21 +118,6 @@ ol.list {
 }
 .btn.outlined.disabled {
 	@apply bg-gray-200 text-gray-400 border-gray-400 hover:bg-gray-200 hover:text-gray-400;	
-}
-
-/* grouped buttons */
-/* TODO this is being moved to external components */
-.btn-group {
-	@apply flex;
-}
-.btn-group .btn {
-	@apply rounded-none mr-0;
-}
-.btn-group .btn:first-child {
-	@apply rounded-l-md;
-}
-.btn-group .btn:last-child {
-	@apply rounded-r-md;
 }
 
 /* colouring, applies to buttons, tags, form messages */
