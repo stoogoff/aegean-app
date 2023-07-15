@@ -10,6 +10,7 @@ import careers from '~/static/data/chargen/careers.json'
 import gifts from '~/static/data/gifts.json'
 import talents from '~/static/data/talents.json'
 import weapons from '~/static/data/weapons.json'
+import equipment from '~/static/data/equipment.json'
 
 function Data(list) {
 	this.all = () => list
@@ -28,5 +29,6 @@ export default () => {
 		talents: new Data(talents),
 		gifts: new Data(gifts),
 		weapons: new Data(weapons),
+		equipment: new Data(equipment),
 	}
 }
