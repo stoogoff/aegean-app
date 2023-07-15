@@ -13,7 +13,7 @@
 			>
 				{{ character.id }}
 				<we-link-action :to="`/characters/${character.id}/heritage`">Edit</we-link-action>
-				<we-button-action @click="deleteCharacter(character.doc)">Delete</we-button-action>
+				<we-button-action type="warning" @click="deleteCharacter(character.doc)">Delete</we-button-action>
 			</div>
 			<div v-else>
 				<p>Use the button below to create a new character. Once you’ve created a character they will appear here.</p>

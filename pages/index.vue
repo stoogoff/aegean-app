@@ -11,7 +11,8 @@
 			</div>
 			<div>
 				<h2 class="meander"><span>Cities</span></h2>
-				<p>Create a new city and view existing ones.</p>
+				<p><tag-view type="success">Coming Soon!</tag-view> Create a new city and view existing ones.</p>
+				<we-button-action outlined block disabled>Cities</we-button-action>
 			</div>
 			<div>
 				<h2 class="meander"><span>Adversaries</span></h2>
@@ -20,11 +21,13 @@
 			</div>
 			<div>
 				<h2 class="meander"><span>Factions</span></h2>
-				<p>View factions.</p>
+				<p><tag-view type="success">Coming Soon!</tag-view> View factions.</p>
+				<we-button-action outlined block disabled>Factions</we-button-action>
 			</div>
 			<div>
 				<h2 class="meander"><span>GM Reference</span></h2>
-				<p>View GM reference material.</p>
+				<p><tag-view type="success">Coming Soon!</tag-view> View GM reference material.</p>
+				<we-button-action outlined block disabled>Reference</we-button-action>
 			</div>
 		</div>
 	</article>
