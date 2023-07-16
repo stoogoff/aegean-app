@@ -62,7 +62,7 @@ tbody tr:nth-child(odd) {
 	@apply px-6 hidden md:flex-none md:block md:w-64 lg:w-80;
 }
 .secondary-navigation > article {
-	@apply px-6 pt-20;
+	@apply px-6 pt-20 max-w-screen-lg;
 }
 
 .aegean {

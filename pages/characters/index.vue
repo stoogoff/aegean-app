@@ -11,8 +11,8 @@
 				:key="character._id"
 				:title="character.id"
 			>
-				{{ character.id }}
-				<we-link-action :to="`/characters/${character.id}/heritage`">Edit</we-link-action>
+				{{ character.slug }}
+				<we-link-action :to="`/characters/${character.slug}/heritage`">Edit</we-link-action>
 				<we-button-action type="warning" @click="deleteCharacter(character.doc)">Delete</we-button-action>
 			</div>
 			<div v-else>
@@ -41,6 +41,7 @@ export default {
 	},
 
 	methods: {
+		// TODO modal
 		async deleteCharacter(current) {
 			await this.$characters.delete(current)
 			await this.$fetch()

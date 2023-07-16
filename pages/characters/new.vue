@@ -1,6 +1,6 @@
 <template>
 	<div class="secondary-navigation">
-		<aside>
+		<aside class="pt-16">
 			<h3>Steps</h3>
 			<ol class="list">
 				<li>Choose a concept</li>

@@ -1,5 +1,5 @@
 <template>
-	<aside>
+	<aside class="pt-16">
 		<h3>Progress</h3>
 		<section>
 			<strong>Creation Points:</strong> {{ character.cp }} / {{ startingCreationPoints }}

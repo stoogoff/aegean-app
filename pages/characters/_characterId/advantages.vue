@@ -32,8 +32,8 @@
 			</accordion-group>
 			<step-buttons
 				v-if="character"
-				:next="`/characters/${character._id}/fate`"
-				:previous="`/characters/${character._id}/skills`"
+				:next="`/characters/${character.slug}/fate`"
+				:previous="`/characters/${character.slug}/skills`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>

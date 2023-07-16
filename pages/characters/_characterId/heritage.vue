@@ -80,7 +80,7 @@
 			</div>
 			<step-buttons
 				v-if="character"
-				:next="`/characters/${character._id}/background`"
+				:next="`/characters/${character.slug}/background`"
 				exit="/characters"
 				:disabled="!hasSelected"
 				@click="save"

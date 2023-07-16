@@ -6,8 +6,8 @@
 
 			<step-buttons
 				v-if="character"
-				:next="`/characters/${character._id}/`"
-				:previous="`/characters/${character._id}/heritage`"
+				:next="`/characters/${character.slug}/`"
+				:previous="`/characters/${character.slug}/heritage`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>

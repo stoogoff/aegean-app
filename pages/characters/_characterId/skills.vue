@@ -33,8 +33,8 @@
 			</ul>
 			<step-buttons
 				v-if="character"
-				:next="`/characters/${character._id}/advantages`"
-				:previous="`/characters/${character._id}/careers`"
+				:next="`/characters/${character.slug}/advantages`"
+				:previous="`/characters/${character.slug}/careers`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>

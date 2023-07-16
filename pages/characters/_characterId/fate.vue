@@ -13,8 +13,8 @@
 			</validate-field>
 			<step-buttons
 				v-if="character"
-				:next="`/characters/${character._id}/equipment`"
-				:previous="`/characters/${character._id}/advantages`"
+				:next="`/characters/${character.slug}/equipment`"
+				:previous="`/characters/${character.slug}/advantages`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>

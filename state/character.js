@@ -8,6 +8,8 @@ export const CHARACTER_ID_PREFIX = 'character:'
 export default db => {
 	return {
 		async byId(id) {
+			if(!id.startsWith(CHARACTER_ID_PREFIX)) id = CHARACTER_ID_PREFIX + id
+
 			return await db.get(id)
 		},
 
@@ -28,10 +30,11 @@ export default db => {
 		async create() {
 			// TODO once the character is named this should be rewritten with the character
 			// name instead of the random ID, then this doc deleted
-			const id = `${CHARACTER_ID_PREFIX}${createId()}`
+			const id = createId()
 			const character = {
 				...DEFAULT_CHARACTER,
-				_id: id,
+				_id: CHARACTER_ID_PREFIX + id,
+				slug: id,
 			}
 
 			const response = await db.put(character)
