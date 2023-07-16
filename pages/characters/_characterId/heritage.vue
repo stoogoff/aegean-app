@@ -89,10 +89,10 @@
 	</div>
 </template>
 <script>
-import { data } from '~/state'
+import WithCharacter from '~/mixins/WithCharacter'
+import CharacterCreator from '~/utils/character/creator'
 import { join } from '~/utils/list'
 import { HERITAGE_MORTAL, HERITAGE_DIVINE } from '~/utils/config'
-import { addSkills, removeSkills, hasDivineHeritage } from '~/utils/character'
 
 // choose heritage:
 // 1. mortal
@@ -106,12 +106,9 @@ import { addSkills, removeSkills, hasDivineHeritage } from '~/utils/character'
 
 export default {
 	name: 'CharacterHeritagePage',
+	mixins: [ WithCharacter ],
 
-	async fetch() {
-		const { params } = this.$nuxt.context
-
-		this.character = await this.$characters.byId(params.characterId)
-
+	mounted() {
 		// setup watchers here so they're not applied when the character is set
 		this.$watch('character.heritage', (newValue, oldValue) => {
 			const divine = this.$heritages.byTitle(HERITAGE_DIVINE)
@@ -136,13 +133,6 @@ export default {
 			}
 		})
 	},
-	fetchOnServer: false,
-
-	data() {
-		return {
-			character: null,
-		}
-	},
 
 	computed: {
 		heritages() {
@@ -154,16 +144,12 @@ export default {
 		},
 
 		hasDivineHeritage() {
-			return hasDivineHeritage(this.character)
-		},
-
-		isMortalHeritage() {
-			return this.character && this.character.heritage === HERITAGE_MORTAL
+			return CharacterCreator.hasDivineHeritage
 		},
 
 		hasSelected() {
-			if(this.isMortalHeritage) return true
-			if(this.hasDivineHeritage && this.character.parent !== null) return true
+			if(CharacterCreator.hasMortalHeritage) return true
+			if(CharacterCreator.hasDivineHeritage && this.character.parent !== null) return true
 
 			return false
 		},
@@ -177,22 +163,17 @@ export default {
 		removeParent(title) {
 			const obj = this.$divinities.byTitle(title)
 
-			removeSkills(obj.skills, this.character)
+			CharacterCreator.removeSkills(obj.skills)
 		},
 
 		addParent(title) {
 			const obj = this.$divinities.byTitle(title)
 
-			addSkills(obj.skills, this.character)
+			CharacterCreator.addSkills(obj.skills)
 		},
 
 		getGift(title) {
 			return this.$gifts.byTitle(title)
-		},
-
-		async save(done) {
-			await this.$characters.save(this.character)
-			done()
 		},
 	}
 }

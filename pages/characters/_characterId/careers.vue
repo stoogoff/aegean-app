@@ -100,31 +100,19 @@
 	</div>
 </template>
 <script>
+import WithCharacter from '~/mixins/WithCharacter'
+import CharacterCreator from '~/utils/character/creator'
 import { join } from '~/utils/list'
-import { addSkills, removeSkills } from '~/utils/character'
+import { CAREER_COST } from '~/utils/config'
 
 // choose a career
 // this adds skills
 // choose a talent or specialisation
 // optionally choose another career at 3CP per additional
 
-const CAREER_COST = 3
-
 export default {
 	name: 'CharacterCareersPage',
-
-	async fetch() {
-		const { params } = this.$nuxt.context
-
-		this.character = await this.$characters.byId(params.characterId)
-	},
-	fetchOnServer: false,
-
-	data() {
-		return {
-			character: null,
-		}
-	},
+	mixins: [ WithCharacter ],
 
 	computed: {
 		careers() {
@@ -132,16 +120,16 @@ export default {
 		},
 
 		hasCareer() {
-			return this.character && this.character.careers.length > 0
+			return CharacterCreator.hasCareer
 		},
 
 		canAffordNewCareer() {
-			return this.character.cp >= CAREER_COST
+			return CharacterCreator.canAffordNewCareer
 		},
 
 		hasSelected() {
 			return this.character &&
-				this.character.careers.length > 0 &&
+				this.hasCareer &&
 				this.character.careers.map(career => career.chosenSpec).filter(spec => !!spec).length > 0
 		},
 	},
@@ -158,27 +146,13 @@ export default {
 		addCareer(title) {
 			const obj = this.$careers.byTitle(title)
 
-			// the character has a career already so subsequent careers cost
-			if(this.hasCareer) {
-				this.character.cp -= CAREER_COST
-			}
-
-			this.character.careers = [ ...this.character.careers, {
-				title,
-				chosenSpec: null,
-			}]
-			addSkills(obj.skills, this.character)
+			CharacterCreator.addCareer(obj)
 		},
 
 		removeCareer(title) {
 			const obj = this.$careers.byTitle(title)
 
-			if(this.character.careers.length >= 2) {
-				this.character.cp += CAREER_COST
-			}
-
-			this.character.careers = [ ...this.character.careers.filter(career => career.title !== title) ]
-			removeSkills(obj.skills, this.character)
+			CharacterCreator.removeCareer(obj)
 		},
 
 		getSelectedCareer(title) {
@@ -190,12 +164,7 @@ export default {
 		},
 
 		isCareerSelected(title) {
-			return this.character.careers.map(career => career.title).includes(title)
-		},
-
-		async save(done) {
-			await this.$characters.save(this.character)
-			done()
+			return CharacterCreator.hasCareer(title)
 		},
 	},
 }

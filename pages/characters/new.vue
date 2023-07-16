@@ -25,6 +25,8 @@
 	</div>
 </template>
 <script>
+import CharacterCreator from '~/utils/character/creator'
+
 export default {
 	name: 'CharacterNewPage',
 
@@ -34,9 +36,11 @@ export default {
 
 			this.loading = true
 
-			const newId = await this.$characters.create()
+			const character = await this.$characters.create()
 
-			redirect(`/characters/${newId}/${suffix}`)
+			CharacterCreator.character = character
+
+			redirect(`/characters/${character.slug}/${suffix}`)
 
 			this.loading = false
 		},

@@ -41,21 +41,12 @@
 	</div>
 </template>
 <script>
+import WithCharacter from '~/mixins/WithCharacter'
+import CharacterCreator from '~/utils/character/creator'
+
 export default {
 	name: 'CharacterAdvantagesPage',
-
-	async fetch() {
-		const { params } = this.$nuxt.context
-
-		this.character = await this.$characters.byId(params.characterId)
-	},
-	fetchOnServer: false,
-
-	data() {
-		return {
-			character: null,
-		}
-	},
+	mixins: [ WithCharacter ],
 
 	computed: {
 		advantages() {
@@ -69,7 +60,7 @@ export default {
 
 	methods: {
 		isAdvantageSelected(title) {
-			return this.character.advantages.map(adv => adv.title).includes(title)
+			return CharacterCreator.hasAdvantage(title)
 		},
 
 		canSelectAdvantage(advantage) {
@@ -83,24 +74,13 @@ export default {
 		addAdvantage(title) {
 			const obj = this.$advantages.byTitle(title)
 
-			this.character.advantages = [ ...this.character.advantages, {
-				title,
-			}]
-
-			this.character.cp -= obj.cost
+			CharacterCreator.addAdvantage(obj)
 		},
 
 		removeAdvantage(title) {
 			const obj = this.$advantages.byTitle(title)
 
-			this.character.advantages = [ ...this.character.advantages.filter(adv => adv.title !== title) ]
-
-			this.character.cp += obj.cost
-		},
-
-		async save(done) {
-			await this.$characters.save(this.character)
-			done()
+			CharacterCreator.removeAdvantage(obj)
 		},
 	},
 }

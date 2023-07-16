@@ -42,27 +42,14 @@
 	</div>
 </template>
 <script>
-
-import { SKILLS, SKILL_STARTING_MAX } from '~/utils/config'
+import WithCharacter from '~/mixins/WithCharacter'
+import CharacterCreator from '~/utils/character/creator'
+import { SKILLS_PER_CP, SKILLS, SKILL_STARTING_MAX } from '~/utils/config'
 import { sum } from '~/utils/list'
-
-const SKILL_PER_CP = 3
 
 export default {
 	name: 'CharacterSkillsPage',
-
-	async fetch() {
-		const { params } = this.$nuxt.context
-
-		this.character = await this.$characters.byId(params.characterId)
-	},
-	fetchOnServer: false,
-
-	data() {
-		return {
-			character: null,
-		}
-	},
+	mixins: [ WithCharacter ],
 
 	computed: {
 		skills() {
@@ -85,7 +72,7 @@ export default {
 		},
 
 		cost() {
-			return Math.ceil(this.skillIncreases / SKILL_PER_CP)
+			return Math.ceil(this.skillIncreases / SKILLS_PER_CP)
 		},
 
 		hasSelected() {
@@ -95,45 +82,19 @@ export default {
 
 	methods: {
 		increaseSkill(skill) {
-			if(this.canIncrease(skill)) {
-				this.character.skillIncreases[skill]++
-
-				if(this.skillIncreases % SKILL_PER_CP === 1) {
-					this.character.cp -= 1
-				}
-			}
+			CharacterCreator.increaseSkill(skill)
 		},
 
 		reduceSkill(skill) {
-			if(this.canReduce(skill)) {
-				this.character.skillIncreases[skill]--
-
-				if(this.skillIncreases % SKILL_PER_CP === 0) {
-					this.character.cp += 1
-				}
-			}
+			CharacterCreator.reduceSkill(skill)
 		},
 
 		canIncrease(skill) {
-			if(
-				this.character &&
-				this.character.cp - 1 < 0 &&
-				this.skillIncreases % SKILL_PER_CP === 0
-			) {
-				return false
-			}
-
-			return this.character &&
-				(this.character.skills[skill] + this.character.skillIncreases[skill]) < SKILL_STARTING_MAX
+			return CharacterCreator.canIncreaseSkill(skill)
 		},
 
 		canReduce(skill) {
-			return this.character && this.character.skillIncreases[skill] > 0
-		},
-
-		async save(done) {
-			await this.$characters.save(this.character)
-			done()
+			return CharacterCreator.canReduceSkill(skill)
 		},
 	},
 }

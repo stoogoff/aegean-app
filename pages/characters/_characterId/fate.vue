@@ -22,23 +22,12 @@
 	</div>
 </template>
 <script>
+import WithCharacter from '~/mixins/WithCharacter'
 import { required, validate } from 'we-ui/utils/validators'
 
 export default {
 	name: 'CharacterFatePage',
-
-	async fetch() {
-		const { params } = this.$nuxt.context
-
-		this.character = await this.$characters.byId(params.characterId)
-	},
-	fetchOnServer: false,
-
-	data() {
-		return {
-			character: null,
-		}
-	},
+	mixins: [ WithCharacter ],
 
 	computed: {
 		rules() {
@@ -49,13 +38,6 @@ export default {
 
 		hasSelected() {
 			return validate(this.rules.fate, this.character.fate).length === 0
-		},
-	},
-
-	methods: {
-		async save(done) {
-			await this.$characters.save(this.character)
-			done()
 		},
 	},
 }

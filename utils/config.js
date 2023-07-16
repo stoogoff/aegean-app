@@ -26,6 +26,8 @@ export const EQUIPMENT_COMMON = 'Common'
 export const EQUIPMENT_UNCOMMON = 'Uncommon'
 export const EQUIPMENT_RARE = 'Rare'
 
+export const CAREER_COST = 3
+
 export const HERITAGE_MORTAL = 'Mortal'
 export const HERITAGE_DIVINE = 'Divine'
 
@@ -50,6 +52,8 @@ export const CHARACTERISTIC_START = 2
 export const SKILL_MIN = 0
 export const SKILL_STARTING_MAX = 3
 export const SKILL_MAX = 5
+
+export const SKILLS_PER_CP = 3
 
 export const SKILLS = [
 	'Accuracy',

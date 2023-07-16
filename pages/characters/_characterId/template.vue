@@ -15,32 +15,16 @@
 	</div>
 </template>
 <script>
+import WithCharacter from '~/mixins/WithCharacter'
+import CharacterCreator from '~/utils/character/creator'
+
 export default {
 	name: 'CharacterBackgroundPage',
-
-	async fetch() {
-		const { params } = this.$nuxt.context
-
-		this.character = await this.$characters.byId(params.characterId)
-	},
-	fetchOnServer: false,
-
-	data() {
-		return {
-			character: null,
-		}
-	},
+	mixins: [ WithCharacter ],
 
 	computed: {
 		hasSelected() {
 			return false
-		},
-	},
-
-	methods: {
-		async save(done) {
-			await this.$characters.save(this.character)
-			done()
 		},
 	},
 }

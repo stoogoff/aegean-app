@@ -44,17 +44,15 @@
 	</div>
 </template>
 <script>
+import WithCharacter from '~/mixins/WithCharacter'
+import CharacterCreator from '~/utils/character/creator'
 import { join } from '~/utils/list'
-import { addSkills, removeSkills } from '~/utils/character'
 
 export default {
 	name: 'CharacterBackgroundPage',
+	mixins: [ WithCharacter ],
 
-	async fetch() {
-		const { params } = this.$nuxt.context
-
-		this.character = await this.$characters.byId(params.characterId)
-
+	mounted() {
 		this.$watch('character.background', (newValue, oldValue) => {
 			if(oldValue !== null && oldValue !== undefined) {
 				this.removeBackground(oldValue)
@@ -64,13 +62,6 @@ export default {
 				this.addBackground(newValue)
 			}
 		})
-	},
-	fetchOnServer: false,
-
-	data() {
-		return {
-			character: null,
-		}
 	},
 
 	computed: {
@@ -91,20 +82,13 @@ export default {
 		removeBackground(title) {
 			const obj = this.$backgrounds.byTitle(title)
 
-			removeSkills(obj.skills, this.character)
-			this.character.cp += obj.cost
+			CharacterCreator.removeBackground(obj)
 		},
 
 		addBackground(title) {
 			const obj = this.$backgrounds.byTitle(title)
 
-			addSkills(obj.skills, this.character)
-			this.character.cp -= obj.cost
-		},
-
-		async save(done) {
-			await this.$characters.save(this.character)
-			done()
+			CharacterCreator.addBackground(obj)
 		},
 	},
 }

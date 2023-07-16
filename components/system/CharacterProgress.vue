@@ -45,8 +45,8 @@
 </template>
 <script>
 import Vue from 'vue'
+import CharacterCreator from '~/utils/character/creator'
 import { toTitleCase } from '~/utils/string'
-import { hasDivineHeritage, addCharacteristics } from '~/utils/character'
 import { STARTING_CREATION_POINTS, CHARACTERISTIC_MIN, SKILL_MIN } from '~/utils/config'
 
 export default Vue.component('CharacterProgress', {
@@ -111,7 +111,7 @@ export default Vue.component('CharacterProgress', {
 
 		characteristics() {
 			// get the character's characteristics and apply any divine bonus to them
-			if(hasDivineHeritage(this.character)) {
+			if(CharacterCreator.hasDivineHeritage) {
 				const parent = this.$divinities.byTitle(this.character.parent)
 				const clone = {}
 

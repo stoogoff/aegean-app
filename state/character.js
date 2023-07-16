@@ -21,10 +21,9 @@ export default db => {
 				endKey: `${CHARACTER_ID_PREFIX}\u1111`,
 			})
 
-			response.rows = response.rows.filter(row => row.id.startsWith(CHARACTER_ID_PREFIX))
-			response.total_rows = response.rows.length
-
-			return response
+			return response.rows
+				.filter(row => row.id.startsWith(CHARACTER_ID_PREFIX))
+				.map(row => row.doc)
 		},
 
 		async create() {
@@ -41,7 +40,7 @@ export default db => {
 
 			if(!response.ok) throw 'Unable to create character'
 
-			return id
+			return await this.byId(id)
 		},
 
 		async save(data) {

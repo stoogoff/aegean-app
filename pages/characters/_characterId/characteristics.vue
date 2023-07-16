@@ -69,8 +69,8 @@
 	</div>
 </template>
 <script>
-
-import { hasDivineHeritage, addCharacteristics } from '~/utils/character'
+import WithCharacter from '~/mixins/WithCharacter'
+import CharacterCreator from '~/utils/character/creator'
 import {
 	CHARACTERISTICS,
 	CHARACTERISTIC_MIN,
@@ -92,46 +92,10 @@ const NOT_SELECTED_BUT_HAS_CHOSEN_ANOTHER = 4
 
 export default {
 	name: 'CharacterCharacteristicsPage',
-
-	async fetch() {
-		const { params } = this.$nuxt.context
-
-		this.character = await this.$characters.byId(params.characterId)
-
-		// a characteristic package has been chosen so prefill values
-		if(this.character.characteristicPackage !== null) {
-			// get values from selected package
-			const values = [ ...this.selectedPackage.values ]
-
-			// go through the values in the package
-			Object.keys(this.character.characteristics).forEach(ch => {
-				if(this.character.characteristics[ch] > CHARACTERISTIC_START) {
-					// if there's a match in the characteristics set it
-					const index = values.indexOf(this.character.characteristics[ch])
-
-					if(index !== -1) {
-						this.selectedValues[index] = ch
-						values[index] = 0
-					}
-				}
-			})
-		}
-
-		this.$watch('character.characteristicPackage', (newValue, oldValue) => {
-			if(oldValue !== null && oldValue !== undefined) {
-				this.removePackage(oldValue)
-			}
-
-			if(newValue !== null && newValue !== undefined) {
-				this.addPackage(newValue)
-			}
-		})
-	},
-	fetchOnServer: false,
+	mixins: [ WithCharacter ],
 
 	data() {
 		return {
-			character: null,
 			selectedValues: {},
 		}
 	},
@@ -163,12 +127,44 @@ export default {
 	},
 
 	methods: {
+		onCharacterLoad() {
+			console.log(this.character)
+			// a characteristic package has been chosen so prefill values
+			if(this.character.characteristicPackage !== null) {
+				// get values from selected package
+				const values = [ ...this.selectedPackage.values ]
+
+				// go through the values in the package
+				Object.keys(this.character.characteristics).forEach(ch => {
+					if(this.character.characteristics[ch] > CHARACTERISTIC_START) {
+						// if there's a match in the characteristics set it
+						const index = values.indexOf(this.character.characteristics[ch])
+
+						if(index !== -1) {
+							this.selectedValues[index] = ch
+							values[index] = 0
+						}
+					}
+				})
+			}
+
+			this.$watch('character.characteristicPackage', (newValue, oldValue) => {
+				if(oldValue !== null && oldValue !== undefined) {
+					this.removePackage(oldValue)
+				}
+
+				if(newValue !== null && newValue !== undefined) {
+					this.addPackage(newValue)
+				}
+			})
+		},
+
 		hasDivineHeritageBonus(ch) {
 			return this.divineHeritageBonus(ch) > 0
 		},
 
 		divineHeritageBonus(ch) {
-			if(!hasDivineHeritage(this.character)) return 0
+			if(!CharacterCreator.hasDivineHeritage) return 0
 
 			const obj = this.$divinities.byTitle(this.character.parent)
 
@@ -178,20 +174,15 @@ export default {
 		removePackage(title) {
 			const obj = this.$characteristics.byTitle(title)
 
-			this.character.cp += obj.cost
-
-			// reset characteristics to minimum value
-			Object.keys(this.character.characteristics).forEach(ch => this.character.characteristics[ch] = CHARACTERISTIC_MIN)
+			CharacterCreator.removeCharacteristicPackage(obj)
 		},
 
 		addPackage(title) {
 			const obj = this.$characteristics.byTitle(title)
 
-			this.character.cp -= obj.cost
-			this.selectedValues = {}
+			CharacterCreator.addCharacteristicPackage(obj)
 
-			// reset characteristics to starting values
-			Object.keys(this.character.characteristics).forEach(ch => this.character.characteristics[ch] = CHARACTERISTIC_START)
+			this.selectedValues = {}
 		},
 
 		canClick(ch, valueIndex) {
@@ -244,11 +235,6 @@ export default {
 				this.character.characteristics[ch] = value
 				this.selectedValues = { ...this.selectedValues, [valueIndex]: ch }
 			}
-		},
-
-		async save(done) {
-			await this.$characters.save(this.character)
-			done()
 		},
 	},
 }

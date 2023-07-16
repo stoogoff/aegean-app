@@ -9,11 +9,10 @@
 				v-else-if="characters.length > 0"
 				v-for="(character, idx) in characters"
 				:key="character._id"
-				:title="character.id"
 			>
 				{{ character.slug }}
 				<we-link-action :to="`/characters/${character.slug}/heritage`">Edit</we-link-action>
-				<we-button-action type="warning" @click="deleteCharacter(character.doc)">Delete</we-button-action>
+				<we-button-action type="warning" @click="deleteCharacter(character)">Delete</we-button-action>
 			</div>
 			<div v-else>
 				<p>Use the button below to create a new character. Once you’ve created a character they will appear here.</p>
@@ -28,9 +27,7 @@ export default {
 	name: 'CharacterIndexPage',
 
 	async fetch() {
-		const response = await this.$characters.all()
-
-		this.characters = response.rows
+		this.characters = await this.$characters.all()
 	},
 	fetchOnServer: false,
 

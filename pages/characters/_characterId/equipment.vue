@@ -78,7 +78,8 @@
 	</div>
 </template>
 <script>
-
+import WithCharacter from '~/mixins/WithCharacter'
+import CharacterCreator from '~/utils/character/creator'
 import { findByProperty, sortByProperties } from 'we-ui/utils/list'
 import { sum } from '~/utils/list'
 import { EQUIPMENT_COMMON, EQUIPMENT_UNCOMMON, EQUIPMENT_RARE } from '~/utils/config'
@@ -92,19 +93,7 @@ import { EQUIPMENT_COMMON, EQUIPMENT_UNCOMMON, EQUIPMENT_RARE } from '~/utils/co
 
 export default {
 	name: 'CharacterEquipmentPage',
-
-	async fetch() {
-		const { params } = this.$nuxt.context
-
-		this.character = await this.$characters.byId(params.characterId)
-	},
-	fetchOnServer: false,
-
-	data() {
-		return {
-			character: null,
-		}
-	},
+	mixins: [ WithCharacter ],
 
 	computed: {
 		equipment() {
@@ -139,15 +128,11 @@ export default {
 		},
 
 		currentEncumbrance() {
-			if(!this.character) return 0
-
-			return this.character.equipment.map(({ weight }) => weight).reduce(sum, 0)
+			return CharacterCreator.currentEncumbrance
 		},
 
 		totalEncumbrance() {
-			if(!this.character) return 0
-
-			return this.character.characteristics.Might + 2
+			return CharacterCreator.totalEncumbrance
 		},
 
 		hasSelected() {
@@ -181,24 +166,17 @@ export default {
 			return false
 		},
 
-		isItemSelected(item) {
-			if(!this.character) return false
-
-			return this.character.equipment.find(findByProperty('title', item)) !== undefined
+		isItemSelected(title) {
+			CharacterCreator.hasEquipmentItem(title)
 		},
 
 		toggleItem(item) {
 			if(this.isItemSelected(item.title)) {
-				this.character.equipment = [...this.character.equipment.filter(({ title }) => title !== item.title)]
+				CharacterCreator.removeEquipmentItem(item)
 			}
 			else {
-				this.character.equipment = [...this.character.equipment, item]
+				CharacterCreator.addEquipmentItem(item)
 			}
-		},
-
-		async save(done) {
-			await this.$characters.save(this.character)
-			done()
 		},
 	},
 }
