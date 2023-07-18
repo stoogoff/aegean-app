@@ -5,26 +5,26 @@
 			<markdown-content content="characters/heritage" />
 			<accordion-group v-if="character">
 				<accordion-item
-					v-for="(heritage, idx) in heritages"
+					v-for="(htg, idx) in heritages"
 					:key="`heritage_${idx}`"
-					:checked="character.heritage === heritage.title"
+					:checked="heritage === htg.title"
 				>
 					<template #trigger>
 						<div>
-							<strong class="text-lg">{{ heritage.title }}</strong>
-							<small>({{ heritage.cost }} CP)</small>
+							<strong class="text-lg">{{ htg.title }}</strong>
+							<small>({{ htg.cost }} CP)</small>
 						</div>
 					</template>
 					<template #content>
 						<div class="grid grid-cols-3 mb-4">
-							<stat-view label="Endurance"> {{ heritage.endurance }}</stat-view>
-							<stat-view label="Glory"> {{ heritage.glory }}</stat-view>
-							<stat-view label="CP"> {{ heritage.cost }}</stat-view>
+							<stat-view label="Endurance"> {{ htg.endurance }}</stat-view>
+							<stat-view label="Glory"> {{ htg.glory }}</stat-view>
+							<stat-view label="CP"> {{ htg.cost }}</stat-view>
 						</div>
-						<p>{{ heritage.description }}</p>
+						<p>{{ htg.description }}</p>
 						<radio-action
-							v-model="character.heritage"
-							:data="heritage.title"
+							v-model="heritage"
+							:data="htg.title"
 							block
 							outlined
 						>
@@ -38,18 +38,18 @@
 				<p>Choose your divine parent from those below.</p>
 				<accordion-group>
 					<accordion-item
-						v-for="(parent, idx) in divinities"
+						v-for="(prt, idx) in divinities"
 						:key="`parent_${idx}`"
-						:checked="character.parent === parent.title"
+						:checked="parent === prt.title"
 					>
 						<template #trigger>
-							<strong class="text-lg">{{ parent.title }}</strong>
+							<strong class="text-lg">{{ prt.title }}</strong>
 						</template>
 						<template #content>
 							<div class="flex my-4">
 								<info-button
-									v-for="(gift, idx) in parent.gifts"
-									:key="`gift_${parent.title}_${idx}`"
+									v-for="(gift, idx) in prt.gifts"
+									:key="`gift_${prt.title}_${idx}`"
 									small outlined
 								>
 									{{ gift }}
@@ -61,14 +61,14 @@
 								</info-button>
 							</div>
 							<div class="grid grid-cols-3 mb-4">
-								<stat-view label="Skills">{{ join(parent.skills, ', ') }}</stat-view>
-								<stat-view label="Specialisation">{{ parent.specialisation }}</stat-view>
-								<stat-view label="Characteristics">{{ join(parent.characteristics, ', and ') }}</stat-view>
+								<stat-view label="Skills">{{ prt.skills | join }}</stat-view>
+								<stat-view label="Specialisation">{{ prt.specialisation }}</stat-view>
+								<stat-view label="Characteristics">{{ prt.characteristics | join-and }}</stat-view>
 							</div>
-							<p>{{ parent.description }}</p>
+							<p>{{ prt.description }}</p>
 							<radio-action
-								v-model="character.parent"
-								:data="parent.title"
+								v-model="parent"
+								:data="prt.title"
 								block
 								outlined
 							>
@@ -91,7 +91,6 @@
 <script>
 import WithCharacter from '~/mixins/WithCharacter'
 import CharacterCreator from '~/utils/character/creator'
-import { join } from '~/utils/list'
 import { HERITAGE_MORTAL, HERITAGE_DIVINE } from '~/utils/config'
 
 // choose heritage:
@@ -108,22 +107,21 @@ export default {
 	name: 'CharacterHeritagePage',
 	mixins: [ WithCharacter ],
 
-	mounted() {
-		// setup watchers here so they're not applied when the character is set
-		this.$watch('character.heritage', (newValue, oldValue) => {
-			const divine = this.$heritages.byTitle(HERITAGE_DIVINE)
+	data() {
+		return {
+			heritage: null,
+			parent: null,
+		}
+	},
 
-			if(oldValue === HERITAGE_DIVINE) {
-				this.character.parent = null
-				this.character.cp += divine.cost
-			}
+	watch: {
+		heritage(newValue, oldValue) {
+			const obj = this.$heritages.byTitle(newValue)
 
-			if(newValue === HERITAGE_DIVINE) {
-				this.character.cp -= divine.cost
-			}
-		})
+			CharacterCreator.setHeritage(obj)
+		},
 
-		this.$watch('character.parent', (newValue, oldValue) => {
+		parent(newValue, oldValue) {
 			if(oldValue !== null && oldValue !== undefined) {
 				this.removeParent(oldValue)
 			}
@@ -131,7 +129,7 @@ export default {
 			if(newValue !== null && newValue !== undefined) {
 				this.addParent(newValue)
 			}
-		})
+		},
 	},
 
 	computed: {
@@ -144,7 +142,8 @@ export default {
 		},
 
 		hasDivineHeritage() {
-			return CharacterCreator.hasDivineHeritage
+			//return CharacterCreator.hasDivineHeritage
+			return this.character && this.character.heritage === HERITAGE_DIVINE
 		},
 
 		hasSelected() {
@@ -156,20 +155,21 @@ export default {
 	},
 
 	methods: {
-		join(arr, joiner) {
-			return join(joiner)(arr)
+		onCharacterLoad() {
+			this.heritage = this.character.heritage
+			this.parent = this.character.parent
 		},
 
 		removeParent(title) {
 			const obj = this.$divinities.byTitle(title)
 
-			CharacterCreator.removeSkills(obj.skills)
+			CharacterCreator.removeParent(obj)
 		},
 
 		addParent(title) {
 			const obj = this.$divinities.byTitle(title)
 
-			CharacterCreator.addSkills(obj.skills)
+			CharacterCreator.addParent(obj)
 		},
 
 		getGift(title) {

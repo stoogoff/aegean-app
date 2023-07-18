@@ -1,19 +1,21 @@
 
+import { data } from '~/state'
 import {
-	SKILL_MAX,
-	SKILL_MIN,
-	CHARACTERISTIC_MIN,
+	CAREER_COST,
 	CHARACTERISTIC_MAX,
+	CHARACTERISTIC_MIN,
+	CHARACTERISTIC_START,
 	HERITAGE_DIVINE,
 	HERITAGE_MORTAL,
-	CAREER_COST,
-	SKILLS_PER_CP,
+	SKILL_MAX,
+	SKILL_MIN,
 	SKILL_STARTING_MAX,
-	CHARACTERISTIC_START,
+	SKILLS_PER_CP,
+	STARTING_CREATION_POINTS,
 } from '~/utils/config'
 
-
 let character = null
+let dataManager = data()
 
 export default {
 	get character() {
@@ -24,12 +26,38 @@ export default {
 		character = ch
 	},
 
-	get hasDivineHeritage() {
-		return character && character.heritage === HERITAGE_DIVINE
-	},
+	get cp() {
+		let cp = STARTING_CREATION_POINTS
 
-	get hasMortalHeritage() {
-		return character && character.heritage === HERITAGE_MORTAL
+		if(!character) return cp
+
+		const map = {
+			'heritage' : 'heritages',
+			'background' : 'backgrounds',
+			'characteristicPackage' : 'characteristics',
+			'advantages' : 'advantages',
+		}
+
+		Object.keys(map).forEach(key => {
+			if(character[key] !== null) {
+				if(Array.isArray(character[key])) {
+					// TODO advantages
+				}
+				else {
+					const obj = dataManager[map[key]].byTitle(character[key])
+
+					cp -= obj.cost
+				}
+			}
+		})
+
+
+
+//skillIncreases
+//careers
+
+
+		return cp
 	},
 
 	// characteristics
@@ -50,15 +78,11 @@ export default {
 	},
 
 	removeCharacteristicPackage(chpack) {
-		character.cp += chpack.cost
-
 		// reset characteristics to minimum value
 		Object.keys(character.characteristics).forEach(ch => character.characteristics[ch] = CHARACTERISTIC_MIN)
 	},
 
 	addCharacteristicPackage(chpack) {
-		character.cp -= chpack.cost
-
 		// reset characteristics to starting values
 		Object.keys(character.characteristics).forEach(ch => character.characteristics[ch] = CHARACTERISTIC_START)
 	},
@@ -84,9 +108,9 @@ export default {
 		if(this.canIncreaseSkill(skill)) {
 			character.skillIncreases[skill]++
 
-			if(this.skillIncreases % SKILLS_PER_CP === 1) {
+			/*if(this.skillIncreases % SKILLS_PER_CP === 1) {
 				character.cp -= 1
-			}
+			}*/
 		}
 	},
 
@@ -94,9 +118,9 @@ export default {
 		if(this.canReduceSkill(skill)) {
 			character.skillIncreases[skill]--
 
-			if(this.skillIncreases % SKILLS_PER_CP === 0) {
+			/*if(this.skillIncreases % SKILLS_PER_CP === 0) {
 				character.cp += 1
-			}
+			}*/
 		}
 	},
 
@@ -112,15 +136,49 @@ export default {
 		return character && character.skillIncreases[skill] > 0
 	},
 
-	// backgrounds
-	removeBackground(background) {
-		this.removeSkills(background.skills, character)
-		character.cp += background.cost
+	// heritage
+	get hasDivineHeritage() {
+		return character && character.heritage === HERITAGE_DIVINE
 	},
 
-	addBackground(background) {
-		this.addSkills(background.skills, character)
-		character.cp -= background.cost
+	get hasMortalHeritage() {
+		return character && character.heritage === HERITAGE_MORTAL
+	},
+
+	setHeritage(heritage) {
+		// if heritage is null do nothing
+		// if heritage doesn't equal current heritage, remove the old heritage
+
+		// the character has divine heritage and a selected parent, so remove it
+		if(this.hasDivineHeritage && character.parent !== null) {
+			const parent = dataManager.divinities.byTitle(character.parent)
+
+			this.removeParent(parent)
+		}
+
+		character.heritage = heritage.title
+	},
+
+	removeParent(parent) {
+		character.parent = null
+		this.removeSkills(parent.skills)
+	},
+
+	addParent(parent) {
+		character.parent = parent.title
+		this.addSkills(parent.skills)
+	},
+
+	// backgrounds
+	setBackground(background) {
+		if(character.background !== null) {
+			const obj = dataManager.backgrounds.byTitle(character.background)
+
+			this.removeSkills(obj.skills)
+		}
+
+		character.background = background.title
+		this.addSkills(background.skills)
 	},
 
 	// advantages
@@ -128,13 +186,10 @@ export default {
 		character.advantages = [ ...character.advantages, {
 			title: advantage.title,
 		}]
-
-		character.cp -= advantage.cost
 	},
 
 	removeAdvantage(advantage) {
 		character.advantages = [ ...character.advantages.filter(adv => adv.title !== advantage.title) ]
-		character.cp += advantage.cost
 	},
 
 	hasAdvantage(title) {
@@ -142,20 +197,15 @@ export default {
 	},
 
 	// careers
-	get hasCareer() {
+	get hasSelectedCareer() {
 		return character.careers.length > 0
 	},
 
 	get canAffordNewCareer() {
-		return character.cp >= CAREER_COST
+		return this.cp >= CAREER_COST
 	},
 
 	addCareer(career) {
-		// the character has a career already so subsequent careers cost
-		if(character.careers.length > 0) {
-			character.cp -= CAREER_COST
-		}
-
 		character.careers = [ ...character.careers, {
 			title: career.title,
 			chosenSpec: null,
@@ -164,10 +214,6 @@ export default {
 	},
 
 	removeCareer(career) {
-		if(character.careers.length >= 2) {
-			character.cp += CAREER_COST
-		}
-
 		character.careers = [ ...character.careers.filter(cr => cr.title !== career.title) ]
 		
 		this.removeSkills(career.skills)

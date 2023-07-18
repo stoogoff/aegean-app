@@ -12,7 +12,7 @@
 					<template #trigger>
 						<div>
 							<strong class="text-xl">{{ career.title }}</strong>
-							<small v-if="hasCareer">(3 CP)</small>
+							<small v-if="hasSelectedCareer">(3 CP)</small>
 						</div>
 					</template>
 					<template #content>
@@ -119,8 +119,8 @@ export default {
 			return this.$careers.all()
 		},
 
-		hasCareer() {
-			return CharacterCreator.hasCareer
+		hasSelectedCareer() {
+			return CharacterCreator.hasSelectedCareer
 		},
 
 		canAffordNewCareer() {
@@ -129,7 +129,7 @@ export default {
 
 		hasSelected() {
 			return this.character &&
-				this.hasCareer &&
+				this.hasSelectedCareer &&
 				this.character.careers.map(career => career.chosenSpec).filter(spec => !!spec).length > 0
 		},
 	},

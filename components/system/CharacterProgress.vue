@@ -2,7 +2,7 @@
 	<aside class="pt-16">
 		<h3>Progress</h3>
 		<section>
-			<strong>Creation Points:</strong> {{ character.cp }} / {{ startingCreationPoints }}
+			<strong>Creation Points:</strong> {{ currentCreationPoints }} / {{ startingCreationPoints }}
 		</section>
 		<section v-if="hasBackgroundInfo">
 			<h4>Background</h4>
@@ -60,6 +60,10 @@ export default Vue.component('CharacterProgress', {
 	computed: {
 		startingCreationPoints() {
 			return STARTING_CREATION_POINTS
+		},
+
+		currentCreationPoints() {
+			return CharacterCreator.cp
 		},
 
 		hasBackgroundInfo() {

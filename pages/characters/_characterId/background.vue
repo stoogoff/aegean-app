@@ -5,26 +5,26 @@
 			<markdown-content content="characters/background" />
 			<accordion-group v-if="character">
 				<accordion-item
-					v-for="(background, idx) in backgrounds"
+					v-for="(bg, idx) in backgrounds"
 					:key="`background_${idx}`"
-					:checked="character.background === background.title"
+					:checked="background === bg.title"
 				>
 					<template #trigger>
 						<div>
-							<strong class="text-xl">{{ background.title }}</strong>
-							<small>({{ background.cost }} CP)</small>
+							<strong class="text-xl">{{ bg.title }}</strong>
+							<small>({{ bg.cost }} CP)</small>
 						</div>
 					</template>
 					<template #content>
 						<div class="grid grid-cols-3 mb-4">
-							<stat-view label="Standing">{{ background.standing }}</stat-view>
-							<stat-view label="Skills">{{ join(background.skills, ', ') }}</stat-view>
-							<stat-view label="CP">{{ background.cost }}</stat-view>
+							<stat-view label="Standing">{{ bg.standing }}</stat-view>
+							<stat-view label="Skills">{{ bg.skills | join }}</stat-view>
+							<stat-view label="CP">{{ bg.cost }}</stat-view>
 						</div>
-						<p>{{ background.description }}</p>
+						<p>{{ bg.description }}</p>
 						<radio-action
-							v-model="character.background"
-							:data="background.title"
+							v-model="background"
+							:data="bg.title"
 							block
 							outlined
 						>
@@ -46,22 +46,21 @@
 <script>
 import WithCharacter from '~/mixins/WithCharacter'
 import CharacterCreator from '~/utils/character/creator'
-import { join } from '~/utils/list'
 
 export default {
 	name: 'CharacterBackgroundPage',
 	mixins: [ WithCharacter ],
 
-	mounted() {
-		this.$watch('character.background', (newValue, oldValue) => {
-			if(oldValue !== null && oldValue !== undefined) {
-				this.removeBackground(oldValue)
-			}
+	data() {
+		return {
+			background: null,
+		}
+	},
 
-			if(newValue !== null && newValue !== undefined) {
-				this.addBackground(newValue)
-			}
-		})
+	watch: {
+		background(newValue, oldValue) {
+			this.setBackground(newValue)
+		},
 	},
 
 	computed: {
@@ -75,20 +74,14 @@ export default {
 	},
 
 	methods: {
-		join(arr, joiner) {
-			return join(joiner)(arr)
+		onCharacterLoad() {
+			this.background = this.character.background
 		},
 
-		removeBackground(title) {
+		setBackground(title) {
 			const obj = this.$backgrounds.byTitle(title)
 
-			CharacterCreator.removeBackground(obj)
-		},
-
-		addBackground(title) {
-			const obj = this.$backgrounds.byTitle(title)
-
-			CharacterCreator.addBackground(obj)
+			CharacterCreator.setBackground(obj)
 		},
 	},
 }
