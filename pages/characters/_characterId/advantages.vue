@@ -1,9 +1,9 @@
 <template>
 	<div class="secondary-navigation">
-		<character-progress :character="character" v-if="character" />
+		<character-progress :creator="creator" v-if="creator.character" />
 		<article>
 			<markdown-content content="characters/advantages" />
-			<accordion-group v-if="character">
+			<accordion-group v-if="creator.character">
 				<accordion-item
 					v-for="(advantage, idx) in advantages"
 					:key="`advantage_${idx}`"
@@ -31,9 +31,9 @@
 				</accordion-item>
 			</accordion-group>
 			<step-buttons
-				v-if="character"
-				:next="`/characters/${character.slug}/fate`"
-				:previous="`/characters/${character.slug}/skills`"
+				v-if="creator.character"
+				:next="`/characters/${creator.character.slug}/fate`"
+				:previous="`/characters/${creator.character.slug}/skills`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>
@@ -42,7 +42,6 @@
 </template>
 <script>
 import WithCharacter from '~/mixins/WithCharacter'
-import CharacterCreator from '~/utils/character/creator'
 
 export default {
 	name: 'CharacterAdvantagesPage',
@@ -60,11 +59,11 @@ export default {
 
 	methods: {
 		isAdvantageSelected(title) {
-			return CharacterCreator.hasAdvantage(title)
+			return this.creator.hasAdvantage(title)
 		},
 
 		canSelectAdvantage(advantage) {
-			return this.isAdvantageSelected(advantage.title) || this.character.cp >= advantage.cost
+			return this.isAdvantageSelected(advantage.title) || this.creator.cp >= advantage.cost
 		},
 
 		toggleAdvantage(input) {
@@ -74,13 +73,13 @@ export default {
 		addAdvantage(title) {
 			const obj = this.$advantages.byTitle(title)
 
-			CharacterCreator.addAdvantage(obj)
+			this.creator.addAdvantage(obj)
 		},
 
 		removeAdvantage(title) {
 			const obj = this.$advantages.byTitle(title)
 
-			CharacterCreator.removeAdvantage(obj)
+			this.creator.removeAdvantage(obj)
 		},
 	},
 }

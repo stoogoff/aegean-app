@@ -1,29 +1,37 @@
 
 import CharacterCreator from '~/utils/character/creator'
 
+const creator = new CharacterCreator()
+
 export default {
 	async fetch() {
 		const { params } = this.$nuxt.context
 
-		this.character = await this.$characters.byId(params.characterId)
+		const character = await this.$characters.byId(params.characterId)
 
-		CharacterCreator.character = this.character
+		this.creator.character = character
 
 		this.onCharacterLoad()
 	},
 	fetchOnServer: false,
 
-	data() {
+	/*data() {
 		return {
 			character: null,
 		}
+	},*/
+
+	computed: {
+		creator() {
+			return creator
+		},
 	},
 
 	methods: {
 		onCharacterLoad() {},
 
 		async save(done) {
-			await this.$characters.save(this.character)
+			await this.$characters.save(this.creator.character)
 			done()
 		},
 	},

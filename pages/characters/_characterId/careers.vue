@@ -1,9 +1,9 @@
 <template>
 	<div class="secondary-navigation">
-		<character-progress :character="character" v-if="character" />
+		<character-progress :creator="creator" v-if="creator.character" />
 		<article>
 			<markdown-content content="characters/careers" />
-			<accordion-group v-if="character">
+			<accordion-group v-if="creator.character">
 				<accordion-item
 					v-for="(career, idx) in careers"
 					:key="`career_${idx}`"
@@ -18,7 +18,7 @@
 					<template #content>
 						<render-markdown :content="career.description" />
 						<p>If you choose this career you gain the following skills:</p>
-						<p>{{ join(career.skills, ', and ') }}.</p>
+						<p>{{ career.skills | join-and }}.</p>
 						<div class="flex justify-end mb-4">
 							<info-button
 								small outlined
@@ -90,9 +90,9 @@
 				</accordion-item>
 			</accordion-group>
 			<step-buttons
-				v-if="character"
-				:next="`/characters/${character.slug}/skills`"
-				:previous="`/characters/${character.slug}/characteristics`"
+				v-if="creator.character"
+				:next="`/characters/${creator.character.slug}/skills`"
+				:previous="`/characters/${creator.character.slug}/characteristics`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>
@@ -101,8 +101,6 @@
 </template>
 <script>
 import WithCharacter from '~/mixins/WithCharacter'
-import CharacterCreator from '~/utils/character/creator'
-import { join } from '~/utils/list'
 import { CAREER_COST } from '~/utils/config'
 
 // choose a career
@@ -120,25 +118,20 @@ export default {
 		},
 
 		hasSelectedCareer() {
-			return CharacterCreator.hasSelectedCareer
+			return this.creator.hasSelectedCareer
 		},
 
 		canAffordNewCareer() {
-			return CharacterCreator.canAffordNewCareer
+			return this.creator.canAffordNewCareer
 		},
 
 		hasSelected() {
-			return this.character &&
-				this.hasSelectedCareer &&
-				this.character.careers.map(career => career.chosenSpec).filter(spec => !!spec).length > 0
+			return this.hasSelectedCareer &&
+				this.creator.character.careers.map(career => career.chosenSpec).filter(spec => !!spec).length > 0
 		},
 	},
 
 	methods: {
-		join(arr, joiner) {
-			return join(joiner)(arr)
-		},
-
 		toggleCareer(input) {
 			input.value ? this.addCareer(input.data) : this.removeCareer(input.data)
 		},
@@ -146,17 +139,17 @@ export default {
 		addCareer(title) {
 			const obj = this.$careers.byTitle(title)
 
-			CharacterCreator.addCareer(obj)
+			this.creator.addCareer(obj)
 		},
 
 		removeCareer(title) {
 			const obj = this.$careers.byTitle(title)
 
-			CharacterCreator.removeCareer(obj)
+			this.creator.removeCareer(obj)
 		},
 
 		getSelectedCareer(title) {
-			return this.character.careers.find(career => career.title === title)
+			return this.creator.character.careers.find(career => career.title === title)
 		},
 
 		getCareerStartingTalents(career) {
@@ -164,7 +157,7 @@ export default {
 		},
 
 		isCareerSelected(title) {
-			return CharacterCreator.hasCareer(title)
+			return this.creator.hasCareer(title)
 		},
 	},
 }

@@ -1,6 +1,6 @@
 <template>
 	<div class="secondary-navigation">
-		<character-progress :character="character" v-if="character" />
+		<character-progress :creator="creator" v-if="creator.character" />
 		<article>
 			<markdown-content content="characters/equipment" />
 
@@ -68,9 +68,9 @@
 			</accordion-group>
 
 			<step-buttons
-				v-if="character"
-				:next="`/characters/${character.slug}/`"
-				:previous="`/characters/${character.slug}/fate`"
+				v-if="creator.character"
+				:next="`/characters/${creator.character.slug}/`"
+				:previous="`/characters/${creator.character.slug}/fate`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>
@@ -79,7 +79,6 @@
 </template>
 <script>
 import WithCharacter from '~/mixins/WithCharacter'
-import CharacterCreator from '~/utils/character/creator'
 import { findByProperty, sortByProperties } from 'we-ui/utils/list'
 import { sum } from '~/utils/list'
 import { EQUIPMENT_COMMON, EQUIPMENT_UNCOMMON, EQUIPMENT_RARE } from '~/utils/config'
@@ -101,9 +100,9 @@ export default {
 		},
 
 		standing() {
-			if(!this.character) return 0
+			if(!this.creator.character) return 0
 
-			const background = this.$backgrounds.byTitle(this.character.background)
+			const background = this.$backgrounds.byTitle(this.creator.character.background)
 
 			// TODO factor in Rich or other background
 
@@ -128,15 +127,15 @@ export default {
 		},
 
 		currentEncumbrance() {
-			return CharacterCreator.currentEncumbrance
+			return this.creator.currentEncumbrance
 		},
 
 		totalEncumbrance() {
-			return CharacterCreator.totalEncumbrance
+			return this.creator.totalEncumbrance
 		},
 
 		hasSelected() {
-			return this.character && this.character.equipment.length > 0
+			return this.creator.character && this.creator.character.equipment.length > 0
 		},
 	},
 
@@ -152,8 +151,8 @@ export default {
 			if(item.availability === EQUIPMENT_COMMON) return true
 
 			// merchants can have one uncommon item
-			if(this.character.background === 'Merchant') {
-				const currentUncommon = this.character.equipment.filter(
+			if(this.creator.character.background === 'Merchant') {
+				const currentUncommon = this.creator.character.equipment.filter(
 					({ availability, title }) => availability === EQUIPMENT_UNCOMMON && title !== item.title
 				)
 
@@ -161,21 +160,21 @@ export default {
 			}
 
 			// nobles can always have rich clothing
-			if(this.character.background === 'Noble' && item.title === 'Rich Clothing') return true
+			if(this.creator.character.background === 'Noble' && item.title === 'Rich Clothing') return true
 
 			return false
 		},
 
 		isItemSelected(title) {
-			CharacterCreator.hasEquipmentItem(title)
+			this.creator.hasEquipmentItem(title)
 		},
 
 		toggleItem(item) {
 			if(this.isItemSelected(item.title)) {
-				CharacterCreator.removeEquipmentItem(item)
+				this.creator.removeEquipmentItem(item)
 			}
 			else {
-				CharacterCreator.addEquipmentItem(item)
+				this.creator.addEquipmentItem(item)
 			}
 		},
 	},

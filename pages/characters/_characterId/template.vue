@@ -1,13 +1,13 @@
 <template>
 	<div class="secondary-navigation">
-		<character-progress :character="character" v-if="character" />
+		<character-progress :creator="creator" v-if="creator.character" />
 		<article>
 			<markdown-content content="characters/background" />
 
 			<step-buttons
-				v-if="character"
-				:next="`/characters/${character.slug}/`"
-				:previous="`/characters/${character.slug}/heritage`"
+				v-if="creator.character"
+				:next="`/characters/${creator.character.slug}/`"
+				:previous="`/characters/${creator.character.slug}/heritage`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>
@@ -16,7 +16,6 @@
 </template>
 <script>
 import WithCharacter from '~/mixins/WithCharacter'
-import CharacterCreator from '~/utils/character/creator'
 
 export default {
 	name: 'CharacterBackgroundPage',

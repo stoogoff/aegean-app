@@ -1,6 +1,6 @@
 <template>
 	<div class="secondary-navigation">
-		<character-progress :character="character" v-if="character" />
+		<character-progress :creator="creator" v-if="creator.character" />
 		<article>
 			<markdown-content content="characters/skills" />
 			<div class="grid grid-cols-2 gap-4 py-4">
@@ -32,9 +32,9 @@
 				</li>
 			</ul>
 			<step-buttons
-				v-if="character"
-				:next="`/characters/${character.slug}/advantages`"
-				:previous="`/characters/${character.slug}/careers`"
+				v-if="creator.character"
+				:next="`/characters/${creator.character.slug}/advantages`"
+				:previous="`/characters/${creator.character.slug}/careers`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>
@@ -43,9 +43,7 @@
 </template>
 <script>
 import WithCharacter from '~/mixins/WithCharacter'
-import CharacterCreator from '~/utils/character/creator'
 import { SKILLS_PER_CP, SKILLS, SKILL_STARTING_MAX } from '~/utils/config'
-import { sum } from '~/utils/list'
 
 export default {
 	name: 'CharacterSkillsPage',
@@ -53,22 +51,20 @@ export default {
 
 	computed: {
 		skills() {
-			if(!this.character) return []
+			if(!this.creator.character) return []
 
 			return SKILLS.map(skill => (
 				{
 					title: skill,
 					value: 
-						(this.character.skills[skill] || 0) +
-						(this.character.skillIncreases[skill] || 0)
+						(this.creator.character.skills[skill] || 0) +
+						(this.creator.character.skillIncreases[skill] || 0)
 				}
 			))
 		},
 
 		skillIncreases() {
-			if(!this.character) return 0
-
-			return Object.values(this.character.skillIncreases).reduce(sum, 0)
+			return this.creator.totalSkillIncreases
 		},
 
 		cost() {
@@ -82,19 +78,19 @@ export default {
 
 	methods: {
 		increaseSkill(skill) {
-			CharacterCreator.increaseSkill(skill)
+			this.creator.increaseSkill(skill)
 		},
 
 		reduceSkill(skill) {
-			CharacterCreator.reduceSkill(skill)
+			this.creator.reduceSkill(skill)
 		},
 
 		canIncrease(skill) {
-			return CharacterCreator.canIncreaseSkill(skill)
+			return this.creator.canIncreaseSkill(skill)
 		},
 
 		canReduce(skill) {
-			return CharacterCreator.canReduceSkill(skill)
+			return this.creator.canReduceSkill(skill)
 		},
 	},
 }

@@ -32,26 +32,25 @@
 		<section v-if="hasTalents">
 			<h4>Talents</h4>
 			<ul class="list">
-				<li v-for="(talent, idx) in character.talents" :key="`talent_${idx}`">{{ talent }}</li>
+				<li v-for="(talent, idx) in creator.character.talents" :key="`talent_${idx}`">{{ talent }}</li>
 			</ul>
 		</section>
 		<section v-if="hasGifts">
 			<h4>Gifts</h4>
 			<ul class="list">
-				<li v-for="(gift, idx) in character.gifts" :key="`gift_${idx}`">{{ gift }}</li>
+				<li v-for="(gift, idx) in creator.character.gifts" :key="`gift_${idx}`">{{ gift }}</li>
 			</ul>
 		</section>
 	</aside>
 </template>
 <script>
 import Vue from 'vue'
-import CharacterCreator from '~/utils/character/creator'
 import { toTitleCase } from '~/utils/string'
 import { STARTING_CREATION_POINTS, CHARACTERISTIC_MIN, SKILL_MIN } from '~/utils/config'
 
 export default Vue.component('CharacterProgress', {
 	props: {
-		character: {
+		creator: {
 			type: Object,
 			required: true,
 		},
@@ -63,14 +62,14 @@ export default Vue.component('CharacterProgress', {
 		},
 
 		currentCreationPoints() {
-			return CharacterCreator.cp
+			return this.creator.cp
 		},
 
 		hasBackgroundInfo() {
-			if(!this.character) return false
+			if(!this.creator.character) return false
 
 			return ['heritage', 'parent', 'background', 'careers']
-				.map(key => this.character[key])
+				.map(key => this.creator.character[key])
 				.filter(prop => !!prop).length > 0
 		},
 
@@ -79,61 +78,61 @@ export default Vue.component('CharacterProgress', {
 			const properties = ['heritage', 'parent', 'background']
 
 			properties.forEach(key => {
-				if(this.character && this.character[key]) {
-					info[toTitleCase(key)] = this.character[key]
+				if(this.creator.character && this.creator.character[key]) {
+					info[toTitleCase(key)] = this.creator.character[key]
 				}
 			})
 
-			if(this.character && this.character.careers) {
-				info['Careers'] = this.character.careers.map(career => career.title).join(', ')
+			if(this.creator.character && this.creator.character.careers) {
+				info['Careers'] = this.creator.character.careers.map(career => career.title).join(', ')
 			}
 
 			return info
 		},
 
 		hasSkills() {
-			return Object.values(this.character.skills).filter(skill => skill > SKILL_MIN).length > 0
+			return Object.values(this.creator.character.skills).filter(skill => skill > SKILL_MIN).length > 0
 		},
 
 		skills() {
 			const skills = {}
 
-			Object.keys(this.character.skills).forEach(sk => {
-				skills[sk] = (this.character.skills[sk] || 0) + (this.character.skillIncreases[sk] || 0)
+			Object.keys(this.creator.character.skills).forEach(sk => {
+				skills[sk] = (this.creator.character.skills[sk] || 0) + (this.creator.character.skillIncreases[sk] || 0)
 			})
 
 			return skills
 		},
 
 		hasCareer() {
-			return this.character && this.character.careers.length > 0
+			return this.creator.character && this.creator.character.careers.length > 0
 		},
 
 		hasCharacteristics() {
-			return Object.values(this.character.characteristics).filter(ch => ch > CHARACTERISTIC_MIN).length > 0
+			return Object.values(this.creator.character.characteristics).filter(ch => ch > CHARACTERISTIC_MIN).length > 0
 		},
 
 		characteristics() {
 			// get the character's characteristics and apply any divine bonus to them
-			if(CharacterCreator.hasDivineHeritage) {
-				const parent = this.$divinities.byTitle(this.character.parent)
+			if(this.creator.hasDivineHeritage) {
+				const parent = this.$divinities.byTitle(this.creator.character.parent)
 				const clone = {}
 
-				clone.characteristics = { ...this.character.characteristics }
-				addCharacteristics(parent.characteristics, clone)
+				clone.characteristics = { ...this.creator.character.characteristics }
+				//addCharacteristics(parent.characteristics, clone)
 
 				return clone.characteristics
 			}
 
-			return this.character.characteristics
+			return this.creator.character.characteristics
 		},
 
 		hasTalents() {
-			return this.character && this.character.talents.length > 0
+			return this.creator.character && this.creator.character.talents.length > 0
 		},
 
 		hasGifts() {
-			return this.character && this.character.gifts.length > 0
+			return this.creator.character && this.creator.character.gifts.length > 0
 		},
 	},
 })

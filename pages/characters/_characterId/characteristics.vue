@@ -1,13 +1,13 @@
 <template>
 	<div class="secondary-navigation">
-		<character-progress :character="character" v-if="character" />
+		<character-progress :creator="creator" v-if="creator.character" />
 		<article>
 			<markdown-content content="characters/characteristics" />
-			<accordion-group v-if="character">
+			<accordion-group v-if="creator.character">
 				<accordion-item
 					v-for="(characteristic, idx) in characteristicPackages"
 					:key="`package_${idx}`"
-					:checked="character.characteristicPackage === characteristic.title"
+					:checked="creator.character.characteristicPackage === characteristic.title"
 				>
 					<template #trigger>
 						<div>
@@ -18,7 +18,7 @@
 					<template #content>
 						<render-markdown :content="characteristic.description" />
 						<radio-action
-							v-model="character.characteristicPackage"
+							v-model="creator.character.characteristicPackage"
 							:data="characteristic.title"
 							block
 							outlined
@@ -51,7 +51,7 @@
 								</we-button-action>
 							</div>
 							<strong class="text-xl pt-4 pb-3 block">
-								{{ character.characteristics[ch] }}
+								{{ creator.character.characteristics[ch] }}
 								<span v-if="hasDivineHeritageBonus(ch)">+ {{ divineHeritageBonus(ch) }}</span>
 							</strong>
 						</stat-view>
@@ -59,9 +59,9 @@
 				</div>
 			</div>
 			<step-buttons
-				v-if="character"
-				:next="`/characters/${character.slug}/careers`"
-				:previous="`/characters/${character.slug}/background`"
+				v-if="creator.character"
+				:next="`/characters/${creator.character.slug}/careers`"
+				:previous="`/characters/${creator.character.slug}/background`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>
@@ -70,7 +70,6 @@
 </template>
 <script>
 import WithCharacter from '~/mixins/WithCharacter'
-import CharacterCreator from '~/utils/character/creator'
 import {
 	CHARACTERISTICS,
 	CHARACTERISTIC_MIN,
@@ -110,15 +109,15 @@ export default {
 		},
 
 		selectedPackage() {
-			return this.$characteristics.byTitle(this.character.characteristicPackage)
+			return this.$characteristics.byTitle(this.creator.character.characteristicPackage)
 		},
 
 		hasPackage() {
-			return this.character && !!this.character.characteristicPackage
+			return this.creator.character && !!this.creator.character.characteristicPackage
 		},
 
 		mustChooseCharacteristics() {
-			return this.hasPackage && this.character.characteristicPackage !== 'Average'
+			return this.hasPackage && this.creator.character.characteristicPackage !== 'Average'
 		},
 
 		hasSelected() {
@@ -128,17 +127,16 @@ export default {
 
 	methods: {
 		onCharacterLoad() {
-			console.log(this.character)
 			// a characteristic package has been chosen so prefill values
-			if(this.character.characteristicPackage !== null) {
+			if(this.creator.character.characteristicPackage !== null) {
 				// get values from selected package
 				const values = [ ...this.selectedPackage.values ]
 
 				// go through the values in the package
-				Object.keys(this.character.characteristics).forEach(ch => {
-					if(this.character.characteristics[ch] > CHARACTERISTIC_START) {
+				Object.keys(this.creator.character.characteristics).forEach(ch => {
+					if(this.creator.character.characteristics[ch] > CHARACTERISTIC_START) {
 						// if there's a match in the characteristics set it
-						const index = values.indexOf(this.character.characteristics[ch])
+						const index = values.indexOf(this.creator.character.characteristics[ch])
 
 						if(index !== -1) {
 							this.selectedValues[index] = ch
@@ -164,7 +162,7 @@ export default {
 		},
 
 		divineHeritageBonus(ch) {
-			if(!CharacterCreator.hasDivineHeritage) return 0
+			if(!this.creator.hasDivineHeritage) return 0
 
 			const obj = this.$divinities.byTitle(this.character.parent)
 
@@ -174,14 +172,13 @@ export default {
 		removePackage(title) {
 			const obj = this.$characteristics.byTitle(title)
 
-			CharacterCreator.removeCharacteristicPackage(obj)
+			this.creator.removeCharacteristicPackage(obj)
 		},
 
 		addPackage(title) {
 			const obj = this.$characteristics.byTitle(title)
 
-			CharacterCreator.addCharacteristicPackage(obj)
-
+			this.creator.addCharacteristicPackage(obj)
 			this.selectedValues = {}
 		},
 
@@ -227,12 +224,12 @@ export default {
 			const value = this.selectedPackage.values[valueIndex]
 
 			if(valueIndex in this.selectedValues) {
-				this.character.characteristics[ch] = CHARACTERISTIC_START
+				this.creator.character.characteristics[ch] = CHARACTERISTIC_START
 				delete this.selectedValues[valueIndex]
 				this.selectedValues = { ...this.selectedValues }
 			}
 			else {
-				this.character.characteristics[ch] = value
+				this.creator.character.characteristics[ch] = value
 				this.selectedValues = { ...this.selectedValues, [valueIndex]: ch }
 			}
 		},

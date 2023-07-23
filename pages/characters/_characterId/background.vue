@@ -1,9 +1,9 @@
 <template>
 	<div class="secondary-navigation">
-		<character-progress :character="character" v-if="character" />
+		<character-progress :creator="creator" v-if="creator.character" />
 		<article>
 			<markdown-content content="characters/background" />
-			<accordion-group v-if="character">
+			<accordion-group v-if="creator.character">
 				<accordion-item
 					v-for="(bg, idx) in backgrounds"
 					:key="`background_${idx}`"
@@ -34,9 +34,9 @@
 				</accordion-item>
 			</accordion-group>
 			<step-buttons
-				v-if="character"
-				:next="`/characters/${character.slug}/characteristics`"
-				:previous="`/characters/${character.slug}/heritage`"
+				v-if="creator.character"
+				:next="`/characters/${creator.character.slug}/characteristics`"
+				:previous="`/characters/${creator.character.slug}/heritage`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>
@@ -45,7 +45,6 @@
 </template>
 <script>
 import WithCharacter from '~/mixins/WithCharacter'
-import CharacterCreator from '~/utils/character/creator'
 
 export default {
 	name: 'CharacterBackgroundPage',
@@ -59,7 +58,9 @@ export default {
 
 	watch: {
 		background(newValue, oldValue) {
-			this.setBackground(newValue)
+			const obj = this.$backgrounds.byTitle(newValue)
+
+			this.creator.setBackground(obj)
 		},
 	},
 
@@ -69,19 +70,13 @@ export default {
 		},
 
 		hasSelected() {
-			return this.character && this.character.background !== null
+			return this.creator.character && this.creator.character.background !== null
 		},
 	},
 
 	methods: {
 		onCharacterLoad() {
-			this.background = this.character.background
-		},
-
-		setBackground(title) {
-			const obj = this.$backgrounds.byTitle(title)
-
-			CharacterCreator.setBackground(obj)
+			this.background = this.creator.character.background
 		},
 	},
 }

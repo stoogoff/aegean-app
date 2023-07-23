@@ -1,9 +1,9 @@
 <template>
 	<div class="secondary-navigation">
-		<character-progress :character="character" v-if="character" />
+		<character-progress :creator="creator" v-if="creator.character" />
 		<article>
 			<markdown-content content="characters/heritage" />
-			<accordion-group v-if="character">
+			<accordion-group v-if="creator.character">
 				<accordion-item
 					v-for="(htg, idx) in heritages"
 					:key="`heritage_${idx}`"
@@ -79,8 +79,8 @@
 				</accordion-group>
 			</div>
 			<step-buttons
-				v-if="character"
-				:next="`/characters/${character.slug}/background`"
+				v-if="creator.character"
+				:next="`/characters/${creator.character.slug}/background`"
 				exit="/characters"
 				:disabled="!hasSelected"
 				@click="save"
@@ -90,7 +90,6 @@
 </template>
 <script>
 import WithCharacter from '~/mixins/WithCharacter'
-import CharacterCreator from '~/utils/character/creator'
 import { HERITAGE_MORTAL, HERITAGE_DIVINE } from '~/utils/config'
 
 // choose heritage:
@@ -118,17 +117,13 @@ export default {
 		heritage(newValue, oldValue) {
 			const obj = this.$heritages.byTitle(newValue)
 
-			CharacterCreator.setHeritage(obj)
+			this.creator.setHeritage(obj)
 		},
 
 		parent(newValue, oldValue) {
-			if(oldValue !== null && oldValue !== undefined) {
-				this.removeParent(oldValue)
-			}
+			const obj = this.$divinities.byTitle(newValue)
 
-			if(newValue !== null && newValue !== undefined) {
-				this.addParent(newValue)
-			}
+			this.creator.setParent(obj)
 		},
 	},
 
@@ -142,13 +137,13 @@ export default {
 		},
 
 		hasDivineHeritage() {
-			//return CharacterCreator.hasDivineHeritage
-			return this.character && this.character.heritage === HERITAGE_DIVINE
+			return this.creator.hasDivineHeritage
+			//return this.creator.character && this.creator.character.heritage === HERITAGE_DIVINE
 		},
 
 		hasSelected() {
-			if(CharacterCreator.hasMortalHeritage) return true
-			if(CharacterCreator.hasDivineHeritage && this.character.parent !== null) return true
+			if(this.creator.hasMortalHeritage) return true
+			if(this.creator.hasDivineHeritage && this.creator.character.parent !== null) return true
 
 			return false
 		},
@@ -156,20 +151,8 @@ export default {
 
 	methods: {
 		onCharacterLoad() {
-			this.heritage = this.character.heritage
-			this.parent = this.character.parent
-		},
-
-		removeParent(title) {
-			const obj = this.$divinities.byTitle(title)
-
-			CharacterCreator.removeParent(obj)
-		},
-
-		addParent(title) {
-			const obj = this.$divinities.byTitle(title)
-
-			CharacterCreator.addParent(obj)
+			this.heritage = this.creator.character.heritage
+			this.parent = this.creator.character.parent
 		},
 
 		getGift(title) {

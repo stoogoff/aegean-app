@@ -1,20 +1,20 @@
 <template>
 	<div class="secondary-navigation">
-		<character-progress :character="character" v-if="character" />
+		<character-progress :creator="creator" v-if="creator.character" />
 		<article>
 			<markdown-content content="characters/fate" />
 			<validate-field
-				v-if="character"
-				:value="character.fate"
+				v-if="creator.character"
+				:value="creator.character.fate"
 				:rules="rules.fate"
 				v-slot="{ error, message }"
 			>
-				<we-text-area label="Fate" v-model="character.fate" :error="error" :message="message" />
+				<we-text-area label="Fate" v-model="creator.character.fate" :error="error" :message="message" />
 			</validate-field>
 			<step-buttons
-				v-if="character"
-				:next="`/characters/${character.slug}/equipment`"
-				:previous="`/characters/${character.slug}/advantages`"
+				v-if="creator.character"
+				:next="`/characters/${creator.character.slug}/equipment`"
+				:previous="`/characters/${creator.character.slug}/advantages`"
 				:disabled="!hasSelected"
 				@click="save"
 			/>
