@@ -45,6 +45,7 @@
 </template>
 <script>
 import WithCharacter from '~/mixins/WithCharacter'
+import { notNull } from '~/utils/assert'
 
 export default {
 	name: 'CharacterBackgroundPage',
@@ -70,7 +71,7 @@ export default {
 		},
 
 		hasSelected() {
-			return this.creator.character && this.creator.character.background !== null
+			return this.creator.character && notNull(this.creator.character.background)
 		},
 	},
 

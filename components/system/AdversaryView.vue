@@ -60,8 +60,11 @@
 						<td v-if="attack.range" class="text-center">{{ attack.range }}</td>
 						<td class="text-center">{{ attack.damage }}</td>
 						<td v-if="attack.properties.length > 0">
-							<div v-for="(prop, pIndex) in attack.properties" :key="`property_${aIndex}_${pIndex}`">
-								<info-button outlined small y="right" x="bottom">
+							<div
+								v-for="(prop, pIndex) in attack.properties"
+								:key="`property_${aIndex}_${pIndex}`"
+							>
+								<info-button outlined small wide y="bottom" x="right">
 									{{ prop.title }}
 									<template #info>
 										<card-view :title="`${prop.title}${prop.active ? ' (Active)' : ''}`">
@@ -87,6 +90,7 @@ import Vue from 'vue'
 import { sortByProperty } from 'we-ui/utils/list'
 import adversaries from '~/state/adversaries'
 import { SKILLS, STAT_MIGHT } from '~/utils/config'
+import { notNull } from '~/utils/assert'
 
 export default Vue.component('AdversaryView', {
 	props: {
@@ -116,7 +120,7 @@ export default Vue.component('AdversaryView', {
 		},
 
 		hasTactics() {
-			return this.adversary && 'tactics' in this.adversary && this.adversary.tactics !== null
+			return this.adversary && 'tactics' in this.adversary && notNull(this.adversary.tactics)
 		},
 
 		// merge weapons and thrown weapons and add dice pools

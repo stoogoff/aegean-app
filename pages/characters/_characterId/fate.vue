@@ -4,12 +4,11 @@
 		<article>
 			<markdown-content content="characters/fate" />
 			<validate-field
-				v-if="creator.character"
-				:value="creator.character.fate"
+				:value="fate"
 				:rules="rules.fate"
 				v-slot="{ error, message }"
 			>
-				<we-text-area label="Fate" v-model="creator.character.fate" :error="error" :message="message" />
+				<we-text-area label="Fate" v-model="fate" :error="error" :message="message" />
 			</validate-field>
 			<step-buttons
 				v-if="creator.character"
@@ -29,6 +28,12 @@ export default {
 	name: 'CharacterFatePage',
 	mixins: [ WithCharacter ],
 
+	data() {
+		return {
+			fate: '',
+		}
+	},
+
 	computed: {
 		rules() {
 			return {
@@ -37,7 +42,13 @@ export default {
 		},
 
 		hasSelected() {
-			return validate(this.rules.fate, this.character.fate).length === 0
+			return validate(this.rules.fate, this.fate).length === 0
+		},
+	},
+
+	methods: {
+		onCharacterLoad() {
+			this.fate = this.creator.character.fate
 		},
 	},
 }

@@ -15,12 +15,6 @@ export default {
 	},
 	fetchOnServer: false,
 
-	/*data() {
-		return {
-			character: null,
-		}
-	},*/
-
 	computed: {
 		creator() {
 			return creator

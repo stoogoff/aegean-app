@@ -76,6 +76,7 @@ import {
 	CHARACTERISTIC_MAX,
 	CHARACTERISTIC_START
 } from '~/utils/config'
+import { notNull } from '~/utils/assert'
 
 // choose a characteristic package
 // assign allotted points to characteristics
@@ -128,7 +129,7 @@ export default {
 	methods: {
 		onCharacterLoad() {
 			// a characteristic package has been chosen so prefill values
-			if(this.creator.character.characteristicPackage !== null) {
+			if(notNull(this.creator.character.characteristicPackage)) {
 				// get values from selected package
 				const values = [ ...this.selectedPackage.values ]
 
@@ -147,11 +148,11 @@ export default {
 			}
 
 			this.$watch('character.characteristicPackage', (newValue, oldValue) => {
-				if(oldValue !== null && oldValue !== undefined) {
+				if(notNull(oldValue)) {
 					this.removePackage(oldValue)
 				}
 
-				if(newValue !== null && newValue !== undefined) {
+				if(notNull(newValue)) {
 					this.addPackage(newValue)
 				}
 			})
@@ -164,7 +165,7 @@ export default {
 		divineHeritageBonus(ch) {
 			if(!this.creator.hasDivineHeritage) return 0
 
-			const obj = this.$divinities.byTitle(this.character.parent)
+			const obj = this.$divinities.byTitle(this.creator.character.parent)
 
 			return obj.characteristics.includes(ch) ? 1 : 0
 		},

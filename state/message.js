@@ -1,5 +1,6 @@
 
 import Vue from 'vue'
+import { notNull } from '~/utils/assert'
 
 const state = Vue.observable({
 	message: null,
@@ -12,7 +13,7 @@ export default () => {
 		},
 
 		hasMessage() {
-			return state.message !== null
+			return notNull(state.message)
 		},
 
 		setMessage(text) {

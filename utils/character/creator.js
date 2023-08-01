@@ -15,7 +15,8 @@ import {
 	STARTING_CREATION_POINTS,
 } from '~/utils/config'
 import { sum } from '~/utils/list'
-
+import { notNull } from '~/utils/assert'
+import { findByProperty } from 'we-ui/utils/list'
 
 let dataManager = data()
 
@@ -45,9 +46,9 @@ export default Vue.component('character-creator', {
 			}
 
 			Object.keys(map).forEach(key => {
-				if(this.character[key] !== null) {
+				if(notNull(this.character[key])) {
 					if(Array.isArray(this.character[key])) {
-						// TODO advantages
+						cp -= this.character[key].map(a => a.cost).reduce(sum, 0)
 					}
 					else {
 						const obj = dataManager[map[key]].byTitle(this.character[key])
@@ -86,7 +87,7 @@ export default Vue.component('character-creator', {
 		},
 
 		canAffordNewCareer() {
-			return this.cp >= CAREER_COST
+			return !this.hasSelectedCareer || this.cp >= CAREER_COST
 		},
 
 		currentEncumbrance() {
@@ -160,7 +161,7 @@ export default Vue.component('character-creator', {
 		},
 
 		canIncreaseSkill(skill) {
-			if(this.cp - 1 < 0 && this.skillIncreases % SKILLS_PER_CP === 0) {
+			if(this.cp === 0 && this.totalSkillIncreases % SKILLS_PER_CP === 0) {
 				return false
 			}
 
@@ -174,30 +175,34 @@ export default Vue.component('character-creator', {
 
 		setHeritage(heritage) {
 			// the character has divine heritage and a selected parent, so remove it
-			if(this.hasDivineHeritage && this.character.parent !== null) {
+			if(this.hasDivineHeritage && notNull(this.character.parent)) {
 				const parent = dataManager.divinities.byTitle(this.character.parent)
 
-				this.removeParent(parent)
+				this.setParent(parent)
 			}
 
 			this.character.heritage = heritage.title
 		},
 
 		setParent(parent) {
-			if(this.character.parent !== null) {
-				this.removeSkills(this.character.parent.skills)
+			if(notNull(this.character.parent)) {
+				const current = dataManager.divinities.byTitle(this.character.parent)
+
+				if(current) {
+					this.removeSkills(current.skills)
+				}
 			}
 
-			this.character.parent = parent
+			this.character.parent = parent.title
 
-			if(this.character.parent !== null) {
-				this.addSkills(this.character.parent.skills)
+			if(notNull(this.character.parent)) {
+				this.addSkills(parent.skills)
 			}
 		},
 
 		// backgrounds
 		setBackground(background) {
-			if(this.character.background !== null) {
+			if(notNull(this.character.background)) {
 				const obj = dataManager.backgrounds.byTitle(this.character.background)
 
 				this.removeSkills(obj.skills)
@@ -211,6 +216,7 @@ export default Vue.component('character-creator', {
 		addAdvantage(advantage) {
 			this.character.advantages = [ ...this.character.advantages, {
 				title: advantage.title,
+				cost: advantage.cost,
 			}]
 		},
 

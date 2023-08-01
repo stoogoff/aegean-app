@@ -91,6 +91,7 @@
 <script>
 import WithCharacter from '~/mixins/WithCharacter'
 import { HERITAGE_MORTAL, HERITAGE_DIVINE } from '~/utils/config'
+import { notNull } from '~/utils/assert'
 
 // choose heritage:
 // 1. mortal
@@ -138,12 +139,11 @@ export default {
 
 		hasDivineHeritage() {
 			return this.creator.hasDivineHeritage
-			//return this.creator.character && this.creator.character.heritage === HERITAGE_DIVINE
 		},
 
 		hasSelected() {
 			if(this.creator.hasMortalHeritage) return true
-			if(this.creator.hasDivineHeritage && this.creator.character.parent !== null) return true
+			if(this.creator.hasDivineHeritage && notNull(this.creator.character.parent)) return true
 
 			return false
 		},

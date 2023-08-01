@@ -46,7 +46,11 @@
 <script>
 import Vue from 'vue'
 import { toTitleCase } from '~/utils/string'
-import { STARTING_CREATION_POINTS, CHARACTERISTIC_MIN, SKILL_MIN } from '~/utils/config'
+import {
+	STARTING_CREATION_POINTS,
+	CHARACTERISTIC_MIN, SKILL_MIN,
+} from '~/utils/config'
+import { notNull } from '~/utils/assert'
 
 export default Vue.component('CharacterProgress', {
 	props: {
@@ -83,7 +87,7 @@ export default Vue.component('CharacterProgress', {
 				}
 			})
 
-			if(this.creator.character && this.creator.character.careers) {
+			if(this.creator.character && this.creator.character.careers && this.creator.character.careers.length > 0) {
 				info['Careers'] = this.creator.character.careers.map(career => career.title).join(', ')
 			}
 
@@ -109,7 +113,7 @@ export default Vue.component('CharacterProgress', {
 		},
 
 		hasCharacteristics() {
-			return Object.values(this.creator.character.characteristics).filter(ch => ch > CHARACTERISTIC_MIN).length > 0
+			return notNull(this.creator.character.characteristicPackage)
 		},
 
 		characteristics() {
@@ -119,7 +123,6 @@ export default Vue.component('CharacterProgress', {
 				const clone = {}
 
 				clone.characteristics = { ...this.creator.character.characteristics }
-				//addCharacteristics(parent.characteristics, clone)
 
 				return clone.characteristics
 			}
