@@ -1,6 +1,11 @@
 <template>
 	<li class="mb-4 border-b border-gray-200 last:border-0">
-		<div class="flex cursor-pointer ml-4 mr-6 my-4" @click="$emit('click')">
+		<div
+			class="flex cursor-pointer ml-4 mr-6 my-4"
+			@click="toggleActive"
+			@keypress.enter="toggleActive"
+			@keypress.space.prevent="toggleActive"
+		>
 			<span class="text-green-600 mr-4 w-6">
 				<icon-view v-show="checked" icon="check" />
 			</span>
@@ -55,6 +60,11 @@ export default Vue.component('AccordionItem', {
 		end(el) {
 			el.style.height = ''
 		},
+
+		toggleActive() {
+			this.active = !this.active
+			this.$emit('toggle')
+		}
 	},
 })
 </script>
