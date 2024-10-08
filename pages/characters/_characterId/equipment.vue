@@ -76,7 +76,7 @@
 
 			<step-buttons
 				v-if="creator.character"
-				:next="`/characters/${creator.character.slug}/`"
+				:next="`/characters/${creator.character.slug}/finishing-touches`"
 				:previous="`/characters/${creator.character.slug}/fate`"
 				:disabled="!hasSelected"
 				@click="save"

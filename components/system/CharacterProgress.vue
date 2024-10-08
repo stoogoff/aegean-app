@@ -113,13 +113,7 @@ export default Vue.component('CharacterProgress', {
 		},
 
 		skills() {
-			const skills = {}
-
-			Object.keys(this.creator.character.skills).forEach(sk => {
-				skills[sk] = (this.creator.character.skills[sk] || 0) + (this.creator.character.skillIncreases[sk] || 0)
-			})
-
-			return skills
+			return this.creator.skills
 		},
 
 		hasCareer() {
@@ -131,17 +125,7 @@ export default Vue.component('CharacterProgress', {
 		},
 
 		characteristics() {
-			// get the character's characteristics and apply any divine bonus to them
-			if(this.creator.hasDivineHeritage) {
-				const parent = this.$divinities.byTitle(this.creator.character.parent)
-				const clone = {}
-
-				clone.characteristics = { ...this.creator.character.characteristics }
-
-				return clone.characteristics
-			}
-
-			return this.creator.character.characteristics
+			return this.creator.characteristics
 		},
 
 		attributes() {

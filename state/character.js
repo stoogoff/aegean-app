@@ -2,8 +2,7 @@
 //import Vue from 'vue'
 import { DEFAULT_CHARACTER } from '~/utils/config'
 import { createId } from 'we-ui/utils/string'
-
-export const CHARACTER_ID_PREFIX = 'character:'
+import { CHARACTER_ID_PREFIX } from '~/utils/config'
 
 export default db => {
 	return {

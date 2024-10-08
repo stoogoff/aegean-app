@@ -3,6 +3,7 @@ import Vue from 'vue'
 import { data } from '~/state'
 import {
 	CAREER_COST,
+	CHARACTER_ID_PREFIX,
 	CHARACTERISTIC_MAX,
 	CHARACTERISTIC_MIN,
 	CHARACTERISTIC_START,
@@ -18,6 +19,7 @@ import {
 	ATTR_STANDING,
 } from '~/utils/config'
 import { sum } from '~/utils/list'
+import { slugify } from '~/utils/string'
 import { notNull } from '~/utils/assert'
 import { findByProperty } from 'we-ui/utils/list'
 
@@ -108,6 +110,32 @@ export default Vue.component('character-creator', {
 			})
 
 			return attr
+		},
+
+		// generate characteristics from what has been set and any divine parentage
+		characteristics() {
+			// get the character's characteristics and apply any divine bonus to them
+			if(this.hasDivineHeritage) {
+				const parent = dataManager.divinities.byTitle(this.character.parent)
+				const clone = { ...this.character.characteristics }
+
+				parent.characteristics.forEach(ch => ++clone[ch])
+
+				return clone
+			}
+
+			return this.character.characteristics
+		},
+
+		// merge base skills from career etc with any skill increases taken
+		skills() {
+			const skills = {}
+
+			Object.keys(this.character.skills).forEach(sk => {
+				skills[sk] = (this.character.skills[sk] || 0) + (this.character.skillIncreases[sk] || 0)
+			})
+
+			return skills
 		},
 
 		totalSkillIncreases() {
@@ -308,6 +336,31 @@ export default Vue.component('character-creator', {
 
 		removeEquipmentItem(item) {
 			this.character.equipment = [...this.character.equipment.filter(({ title }) => title !== item.title)]
+		},
+
+		finalise() {
+			const slug = slugify(this.character.name)
+			const newCharacter = {
+				_id: CHARACTER_ID_PREFIX + slug,
+				slug,
+				name: this.character.name,
+				description: this.character.description,
+				heritage: this.character.heritage,
+				parent: this.character.parent,
+				background: this.character.background,
+				characteristics: { ...this.characteristics },
+				attributes: { ...this.attributes },
+				skills: { ...this.skills },
+				careers: this.character.careers.map(career => career.title),
+				advantages: this.character.advantages.map(({ title, description }) => ({ title, description })),
+				gifts: this.character.gifts.map(({ title, description }) => ({ title, description })),
+				equipment: this.character.equipment,
+			}
+			// TODO recreate the character with a new ID based on the character name
+			// TODO remove any parts that are only useful in the character creator
+			// TODO remove the existing character
+			// TODO talents!
+			return newCharacter
 		},
 	}
 })

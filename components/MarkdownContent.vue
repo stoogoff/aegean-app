@@ -13,6 +13,7 @@ export default Vue.component('MarkdownContent', {
 			required: true,
 		},
 	},
+
 	async fetch() {
 		try {
 			this.text = await this.$content(this.content).fetch()
@@ -21,6 +22,7 @@ export default Vue.component('MarkdownContent', {
 			this.text = await this.$content('404').fetch()
 		}
 	},
+
 	data() {
 		return {
 			text: '',

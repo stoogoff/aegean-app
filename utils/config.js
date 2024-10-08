@@ -90,6 +90,8 @@ export const STARTING_CREATION_POINTS = 10
 
 export const DEFAULT_CHARACTER = {
 	cp: STARTING_CREATION_POINTS,
+	name: '',
+	description: '',
 	heritage: null,
 	parent: null,
 	background: null,
@@ -103,18 +105,11 @@ export const DEFAULT_CHARACTER = {
 	},
 	skills: { ...skillMap },
 	skillIncreases: { ...skillMap },
-	attributes: {
-		[ATTR_RESOLVE]: 0,
-		[ATTR_RISK]: 0,
-		[ATTR_ENDURANCE]: 0,
-		[ATTR_STANDING]: 0,
-		[ATTR_HUBRIS]: 0,
-		[ATTR_GLORY]: 0,
-		[ATTR_FATE]: '',
-	},
 	gifts: [],
-	talents: [],
 	careers: [],
 	advantages: [],
 	equipment: [],
 }
+
+export const CHARACTER_ID_PREFIX = 'character:'
+

@@ -10,7 +10,8 @@
 				v-for="(character, idx) in characters"
 				:key="character._id"
 			>
-				{{ character.slug }}
+				<h2>{{ character.name }}</h2>
+				<p v-if="character.description">{{ character.description }}</p>
 				<we-link-action :to="`/characters/${character.slug}/heritage`">Edit</we-link-action>
 				<we-button-action type="warning" @click="deleteCharacter(character)">Delete</we-button-action>
 			</div>

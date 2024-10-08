@@ -26,7 +26,7 @@ export default {
 		onBeforeSave() {},
 
 		async save(done) {
-			this.onBeforeSave()
+			await this.onBeforeSave()
 			await this.$characters.save(this.creator.character)
 			done()
 		},
