@@ -20,6 +20,14 @@
 				:key="key"
 			>{{ value }}</definition-term>
 		</section>
+		<section v-if="hasBackgroundInfo">
+			<h4>Attributes</h4>
+			<definition-term
+				v-for="(value, key) in attributes"
+				:definition="key"
+				:key="key"
+			>{{ value }}</definition-term>
+		</section>
 		<section v-if="hasSkills">
 			<h4>Skills</h4>
 			<definition-term
@@ -39,6 +47,12 @@
 			<h4>Gifts</h4>
 			<ul class="list">
 				<li v-for="(gift, idx) in creator.character.gifts" :key="`gift_${idx}`">{{ gift }}</li>
+			</ul>
+		</section>
+		<section v-if="hasEquipment">
+			<h4>Equipment</h4>
+			<ul class="list">
+				<li v-for="(item, idx) in creator.character.equipment" :key="`item_${idx}`">{{ item.title }}</li>
 			</ul>
 		</section>
 	</aside>
@@ -95,7 +109,7 @@ export default Vue.component('CharacterProgress', {
 		},
 
 		hasSkills() {
-			return Object.values(this.creator.character.skills).filter(skill => skill > SKILL_MIN).length > 0
+			return this.creator.character && Object.values(this.creator.character.skills).filter(skill => skill > SKILL_MIN).length > 0
 		},
 
 		skills() {
@@ -113,7 +127,7 @@ export default Vue.component('CharacterProgress', {
 		},
 
 		hasCharacteristics() {
-			return notNull(this.creator.character.characteristicPackage)
+			return this.creator.character && notNull(this.creator.character.characteristicPackage)
 		},
 
 		characteristics() {
@@ -130,12 +144,20 @@ export default Vue.component('CharacterProgress', {
 			return this.creator.character.characteristics
 		},
 
+		attributes() {
+			return this.creator.attributes
+		},
+
 		hasTalents() {
 			return this.creator.character && this.creator.character.talents.length > 0
 		},
 
 		hasGifts() {
 			return this.creator.character && this.creator.character.gifts.length > 0
+		},
+
+		hasEquipment() {
+			return this.creator.character && this.creator.character.equipment.length > 0
 		},
 	},
 })

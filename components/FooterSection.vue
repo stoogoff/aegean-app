@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<message-view v-if="hasText">{{ text }}</message-view>
-		<we-button-action @click="logCharacter">Character</we-button-action>
-		<we-button-action @click="logCharacters">All Characters</we-button-action>
+		<!-- we-button-action @click="logCharacter">Character</we-button-action -->
+		<!-- we-button-action @click="logCharacters">All Characters</we-button-action -->
 		<we-responsive-debug />
 	</div>
 </template>

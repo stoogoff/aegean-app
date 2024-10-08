@@ -13,6 +13,9 @@ import {
 	SKILL_STARTING_MAX,
 	SKILLS_PER_CP,
 	STARTING_CREATION_POINTS,
+	ATTR_GLORY,
+	ATTR_ENDURANCE,
+	ATTR_STANDING,
 } from '~/utils/config'
 import { sum } from '~/utils/list'
 import { notNull } from '~/utils/assert'
@@ -67,6 +70,46 @@ export default Vue.component('character-creator', {
 			return cp
 		},
 
+		// generate attributes from heritage, background, and advantages
+		attributes() {
+			const attr = {}
+
+			// add attribute data from heritage
+			if(notNull(this.character.heritage)) {
+				const heritage = dataManager.heritages.byTitle(this.character.heritage)
+
+				if(notNull(heritage)) {
+					attr[ATTR_GLORY] = heritage.glory
+					attr[ATTR_ENDURANCE] = heritage.endurance
+				}
+			}
+
+			// add attribute data from background
+			if(notNull(this.character.background)) {
+				const background = dataManager.backgrounds.byTitle(this.character.background)
+
+				if(notNull(background)) {
+					attr[ATTR_STANDING] = background.standing
+				}
+			}
+
+			// add attribute data from any advantages that have them
+			this.character.advantages.forEach(adv => {
+				// add attribute info if set
+				if('attributes' in adv) {
+					Object.keys(adv.attributes).forEach(key => {
+						if(!(key in attr)) {
+							attr[key] = 0
+						}
+
+						attr[key] += adv.attributes[key]
+					})
+				}
+			})
+
+			return attr
+		},
+
 		totalSkillIncreases() {
 			if(!this.character) return 0
 
@@ -93,7 +136,7 @@ export default Vue.component('character-creator', {
 		currentEncumbrance() {
 			if(!this.character) return 0
 
-			return this.character.equipment.map(({ weight }) => weight).reduce(sum, 0)
+			return this.character.equipment.map(({ weight }) => weight || 0).reduce(sum, 0)
 		},
 
 		totalEncumbrance() {
@@ -121,13 +164,13 @@ export default Vue.component('character-creator', {
 			})	
 		},
 
+		// reset characteristics to minimum value
 		removeCharacteristicPackage(chpack) {
-			// reset characteristics to minimum value
 			Object.keys(this.character.characteristics).forEach(ch => this.character.characteristics[ch] = CHARACTERISTIC_MIN)
 		},
 
+		// reset characteristics to starting values
 		addCharacteristicPackage(chpack) {
-			// reset characteristics to starting values
 			Object.keys(this.character.characteristics).forEach(ch => this.character.characteristics[ch] = CHARACTERISTIC_START)
 		},
 
@@ -140,6 +183,7 @@ export default Vue.component('character-creator', {
 			})
 		},
 
+		// TODO this needs to check for any advantages which modify the skill cap
 		addSkills(skills) {
 			skills.forEach(skill => {
 				if(skill in this.character.skills) {
@@ -160,6 +204,8 @@ export default Vue.component('character-creator', {
 			}
 		},
 
+		// TODO needs to account for advantages which increase the skill cap for
+		// certain skills
 		canIncreaseSkill(skill) {
 			if(this.cp === 0 && this.totalSkillIncreases % SKILLS_PER_CP === 0) {
 				return false
@@ -171,7 +217,6 @@ export default Vue.component('character-creator', {
 		canReduceSkill(skill) {
 			return this.character && this.character.skillIncreases[skill] > 0
 		},
-
 
 		setHeritage(heritage) {
 			// the character has divine heritage and a selected parent, so remove it
@@ -214,14 +259,19 @@ export default Vue.component('character-creator', {
 
 		// advantages
 		addAdvantage(advantage) {
-			this.character.advantages = [ ...this.character.advantages, {
-				title: advantage.title,
-				cost: advantage.cost,
-			}]
+			this.character.advantages = [...this.character.advantages, { ...advantage }]
+
+			if('skills' in advantage) {
+				this.addSkills(advantage.skills)
+			}
 		},
 
 		removeAdvantage(advantage) {
 			this.character.advantages = [ ...this.character.advantages.filter(adv => adv.title !== advantage.title) ]
+
+			if('skills' in advantage) {
+				this.removeSkills(advantage.skills)
+			}
 		},
 
 		hasAdvantage(title) {
@@ -249,7 +299,7 @@ export default Vue.component('character-creator', {
 
 		// equipment
 		hasEquipmentItem(title) {
-			return this.character.equipment.find(findByProperty('title', title)) !== undefined
+			return this.character && this.character.equipment.find(findByProperty('title', title)) !== undefined
 		},
 
 		addEquipmentItem(item) {

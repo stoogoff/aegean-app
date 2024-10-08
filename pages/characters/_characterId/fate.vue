@@ -48,7 +48,11 @@ export default {
 
 	methods: {
 		onCharacterLoad() {
-			this.fate = this.creator.character.fate
+			this.fate = this.creator.character.attributes.Fate
+		},
+
+		onBeforeSave() {
+			this.creator.character.attributes.Fate = this.fate
 		},
 	},
 }

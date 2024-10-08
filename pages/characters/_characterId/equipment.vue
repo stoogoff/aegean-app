@@ -15,9 +15,16 @@
 				<accordion-item
 					v-for="(category, idx) in categories"
 					:key="`category_${idx}`"
+					:checked="hasEquipmentInCategory(category.title)"
 				>
 					<template #trigger>
-						<strong class="text-xl">{{ category.title }}</strong>
+						<div>
+							<strong class="text-xl">{{ category.title }}</strong>
+							<tag-view
+								v-for="equip in equipmentInCategory(category.title)"
+								:key="`equip_${ equip }`"
+								class="mr-1">{{ equip }}</tag-view>
+						</div>
 					</template>
 					<template #content>
 						<table class="table-auto w-full">
@@ -102,11 +109,9 @@ export default {
 		standing() {
 			if(!this.creator.character) return 0
 
-			const background = this.$backgrounds.byTitle(this.creator.character.background)
+			const attr = this.creator.attributes
 
-			// TODO factor in Rich or other background
-
-			return background.standing
+			return attr.Standing
 		},
 
 		categories() {
@@ -165,8 +170,28 @@ export default {
 			return false
 		},
 
+		hasEquipmentInCategory(category) {
+			if(!this.creator.character) return false
+
+			const equipment = this.creator.character.equipment
+
+			for(let i = 0, len = equipment.length; i < len; ++i) {
+				if(equipment[i].category === category) {
+					return true
+				}
+			}
+
+			return false
+		},
+
+		equipmentInCategory(category) {
+			if(!this.creator.character) return []
+
+			return this.creator.character.equipment.filter(item => item.category === category).map(({ title}) => title)
+		},
+
 		isItemSelected(title) {
-			this.creator.hasEquipmentItem(title)
+			return this.creator.hasEquipmentItem(title)
 		},
 
 		toggleItem(item) {

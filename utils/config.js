@@ -51,6 +51,7 @@ export const CHARACTERISTIC_START = 2
 
 export const SKILL_MIN = 0
 export const SKILL_STARTING_MAX = 3
+export const SKILL_ADV_STARTING_MAX = 4
 export const SKILL_MAX = 5
 
 export const SKILLS_PER_CP = 3
@@ -77,7 +78,15 @@ const skillMap = {}
 
 SKILLS.forEach(skill => skillMap[skill] = 0)
 
-export const STARTING_CREATION_POINTS = 15
+export const ATTR_RESOLVE = 'Resolve'
+export const ATTR_RISK = 'Risk'
+export const ATTR_ENDURANCE = 'Endurance'
+export const ATTR_STANDING = 'Standing'
+export const ATTR_HUBRIS = 'Hubris'
+export const ATTR_GLORY = 'Glory'
+export const ATTR_FATE = 'Fate'
+
+export const STARTING_CREATION_POINTS = 10
 
 export const DEFAULT_CHARACTER = {
 	cp: STARTING_CREATION_POINTS,
@@ -85,7 +94,6 @@ export const DEFAULT_CHARACTER = {
 	parent: null,
 	background: null,
 	characteristicPackage: null,
-	fate: '',
 	characteristics: {
 		[STAT_MIGHT]: CHARACTERISTIC_START,
 		[STAT_REFLEXES]: CHARACTERISTIC_START,
@@ -95,6 +103,15 @@ export const DEFAULT_CHARACTER = {
 	},
 	skills: { ...skillMap },
 	skillIncreases: { ...skillMap },
+	attributes: {
+		[ATTR_RESOLVE]: 0,
+		[ATTR_RISK]: 0,
+		[ATTR_ENDURANCE]: 0,
+		[ATTR_STANDING]: 0,
+		[ATTR_HUBRIS]: 0,
+		[ATTR_GLORY]: 0,
+		[ATTR_FATE]: '',
+	},
 	gifts: [],
 	talents: [],
 	careers: [],
