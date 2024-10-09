@@ -133,7 +133,8 @@ export default Vue.component('CharacterProgress', {
 		},
 
 		hasTalents() {
-			return this.creator.character && this.creator.character.talents.length > 0
+			// TODO talents aren't currently stored this way
+			return false//this.creator.character && this.creator.character.talents.length > 0
 		},
 
 		hasGifts() {

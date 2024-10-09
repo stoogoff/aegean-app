@@ -15,6 +15,12 @@ header.marble {
 header.marble h1 {
 	@apply text-white pt-20;
 }
+header.marble.small {
+	@apply mb-4 md:mb-8 py-8 md:py-10;
+}
+header.marble.small h1 {
+	@apply pt-10;
+}
 h1 {
 	@apply tracking-wider uppercase text-center font-bold text-4xl sm:text-5xl lg:text-4xl xl:text-5xl text-black pb-4 md:pb-8;
 }
