@@ -32,10 +32,9 @@
 				<h3>Characteristics</h3>
 				<p>Use the buttons by each characteristic to choose its value. If your character has divine heritage the bonus is noted next to the value and will be applied later.</p>
 				<div class="grid grid-cols-2 md:grid-cols-5 gap-2">
-					<div
+					<box-view
 						v-for="(ch, idx) in characteristics"
 						:key="`charcteristic_${idx}`"
-						class="border border-gray-200 rounded-md shadow-md"
 					>
 						<stat-view :label="ch">
 							<div class="btn-group">
@@ -55,7 +54,7 @@
 								<span v-if="hasDivineHeritageBonus(ch)">+ {{ divineHeritageBonus(ch) }}</span>
 							</strong>
 						</stat-view>
-					</div>
+					</box-view>
 				</div>
 			</div>
 			<step-buttons

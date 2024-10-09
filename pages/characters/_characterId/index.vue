@@ -9,20 +9,46 @@
 				<h1>{{ character.name }}</h1>
 			</header>
 			<div class="container">
+				<we-link-action :to="`/characters/${character.slug}/edit`">Edit</we-link-action>
 				<we-tab-group>
 					<we-tab-panel title="Stats">
 						<h2 class="meander"><span>Characteristics</span></h2>
 						<div class="grid grid-cols-2 md:grid-cols-5 gap-2">
-							<div
-								v-for="(ch, idx) in characteristics"
-								:key="`charcteristic_${idx}`"
-								class="border border-gray-200 rounded-md shadow-md"
+							<box-view
+								v-for="ch in characteristics"
+								:key="`charcteristic_${ch}`"
 							>
 								<stat-view :label="ch">
 									<strong class="text-xl pt-4 pb-3 block">
 										{{ character.characteristics[ch] }}
 									</strong>
 								</stat-view>
+							</box-view>
+						</div>
+						<div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+							<div class="md:col-span-3">
+								<h2>Skills</h2>
+								<!-- TODO specialisations -->
+								<definition-term
+									v-for="(value, key) in character.skills"
+									:definition="key"
+									:key="key"
+								>{{ value }}</definition-term>
+							</div>
+							<div class="md:col-span-2">
+								<h2>Attributes</h2>
+								<div class="grid grid-cols-2 gap-2">
+									<box-view
+										v-for="attr in attributes"
+										:key="`attr_${attr}`"
+									>
+										<stat-view :label="attr">
+											<strong class="text-xl pt-4 pb-3 block">
+												{{ character.attributes[attr] || 0 }}
+											</strong>
+										</stat-view>
+									</box-view>
+								</div>
 							</div>
 						</div>
 					</we-tab-panel>
@@ -65,7 +91,16 @@
 </template>
 <script>
 
-import { CHARACTERISTICS, HERITAGE_DIVINE } from '~/utils/config'
+import {
+	ATTR_ENDURANCE,
+	ATTR_GLORY,
+	ATTR_HUBRIS,
+	ATTR_RESOLVE,
+	ATTR_RISK,
+	ATTR_STANDING,
+	CHARACTERISTICS,
+	HERITAGE_DIVINE,
+} from '~/utils/config'
 
 export default {
 	name: 'CharacterViewPage',
@@ -90,6 +125,17 @@ export default {
 	computed: {
 		characteristics() {
 			return CHARACTERISTICS
+		},
+
+		attributes() {
+			return [
+				ATTR_GLORY,
+				ATTR_HUBRIS,
+				ATTR_STANDING,
+				ATTR_RESOLVE,
+				ATTR_ENDURANCE,
+				ATTR_RISK,
+			]
 		},
 
 		hasDivineParentage() {

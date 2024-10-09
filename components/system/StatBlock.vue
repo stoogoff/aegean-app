@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<div class="grid grid-cols-2">
-			<h3>{{ title }}</h3>
+			<h3 class="uppercase my-0">{{ title }}</h3>
 			<span class="place-self-end">
 				<slot name="header" />
 			</span>
@@ -32,9 +32,6 @@ export default Vue.component('StatBlock', {
 })
 </script>
 <style scoped>
-h3 {
-	@apply uppercase my-0;
-}
 div:nth-child(even) {
 	@apply bg-gray-200;
 }

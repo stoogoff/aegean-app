@@ -1,9 +1,9 @@
 <template>
-	<text-input :label="label" v-model="filter" @append="clear" >
+	<we-text-input :label="label" v-model="filter" @append="clear" >
 		<template #append>
 			<span @click="clear()"><icon-view icon="close" /></span>
 		</template>
-	</text-input>
+	</we-text-input>
 </template>
 <script>
 import Vue from 'vue'
