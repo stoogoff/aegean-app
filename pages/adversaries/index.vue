@@ -51,8 +51,8 @@ import { unique } from 'we-ui/utils/list'
 export default {
 	name: 'AdversaryIndexPage',
 
-	async fetch() {
-		this.filtered = this.adversaries = await this.$adversaries.all()
+	fetch() {
+		this.filtered = this.adversaries = this.$adversaries.all()
 	},
 
 	data() {

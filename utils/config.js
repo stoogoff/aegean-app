@@ -84,7 +84,15 @@ export const ATTR_ENDURANCE = 'Endurance'
 export const ATTR_STANDING = 'Standing'
 export const ATTR_HUBRIS = 'Hubris'
 export const ATTR_GLORY = 'Glory'
-export const ATTR_FATE = 'Fate'
+
+export  const ATTRIBUTES = [
+	ATTR_RESOLVE,
+	ATTR_RISK,
+	ATTR_ENDURANCE,
+	ATTR_STANDING,
+	ATTR_HUBRIS,
+	ATTR_GLORY,
+]
 
 export const STARTING_CREATION_POINTS = 10
 
@@ -95,7 +103,8 @@ export const DEFAULT_CHARACTER = {
 	heritage: null,
 	parent: null,
 	background: null,
-	characteristicPackage: null,
+	fate: '',
+	characteristicPackage: null, // guided char gen only
 	characteristics: {
 		[STAT_MIGHT]: CHARACTERISTIC_START,
 		[STAT_REFLEXES]: CHARACTERISTIC_START,
@@ -103,12 +112,22 @@ export const DEFAULT_CHARACTER = {
 		[STAT_INSIGHT]: CHARACTERISTIC_START,
 		[STAT_CUNNING]: CHARACTERISTIC_START,
 	},
+	attributes: {
+		[ATTR_RESOLVE]: 0,
+		[ATTR_RISK]: 0,
+		[ATTR_ENDURANCE]: 0,
+		[ATTR_STANDING]: 0,
+		[ATTR_HUBRIS]: 0,
+		[ATTR_GLORY]: 0,
+	},
 	skills: { ...skillMap },
-	skillIncreases: { ...skillMap },
+	skillIncreases: { ...skillMap }, // guided char gen only
 	gifts: [],
 	careers: [],
 	advantages: [],
 	equipment: [],
+	favour: [],
+	disfavour: [],
 }
 
 export const CHARACTER_ID_PREFIX = 'character:'

@@ -52,36 +52,30 @@
 							</div>
 						</div>
 					</we-tab-panel>
-					<we-tab-panel title="Talents">
-						<p><em>Talents</em></p>
+					<we-tab-panel title="Talents & Gifts">
+						<div v-if="gifts.length" class="mb-8">
+							<h3>Gifts</h3>
+							<simple-accordion-group :items="gifts" />
+						</div>
+						<div>
+							<h3>Talents</h3>
+							<simple-accordion-group :items="talents" v-if="talents.length" />
+							<p v-else><em>No talents selected.</em></p>
+						</div>
 					</we-tab-panel>
 					<we-tab-panel title="Background">
 						<h2 class="meander"><span>Background</span></h2>
 						<div class="grid grid-cols-2 gap-x-4">
 							<div>
 								<definition-term definition="Heritage">{{ character.heritage }}</definition-term>
-								<definition-term v-if="hasDivineParentage" definition="Parent">{{ character.parent }}</definition-term>
+								<definition-term v-if="hasDivineHeritage" definition="Parent">{{ character.parent }}</definition-term>
 								<definition-term definition="Background">{{ character.background }}</definition-term>
 								<definition-term definition="Fate">{{ character.attributes.Fate }}</definition-term>
 							</div>
 							<p>{{ character.description }}</p>
 						</div>
 						<h2 class="meander"><span>Careers</span></h2>
-						<accordion-group>
-							<accordion-item
-								v-for="career in careers"
-								:key="`career_${career.title}`"
-							>
-								<template #trigger>
-									<div>
-										<strong class="text-xl">{{ career.title }}</strong>
-									</div>
-								</template>
-								<template #content>
-									<render-markdown :content="career.description" />
-								</template>
-							</accordion-item>
-						</accordion-group>
+						<simple-accordion-group :items="careers" />
 					</we-tab-panel>
 				</we-tab-group>
 
@@ -91,19 +85,11 @@
 </template>
 <script>
 
-import {
-	ATTR_ENDURANCE,
-	ATTR_GLORY,
-	ATTR_HUBRIS,
-	ATTR_RESOLVE,
-	ATTR_RISK,
-	ATTR_STANDING,
-	CHARACTERISTICS,
-	HERITAGE_DIVINE,
-} from '~/utils/config'
+import WithCharacterView from '~/mixins/WithCharacterView'
 
 export default {
 	name: 'CharacterViewPage',
+	mixins: [ WithCharacterView ],
 
 	async fetch() {
 		const { params } = this.$nuxt.context
@@ -117,31 +103,23 @@ export default {
 
 	data() {
 		return {
-			character: null,
 			careers: [],
 		}
 	},
 
 	computed: {
-		characteristics() {
-			return CHARACTERISTICS
+		talents() {
+			if(!this.character) return []
+
+			return this.$talents.all().filter(item => this.character.talents.includes(item.title))
 		},
 
-		attributes() {
-			return [
-				ATTR_GLORY,
-				ATTR_HUBRIS,
-				ATTR_STANDING,
-				ATTR_RESOLVE,
-				ATTR_ENDURANCE,
-				ATTR_RISK,
-			]
-		},
+		gifts() {
+			if(!this.character) return []
 
-		hasDivineParentage() {
-			return this.character && this.character.heritage === HERITAGE_DIVINE
-		}
-	},
+			return this.$gifts.all().filter(item => this.character.gifts.includes(item.title))
+		},
+	}
 }
 
 </script>
