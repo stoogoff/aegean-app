@@ -1,5 +1,5 @@
 <template>
-	<we-text-input :label="label" v-model="filter" @append="clear" >
+	<we-text-input :label="label" v-model="filter" @append="clear">
 		<template #append>
 			<span @click="clear()"><icon-view icon="close" /></span>
 		</template>
@@ -7,48 +7,8 @@
 </template>
 <script>
 import Vue from 'vue'
+import ListFilter from '~/headless/ListFilter'
 
-export default Vue.component('ListFilter', {
-	props: {
-		list: {
-			type: Array,
-			default: [],
-		},
-		property: {
-			type: String,
-			required: true,
-		},
-		label: {
-			type: String,
-			default: 'Filter',
-		},
-	},
+export default Vue.component('ListFilter', ListFilter)
 
-	data() {
-		return {
-			filter: '',
-		}
-	},
-
-	watch: {
-		filter(text) {
-			text = text.toLowerCase()
-
-			const list = this.list.filter(a =>
-				a[this.property]
-					.normalize('NFD')
-					.replace(/[\u0300-\u036f]/g, '')
-					.toLowerCase()
-					.indexOf(text) !== -1)
-
-			this.$emit('filter', list)
-		}
-	},
-
-	methods: {
-		clear() {
-			this.filter = ''
-		}
-	},
-})
 </script>
