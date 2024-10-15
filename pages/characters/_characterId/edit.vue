@@ -25,7 +25,6 @@
 							<select-input label="Heritage" v-model="character.heritage" :items="heritages" />
 							<select-input v-if="hasDivineHeritage" label="Parent" v-model="character.parent" :items="parents" />
 							<select-input label="Background" v-model="character.background" :items="backgrounds" />
-							<!-- TODO careers, mystery cults -->
 						</section>
 					</we-tab-panel>
 					<we-tab-panel title="Stats">
@@ -70,16 +69,40 @@
 							</section>
 						</div>
 					</we-tab-panel>
-					<we-tab-panel title="Gifts">
-						<section>
-							<h3>Gifts</h3>
-							<filtered-talents :all="allGifts" :selected="selectedGifts" @add="addGift" @remove="removeGift" />
+					<we-tab-panel title="Equipment">
+						<section class="mt-4">
+							<h3>Equipment</h3>
+							<filtered-talents :all="$equipment.all()" :character="character" property="equipment" />
 						</section>
 					</we-tab-panel>
-					<we-tab-panel title="Talents">
-						<section>
+					<we-tab-panel title="Gifts & Talents">
+						<section class="mt-4">
+							<h3>Gifts</h3>
+							<filtered-talents :all="$gifts.all()" :character="character" property="gifts" />
+						</section>
+						<section class="my-8 py-8 border-t">
 							<h3>Talents</h3>
-							<filtered-talents :all="allTalents" :selected="selectedTalents" @add="addTalent" @remove="removeTalent" />
+							<filtered-talents :all="$talents.all()" :character="character" property="talents" />
+						</section>
+					</we-tab-panel>
+					<we-tab-panel title="Careers & Cults">
+						<section class="mt-4">
+							<h3>Careers</h3>
+							<filtered-talents :all="$careers.all()" :character="character" property="careers" />
+						</section>
+						<section class="my-8 py-8 border-t">
+							<h3>Mystery Cults</h3>
+							<filtered-talents :all="$cults.all()" :character="character" property="cults" />
+						</section>
+					</we-tab-panel>
+					<we-tab-panel title="Favour & Disfavour">
+						<section class="mt-4">
+							<h3>Favour</h3>
+							<filtered-talents :all="$deities.all()" :character="character" subtitle="pantheon" property="favour" />
+						</section>
+						<section class="my-8 py-8 border-t">
+							<h3>Disfavour</h3>
+							<filtered-talents :all="$deities.all()" :character="character" subtitle="pantheon" property="disfavour" />
 						</section>
 					</we-tab-panel>
 				</we-tab-group>
@@ -137,14 +160,6 @@ export default {
 			return this.allGifts.filter(item => this.character.gifts.includes(item.title))
 		},
 
-		allGifts() {
-			return this.$gifts.all()
-		},
-
-		allTalents() {
-			return this.$talents.all()
-		},
-
 		selectedTalents() {
 			if(!this.character) return []
 
@@ -153,19 +168,6 @@ export default {
 	},
 
 	methods: {
-		addGift(title) {
-			this.character.gifts = [...this.character.gifts, title]
-		},
-		removeGift(title) {
-			this.character.gifts = this.character.gifts.filter(item => item !== title)
-		},
-		addTalent(title) {
-			this.character.talents = [...this.character.talents, title]
-		},
-		removeTalent(title) {
-			this.character.talents = this.character.talents.filter(item => item !== title)
-		},
-
 		validateCharacter(character) {
 			const stringFields = ['name', 'description', 'heritage', 'parent', 'background', 'fate']
 
@@ -175,9 +177,11 @@ export default {
 			SKILLS.forEach(sk => character.skills[sk] = character.skills[sk] || SKILL_MIN)
 			ATTRIBUTES.forEach(attr => character.attributes[attr] = character.attributes[attr] || 0)
 
-			const arrayFields = ['gifts', 'talents', 'careers', 'advantages', 'equipment', 'favour', 'disfavour']
+			const arrayFields = ['gifts', 'talents', 'careers', 'cults', 'advantages', 'equipment', 'favour', 'disfavour']
 
 			arrayFields.forEach(field => character[field] = character[field] || [])
+
+			character.specialisations = character.specialisations || {}
 
 			return character
 		},

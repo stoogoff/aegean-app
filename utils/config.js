@@ -22,9 +22,17 @@ export const MENU = [
 	},
 ]
 
+export const KEY_ABILITY  = 'ability:'
+export const KEY_PROPERTY = 'property:'
+export const KEY_WEAPON   = 'weapon:'
+
 export const EQUIPMENT_COMMON = 'Common'
 export const EQUIPMENT_UNCOMMON = 'Uncommon'
 export const EQUIPMENT_RARE = 'Rare'
+
+export const WEAPON_MELEE = 'Melee Weapons'
+export const WEAPON_RANGED = 'Missile Weapons'
+export const WEAPON_SHIELD = 'Shields'
 
 export const CAREER_COST = 3
 
@@ -126,8 +134,10 @@ export const DEFAULT_CHARACTER = {
 	careers: [],
 	advantages: [],
 	equipment: [],
+	mysteryCults: [],
 	favour: [],
 	disfavour: [],
+	specialisations: {},
 }
 
 export const CHARACTER_ID_PREFIX = 'character:'

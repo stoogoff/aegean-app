@@ -25,18 +25,19 @@
 								</stat-view>
 							</box-view>
 						</div>
-						<div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+						<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
 							<div class="md:col-span-3">
-								<h2>Skills</h2>
+								<h2 class="mb-0 mt-8">Skills</h2>
 								<!-- TODO specialisations -->
 								<definition-term
 									v-for="(value, key) in character.skills"
 									:definition="key"
 									:key="key"
+									class="even:bg-gray-100"
 								>{{ value }}</definition-term>
 							</div>
 							<div class="md:col-span-2">
-								<h2>Attributes</h2>
+								<h2 class="mb-0 mt-8">Attributes</h2>
 								<div class="grid grid-cols-2 gap-2">
 									<box-view
 										v-for="attr in attributes"
@@ -52,20 +53,30 @@
 							</div>
 						</div>
 					</we-tab-panel>
+					<we-tab-panel title="Equipment">
+						<section v-if="gifts.length" class="mt-4 mb-8">
+							<h3>Weapons</h3>
+							<weapons-table :weapons="weapons" />
+						</section>
+						<section>
+							<h3>Equipment</h3>
+							<equipment-table :equipment="equipment" />
+						</section>
+					</we-tab-panel>
 					<we-tab-panel title="Talents & Gifts">
-						<div v-if="gifts.length" class="mb-8">
+						<section v-if="gifts.length" class="mt-4 mb-8">
 							<h3>Gifts</h3>
 							<simple-accordion-group :items="gifts" />
-						</div>
-						<div>
+						</section>
+						<section>
 							<h3>Talents</h3>
 							<simple-accordion-group :items="talents" v-if="talents.length" />
 							<p v-else><em>No talents selected.</em></p>
-						</div>
+						</section>
 					</we-tab-panel>
 					<we-tab-panel title="Background">
 						<h2 class="meander"><span>Background</span></h2>
-						<div class="grid grid-cols-2 gap-x-4">
+						<section class="grid grid-cols-2 gap-x-4">
 							<div>
 								<definition-term definition="Heritage">{{ character.heritage }}</definition-term>
 								<definition-term v-if="hasDivineHeritage" definition="Parent">{{ character.parent }}</definition-term>
@@ -73,12 +84,18 @@
 								<definition-term definition="Fate">{{ character.attributes.Fate }}</definition-term>
 							</div>
 							<p>{{ character.description }}</p>
-						</div>
-						<h2 class="meander"><span>Careers</span></h2>
-						<simple-accordion-group :items="careers" />
+						</section>
+						<section class="my-8">
+							<h2 class="meander"><span>Careers</span></h2>
+							<simple-accordion-group :items="careers" v-if="careers.length" />
+							<p v-else><em>No careers selected.</em></p>
+						</section>
+						<section v-if="cults.length" class="my-8">
+							<h2 class="meander"><span>Mystery Cults</span></h2>
+							<simple-accordion-group :items="cults" />
+						</section>
 					</we-tab-panel>
 				</we-tab-group>
-
 			</div>
 		</div>
 	</article>
@@ -86,6 +103,8 @@
 <script>
 
 import WithCharacterView from '~/mixins/WithCharacterView'
+import { isWeapon, getStats } from '~/utils/system'
+import { KEY_PROPERTY } from '~/utils/config'
 
 export default {
 	name: 'CharacterViewPage',
@@ -96,28 +115,50 @@ export default {
 
 		this.character = await this.$characters.byId(params.characterId)
 		console.log({ ...this.character })
-
-		this.careers = (await this.$careers.all()).filter(career => this.character.careers.includes(career.title))
 	},
 	fetchOnServer: false,
 
-	data() {
-		return {
-			careers: [],
-		}
-	},
-
 	computed: {
 		talents() {
-			if(!this.character) return []
-
-			return this.$talents.all().filter(item => this.character.talents.includes(item.title))
+			return this.getObjectFromTitle('talents')
 		},
 
 		gifts() {
+			return this.getObjectFromTitle('gifts')
+		},
+
+		careers() {
+			return this.getObjectFromTitle('careers')
+		},
+
+		cults() {
+			return this.getObjectFromTitle('cults')
+		},
+
+		weapons() {
+			const weaponNames = this.getObjectFromTitle('equipment')
+				.filter(({ category }) => isWeapon(category))
+				.map(({ title }) => title)
+
+			const weapons = this.$weapons.all().filter(({ title }) => weaponNames.includes(title))
+
+			return weapons.map(weapon => ({
+				...weapon,
+				properties: weapon.properties
+					.map(property => getStats(this.$properties, KEY_PROPERTY, property)),
+			}))
+		},
+
+		equipment() {
+			return this.getObjectFromTitle('equipment').filter(({ category }) => !isWeapon(category))
+		},
+	},
+
+	methods: {
+		getObjectFromTitle(key) {
 			if(!this.character) return []
 
-			return this.$gifts.all().filter(item => this.character.gifts.includes(item.title))
+			return this['$' +key].all().filter(({ title }) => this.character[key].includes(title))
 		},
 	}
 }

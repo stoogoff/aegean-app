@@ -6,7 +6,11 @@ import {
 	STAT_REFLEXES,
 	STAT_INSIGHT,
 	STAT_CUNNING,
+	KEY_ABILITY,
+	KEY_PROPERTY,
+	KEY_WEAPON,
 } from '~/utils/config'
+import { getStats } from '~/utils/system'
 
 // data imports
 import abilities from '~/static/data/abilities.json'
@@ -14,29 +18,11 @@ import properties from '~/static/data/properties.json'
 import weapons from '~/static/data/weapons.json'
 import all from '~/static/data/adversaries/all.json'
 
-
-const KEY_ABILITY  = 'ability:'
-const KEY_PROPERTY = 'property:'
-const KEY_WEAPON   = 'weapon:'
-
 // merge all adversaries
 const ADVERSARIES = [
 	...all.map(adv => ({ id: id(adv.title), ...adv }))
 ].sort(sortByProperty('title'))
 
-
-// get object stats from a given container
-const getStats = (container, key, item) => {
-	if(typeof item === 'object') return item
-
-	// match by title with the key removed and any ranks removed
-	const found = container.find(obj => obj.title === item.replace(key, '').replace(/\s\d$/, ''))
-
-	if(!found) return null
-
-	// replace the title with the searched for title, which adds any ranks to it
-	return { ...found, title: item.replace(key, '') }
-}
 
 const getWeaponProperties = property => getStats(properties, KEY_PROPERTY, property)
 const getAbilityStats = ability => getStats(abilities, KEY_ABILITY, ability)

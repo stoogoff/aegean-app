@@ -1,8 +1,7 @@
 <template>
 	<div>
 		<select-filter label="Search" :list="all" property="title" @filter="filter" @select="add" />
-		<div class="mt-8 pt-8 border-t" v-if="selected.length">
-			<h3>Selected</h3>
+		<div class="mt-4" v-if="selected.length">
 			<accordion-group>
 				<accordion-item
 					v-for="item in selected"
@@ -12,6 +11,7 @@
 					<template #trigger>
 						<div>
 							<strong class="text-xl">{{ item.title }}</strong>
+							<tag-view v-if="subtitle">{{ item[subtitle] }}</tag-view>
 						</div>
 					</template>
 					<template #content>
@@ -33,9 +33,17 @@ export default Vue.component('FilteredTalents', {
 			type: Array,
 			required: true,
 		},
-		selected: {
-			type: Array,
-			default: () => [],
+		character: {
+			type: Object,
+			required: true,
+		},
+		property: {
+			type: String,
+			required: true,
+		},
+		subtitle: {
+			type: String,
+			default: '',
 		},
 	},
 
@@ -43,6 +51,14 @@ export default Vue.component('FilteredTalents', {
 		return {
 			filtered: [],
 		}
+	},
+
+	computed: {
+		selected() {
+			if(!this.character) return []
+
+			return this.all.filter(({ title }) => this.character[this.property].includes(title))
+		},
 	},
 
 	methods: {
@@ -55,11 +71,15 @@ export default Vue.component('FilteredTalents', {
 		},
 
 		add(item) {
-			this.$emit('add', item.title)
+			if(!this.character) return
+
+			this.character[this.property] = [...this.character[this.property], item.title]
 		},
 
 		remove(title) {
-			this.$emit('remove', title)
+			if(!this.character) return
+			
+			this.character[this.property] = this.character[this.property].filter(item => item !== title)
 		},
 	},
 })

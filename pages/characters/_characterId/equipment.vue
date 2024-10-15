@@ -27,49 +27,16 @@
 						</div>
 					</template>
 					<template #content>
-						<table class="table-auto w-full">
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th>Price</th>
-									<th>Weight</th>
-									<th>Availability</th>
-									<th>&nbsp;</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr
-									v-for="(item, jdx) in category.equipment"
-									:key="`category_${idx}_${jdx}`"
-								>
-									<td>
-										<we-check-box
-											:value="isItemSelected(item.title)"
-											:label="item.title"
-											:disabled="!canPurchase(item)"
-											@input="toggleItem(item)"
-										/>
-									</td>
-									<td>{{ item.price }}</td>
-									<td v-if="'weight' in item">{{ item.weight | fraction }}</td>
-									<td v-else>&mdash;</td>
-									<td>{{ item.availability }}</td>
-									<td>
-										<info-button
-											small outlined wide
-											x="right"
-										>
-											More Info
-											<template #info>
-												<card-view :title="item.title">
-													<render-markdown :content="item.description" />
-												</card-view>
-											</template>
-										</info-button>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+						<equipment-table :equipment="category.equipment">
+							<template v-slot:default="slot">
+								<we-check-box
+									:value="isItemSelected(slot.item.title)"
+									:label="slot.item.title"
+									:disabled="!canPurchase(slot.item)"
+									@input="toggleItem(slot.item)"
+								/>
+							</template>
+						</equipment-table>
 					</template>
 				</accordion-item>
 			</accordion-group>

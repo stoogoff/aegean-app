@@ -48,7 +48,7 @@ p {
 }
 
 th {
-	@apply uppercase text-sm;
+	@apply uppercase text-sm text-left;
 }
 td {
 	@apply align-top p-1;
