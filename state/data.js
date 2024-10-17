@@ -21,6 +21,7 @@ function Data(list) {
 	this.byTitle = title => list.find(i => i.title === title)
 	this.find = func => list.find(func)
 	this.filter = func => list.filter(func)
+	this.sort = func => [ ...list ].sort(func)
 }
 
 export default () => {

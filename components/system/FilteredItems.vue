@@ -45,6 +45,10 @@ export default Vue.component('FilteredItems', {
 			type: String,
 			default: '',
 		},
+		multiple: {
+			type: Boolean,
+			default: false,
+		},
 	},
 
 	data() {

@@ -70,7 +70,7 @@ export default {
 
 	computed: {
 		equipment() {
-			return this.$equipment.all().sort(sortByProperties('category', 'title'))
+			return this.$equipment.sort(sortByProperties('category', 'title'))
 		},
 
 		standing() {

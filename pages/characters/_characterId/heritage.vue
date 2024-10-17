@@ -5,7 +5,7 @@
 			<markdown-content content="characters/heritage" />
 			<accordion-group v-if="creator.character">
 				<accordion-item
-					v-for="(htg, idx) in heritages"
+					v-for="(htg, idx) in $heritages.all()"
 					:key="`heritage_${idx}`"
 					:checked="heritage === htg.title"
 				>
@@ -38,7 +38,7 @@
 				<p>Choose your divine parent from those below.</p>
 				<accordion-group>
 					<accordion-item
-						v-for="(prt, idx) in divinities"
+						v-for="(prt, idx) in $divinities.all()"
 						:key="`parent_${idx}`"
 						:checked="parent === prt.title"
 					>
@@ -129,14 +129,6 @@ export default {
 	},
 
 	computed: {
-		heritages() {
-			return this.$heritages.all()
-		},
-
-		divinities() {
-			return this.$divinities.all()
-		},
-
 		hasDivineHeritage() {
 			return this.creator.hasDivineHeritage
 		},
