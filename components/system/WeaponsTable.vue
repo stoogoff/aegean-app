@@ -20,13 +20,18 @@
 				v-for="item in weapons"
 				:key="item.title"
 			>
-				<td><slot v-bind:item="item">{{ item.title }}</slot></td>
-				<td>{{ item.skill }}</td>
-				<td v-if="'reach' in item">{{ item.reach }}</td>
-				<td v-else-if="'range' in item">{{ item.range }}</td>
+				<td>
+					<slot v-bind:item="item">
+						<div>{{ item.title }}</div>
+						<tag-view v-if="item.subtitle">{{ item.subtitle }}</tag-view>
+					</slot>
+				</td>
+				<td>{{ item.stats.skill }}</td>
+				<td v-if="'reach' in item.stats">{{ item.stats.reach }}</td>
+				<td v-else-if="'range' in item.stats">{{ item.stats.range }}</td>
 				<td v-else>&mdash;</td>
-				<td>{{ item.damage }}</td>
-				<td v-if="item.properties.length > 0">
+				<td>{{ item.stats.damage }}</td>
+				<td v-if="item.stats.properties.length > 0">
 					<div
 						v-for="(prop, pIndex) in item.properties"
 						:key="`property_${prop.title}_${pIndex}`"

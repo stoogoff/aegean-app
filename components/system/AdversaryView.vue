@@ -53,15 +53,15 @@
 					<tr v-for="(attack, aIndex) in attacks" :key="`attack_${aIndex}`">
 						<td>
 							<div>{{ attack.title }} <small v-if="attack.subtitle" class="italic">{{ attack.subtitle }}</small></div>
-							<div><tag-view type="info">{{ attack.skill }}</tag-view></div>
+							<div><tag-view type="info">{{ attack.stats.skill }}</tag-view></div>
 						</td>
 						<td class="text-center">{{ getDiceTotal(attack) }}D</td>
-						<td v-if="attack.reach" class="text-center">{{ attack.reach }}</td>
-						<td v-if="attack.range" class="text-center">{{ attack.range }}</td>
-						<td class="text-center">{{ attack.damage }}</td>
-						<td v-if="attack.properties.length > 0">
+						<td v-if="attack.stats.reach" class="text-center">{{ attack.stats.reach }}</td>
+						<td v-if="attack.stats.range" class="text-center">{{ attack.stats.range }}</td>
+						<td class="text-center">{{ attack.stats.damage }}</td>
+						<td v-if="attack.stats.properties.length > 0">
 							<div
-								v-for="(prop, pIndex) in attack.properties"
+								v-for="(prop, pIndex) in attack.stats.properties"
 								:key="`property_${aIndex}_${pIndex}`"
 							>
 								<info-button outlined small wide y="bottom" x="right">

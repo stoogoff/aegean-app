@@ -10,42 +10,44 @@ import {
 	KEY_PROPERTY,
 	KEY_WEAPON,
 } from '~/utils/config'
-import { getStats } from '~/utils/system'
+import { getStats, isWeapon } from '~/utils/system'
 
 // data imports
 import abilities from '~/static/data/abilities.json'
-import properties from '~/static/data/properties.json'
-import weapons from '~/static/data/weapons.json'
 import all from '~/static/data/adversaries/all.json'
+import attacks from '~/static/data/attacks.json'
+import equipment from '~/static/data/equipment.json'
+import properties from '~/static/data/properties.json'
 
 // merge all adversaries
 const ADVERSARIES = [
 	...all.map(adv => ({ id: id(adv.title), ...adv }))
 ].sort(sortByProperty('title'))
 
+const weapons = [...attacks, equipment.filter(({ category }) => isWeapon(category))]
 
 const getWeaponProperties = property => getStats(properties, KEY_PROPERTY, property)
 const getAbilityStats = ability => getStats(abilities, KEY_ABILITY, ability)
 const getAttackStats = attack => {
-	const stats = getStats(weapons, KEY_WEAPON, attack)
+	const item = getStats(weapons, KEY_WEAPON, attack)
 
-	if(!stats) return
+	if(!item) return
 
-	stats.properties = (stats.properties || []).map(property => getWeaponProperties(property)).filter(weapon => !!weapon)
+	item.stats.properties = (item.stats.properties || []).map(property => getWeaponProperties(property)).filter(weapon => !!weapon)
 
 	// set the correct characteristic for the weapon
 	const charProps = [STAT_CUNNING, STAT_INSIGHT, STAT_REFLEXES]
-	const characteristics = stats.properties.filter(prop => charProps.indexOf(prop.title) !== -1)
+	const characteristics = item.stats.properties.filter(prop => charProps.indexOf(prop.title) !== -1)
 
-	stats.characteristic = characteristics.length > 0 ? characteristics[0].title : STAT_MIGHT
+	item.stats.characteristic = characteristics.length > 0 ? characteristics[0].title : STAT_MIGHT
 
-	if(stats.thrown) {
+	if(item.stats.thrown) {
 		// all thrown weapons use Might
-		stats.thrown.characteristic = STAT_MIGHT
-		stats.thrown.properties = stats.thrown.properties.map(property => getWeaponProperties(property)).filter(weapon => !!weapon)
+		item.stats.thrown.characteristic = STAT_MIGHT
+		item.stats.thrown.properties = stats.thrown.properties.map(property => getWeaponProperties(property)).filter(weapon => !!weapon)
 	}
 
-	return stats
+	return item
 }
 
 export default () => {

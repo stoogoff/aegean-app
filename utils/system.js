@@ -1,9 +1,10 @@
 
-import { WEAPON_MELEE, WEAPON_RANGED, WEAPON_SHIELD } from '~/utils/config'
+import { EQUIPMENT_CATEGORIES } from '~/utils/config'
 
-export const isMeleeWeapon = category => category === WEAPON_MELEE
-export const isRangedWeapon = category => category === WEAPON_RANGED
-export const isShield = category => category === WEAPON_SHIELD
+export const isMeleeWeapon = category => category === EQUIPMENT_CATEGORIES.WEAPON_MELEE
+export const isRangedWeapon = category => category === EQUIPMENT_CATEGORIES.WEAPON_RANGED
+export const isShield = category => category === EQUIPMENT_CATEGORIES.SHIELD
+export const isArmour = category => category === EQUIPMENT_CATEGORIES.ARMOUR
 export const isWeapon = category =>
 	isMeleeWeapon(category) || isRangedWeapon(category) || isShield(category)
 

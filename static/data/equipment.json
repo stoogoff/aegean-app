@@ -300,7 +300,24 @@
 		"availability": "Common",
 		"price": 1,
 		"weight": 1,
-		"description": "An axe is a single-handed and single-headed tool found everywhere. It is often repurposed as a weapon and can be lethal, but is rarely found on the battlefield. It isn’t balanced for throwing and the wielder suffers a -1D penalty when doing so, but an axe can still make an effective ranged weapon if needed."
+		"description": "An axe is a single-handed and single-headed tool found everywhere. It is often repurposed as a weapon and can be lethal, but is rarely found on the battlefield. It isn’t balanced for throwing and the wielder suffers a -1D penalty when doing so, but an axe can still make an effective ranged weapon if needed.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "2",
+			"damage": 5,
+			"properties": ["property:Pommel Strike", "property:Savage"],
+			"thrown": {
+				"skill": "Accuracy",
+				"range": "Short",
+				"damage": 4,
+				"properties": [
+					{
+						"title": "Notes",
+						"description": "-1D when thrown."
+					}
+				]
+			}
+		}
 	},
 	{
 		"title": "Club",
@@ -308,7 +325,13 @@
 		"availability": "Common",
 		"price": 0,
 		"weight": 1,
-		"description": "A club is a simple length of wood, often bound with leather to form a handle and studded or bound in bronze bands at the hitting end. The simple and cheap construction makes it a weapon available to everyone."
+		"description": "A club is a simple length of wood, often bound with leather to form a handle and studded or bound in bronze bands at the hitting end. The simple and cheap construction makes it a weapon available to everyone.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "2",
+			"damage": 4,
+			"properties": ["property:Pommel Strike", "property:Stun"]
+		}
 	},
 	{
 		"title": "Dori",
@@ -317,7 +340,19 @@
 		"availability": "Common",
 		"price": 1,
 		"weight": 1,
-		"description": "A dori is a spear 2–3 metres in length and the most common weapon on the battlefield due to its effectiveness and simple construction. It has a short iron head and a bronze spike on the butt to serve as a counter balance and back up weapon in case the dori breaks. The dori, coupled with a hoplon, is the backbone of the heavy infantry."
+		"description": "A dori is a spear 2–3 metres in length and the most common weapon on the battlefield due to its effectiveness and simple construction. It has a short iron head and a bronze spike on the butt to serve as a counter balance and back up weapon in case the dori breaks. The dori, coupled with a hoplon, is the backbone of the heavy infantry.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "4",
+			"damage": 5,
+			"properties": ["property:Pierce"],
+			"thrown": {
+				"skill": "Accuracy",
+				"range": "Medium",
+				"damage": 5,
+				"properties": ["property:Pierce"]
+			}
+		}
 	},
 	{
 		"title": "Falx",
@@ -326,7 +361,13 @@
 		"availability": "Uncommon",
 		"price": 2,
 		"weight": 1,
-		"description": "A falx is an unusual weapon with a long pole for a hilt and a curved blade similar to a sickle. The blade has a single cutting edge on the inside of the curve and the weapon is somewhere between a sword and a spear. It is a popular weapon amongst the Thrakians."
+		"description": "A falx is an unusual weapon with a long pole for a hilt and a curved blade similar to a sickle. The blade has a single cutting edge on the inside of the curve and the weapon is somewhere between a sword and a spear. It is a popular weapon amongst the Thrakians.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "3",
+			"damage": 6,
+			"properties": ["property:Cumbersome 1", "property:Parry 2", "property:Heavy"]
+		}
 	},
 	{
 		"title": "Harpe",
@@ -335,7 +376,13 @@
 		"availability": "Uncommon",
 		"price": 2,
 		"weight": 1,
-		"description": "A harpe is an unusual short straight– edged sword with a hook curving off one edge about half to a third of the way down the blade. The hook is useful for disarming an opponent but the awkwardness of the blade makes it an uncommon weapon choice."
+		"description": "A harpe is an unusual short straight– edged sword with a hook curving off one edge about half to a third of the way down the blade. The hook is useful for disarming an opponent but the awkwardness of the blade makes it an uncommon weapon choice.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "2",
+			"damage": 5,
+			"properties": ["property:Disarm", "property:Parry 3", "property:Pommel Strike"]
+		}
 	},
 	{
 		"title": "Javelin",
@@ -343,7 +390,19 @@
 		"availability": "Common",
 		"price": 1,
 		"weight": 1,
-		"description": "A javelin is a short spear, primarily used for throwing. Its lighter weight makes it more accurate than the larger dori when thrown while still maintaining some of the power. It is the main weapon of the peltast, the light infantry of Hellas, who carry a bundle of three or four in their shield hand.\n\nThe price and weight is for a batch of three javelins."
+		"description": "A javelin is a short spear, primarily used for throwing. Its lighter weight makes it more accurate than the larger dori when thrown while still maintaining some of the power. It is the main weapon of the peltast, the light infantry of Hellas, who carry a bundle of three or four in their shield hand.\n\nThe price and weight is for a batch of three javelins.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "3",
+			"damage": 4,
+			"properties": ["property:Reflexes", "property:Pierce"],
+			"thrown": {
+				"skill": "Accuracy",
+				"range": "Medium",
+				"damage": 4,
+				"properties": ["property:Pierce"]
+			}
+		}
 	},
 	{
 		"title": "Kopis",
@@ -352,7 +411,13 @@
 		"availability": "Common",
 		"price": 2,
 		"weight": 1,
-		"description": "A kopis is a long knife or short sword with a forward-curving blade. The blade varies from 45–65cm with a single cutting edge on the inside of the curve. Its lack of a thrusting point has made it less common on the battlefield than the xiphos but cavalry and charioteers find the weighted blade useful. Its savage cutting stroke makes it a favourite of the Spartan hoplites."
+		"description": "A kopis is a long knife or short sword with a forward-curving blade. The blade varies from 45–65cm with a single cutting edge on the inside of the curve. Its lack of a thrusting point has made it less common on the battlefield than the xiphos but cavalry and charioteers find the weighted blade useful. Its savage cutting stroke makes it a favourite of the Spartan hoplites.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "2",
+			"damage": 5,
+			"properties": ["property:Parry 2", "property:Pommel Strike", "property:Savage"]
+		}
 	},
 	{
 		"title": "Labrys",
@@ -361,7 +426,13 @@
 		"availability": "Uncommon",
 		"price": 3,
 		"weight": 1,
-		"description": "A labrys is a two-handed, double- headed axe, with a long pole. Originally carried by temple guards on Kreta, it has spread as a symbol of authority to every temple throughout the Aegean Sea. Due to its ceremonial nature a labrys often has an ornately carved head featuring symbols of the gods the temple is dedicated to."
+		"description": "A labrys is a two-handed, double- headed axe, with a long pole. Originally carried by temple guards on Kreta, it has spread as a symbol of authority to every temple throughout the Aegean Sea. Due to its ceremonial nature a labrys often has an ornately carved head featuring symbols of the gods the temple is dedicated to.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "3",
+			"damage": 6,
+			"properties": ["property:Cumbersome 1", "property:Heavy", "property:Savage"]
+		}
 	},
 	{
 		"title": "Makhaira",
@@ -370,7 +441,19 @@
 		"availability": "Common",
 		"price": 0,
 		"weight": 0,
-		"description": "A makhaira is a long knife with a single cutting edge. As a tool it is found everywhere and most people, no matter their status or occupation, will have several at home, if not on their person. A makhaira is small enough to be thrown accurately."
+		"description": "A makhaira is a long knife with a single cutting edge. As a tool it is found everywhere and most people, no matter their status or occupation, will have several at home, if not on their person. A makhaira is small enough to be thrown accurately.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "1",
+			"damage": 3,
+			"properties": ["property:Parry 1", "property:Cunning", "property:Pommel Strike"],
+			"thrown": {
+				"skill": "Accuracy",
+				"range": "Short",
+				"damage": 3,
+				"properties": []
+			}
+		}
 	},
 	{
 		"title": "Mattock",
@@ -378,7 +461,12 @@
 		"availability": "Common",
 		"price": 1,
 		"weight": 1,
-		"description": "A mattock is a large, two-handed hammer made from a wooden pole with a head made of stone or bronze bands. What a mattock lacks in finesse it makes up for with hitting power. It’s not a commonly used weapon due to its size and weight, but some heroes have been known to use one."
+		"description": "A mattock is a large, two-handed hammer made from a wooden pole with a head made of stone or bronze bands. What a mattock lacks in finesse it makes up for with hitting power. It’s not a commonly used weapon due to its size and weight, but some heroes have been known to use one.",
+		"stats": {
+			"reach": "3",
+			"damage": 6,
+			"properties": ["property:Cumbersome 1", "property:Heavy", "property:Stagger"]
+		}
 	},
 	{
 		"title": "Net",
@@ -386,7 +474,19 @@
 		"availability": "Common",
 		"price": 0,
 		"weight": 1,
-		"description": "The net is most commonly used for fishing but occasionally used for hunting wild animals. A net does no damage but is incredibly good at pinning opponents."
+		"description": "The net is most commonly used for fishing but occasionally used for hunting wild animals. A net does no damage but is incredibly good at pinning opponents.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "1",
+			"damage": null,
+			"properties": ["property:Entangle"],
+			"thrown": {
+				"skill": "Accuracy",
+				"range": "Short",
+				"damage": null,
+				"properties": ["property:Entangle"]
+			}
+		}
 	},
 	{
 		"title": "Staff",
@@ -394,7 +494,13 @@
 		"availability": "Common",
 		"price": 0,
 		"weight": 1,
-		"description": "A staff is a length of wood ranging from 1.5–2.5 metres in length. It’s a versatile weapon and can be used in one or two hands. Staves often form part of a symbol of office for the many rulers and priests. They vary from plain and simple to ornately carved and inlaid with gold. Ornately carved staves gain the Rich 1 property."
+		"description": "A staff is a length of wood ranging from 1.5–2.5 metres in length. It’s a versatile weapon and can be used in one or two hands. Staves often form part of a symbol of office for the many rulers and priests. They vary from plain and simple to ornately carved and inlaid with gold. Ornately carved staves gain the Rich 1 property.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "2–3",
+			"damage": 4,
+			"properties": ["property:Parry 3"]
+		}
 	},
 	{
 		"title": "Rich Staff",
@@ -402,7 +508,13 @@
 		"availability": "Uncommon",
 		"price": 3,
 		"weight": 1,
-		"description": "A staff is a length of wood ranging from 1.5–2.5 metres in length. It’s a versatile weapon and can be used in one or two hands. Staves often form part of a symbol of office for the many rulers and priests. They vary from plain and simple to ornately carved and inlaid with gold. Ornately carved staves gain the Rich 1 property."
+		"description": "A staff is a length of wood ranging from 1.5–2.5 metres in length. It’s a versatile weapon and can be used in one or two hands. Staves often form part of a symbol of office for the many rulers and priests. They vary from plain and simple to ornately carved and inlaid with gold. Ornately carved staves gain the Rich 1 property.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "2–3",
+			"damage": 4,
+			"properties": ["property:Parry 3", "property:Rich 1"]
+		}
 	},
 	{
 		"title": "Trident",
@@ -410,7 +522,19 @@
 		"availability": "Common",
 		"price": 1,
 		"weight": 1,
-		"description": "A trident is a short spear similar in size to a javelin with three prongs instead of a single point. The bident is related to the trident but has two prongs, like a pitchfork. Their use is mainly ceremonial due to their association with two powerful gods. The bident is associated with Haides while the trident is associated with his brother Poseidon."
+		"description": "A trident is a short spear similar in size to a javelin with three prongs instead of a single point. The bident is related to the trident but has two prongs, like a pitchfork. Their use is mainly ceremonial due to their association with two powerful gods. The bident is associated with Haides while the trident is associated with his brother Poseidon.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "3",
+			"damage": 4,
+			"properties": ["property:Disarm"],
+			"thrown": {
+				"skill": "Accuracy",
+				"range": "Medium",
+				"damage": 4,
+				"properties": []
+			}
+		}
 	},
 	{
 		"title": "Xiphos",
@@ -419,7 +543,13 @@
 		"availability": "Common",
 		"price": 2,
 		"weight": 1,
-		"description": "A xiphos is a straight, short sword with a leaf-shaped blade. The blade is round 50–60cm long with a small cross hilt. It’s the most commonly used sword due to the swiftness of its cut and thrust, as well as its defensive capabilities. The scabbard is usually attached to a bandolier worn across the shoulder or carried in the shield hand."
+		"description": "A xiphos is a straight, short sword with a leaf-shaped blade. The blade is round 50–60cm long with a small cross hilt. It’s the most commonly used sword due to the swiftness of its cut and thrust, as well as its defensive capabilities. The scabbard is usually attached to a bandolier worn across the shoulder or carried in the shield hand.",
+		"stats": {
+			"skill": "Melee",
+			"reach": "2",
+			"damage": 5,
+			"properties": ["property:Reflexes", "property:Pommel Strike", "property:Parry 2", "property:Pierce"]
+		}
 	},
 	{
 		"title": "Composite Bow",
@@ -427,7 +557,13 @@
 		"availability": "Uncommon",
 		"price": 5,
 		"weight": 1,
-		"description": "A composite bow is small and light and made of wood reinforced with horn. The composite bow is much more powerful than the self bow but more difficult to make. A composite bow requires two hands to use and can’t be used with a shield."
+		"description": "A composite bow is small and light and made of wood reinforced with horn. The composite bow is much more powerful than the self bow but more difficult to make. A composite bow requires two hands to use and can’t be used with a shield.",
+		"stats": {
+			"skill": "Accuracy",
+			"range": "Long",
+			"damage": 5,
+			"properties": ["property:Insight", "property:Pierce"]
+		}
 	},
 	{
 		"title": "Recurve Bow",
@@ -435,7 +571,13 @@
 		"availability": "Rare",
 		"price": 5,
 		"weight": 1,
-		"description": "A recurve bow is a stronger version of the composite bow with limbs which curve away from the archer when unstrung. The recurve bow is significantly more powerful than the self bow but more difficult to make and are rare in Hellas. Most recurve bows are made by Skythian nomads or Amazons and brought back by soldiers or adventurers. A recurve bow requires two hands to use and can’t be used with a shield."
+		"description": "A recurve bow is a stronger version of the composite bow with limbs which curve away from the archer when unstrung. The recurve bow is significantly more powerful than the self bow but more difficult to make and are rare in Hellas. Most recurve bows are made by Skythian nomads or Amazons and brought back by soldiers or adventurers. A recurve bow requires two hands to use and can’t be used with a shield.",
+		"stats": {
+			"skill": "Accuracy",
+			"range": "Long",
+			"damage": 6,
+			"properties": ["property:Accurate", "property:Insight", "property:Pierce"]
+		}
 	},
 	{
 		"title": "Self Bow",
@@ -443,7 +585,13 @@
 		"availability": "Common",
 		"price": 1,
 		"weight": 1,
-		"description": "A self bow is small and light and made from a single piece of wood. The self bow is a common hunting weapon due to its ease of construction. However, it lacks power compared to a dori, javelin or sling so isn’t commonly found on the battlefield. A self bow requires two hands to use and can’t be used with a shield."
+		"description": "A self bow is small and light and made from a single piece of wood. The self bow is a common hunting weapon due to its ease of construction. However, it lacks power compared to a dori, javelin or sling so isn’t commonly found on the battlefield. A self bow requires two hands to use and can’t be used with a shield.",
+		"stats": {
+			"skill": "Accuracy",
+			"range": "Medium",
+			"damage": 4,
+			"properties": ["property:Insight"]			
+		}
 	},
 	{
 		"title": "Sling",
@@ -451,25 +599,43 @@
 		"availability": "Common",
 		"price": 0,
 		"weight": 1,
-		"description": "A sling is made of a length of cord or rope with a pouch for holding a stone. It is swung around above the head and the stone released. It takes great skill and years of training to use a sling, but in capable hands it’s a deadly weapon found in all the armies of Hellas."
+		"description": "A sling is made of a length of cord or rope with a pouch for holding a stone. It is swung around above the head and the stone released. It takes great skill and years of training to use a sling, but in capable hands it’s a deadly weapon found in all the armies of Hellas.",
+		"stats": {
+			"skill": "Accuracy",
+			"range": "Long",
+			"damage": 6,
+			"properties": ["property:Reflexes", "property:Clumsy", "property:Stun"]
+		}
 	},
 	{
 		"title": "Dipylon",
-		"subtitle": "Tower",
+		"subtitle": "Tower Shield",
 		"category": "Shields",
 		"availability": "Common",
 		"price": 2,
 		"weight": 1,
-		"description": "A dipylon is an oval-shaped, heavy shield often with semi-circular cut-outs on the longer edges. The cutouts allow for a weapon to be thrust out from the edge of the shield while still protecting a large portion of the body. The dipylon is cumbersome and is slowly falling into disuse in favour of the hoplon."
+		"description": "A dipylon is an oval-shaped, heavy shield often with semi-circular cut-outs on the longer edges. The cutouts allow for a weapon to be thrust out from the edge of the shield while still protecting a large portion of the body. The dipylon is cumbersome and is slowly falling into disuse in favour of the hoplon.",
+		"stats": {
+			"skill": "Melee",
+			"reach": 2,
+			"damage": 4,
+			"properties": ["property:Cumbersome 1", "property:Shield 4", "property:Stagger"]
+		}
 	},
 	{
 		"title": "Hoplon",
-		"subtitle": "Round",
+		"subtitle": "Round Shield",
 		"category": "Shields",
 		"availability": "Common",
 		"price": 3,
 		"weight": 1,
-		"description": "A hoplon is a heavy, circular shield, made of wood and faced with bronze. It is large, with a diameter of almost a metre and the face is often painted to signify allegiance. Hoplites take their name from this shield, which they carry on the battlefield."
+		"description": "A hoplon is a heavy, circular shield, made of wood and faced with bronze. It is large, with a diameter of almost a metre and the face is often painted to signify allegiance. Hoplites take their name from this shield, which they carry on the battlefield.",
+		"stats": {
+			"skill": "Melee",
+			"reach": 1,
+			"damage": 3,
+			"properties": ["property:Shield 3", "property:Stagger"]
+		}
 	},
 	{
 		"title": "Klipeus",
@@ -478,15 +644,27 @@
 		"availability": "Common",
 		"price": 1,
 		"weight": 1,
-		"description": "A klipeus is a small, circular shield with a prominent bronze or iron boss. Its small size makes it difficult to use against missile weapons but effective as a parrying tool. The heavy boss makes it a great off-hand weapon."
+		"description": "A klipeus is a small, circular shield with a prominent bronze or iron boss. Its small size makes it difficult to use against missile weapons but effective as a parrying tool. The heavy boss makes it a great off-hand weapon.",
+		"stats": {
+			"skill": "Melee",
+			"reach": 1,
+			"damage": 3,
+			"properties": ["property:Shield 1", "property:Parry 3", "property:Stun"]
+		}
 	},
 	{
 		"title": "Pelte",
-		"subtitle": "Crescent",
+		"subtitle": "Crescent Shield",
 		"category": "Shields",
 		"availability": "Common",
 		"price": 1,
 		"weight": 1,
-		"description": "A pelte is a light, crescent shaped shield, made of wood or wicker and covered in goat or sheep hide. It makes for a cheap but effective shield against missile weapons. Peltasts take their name from this shield, which they carry on the battlefield."
+		"description": "A pelte is a light, crescent shaped shield, made of wood or wicker and covered in goat or sheep hide. It makes for a cheap but effective shield against missile weapons. Peltasts take their name from this shield, which they carry on the battlefield.",
+		"stats": {
+			"skill": "Melee",
+			"reach": 1,
+			"damage": 3,
+			"properties": ["property:Shield 2", "property:Stagger"]
+		}
 	}
 ]

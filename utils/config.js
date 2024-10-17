@@ -30,9 +30,16 @@ export const EQUIPMENT_COMMON = 'Common'
 export const EQUIPMENT_UNCOMMON = 'Uncommon'
 export const EQUIPMENT_RARE = 'Rare'
 
-export const WEAPON_MELEE = 'Melee Weapons'
-export const WEAPON_RANGED = 'Missile Weapons'
-export const WEAPON_SHIELD = 'Shields'
+export const EQUIPMENT_CATEGORIES = {
+	ARMOUR: 'Armour',
+	CLOTHING: 'Clothing',
+	LIVESTOCK: 'Livestock',
+	INSTRUMENT: 'Musical Instruments',
+	MISCELLANEOUS: 'Miscellaneous',
+	WEAPON_MELEE: 'Melee Weapons',
+	WEAPON_MISSILE: 'Missile Weapons',
+	SHIELD: 'Shields',
+}
 
 export const CAREER_COST = 3
 

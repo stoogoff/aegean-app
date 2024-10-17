@@ -35,23 +35,27 @@
     "attacks": [
       {
         "title": "Bite",
-        "skill": "Brawl",
-        "reach": 1,
-        "damage": 6,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 1,
+          "damage": 6,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       },
       {
         "title": "Claws",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 5,
-        "properties": [
-          "property:Savage",
-          "property:Stagger",
-          "property:Maul"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 5,
+          "properties": [
+            "property:Savage",
+            "property:Stagger",
+            "property:Maul"
+          ]
+        }
       }
     ],
     "arcane_lore": "The hardy nature of a bear can be gained by drinking a concoction made from its liver. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the liver. This requires a successful Cool (Craft) skill check. Anyone who spends a Maneuver drinking the potion reduces the next Wound roll they are forced to make by -2."
@@ -90,18 +94,22 @@
     "attacks": [
       {
         "title": "Gore",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Stagger"
+          ]
+        }
       },
       {
         "title": "Trample",
-        "skill": "Brawl",
-        "reach": "0",
-        "damage": 5
+        "stats": {
+          "skill": "Brawl",
+          "reach": 0,
+          "damage": 5
+        }
       }
     ],
     "arcane_lore": "The ferocity of a boar can be gained by drinking a concoction made from its horns. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the ground up horn. This requires a successful Cool (Craft) skill check. Anyone who spends a Maneuver drinking the potion enters a frenzy. They do +2 damage on all Melee and Brawling attacks and must attack something—friend or foe—on their turn or gain 2 Risk. This effect lasts for a number of rounds equal to the successes rolled on the Craft skill check."
@@ -138,12 +146,14 @@
     "attacks": [
       {
         "title": "Gore",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Stagger"
+          ]
+        }
       }
     ],
     "arcane_lore": "The blood of cattle can be made into a powerful ingestible poison. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the blood. This requires a successful Cool (Craft) skill check. Anyone who drinks the potion is immediately poisoned with a Poison 3 effect."
@@ -180,12 +190,14 @@
     "attacks": [
       {
         "title": "Antlers",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       }
     ]
   },
@@ -221,12 +233,14 @@
     "attacks": [
       {
         "title": "Bite and Claws",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 3,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 3,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       }
     ]
   },
@@ -262,12 +276,14 @@
     "attacks": [
       {
         "title": "Bite and Claws",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 3,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 3,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       }
     ]
   },
@@ -300,21 +316,25 @@
     "attacks": [
       {
         "title": "Kick",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Stagger"
+          ]
+        }
       },
       {
         "title": "Trample",
-        "skill": "Athletics",
-        "reach": 1,
-        "damage": 6,
-        "properties": [
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Athletics",
+          "reach": 1,
+          "damage": 6,
+          "properties": [
+            "property:Stun"
+          ]
+        }
       }
     ]
   },
@@ -348,21 +368,25 @@
     "attacks": [
       {
         "title": "Kick",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Stagger"
+          ]
+        }
       },
       {
         "title": "Trample",
-        "skill": "Athletics",
-        "reach": 1,
-        "damage": 8,
-        "properties": [
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Athletics",
+          "reach": 1,
+          "damage": 8,
+          "properties": [
+            "property:Stun"
+          ]
+        }
       }
     ]
   },
@@ -397,21 +421,25 @@
     "attacks": [
       {
         "title": "Kick",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Stagger"
+          ]
+        }
       },
       {
         "title": "Trample",
-        "skill": "Athletics",
-        "reach": 1,
-        "damage": 8,
-        "properties": [
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Athletics",
+          "reach": 1,
+          "damage": 8,
+          "properties": [
+            "property:Stun"
+          ]
+        }
       }
     ]
   },
@@ -450,21 +478,25 @@
     "attacks": [
       {
         "title": "Kick",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Stagger"
+          ]
+        }
       },
       {
         "title": "Trample",
-        "skill": "Athletics",
-        "reach": 1,
-        "damage": 8,
-        "properties": [
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Athletics",
+          "reach": 1,
+          "damage": 8,
+          "properties": [
+            "property:Stun"
+          ]
+        }
       }
     ]
   },
@@ -502,22 +534,26 @@
     "attacks": [
       {
         "title": "Bite",
-        "skill": "Brawl",
-        "reach": 1,
-        "damage": 5,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 1,
+          "damage": 5,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       },
       {
         "title": "Claws",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Savage",
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Savage",
+            "property:Stagger"
+          ]
+        }
       }
     ],
     "arcane_lore": "Leopards are so stealthy they’re said to walk between worlds. Anyone with the Arcane Lore talent can spend a downtime Action preparing a concoction of the leopard’s blood with a successful Cool (Craft) skill check. This thick paste takes a Maneuver to be applied as markings to any character’s face, granting them the Necromancer talent until the end of the scene. The total successes on the Craft skill check can be used in place of Hubris for any necromancy skill checks the bearer is required to make."
@@ -560,31 +596,37 @@
     "attacks": [
       {
         "title": "Bite",
-        "skill": "Brawl",
-        "reach": 1,
-        "damage": 5,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 1,
+          "damage": 5,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       },
       {
         "title": "Claws",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Stagger",
-          "property:Savage"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Stagger",
+            "property:Savage"
+          ]
+        }
       },
       {
         "title": "Mighty Roar",
-        "skill": "Vigour",
-        "range": "Medium",
-        "damage": 0,
-        "properties": [
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Vigour",
+          "range": "Medium",
+          "damage": 0,
+          "properties": [
+            "property:Stun"
+          ]
+        }
       }
     ],
     "arcane_lore": "The strength of a lion is said to reside in its heart. Anyone with the Arcane Lore talent can spend a downtime Action preparing a concoction made from the heart. This requires a successful Cool (Craft) skill check. Anyone who spends a Maneuver eating the heart gains +1 Might and 1 Risk per success on the Craft skill check. The bonus to Might lasts until the end of the encounter."
@@ -625,13 +667,15 @@
     "attacks": [
       {
         "title": "Talons",
-        "skill": "Brawl",
-        "reach": 3,
-        "damage": 2,
-        "properties": [
-          "property:Pierce",
-          "property:Reflexes"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 3,
+          "damage": 2,
+          "properties": [
+            "property:Pierce",
+            "property:Reflexes"
+          ]
+        }
       }
     ]
   },
@@ -673,20 +717,22 @@
     "attacks": [
       {
         "title": "Bite",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 1,
-        "properties": [
-          "property:Reflexes",
-          "property:Venomous (Optional)"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 1,
+          "properties": [
+            "property:Reflexes",
+            "property:Venomous (Optional)"
+          ]
+        }
       }
     ]
   },
   {
     "title": "Wolf",
     "type": "Minion",
-    "description": "Wolves hunt and travel in packs. They can be a menace to livestock but have a\nsensible fear of people and rarely attack unless provoked.",
+    "description": "Wolves hunt and travel in packs. They can be a menace to livestock but have a sensible fear of people and rarely attack unless provoked.",
     "source": "Aegean Core",
     "category": "Animal",
     "tactics": "Wolves rely on their Pack Instincts ability to assist each other and work together. Unless cornered, they will attempt to flee using the Misdirect Action. They will flee if faced with greater numbers or are wounded.",
@@ -719,12 +765,14 @@
     "attacks": [
       {
         "title": "Bite and Claws",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 3,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 3,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       }
     ],
     "arcane_lore": "The cunning of a wolf is said to reside in its tongue. Anyone with the Arcane Lore talent can spend a downtime Action preparing a concoction from the tongue. This requires a successful Cool (Craft) skill check. Anyone who spends a Maneuver eating the tongue gains +1 Cunning and 1 Risk per success on the Craft skill check. The bonus to Cunning lasts until the end of the encounter."
@@ -786,22 +834,26 @@
     "attacks": [
       {
         "title": "Bite",
-        "skill": "Brawl",
-        "reach": 5,
-        "damage": 6,
-        "properties": [
-          "property:Pierce",
-          "property:Venomous"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 5,
+          "damage": 6,
+          "properties": [
+            "property:Pierce",
+            "property:Venomous"
+          ]
+        }
       },
       {
         "title": "Flaming Breath",
-        "skill": "Accuracy",
-        "range": "Short",
-        "damage": 4,
-        "properties": [
-          "property:Burning"
-        ]
+        "stats": {
+          "skill": "Accuracy",
+          "range": "Short",
+          "damage": 4,
+          "properties": [
+            "property:Burning"
+          ]
+        }
       }
     ],
     "arcane_lore": "With the right incantation, the teeth of a drakon can be thrown on the ground to grow an army of spartoi. Anyone with the Arcane Lore talent can gather enough teeth to raise a minion group of spartoi. It takes an Action to throw the teeth and a successful Cool (Craft) skill check is required. A number of spartoi equal to the number of successes on the roll begin to grow and are fully formed at the beginning of the next round. They respond to simple commands from the sower and last until destroyed."
@@ -846,25 +898,29 @@
     "attacks": [
       {
         "title": "Boulder",
-        "skill": "Accuracy",
-        "range": "Long",
-        "damage": 7,
-        "properties": [
-          "property:Heavy",
-          "property:Stagger",
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Accuracy",
+          "range": "Long",
+          "damage": 7,
+          "properties": [
+            "property:Heavy",
+            "property:Stagger",
+            "property:Stun"
+          ]
+        }
       },
       {
         "title": "Brass Bound Club",
-        "skill": "Melee",
-        "reach": 4,
-        "damage": 7,
-        "properties": [
-          "property:Heavy",
-          "property:Stagger",
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Melee",
+          "reach": 4,
+          "damage": 7,
+          "properties": [
+            "property:Heavy",
+            "property:Stagger",
+            "property:Stun"
+          ]
+        }
       }
     ]
   },
@@ -905,23 +961,27 @@
     "attacks": [
       {
         "title": "Beak",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 6,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 6,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       },
       {
         "title": "Claws",
-        "skill": "Brawl",
-        "reach": 3,
-        "damage": 5,
-        "properties": [
-          "property:Pierce",
-          "property:Stagger",
-          "property:Maul"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 3,
+          "damage": 5,
+          "properties": [
+            "property:Pierce",
+            "property:Stagger",
+            "property:Maul"
+          ]
+        }
       }
     ],
     "arcane_lore": "The beak of a gryphon is hard and sharp and makes an exceptional head for arrows. Anyone with the Arcane Lore talent who succeeds on a Cool (Lore) roll can make an ammo load of arrows with the beak of a gryphon. The ammo load can be spent to add +1 damage and to activate the Pierce property, even if the bow doesn’t have this property."
@@ -958,13 +1018,15 @@
     "attacks": [
       {
         "title": "Talons",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 3,
-        "properties": [
-          "property:Pierce",
-          "property:Reflexes"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 3,
+          "properties": [
+            "property:Pierce",
+            "property:Reflexes"
+          ]
+        }
       }
     ],
     "arcane_lore": "The feathers of a harpy make exceptional flights for arrows. Anyone with the Arcane Lore talent who succeeds on a Cool (Craft) roll can make an ammo load of arrows with the feathers of a harpy. The ammo load can be spent to increase the range of the bow by one range band and ignore all range penalties."
@@ -1021,22 +1083,26 @@
     "attacks": [
       {
         "title": "Bite",
-        "skill": "Brawl",
-        "reach": 5,
-        "damage": 5,
-        "properties": [
-          "property:Pierce",
-          "property:Venomous"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 5,
+          "damage": 5,
+          "properties": [
+            "property:Pierce",
+            "property:Venomous"
+          ]
+        }
       },
       {
         "title": "Claw",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 5,
-        "properties": [
-          "property:Savage"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 5,
+          "properties": [
+            "property:Savage"
+          ]
+        }
       }
     ],
     "arcane_lore": "The blood of a hydra can be used by anyone with the Arcane Lore talent to create a poison with the Poison 2 quality. It takes an Action and a successful Cool (Craft) roll to make the potion and a Maneuver to apply to any weapon. The poison has a single use and can be activated by _invoking the Fates_."
@@ -1076,12 +1142,14 @@
     "attacks": [
       {
         "title": "Shadowy Fangs",
-        "skill": "Brawl",
-        "reach": "0--1",
-        "damage": 3,
-        "properties": [
-          "property:Reflexes"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": "0--1",
+          "damage": 3,
+          "properties": [
+            "property:Reflexes"
+          ]
+        }
       }
     ]
   },
@@ -1132,22 +1200,25 @@
     "attacks": [
       {
         "title": "Crush",
-        "skill": "Brawl",
-        "reach": "0",
-        "damage": 6,
-        "properties": []
+        "stats": {
+          "skill": "Brawl",
+          "reach": 0,
+          "damage": 6
+        }
       },
       "weapon:Doru",
       "weapon:Hoplon",
       {
         "title": "Tail Lash",
-        "skill": "Brawl",
-        "reach": 4,
-        "damage": 4,
-        "properties": [
-          "property:Reflexes",
-          "property:Savage"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 4,
+          "damage": 4,
+          "properties": [
+            "property:Reflexes",
+            "property:Savage"
+          ]
+        }
       }
     ]
   },
@@ -1191,21 +1262,25 @@
     "attacks": [
       {
         "title": "Bite",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       },
       {
         "title": "Snakebite",
-        "skill": "Brawl",
-        "reach": 3,
-        "damage": 3,
-        "properties": [
-          "property:Venomous"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 3,
+          "damage": 3,
+          "properties": [
+            "property:Venomous"
+          ]
+        }
       }
     ],
     "arcane_lore": "Consuming a potion containing the scent gland of an orthrian hound is said to grant the imbiber its senses. Anyone with the Arcane Lore talent can spend a downtime Action preparing a potion containing the scent glands. This requires a successful Cool (Craft) skill check. Anyone who spends a Maneuver drinking the potion gains the Keen Senses ability until the end of the encounter."
@@ -1291,23 +1366,27 @@
     "attacks": [
       {
         "title": "Battle of Wits",
-        "skill": "Manipulation",
-        "range": "Short",
-        "damage": 0,
-        "properties": [
-          "property:Cunning",
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Manipulation",
+          "range": "Short",
+          "damage": 0,
+          "properties": [
+            "property:Cunning",
+            "property:Stun"
+          ]
+        }
       },
       {
         "title": "Claws",
-        "skill": "Brawl",
-        "reach": 3,
-        "damage": 5,
-        "properties": [
-          "property:Pierce",
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 3,
+          "damage": 5,
+          "properties": [
+            "property:Pierce",
+            "property:Stagger"
+          ]
+        }
       }
     ],
     "arcane_lore": "The wits of a sphinx is said to reside in its tongue. Anyone with the Arcane Lore talent can spend a downtime Action preparing a concoction from the tongue. This requires a successful Cool (Craft) skill check. Anyone who spends a Maneuver eating the tongue gains +1 Manipulation per success on the Craft skill check as well as the sphinx’s Battle of Wits ability. Both effects last until the end of the encounter."
@@ -2307,6 +2386,370 @@
     ]
   },
   {
+    "title": "Amazon Warrior",
+    "type": "Champion",
+    "description": "The amazons are extremely capable and ferocious in battle. Situated on the foredeck any advantage of numbers against them is mostly negated; they can be attacked by at most four opponents. Ranged attacks against them are extremely dicey as they will likely hit someone fighting against them (unless the attacker gains some elevation). When level with the combat ranged attacks have a Difficulty of 2 and any successful attacks which don't beat the Difficulty hits one of the amazon's opponents instead.\n\n* Someone climbing around the side of the ship to emerge on the prow behind the amazons is a potential tactic, but if they are spotted they are an easy mark: they cannot use their Parry or Shield until they are back on deck, and will likely fall into the sea when hit.",
+    "tactics": "The amazons will fight together, guarding each other's backs and never giving an inch.",
+    "characteristics": {
+      "Might": 3,
+      "Reflexes": 3,
+      "Cool": 3,
+      "Insight": 3,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 3,
+      "Awareness": 2,
+      "Melee": 3,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 2,
+      "Endurance": 5,
+      "Armour": 5,
+      "Parry": 2,
+      "Shield": 3
+    },
+    "equipment": "Linothorax armour, helm, greaves, 2 ammo loads.",
+    "abilities": [
+      "armour:Helm",
+      "ability:Volley",
+      {
+        "title": "Winnow",
+        "description": "Highly trained and experienced in fighting, a lesser opponent is no match for this character. Once per turn, when they are subject to a Harm attack by an NPC Minion which fails to cause Risk, kill the Minion."
+      }
+    ],
+    "attacks": [
+      "weapon:Kopis",
+      "weapon:Composite Bow",
+      "weapon:Dori",
+      "weapon:Hoplon"
+    ]
+  },
+  {
+    "title": "Champion of Ares",
+    "type": "Champion",
+    "description": "Champion of Ares.",
+    "tactics": "Champion tactics",
+    "characteristics": {
+      "Might": 4,
+      "Reflexes": 3,
+      "Cool": 2,
+      "Insight": 2,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 2,
+      "Awareness": 3,
+      "Manipulation": 2,
+      "Melee": 4,
+      "Vigour": 3
+    },
+    "attributes": {
+      "Standing": 3,
+      "Endurance": 7,
+      "Armour": 6,
+      "Parry": 2,
+      "Shield": 3
+    },
+    "equipment": "Bronze breastplate, helm, greaves.",
+    "abilities": [
+      "armour:Breastplate",
+      "armour:Helm",
+      "ability:Favour (Ares)",
+      "ability:Fearsome"
+    ],
+    "attacks": [
+      "weapon:Kopis",
+      "weapon:Dori",
+      "weapon:Hoplon"
+    ]
+  },
+  {
+    "title": "Devoted of Artemis",
+    "type": "Minion",
+    "description": "The Devoted of Artemis are youths dedicated to the goddess of the hunt. They spend their time training with the bow and tracking beasts through the wilderness. Those who are especially favoured hope to one day join Artemis' entourage and roam Hellas seeking out the mightiest prey.",
+    "tactics": "The Devoted of Artemis prefer to keep their distance where their skill with the bow is more effective. They use the Misdirect Action and a combination of the Pin Action with their Volley ability to keep enemies at a distance. They fight in groups of two at range but prefer larger groups in close combat.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 3,
+      "Cool": 2,
+      "Insight": 4,
+      "Cunning": 3
+    },
+    "skills": {
+      "Accuracy": 3,
+      "Athletics": 2,
+      "Awareness": 3,
+      "Brawl": 1,
+      "Lore": 2,
+      "Melee": 2,
+      "Survival": 3,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 2,
+      "Endurance": 5,
+      "Armour": 3,
+      "Parry": 2,
+      "Shield": "(2)"
+    },
+    "equipment": "Cap, spolas, greaves, 2 ammo loads.",
+    "abilities": [
+      "ability:Favour (Artemis)",
+      "ability:Sure Footed",
+      "ability:Volley"
+    ],
+    "attacks": [
+      "weapon:Kopis",
+      "weapon:Pelte",
+      "weapon:Composite Bow"
+    ]
+  },
+  {
+    "title": "Golden Bull",
+    "type": "Champion",
+    "description": "The Golden Bull is the finest of Thalia's creations. It's the size of a normal bull but entirely made of iron and bronze, with intricate gold inlay decorating its surface. Inside are many fine cogs and wheels, along with a furnace and bellows which, through Thalia's skill, powers the bull.",
+    "tactics": "The Golden Bull's only goal is to retrieve whatever cattle it can find and take them to be sacrificed. It is a formidable opponent and will kill anything which gets in its way.",
+    "characteristics": {
+      "Might": 5,
+      "Reflexes": 2,
+      "Cool": 4,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 1,
+      "Athletics": 2,
+      "Brawl": 3,
+      "Vigour": 4
+    },
+    "attributes": {
+      "Endurance": 10,
+      "Armour": 12,
+      "Dodge": 0
+    },
+    "abilities": [
+      "ability:Hard Headed",
+      "ability:Reinforced",
+      "ability:Charge",
+      {
+        "title": "Mechanical Workings",
+        "description": "When pinned treat Armour as 2."
+      },
+      {
+        "title": "Fiery Breath",
+        "description": "As an Action the GM may spend a point of Hubris to activate the Bull's Fiery Breath attack which affects everyone within Short range of it. Any targets hit are set alight and take the attack's base damage at the start of every round for 2 rounds unless they spend an Action and succeed on a {{{roll \"Cool\" \"Athletics\"}}} roll to put the flames out."
+      },
+      {
+        "title": "Weakness to Water",
+        "description": "The Golden Bull gains 1 Risk if water reaches its inner workings."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Gore",
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 5,
+          "properties": [
+            "property:Pierce",
+            "property:Stagger"
+          ]
+        }
+      },
+      {
+        "title": "Fiery Breath",
+        "stats": {
+          "skill": "Accuracy",
+          "range": "Short",
+          "damage": 4,
+          "properties": [
+            "property:Burning 2"
+          ]
+        }
+      },
+      {
+        "title": "Trample",
+        "stats": {
+          "skill": "Brawl",
+          "reach": 0,
+          "damage": 6
+        }
+      }
+    ]
+  },
+  {
+    "title": "Kobalos",
+    "type": "Minion",
+    "description": "Kobaloi are small imp-like creatures that cause mischief wherever they go. These particular Kobaloi are minions of Eris, sporting black feathered wings that allow them to fly. They are easy to kill, but can inflict unpleasant damage on their victims and use objects from around the room as weapons or protection.",
+    "source": "Aegean Core",
+    "category": "Monster",
+    "tactics": "The kobaloi are here to cause distress to Athenais without her notice. They will attempt to keep away from any opponents and throw whatever small ornaments or other items they can pick up both to defend themselves and assault their enemies. They will flee if Athenais awakes.",
+    "characteristics": {
+      "Might": 1,
+      "Reflexes": 3,
+      "Cool": 1,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 2,
+      "Athletics": 2,
+      "Brawl": 2,
+      "Awareness": 2
+    },
+    "attributes": {
+      "Endurance": 2,
+      "Armour": 2,
+      "Dodge": 1
+    },
+    "abilities": [
+      {
+        "title": "Misfortune",
+        "description": "As a Reaction the GM may spend a point of Hubris to force a character to re-roll a skill check."
+      }
+    ],
+    "attacks": [
+      {
+        "title": "Claws",
+        "stats": {
+          "skill": "Brawl",
+          "reach": 1,
+          "damage": 3,
+          "properties": [
+            "property:Reflexes"
+          ]
+        }
+      },
+      {
+        "title": "Thrown Objects",
+        "stats": {
+          "skill": "Accuracy",
+          "range": "Medium",
+          "damage": 3,
+          "properties": [
+            "property:Dodge 1"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "title": "Polemarkhos Archer",
+    "type": "Minion",
+    "description": "Loyal soldiers of Lykos who are involved with the cult of Eris.",
+    "tactics": "...",
+    "characteristics": {
+      "Might": 1,
+      "Reflexes": 3,
+      "Cool": 2,
+      "Insight": 2,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 2,
+      "Awareness": 2,
+      "Athletics": 3,
+      "Melee": 1
+    },
+    "attributes": {
+      "Standing": 2,
+      "Endurance": 4,
+      "Armour": 1,
+      "Parry": 0,
+      "Shield": 0
+    },
+    "equipment": "Greaves, 2 ammo loads.",
+    "abilities": [
+      {
+        "title": "Co-ordinated Shot",
+        "description": "Spend a Hubris to target an additional PC with an attack."
+      }
+    ],
+    "attacks": [
+      "weapon:Javelin",
+      "weapon:Self Bow"
+    ]
+  },
+  {
+    "title": "Polemarkhos Guard",
+    "type": "Minion",
+    "description": "The polemarkhos guards of Korinth are loyal soldiers of Lykos, most of whom have been recruited into the Cult of Eris.",
+    "tactics": "The polemarkhos guards are numerous within the prytaneion and will fight in groups of two to four. They are loyal to Lykos and will fight to the death for him if he is present, otherwise they will retreat once three quarters of their number are defeated.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 3,
+      "Cool": 2,
+      "Insight": 1,
+      "Cunning": 2
+    },
+    "skills": {
+      "Accuracy": 1,
+      "Awareness": 2,
+      "Brawl": 2,
+      "Manipulation": 1,
+      "Melee": 2,
+      "Vigour": 2
+    },
+    "attributes": {
+      "Standing": 2,
+      "Endurance": 5,
+      "Armour": 4,
+      "Parry": 2,
+      "Shield": 2
+    },
+    "equipment": "Linothorax armour, cap, greaves, 3 javelins.",
+    "abilities": [
+      {
+        "title": "Guardian",
+        "description": "If a character attempts to move past the guards at Short range, the GM may immediately have the guards make a free Pin attack Action against them."
+      }
+    ],
+    "attacks": [
+      "weapon:Xiphos",
+      "weapon:Javelin",
+      "weapon:Pelte"
+    ]
+  },
+  {
+    "title": "Sister of Demeter Erinys",
+    "type": "Minion",
+    "description": "The Sisters of Demeter Erinys are women dedicated to the darker aspect of the goddess of agriculture. They meet in secret to worship the mother of grief and vengeance and she, in turn, blesses them with the knowledge and rituals required to perform their duty.",
+    "tactics": "The sisters fight cleverly, making use of their poisoned sickles. They wish to see the heroes incapacitated rather than dead. If their leader is killed or otherwise incapacitated, the sisters will flee---otherwise they will continue to fight alongside their dark mistress.",
+    "characteristics": {
+      "Might": 2,
+      "Reflexes": 2,
+      "Cool": 2,
+      "Insight": 2,
+      "Cunning": 3
+    },
+    "skills": {
+      "Awareness": 1,
+      "Craft": 1,
+      "Lore": 3,
+      "Manipulation": 1,
+      "Melee": 1,
+      "Survival": 1
+    },
+    "attributes": {
+      "Standing": 2,
+      "Endurance": 4,
+      "Armour": 2,
+      "Parry": 2,
+      "Shield": 0
+    },
+    "abilities": [
+      "extras:Mother's Blessing"
+    ],
+    "attacks": [
+      "extras:The Dark Mother's Gift"
+    ]
+  },
+  {
     "title": "Elephant, War",
     "type": "Minion",
     "description": "There are only a small number of these creatures in the Western armies of Persia, brought from conquered territories far in the east. Due to a keen sense of self-preservation, Elephants are not easy to direct in battle, but can cause enemies to scatter when they charge.",
@@ -2340,21 +2783,25 @@
     "attacks": [
       {
         "title": "Tusk",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 7,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 7,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       },
       {
         "title": "Trample",
-        "skill": "Brawl",
-        "reach": "Melee",
-        "damage": 5,
-        "properties": [
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": "Melee",
+          "damage": 5,
+          "properties": [
+            "property:Stagger"
+          ]
+        }
       }
     ]
   },
@@ -2386,7 +2833,7 @@
       "Endurance": 8,
       "Standing": 4
     },
-    "equipment": "Rich scale armour, cap, greaves, 2 ammo loads.",
+    "equipment": "Rich scale armour, cap, greaves,<br />2 ammo loads.",
     "abilities": [
       "ability:Riposte",
       {
@@ -2429,7 +2876,7 @@
       "Endurance": 6,
       "Standing": 4
     },
-    "equipment": "Scale armour, helm, greaves, 2 ammo loads.",
+    "equipment": "Scale armour, helm, greaves,<br />2 ammo loads.",
     "abilities": [
       "armour:Helm",
       {
@@ -2480,7 +2927,7 @@
       "Endurance": 5,
       "Standing": 4
     },
-    "equipment": "Scale armour, helm, greaves, 2 ammo loads.",
+    "equipment": "Scale armour, helm, greaves,<br />2 ammo loads.",
     "abilities": [
       "armour:Helm",
       {
@@ -2531,13 +2978,15 @@
     "attacks": [
       {
         "title": "Stone Fists",
-        "skill": "Brawl",
-        "reach": 3,
-        "damage": 4,
-        "properties": [
-          "property:Stagger",
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 3,
+          "damage": 4,
+          "properties": [
+            "property:Stagger",
+            "property:Stun"
+          ]
+        }
       }
     ]
   },
@@ -2577,22 +3026,26 @@
     "attacks": [
       {
         "title": "Horn",
-        "skill": "Brawl",
-        "reach": 3,
-        "damage": 6,
-        "properties": [
-          "property:Pierce",
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 3,
+          "damage": 6,
+          "properties": [
+            "property:Pierce",
+            "property:Stagger"
+          ]
+        }
       },
       {
         "title": "Stomp",
-        "skill": "Brawl",
-        "reach": 1,
-        "damage": 4,
-        "properties": [
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 1,
+          "damage": 4,
+          "properties": [
+            "property:Stun"
+          ]
+        }
       }
     ],
     "arcane_lore": "The horn of a Kargadan can be used by anyone with the Arcane Lore talent to create a magical potion which gives +3 Might and -1 Insight for a single scene. The potion can be prepared as a downtime Action and requires a successful Cool (Craft) roll to make and an Action to drink. The potion has a single use and is activated by being consumed."
@@ -2623,7 +3076,7 @@
       "Endurance": 5,
       "Standing": 2
     },
-    "equipment": "Makhaira, rich robes.",
+    "equipment": "Makhaira,<br />rich robes.",
     "abilities": [
       {
         "title": "Voice of Ormazhd",
@@ -2676,22 +3129,26 @@
     "attacks": [
       {
         "title": "Poison Spine",
-        "skill": "Accuracy",
-        "range": "Medium",
-        "damage": 6,
-        "properties": [
-          "property:Pierce",
-          "property:Poison 2"
-        ]
+        "stats": {
+          "skill": "Accuracy",
+          "range": "Medium",
+          "damage": 6,
+          "properties": [
+            "property:Pierce",
+            "property:Poison 2"
+          ]
+        }
       },
       {
         "title": "Claws",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Savage"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Savage"
+          ]
+        }
       }
     ],
     "arcane_lore": "The quills of the Martikhora remain poisonous for some time after death. Anyone with the Arcane Lore talent can spend a turn harvesting the spines and make a Cool (Craft) roll to create an ammo load of arrows. The ammo load can be spent to give the attack Poison 3 with the Martikhora’s Paralytic Venom ability."
@@ -2769,13 +3226,15 @@
       "weapon:Dori",
       {
         "title": "Tower Shield",
-        "skill": "Melee",
-        "reach": 2,
-        "damage": 3,
-        "properties": [
-          "property:Shield 4",
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Melee",
+          "reach": 2,
+          "damage": 3,
+          "properties": [
+            "property:Shield 4",
+            "property:Stagger"
+          ]
+        }
       }
     ]
   },
@@ -2822,23 +3281,27 @@
     "attacks": [
       {
         "title": "Serpents",
-        "skill": "Brawl",
-        "reach": "1–5",
-        "damage": 6,
-        "properties": [
-          "property:Pierce",
-          "property:Poison 1"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": "1–5",
+          "damage": 6,
+          "properties": [
+            "property:Pierce",
+            "property:Poison 1"
+          ]
+        }
       },
       {
         "title": "Serpents (Ranged)",
-        "skill": "Accuracy",
-        "range": "Short",
-        "damage": 6,
-        "properties": [
-          "property:Pierce",
-          "property:Poison 1"
-        ]
+        "stats": {
+          "skill": "Accuracy",
+          "range": "Short",
+          "damage": 6,
+          "properties": [
+            "property:Pierce",
+            "property:Poison 1"
+          ]
+        }
       }
     ]
   },
@@ -2887,22 +3350,26 @@
       "weapon:Labrys",
       {
         "title": "Gore",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 6,
-        "properties": [
-          "property:Pierce",
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 6,
+          "properties": [
+            "property:Pierce",
+            "property:Stagger"
+          ]
+        }
       },
       {
         "title": "Mighty Roar",
-        "skill": "Vigour",
-        "range": "Medium",
-        "damage": 0,
-        "properties": [
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Vigour",
+          "range": "Medium",
+          "damage": 0,
+          "properties": [
+            "property:Stun"
+          ]
+        }
       }
     ]
   },
@@ -2935,7 +3402,7 @@
       "Parry": 2,
       "Shield": 3
     },
-    "equipment": "Bronze breastplate, helm, greaves, 3 javelins.",
+    "equipment": "Bronze breastplate, helm, greaves,<br />3 javelins.",
     "abilities": [
       {
         "title": "Akhilles' Heel",
@@ -2997,15 +3464,17 @@
     "attacks": [
       {
         "title": "Fine Kopis",
-        "skill": "Melee",
-        "reach": 2,
-        "damage": 5,
-        "properties": [
-          "property:Fine 2",
-          "property:Parry 2",
-          "property:Pommel Strike",
-          "property:Savage"
-        ]
+        "stats": {
+          "skill": "Melee",
+          "reach": 2,
+          "damage": 5,
+          "properties": [
+            "property:Fine 2",
+            "property:Parry 2",
+            "property:Pommel Strike",
+            "property:Savage"
+          ]
+        }
       }
     ]
   },
@@ -3061,21 +3530,25 @@
     "attacks": [
       {
         "title": "Bite",
-        "skill": "Brawl",
-        "reach": 5,
-        "damage": 5,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 5,
+          "damage": 5,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       },
       {
         "title": "Claw",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 5,
-        "properties": [
-          "property:Savage"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 5,
+          "properties": [
+            "property:Savage"
+          ]
+        }
       }
     ]
   },
@@ -3118,21 +3591,25 @@
     "attacks": [
       {
         "title": "Claws",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Disarm"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Disarm"
+          ]
+        }
       },
       {
         "title": "Overrun",
-        "skill": "Brawl",
-        "reach": "0",
-        "damage": 2,
-        "properties": [
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 0,
+          "damage": 2,
+          "properties": [
+            "property:Stagger"
+          ]
+        }
       }
     ]
   },
@@ -3179,32 +3656,38 @@
     "attacks": [
       {
         "title": "Pincers",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       },
       {
         "title": "Crush",
-        "skill": "Brawl",
-        "reach": "0",
-        "damage": 6,
-        "properties": [
-          "property:Pierce",
-          "property:Savage"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 0,
+          "damage": 6,
+          "properties": [
+            "property:Pierce",
+            "property:Savage"
+          ]
+        }
       },
       {
         "title": "Stinging Tail",
-        "skill": "Brawl",
-        "reach": 4,
-        "damage": 4,
-        "properties": [
-          "property:Pierce",
-          "property:Venomous"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 4,
+          "damage": 4,
+          "properties": [
+            "property:Pierce",
+            "property:Venomous"
+          ]
+        }
       }
     ],
     "arcane_lore": "Anyone with the Arcane Lore talent can harvest the scorpion’s stinger and use a downtime Action to make it into a formidable makhaira with a successful Cool (Craft) roll. The makhaira has the Fine 1 and Pierce properties and the scorpion’s Venomous (Active) ability. The Venomous property can be activated a number of times equal to the successes rolled on the Craft skill check before it is completely used up."
@@ -3265,40 +3748,48 @@
     "attacks": [
       {
         "title": "Bite",
-        "skill": "Brawl",
-        "reach": 3,
-        "damage": 6,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 3,
+          "damage": 6,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       },
       {
         "title": "Claws",
-        "skill": "Brawl",
-        "reach": 5,
-        "damage": 5,
-        "properties": [
-          "property:Savage",
-          "property:Dual Strike"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 5,
+          "damage": 5,
+          "properties": [
+            "property:Savage",
+            "property:Dual Strike"
+          ]
+        }
       },
       {
         "title": "Flaming Breath",
-        "skill": "Accuracy",
-        "range": "Short",
-        "damage": 4,
-        "properties": [
-          "property:Burning"
-        ]
+        "stats": {
+          "skill": "Accuracy",
+          "range": "Short",
+          "damage": 4,
+          "properties": [
+            "property:Burning"
+          ]
+        }
       },
       {
         "title": "Mighty Roar",
-        "skill": "Vigour",
-        "range": "Medium",
-        "damage": 0,
-        "properties": [
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Vigour",
+          "range": "Medium",
+          "damage": 0,
+          "properties": [
+            "property:Stun"
+          ]
+        }
       }
     ]
   },
@@ -3349,24 +3840,30 @@
     "attacks": [
       {
         "title": "Pincer",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 4
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 4
+        }
       },
       {
         "title": "Pin (Pincer)",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": "—",
-        "properties": [
-          "property:Improved Grab"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": "—",
+          "properties": [
+            "property:Improved Grab"
+          ]
+        }
       },
       {
         "title": "Crush",
-        "skill": "Brawl",
-        "reach": "0",
-        "damage": 6
+        "stats": {
+          "skill": "Brawl",
+          "reach": 0,
+          "damage": 6
+        }
       }
     ]
   },
@@ -3421,30 +3918,36 @@
     "attacks": [
       {
         "title": "Headbutt",
-        "skill": "Brawl",
-        "reach": 1,
-        "damage": 4,
-        "properties": [
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 1,
+          "damage": 4,
+          "properties": [
+            "property:Stagger"
+          ]
+        }
       },
       {
         "title": "Iron-Hoofed Trample",
-        "skill": "Athletics",
-        "reach": 1,
-        "damage": 5,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Athletics",
+          "reach": 1,
+          "damage": 5,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       },
       {
         "title": "Savage Bite",
-        "skill": "Brawl",
-        "reach": 1,
-        "damage": 5,
-        "properties": [
-          "property:Savage"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 1,
+          "damage": 5,
+          "properties": [
+            "property:Savage"
+          ]
+        }
       }
     ]
   },
@@ -3519,32 +4022,38 @@
     "attacks": [
       {
         "title": "Immense Claw",
-        "skill": "Brawl",
-        "reach": 5,
-        "damage": 6,
-        "properties": [
-          "property:Grab",
-          "property:Savage"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 5,
+          "damage": 6,
+          "properties": [
+            "property:Grab",
+            "property:Savage"
+          ]
+        }
       },
       {
         "title": "Squeeze",
-        "skill": "Brawl",
-        "reach": "—",
-        "damage": 7,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": "—",
+          "damage": 7,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       },
       {
         "title": "Crush",
-        "skill": "Athletics",
-        "reach": "—",
-        "damage": 7,
-        "properties": [
-          "property:Stagger",
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Athletics",
+          "reach": "—",
+          "damage": 7,
+          "properties": [
+            "property:Stagger",
+            "property:Stun"
+          ]
+        }
       }
     ],
     "arcane_lore": "The carapace of Mekathiron can be used to make a robust hoplon. Anyone with the Arcane Lore talent can spend a downtime Action making the shield with a successful Cool (Craft) roll. For each success choose one of the following effects, each effect can only be chosen once.\n\n  - Inrease Shield rating by 1\n  - Increase damage by 1\n  - The Pierce property used against the wielder only reduces Armour by 3 if the Shield Reaction is used\n"
@@ -3588,19 +4097,23 @@
     "attacks": [
       {
         "title": "Claws",
-        "skill": "Brawl",
-        "reach": 1,
-        "damage": 2
+        "stats": {
+          "skill": "Brawl",
+          "reach": 1,
+          "damage": 2
+        }
       },
       {
         "title": "Darts of Doom",
-        "skill": "Accuracy",
-        "range": "Short",
-        "damage": 3,
-        "properties": [
-          "property:Pierce",
-          "property:Reflexes"
-        ]
+        "stats": {
+          "skill": "Accuracy",
+          "range": "Short",
+          "damage": 3,
+          "properties": [
+            "property:Pierce",
+            "property:Reflexes"
+          ]
+        }
       }
     ]
   },
@@ -3648,23 +4161,27 @@
     "attacks": [
       {
         "title": "Burning Spear",
-        "skill": "Melee",
-        "reach": 3,
-        "damage": 6,
-        "properties": [
-          "property:Burning 2/2",
-          "property:Parry 2"
-        ]
+        "stats": {
+          "skill": "Melee",
+          "reach": 3,
+          "damage": 6,
+          "properties": [
+            "property:Burning 2/2",
+            "property:Parry 2"
+          ]
+        }
       },
       {
         "title": "Whip of Iron",
-        "skill": "Melee",
-        "reach": "Short",
-        "damage": 4,
-        "properties": [
-          "property:Entangle",
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Melee",
+          "reach": "Short",
+          "damage": 4,
+          "properties": [
+            "property:Entangle",
+            "property:Pierce"
+          ]
+        }
       }
     ]
   },
@@ -3715,23 +4232,27 @@
     "attacks": [
       {
         "title": "Hundred–Handed",
-        "skill": "Brawl",
-        "range": "Short",
-        "damage": 7,
-        "properties": [
-          "property:Heavy",
-          "property:Stagger",
-          "property:Stun"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "range": "Short",
+          "damage": 7,
+          "properties": [
+            "property:Heavy",
+            "property:Stagger",
+            "property:Stun"
+          ]
+        }
       },
       {
         "title": "Boulder Throw",
-        "skill": "Accuracy",
-        "range": "Medium",
-        "damage": 4,
-        "properties": [
-          "property:Stagger"
-        ]
+        "stats": {
+          "skill": "Accuracy",
+          "range": "Medium",
+          "damage": 4,
+          "properties": [
+            "property:Stagger"
+          ]
+        }
       }
     ]
   },
@@ -3771,12 +4292,14 @@
     "attacks": [
       {
         "title": "Bite and Claws",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 3,
-        "properties": [
-          "property:Pierce"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 3,
+          "properties": [
+            "property:Pierce"
+          ]
+        }
       }
     ]
   },
@@ -3816,9 +4339,11 @@
     "attacks": [
       {
         "title": "Claws",
-        "skill": "Brawl",
-        "reach": 1,
-        "damage": 3
+        "stats": {
+          "skill": "Brawl",
+          "reach": 1,
+          "damage": 3
+        }
       }
     ]
   },
@@ -3870,22 +4395,26 @@
     "attacks": [
       {
         "title": "Bite",
-        "skill": "Brawl",
-        "reach": 2,
-        "damage": 6,
-        "properties": [
-          "property:Pierce",
-          "property:Savage"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 2,
+          "damage": 6,
+          "properties": [
+            "property:Pierce",
+            "property:Savage"
+          ]
+        }
       },
       {
         "title": "Snakebite",
-        "skill": "Brawl",
-        "reach": 3,
-        "damage": 5,
-        "properties": [
-          "property:Venomous"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 3,
+          "damage": 5,
+          "properties": [
+            "property:Venomous"
+          ]
+        }
       }
     ],
     "arcane_lore": "The venom of Kerberos' serpent head can be harvested to make a bottle of venom. While Kerberos is chained or asleep, anyone with the Arcane Lore talent who succeeds on a Cool (Survival or Medicine) skill check gains one bottle of venom with the Poison 2 property. With an Action, a character can apply to any weapon. The poison has a single use and can be activated by *invoking the Fates*."
@@ -3935,12 +4464,14 @@
       "weapon:Makhaira",
       {
         "title": "Pronouncement of Doom",
-        "skill": "Lore",
-        "range": "Medium",
-        "damage": 0,
-        "properties": [
-          "property:Cunning"
-        ]
+        "stats": {
+          "skill": "Lore",
+          "range": "Medium",
+          "damage": 0,
+          "properties": [
+            "property:Cunning"
+          ]
+        }
       }
     ]
   },
@@ -3984,12 +4515,14 @@
     "attacks": [
       {
         "title": "Claws",
-        "skill": "Brawl",
-        "reach": 1,
-        "damage": 2,
-        "properties": [
-          "property:Insight"
-        ]
+        "stats": {
+          "skill": "Brawl",
+          "reach": 1,
+          "damage": 2,
+          "properties": [
+            "property:Insight"
+          ]
+        }
       }
     ]
   }
