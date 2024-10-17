@@ -112,6 +112,16 @@
 							<simple-accordion-group :items="cults" />
 						</section>
 					</we-tab-panel>
+					<we-tab-panel title="Favour & Disfavour" v-if="favour.length > 0 || disfavour.length > 0">
+						<section v-if="favour.length" class="mt-4 mb-8">
+							<h3>Favour</h3>
+							<simple-accordion-group :items="favour" />
+						</section>
+						<section  v-if="disfavour.length">
+							<h3>Disfavour</h3>
+							<simple-accordion-group :items="disfavour" />
+						</section>
+					</we-tab-panel>
 				</we-tab-group>
 			</div>
 		</div>
@@ -119,6 +129,7 @@
 </template>
 <script>
 
+import { sortByProperty } from 'we-ui/utils/list'
 import WithCharacterView from '~/mixins/WithCharacterView'
 import { KEY_PROPERTY } from '~/utils/config'
 import { sum } from '~/utils/list'
@@ -132,7 +143,6 @@ export default {
 		const { params } = this.$nuxt.context
 
 		this.character = await this.$characters.byId(params.characterId)
-		console.log({ ...this.character })
 	},
 	fetchOnServer: false,
 
@@ -161,10 +171,13 @@ export default {
 					properties: weapon.stats.properties
 						.map(property => getStats(this.$properties, KEY_PROPERTY, property)),
 				}))
+				.sort(sortByProperty('title'))
 		},
 
 		equipment() {
-			return this.getObjectFromTitle('equipment').filter(({ category }) => !isWeapon(category))
+			return this.getObjectFromTitle('equipment')
+				.filter(({ category }) => !isWeapon(category))
+				.sort(sortByProperty('title'))
 		},
 
 		armour() {
@@ -194,13 +207,22 @@ export default {
 		dodge() {
 			return this.talents.find(({ title }) => title === 'Dodge') ? 1 : 0
 		},
+
+		favour() {
+			return this.getObjectFromTitle('deities', 'favour')
+		},
+
+		disfavour() {
+			return this.getObjectFromTitle('deities', 'disfavour')
+		},
 	},
 
 	methods: {
-		getObjectFromTitle(key) {
+		getObjectFromTitle(listKey, objectKey) {
 			if(!this.character) return []
+			if(!objectKey) objectKey = listKey
 
-			return this['$' +key].all().filter(({ title }) => this.character[key].includes(title))
+			return this['$' + listKey].filter(({ title }) => this.character[objectKey].includes(title))
 		},
 	}
 }
