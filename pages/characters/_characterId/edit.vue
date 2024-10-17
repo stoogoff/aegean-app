@@ -72,37 +72,37 @@
 					<we-tab-panel title="Equipment">
 						<section class="mt-4">
 							<h3>Equipment</h3>
-							<filtered-talents :all="$equipment.all()" :character="character" property="equipment" />
+							<filtered-items :all="$equipment.all()" :character="character" property="equipment" />
 						</section>
 					</we-tab-panel>
 					<we-tab-panel title="Gifts & Talents">
 						<section class="mt-4">
 							<h3>Gifts</h3>
-							<filtered-talents :all="$gifts.all()" :character="character" property="gifts" />
+							<filtered-items :all="$gifts.all()" :character="character" property="gifts" />
 						</section>
 						<section class="my-8 py-8 border-t">
 							<h3>Talents</h3>
-							<filtered-talents :all="$talents.all()" :character="character" property="talents" />
+							<filtered-items :all="$talents.all()" :character="character" property="talents" />
 						</section>
 					</we-tab-panel>
 					<we-tab-panel title="Careers & Cults">
 						<section class="mt-4">
 							<h3>Careers</h3>
-							<filtered-talents :all="$careers.all()" :character="character" property="careers" />
+							<filtered-items :all="$careers.all()" :character="character" property="careers" />
 						</section>
 						<section class="my-8 py-8 border-t">
 							<h3>Mystery Cults</h3>
-							<filtered-talents :all="$cults.all()" :character="character" property="cults" />
+							<filtered-items :all="$cults.all()" :character="character" property="cults" />
 						</section>
 					</we-tab-panel>
 					<we-tab-panel title="Favour & Disfavour">
 						<section class="mt-4">
 							<h3>Favour</h3>
-							<filtered-talents :all="$deities.all()" :character="character" subtitle="pantheon" property="favour" />
+							<filtered-items :all="$deities.all()" :character="character" subtitle="pantheon" property="favour" />
 						</section>
 						<section class="my-8 py-8 border-t">
 							<h3>Disfavour</h3>
-							<filtered-talents :all="$deities.all()" :character="character" subtitle="pantheon" property="disfavour" />
+							<filtered-items :all="$deities.all()" :character="character" subtitle="pantheon" property="disfavour" />
 						</section>
 					</we-tab-panel>
 				</we-tab-group>

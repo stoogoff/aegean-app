@@ -27,7 +27,7 @@
 
 import Vue from 'vue'
 
-export default Vue.component('FilteredTalents', {
+export default Vue.component('FilteredItems', {
 	props: {
 		all: {
 			type: Array,
