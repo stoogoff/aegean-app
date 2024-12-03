@@ -82,7 +82,7 @@
 						</section>
 						<section class="my-8 py-8 border-t">
 							<h3>Talents</h3>
-							<filtered-items :all="$talents.all()" :character="character" property="talents" />
+							<filtered-items :all="$talents.all()" :character="character" property="talents" multiple />
 						</section>
 					</we-tab-panel>
 					<we-tab-panel title="Careers & Cults">

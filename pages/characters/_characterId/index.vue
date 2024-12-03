@@ -16,7 +16,7 @@
 						<div class="grid grid-cols-2 md:grid-cols-5 gap-2">
 							<box-view
 								v-for="ch in characteristics"
-								:key="`charcteristic_${ch}`"
+								:key="`characteristic_${ch}`"
 							>
 								<stat-view :label="ch">
 									<strong>
@@ -25,18 +25,8 @@
 								</stat-view>
 							</box-view>
 						</div>
-						<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-							<div class="md:col-span-3">
-								<h2 class="mb-0 mt-8">Skills</h2>
-								<!-- TODO specialisations -->
-								<definition-term
-									v-for="(value, key) in character.skills"
-									:definition="key"
-									:key="key"
-									class="even:bg-gray-100"
-								>{{ value }}</definition-term>
-							</div>
-							<aside class="md:col-span-2">
+						<div class="md:grid grid-cols-2 md:grid-cols-5 gap-4">
+							<div class="md:col-span-2">
 								<h2 class="mb-0 mt-8">Attributes</h2>
 								<div class="grid grid-cols-2 gap-2">
 									<box-view
@@ -50,7 +40,17 @@
 										</stat-view>
 									</box-view>
 								</div>
-							</aside>
+							</div>
+							<div class="md:col-span-3">
+								<h2 class="meander"><span>Skills</span></h2>
+								<!-- TODO specialisations -->
+								<definition-term
+									v-for="(value, key) in character.skills"
+									:definition="key"
+									:key="key"
+									class="even:bg-gray-100"
+								>{{ value }}</definition-term>
+							</div>
 						</div>
 					</we-tab-panel>
 					<we-tab-panel title="Equipment">
@@ -93,14 +93,14 @@
 					</we-tab-panel>
 					<we-tab-panel title="Background">
 						<h2 class="meander"><span>Background</span></h2>
-						<section class="grid grid-cols-2 gap-x-4">
+						<section class="md:grid grid-cols-2 gap-x-4">
 							<div>
 								<definition-term definition="Heritage">{{ character.heritage }}</definition-term>
 								<definition-term v-if="hasDivineHeritage" definition="Parent">{{ character.parent }}</definition-term>
 								<definition-term definition="Background">{{ character.background }}</definition-term>
 								<definition-term definition="Fate">{{ character.attributes.Fate }}</definition-term>
 							</div>
-							<p>{{ character.description }}</p>
+							<p class="px-1 py-2 md:px-0 md:py-1">{{ character.description }}</p>
 						</section>
 						<section class="my-8">
 							<h2 class="meander"><span>Careers</span></h2>

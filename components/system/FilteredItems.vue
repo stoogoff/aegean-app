@@ -77,6 +77,13 @@ export default Vue.component('FilteredItems', {
 		add(item) {
 			if(!this.character) return
 
+			// item exists and can't appear multiple times
+			// TODO should there be a message with this?
+			if(!this.multiple && this.character[this.property].includes(item.title)) return
+
+			// TODO and the object is ranked, increase the rank of the existing one
+			// TODO if the object is not ranked, and if it doesn't exist or do nothing
+
 			this.character[this.property] = [...this.character[this.property], item.title]
 		},
 
