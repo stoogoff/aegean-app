@@ -24,7 +24,8 @@
 						small outlined wide
 						x="right"
 					>
-						More Info
+						<span class="hidden md:inline-block">More Info</span>
+						<span class="inline-block md:hidden">+</span>
 						<template #info>
 							<card-view :title="item.title">
 								<render-markdown :content="item.description" />

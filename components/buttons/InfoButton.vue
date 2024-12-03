@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="relative"
+		class="relative z-1"
 		:class="{
 			'block w-full': block,
 			'inline-block': !block,
@@ -22,14 +22,18 @@
 		>
 			<div
 				v-show="isVisible"
-				class="absolute pt-2 z-10"
+				class="fixed md:absolute pt-2 z-10 top-24 left-4 right-4"
 				:class="{
-					'w-64': !wide,
-					'w-96': wide,
-					'bottom-12': y === 'bottom',
-					'top-12': y !== 'bottom',
-					'left-0': x === 'left',
-					'right-0': x !== 'left',
+					'md:w-64': !wide,
+					'md:w-96': wide,
+					'md:bottom-12': y === 'bottom',
+					'md:top-auto': y === 'bottom',
+					'md:top-12': y === 'top',
+					'md:top-bottom-auto': y === 'top',
+					'md:left-0': x === 'left',
+					'md:right-auto': x === 'left',
+					'md:right-0': x === 'right',
+					'md:left-auto': x === 'right',
 				}"
 			>
 				<slot name="info" />

@@ -10,8 +10,8 @@
 			</header>
 			<div class="container">
 				<we-link-action :to="`/characters/${character.slug}/edit`">Edit</we-link-action>
-				<we-tab-group>
-					<we-tab-panel title="Stats">
+				<tab-group>
+					<tab-panel title="Stats" icon="dice-d10">
 						<h2 class="meander"><span>Characteristics</span></h2>
 						<div class="grid grid-cols-2 md:grid-cols-5 gap-2">
 							<box-view
@@ -52,35 +52,37 @@
 								>{{ value }}</definition-term>
 							</div>
 						</div>
-					</we-tab-panel>
-					<we-tab-panel title="Equipment">
-						<section class="mt-4 mb-8 grid grid-cols-2 md:grid-cols-5 gap-4">
+					</tab-panel>
+					<tab-panel title="Equipment" icon="sword">
+						<section class="mt-4 mb-8 md:grid md:grid-cols-5 gap-4">
 							<div class="md:col-span-4">
 								<h2>Weapons</h2>
 								<weapons-table :weapons="weapons" />
 							</div>
-							<aside class="grid grid-cols-1 gap-2">
+							<aside>
 								<h2>Defence</h2>
-								<box-view>
-									<stat-view label="Armour"><strong>{{ armour }}</strong></stat-view>
-								</box-view>
-								<box-view>
-									<stat-view label="Shield"><strong>{{ shield }}</strong></stat-view>
-								</box-view>
-								<box-view>
-									<stat-view label="Parry"><strong>{{ parry }}</strong></stat-view>
-								</box-view>
-								<box-view v-if="dodge > 0">
-									<stat-view label="Dodge"><strong>{{ dodge }}</strong></stat-view>
-								</box-view>
+								<div class="grid grid-cols-2 md:grid-cols-1 gap-2">
+									<box-view>
+										<stat-view label="Armour"><strong>{{ armour }}</strong></stat-view>
+									</box-view>
+									<box-view>
+										<stat-view label="Shield"><strong>{{ shield }}</strong></stat-view>
+									</box-view>
+									<box-view>
+										<stat-view label="Parry"><strong>{{ parry }}</strong></stat-view>
+									</box-view>
+									<box-view v-if="dodge > 0">
+										<stat-view label="Dodge"><strong>{{ dodge }}</strong></stat-view>
+									</box-view>
+								</div>
 							</aside>
 						</section>
 						<section>
 							<h2>Equipment</h2>
 							<equipment-table :equipment="equipment" />
 						</section>
-					</we-tab-panel>
-					<we-tab-panel title="Talents & Gifts">
+					</tab-panel>
+					<tab-panel title="Talents" icon="script-outline">
 						<section v-if="gifts.length" class="mt-4 mb-8">
 							<h3>Gifts</h3>
 							<simple-accordion-group :items="gifts" />
@@ -90,8 +92,8 @@
 							<simple-accordion-group :items="talents" v-if="talents.length" />
 							<p v-else><em>No talents selected.</em></p>
 						</section>
-					</we-tab-panel>
-					<we-tab-panel title="Background">
+					</tab-panel>
+					<tab-panel title="Background" icon="account">
 						<h2 class="meander"><span>Background</span></h2>
 						<section class="md:grid grid-cols-2 gap-x-4">
 							<div>
@@ -111,8 +113,8 @@
 							<h2 class="meander"><span>Mystery Cults</span></h2>
 							<simple-accordion-group :items="cults" />
 						</section>
-					</we-tab-panel>
-					<we-tab-panel title="Favour & Disfavour" v-if="favour.length > 0 || disfavour.length > 0">
+					</tab-panel>
+					<tab-panel title="The Gods" v-if="favour.length > 0 || disfavour.length > 0" icon="flash">
 						<section v-if="favour.length" class="mt-4 mb-8">
 							<h3>Favour</h3>
 							<simple-accordion-group :items="favour" />
@@ -121,8 +123,8 @@
 							<h3>Disfavour</h3>
 							<simple-accordion-group :items="disfavour" />
 						</section>
-					</we-tab-panel>
-				</we-tab-group>
+					</tab-panel>
+				</tab-group>
 			</div>
 		</div>
 	</article>

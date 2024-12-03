@@ -16,13 +16,13 @@ header.marble h1 {
 	@apply text-white pt-20;
 }
 header.marble.small {
-	@apply mb-4 md:mb-8 py-8 md:py-10;
+	@apply mb-2 md:mb-8 py-4 md:py-10;
 }
 header.marble.small h1 {
 	@apply pt-10;
 }
 h1 {
-	@apply tracking-wider uppercase text-center font-bold text-4xl sm:text-5xl lg:text-4xl xl:text-5xl text-black pb-4 md:pb-8;
+	@apply tracking-wider uppercase text-center font-bold text-3xl md:text-5xl lg:text-4xl xl:text-5xl text-black pb-4 md:pb-8;
 }
 h2 {
 	@apply tracking-wider uppercase text-center font-semibold my-5 text-lg;
@@ -161,6 +161,9 @@ ol.list {
 }
 
 /* tabs */
+.tab-group {
+	@apply fixed bottom-0 left-0 right-0 md:static bg-white z-50 border-t md:border-t-0;
+}
 .tab-item {
 	@apply hover:text-gray-600 hover:border-gray-300;
 }

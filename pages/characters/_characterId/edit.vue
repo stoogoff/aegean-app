@@ -10,8 +10,8 @@
 			</header>
 			<div class="container">
 				<we-button-action @click="save">Save</we-button-action>
-				<we-tab-group>
-					<we-tab-panel title="Background">
+				<tab-group>
+					<tab-panel title="Background" icon="account">
 						<section>
 							<validate-field
 								:value="name"
@@ -26,9 +26,9 @@
 							<select-input v-if="hasDivineHeritage" label="Parent" v-model="character.parent" :items="parents" />
 							<select-input label="Background" v-model="character.background" :items="backgrounds" />
 						</section>
-					</we-tab-panel>
-					<we-tab-panel title="Stats">
-						<div class="grid gap-8 grid-cols-2">
+					</tab-panel>
+					<tab-panel title="Stats" icon="dice-d10">
+						<div class="md:grid gap-8 grid-cols-2">
 							<section>
 								<h3>Characteristics</h3>
 								<validate-field
@@ -68,14 +68,14 @@
 								</validate-field>
 							</section>
 						</div>
-					</we-tab-panel>
-					<we-tab-panel title="Equipment">
+					</tab-panel>
+					<tab-panel title="Equipment" icon="sword">
 						<section class="mt-4">
 							<h3>Equipment</h3>
 							<filtered-items :all="$equipment.all()" :character="character" property="equipment" />
 						</section>
-					</we-tab-panel>
-					<we-tab-panel title="Gifts & Talents">
+					</tab-panel>
+					<tab-panel title="Talents" icon="script-outline">
 						<section class="mt-4">
 							<h3>Gifts</h3>
 							<filtered-items :all="$gifts.all()" :character="character" property="gifts" />
@@ -84,8 +84,8 @@
 							<h3>Talents</h3>
 							<filtered-items :all="$talents.all()" :character="character" property="talents" multiple />
 						</section>
-					</we-tab-panel>
-					<we-tab-panel title="Careers & Cults">
+					</tab-panel>
+					<tab-panel title="Careers" icon="crystal-ball">
 						<section class="mt-4">
 							<h3>Careers</h3>
 							<filtered-items :all="$careers.all()" :character="character" property="careers" />
@@ -94,8 +94,8 @@
 							<h3>Mystery Cults</h3>
 							<filtered-items :all="$cults.all()" :character="character" property="cults" />
 						</section>
-					</we-tab-panel>
-					<we-tab-panel title="Favour & Disfavour">
+					</tab-panel>
+					<tab-panel title="Favour & Disfavour" icon="flash">
 						<section class="mt-4">
 							<h3>Favour</h3>
 							<filtered-items :all="$deities.all()" :character="character" subtitle="pantheon" property="favour" />
@@ -104,8 +104,8 @@
 							<h3>Disfavour</h3>
 							<filtered-items :all="$deities.all()" :character="character" subtitle="pantheon" property="disfavour" />
 						</section>
-					</we-tab-panel>
-				</we-tab-group>
+					</tab-panel>
+				</tab-group>
 			</div>
 		</div>
 	</article>
