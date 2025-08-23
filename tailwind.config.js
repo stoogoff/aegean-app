@@ -1,5 +1,6 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./node_modules/we-ui/components/**/*.vue'],
+	content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
 	variants: {
 		extend: {
 			backgroundColor: ['even'],
