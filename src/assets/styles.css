@@ -3,6 +3,176 @@
 @tailwind components;
 @tailwind utilities;
 
-.test {
-	font-style: italic;
+body {
+	@apply font-normal leading-normal text-gray-700 bg-white;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+header.marble {
+	@apply bg-black mb-8 md:mb-16 py-16 md:py-20;
+	background-image: url(marble.jpg);
+}
+header.marble h1 {
+	@apply text-white pt-20;
+}
+header.marble.small {
+	@apply mb-2 md:mb-8 py-4 md:py-10;
+}
+header.marble.small h1 {
+	@apply pt-10;
+}
+h1 {
+	@apply tracking-wider uppercase text-center font-bold text-3xl md:text-5xl lg:text-4xl xl:text-5xl text-black pb-4 md:pb-8;
+}
+h2 {
+	@apply tracking-wider uppercase text-center font-semibold my-5 text-lg;
+}
+h2.meander {
+	background-image: url(meander.svg);
+	background-size:  60% 100%;
+	background-position: left 0;
+	@apply bg-repeat-x;
+}
+h2.meander span {
+	@apply bg-white px-4 py-2 inline-block;
+	margin-top: 3px;
+}
+h3 {
+	@apply text-xl font-semibold mb-2 uppercase;
+}
+h4 {
+	@apply text-lg font-bold pb-1;
+}
+p {
+	@apply mb-4;
+}
+
+th {
+	@apply uppercase text-sm text-left;
+}
+td {
+	@apply align-top p-1;
+}
+tbody tr:nth-child(odd) {
+	@apply bg-gray-200;
+}
+
+.container {
+	@apply max-w-3xl mx-auto px-4 md:px-0;
+}
+
+.secondary-navigation {
+	@apply md:flex;
+}
+.secondary-navigation > aside {
+	@apply px-6 hidden md:flex-none md:block md:w-64 lg:w-80;
+}
+.secondary-navigation > article {
+	@apply px-6 pt-20 max-w-screen-lg;
+}
+
+.aegean {
+	@apply uppercase font-bold;
+	font-size: 0.8em;
+}
+
+.prose ul {
+	@apply mb-4;
+}
+ul.list li, .prose ul li {
+	@apply relative pl-6 md:mb-2;
+}
+ul.list li:after, .prose ul li:after {
+	@apply block absolute bg-black;
+	content: '';
+	height: .4em;
+	width: .4em;
+	transform: rotate(45deg);
+	top: .4em;
+	left: 0;
+}
+ol.list {
+	@apply list-decimal;
+}
+.inverse ul.list li:after, .inverse .prose ul li:after {
+	@apply bg-gray-50;
+}
+
+/* navigation */
+.nav {
+	@apply bg-black bg-opacity-70;
+}
+.mobile-menu {
+	@apply bg-black;
+}
+.nav-item, .nav-button {
+	@apply text-gray-100 hover:text-gray-300;
+}
+.nav-logo {
+	@apply text-white;
+}
+
+/* buttons */
+.btn {
+	@apply text-slate-200 border border-slate-300 uppercase text-center px-4 pt-2 pb-1 rounded-lg bg-slate-950 hover:text-white hover:bg-slate-800 hover:border-slate-950 leading-normal;
+}
+.btn.gradient {
+	@apply bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-800 hover:to-slate-800 hover:border-slate-950;
+}
+.btn.outlined {
+	@apply bg-white text-slate-700 border-slate-700 hover:bg-slate-300 hover:text-black;
+}
+.btn[disabled] {
+	@apply bg-slate-700 text-slate-500 border-slate-900 hover:bg-slate-700 hover:text-slate-500;
+}
+.btn.outlined[disabled] {
+	@apply bg-slate-200 text-slate-400 border-slate-400 hover:bg-slate-200 hover:text-slate-400;	
+}
+
+.checkbox.disabled {
+	@apply text-gray-300;
+}
+.checkbox-label {
+	@apply text-gray-700;
+}
+
+/* colouring, applies to buttons, tags, form messages */
+.tag {
+	font-size: 10px;
+	line-height: 12px;
+}
+.tag.success {
+	@apply bg-green-200 text-green-900;
+}
+.tag.info {
+	@apply bg-blue-200 text-blue-900;
+}
+.tag.warning {
+	@apply bg-red-200 text-red-900;
+}
+.btn.success {
+	@apply bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-100;
+}
+.btn.info {
+	@apply bg-blue-700 text-blue-200 hover:bg-blue-500 hover:text-blue-100;
+}
+.btn.warning {
+	@apply bg-red-700 text-red-200 hover:bg-red-500 hover:text-red-100;
+}
+.message.warning {
+	@apply text-red-700;
+}
+
+/* tabs */
+.tab-group {
+	@apply fixed bottom-0 left-0 right-0 md:static bg-white z-50 border-t md:border-t-0;
+}
+.tab-item {
+	@apply hover:text-gray-600 hover:border-gray-300;
+}
+.tab-item.active {
+	@apply text-blue-600 border-blue-600;
+}
+.tab-item.disabled {
+	@apply text-gray-400 hover:text-gray-400 hover:border-gray-200 cursor-not-allowed;
 }
