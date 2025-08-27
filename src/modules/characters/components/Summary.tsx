@@ -1,5 +1,5 @@
 
-import { Button } from '~/components/ui/Button'
+import { Icon, Button } from '~/components/ui'
 import { Character } from '../models/Character'
 
 interface Props {
@@ -12,7 +12,7 @@ export const CharacterSummary = ({ character, onDelete }: Props) => (
 	<div>
 		<h2>{ character.name }</h2>
 		{ character.description ? <p>{ character.description }</p> : null }
-		<Button onClick={onDelete}>Delete</Button>
+		<Button onClick={onDelete}><Icon icon="trash" /> Delete</Button>
 	</div>
 )
 

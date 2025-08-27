@@ -2,12 +2,12 @@
 import { useNavigate } from 'react-router'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { TextInput, TextArea } from '~/components/forms'
-import { Button } from '~/components/ui/Button'
+import { Button } from '~/components/ui'
 import { useCharacterStore } from '../hooks/useCharacterStore'
 import { Character } from '../models/Character'
 
 export const CharacterCreate = () => {
-	const navigate = useNavigate();
+	const navigate = useNavigate()
 	const { createCharacter } = useCharacterStore()
 	const character = Character.create()
 	const {

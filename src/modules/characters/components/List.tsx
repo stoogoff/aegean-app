@@ -1,11 +1,17 @@
 
-import { Link } from 'react-router'
+import { useNavigate } from 'react-router'
+import { Button } from '~/components/ui'
+import { useAuthContext } from '~/modules/auth/context'
 import { useCharacterStore } from '../hooks/useCharacterStore'
 import { Character } from '../models/Character'
 import { CharacterSummary } from './Summary'
 
 export const CharacterList = () => {
+	const navigate = useNavigate()
 	const { characters, deleteCharacter } = useCharacterStore()
+	const { user } = useAuthContext()
+
+	const onClick = () => navigate('/characters/new')
 
 	return (
 		<article>
@@ -17,7 +23,14 @@ export const CharacterList = () => {
 					<CharacterSummary key={character.id} character={character} onDelete={() => deleteCharacter(character)} />)
 				}
 				<p>Use the button below to create a new character. Once you’ve created a character they will appear here.</p>
-				<Link to="/characters/new" className="btn block gradient">Create New</Link>
+				<Button
+					onClick={onClick}
+					block
+					gradient
+					disabled={!user.canCreateCharacter(characters.length)}
+				>
+					Create New
+				</Button>
 			</div>
 		</article>
 	)

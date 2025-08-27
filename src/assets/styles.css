@@ -123,10 +123,13 @@ ol.list {
 	@apply bg-white text-slate-700 border-slate-700 hover:bg-slate-300 hover:text-black;
 }
 .btn[disabled] {
-	@apply bg-slate-700 text-slate-500 border-slate-900 hover:bg-slate-700 hover:text-slate-500;
+	@apply bg-slate-700 text-slate-500 border-slate-900 hover:bg-slate-700 hover:text-slate-500 cursor-default;
+}
+.btn.gradient[disabled] {
+	@apply from-slate-700 to-slate-700 hover:from-slate-700 hover:to-slate-700 cursor-default;
 }
 .btn.outlined[disabled] {
-	@apply bg-slate-200 text-slate-400 border-slate-400 hover:bg-slate-200 hover:text-slate-400;	
+	@apply bg-slate-200 text-slate-400 border-slate-400 hover:bg-slate-200 hover:text-slate-400 cursor-default;
 }
 
 /* forms */

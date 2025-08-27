@@ -1,3 +1,4 @@
+
 import { createBrowserRouter } from 'react-router'
 import { HomePage } from '~/pages/Home'
 import { CharacterList } from '~/modules/characters/components/List'
